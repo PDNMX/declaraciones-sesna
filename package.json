@@ -1,0 +1,47 @@
+{
+  "name": "declaraciones",
+  "version": "1.0.0",
+  "description": "declaraciones patrimoniales",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack",
+    "dev-server": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elcoruco/declaraciones-sesna.git"
+  },
+  "keywords": [
+    "declaraciones"
+  ],
+  "author": "boris@gobiernofacil.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elcoruco/declaraciones-sesna/issues"
+  },
+  "homepage": "https://github.com/elcoruco/declaraciones-sesna#readme",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "chart.js": "^2.7.3",
+    "chartist": "^0.11.0",
+    "d3": "^5.7.0",
+    "leaflet": "^1.3.3",
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.16.5"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "css-loader": "^1.0.1",
+    "csv-loader": "^3.0.2",
+    "style-loader": "^0.23.1",
+    "vue-loader": "^15.4.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.9"
+  }
+}
