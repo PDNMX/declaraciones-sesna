@@ -135,7 +135,7 @@ em {
 /* = TEXT */
 p, ul, ol, dl, table, form {
   /* 13px */
-  font: 500 17px/1.4 "Noto Sans SC", Helvetica, sans-serif;
+  font: 500 14px/1.5 "Noto Sans SC", Helvetica, sans-serif;
   margin: 0 0 1.5em 0; }
 
 /* = LINKS */
@@ -998,10 +998,8 @@ header {
       border-bottom: 1px dotted #34b3eb; }
 
 p small {
-  font-size: 12px; }
-  p small sup {
-    color: #ccc;
-    font-weight: 700; }
+  color: #b3b3b3;
+  font-size: 11px; }
 
 sup {
   vertical-align: super;
@@ -1036,9 +1034,9 @@ a:visited.btn {
   a:active.btn:hover,
   a:visited.btn:hover {
     background: #009a00; }
-  a:link.btn.gs_card,
-  a:active.btn.gs_card,
-  a:visited.btn.gs_card {
+  a:link.btn.pdn_card,
+  a:active.btn.pdn_card,
+  a:visited.btn.pdn_card {
     margin: 0;
     font-size: 12px;
     display: block;
@@ -1092,7 +1090,7 @@ a:visited.link_year {
       border-bottom-color: #92b0bd; }
 
 a {
-  transition: color 0.3s ease; }
+  transition: color, background 0.3s ease; }
 
 /* =Titles
 -------------------------------------------------------------- */
@@ -1101,32 +1099,26 @@ h1.main_t {
   font-size: 97px;
   font-weight: 700;
   margin-bottom: 54px; }
-  h1.main_t.gs_state {
+  h1.main_t.pdn_state {
     font-size: 52px;
     margin-bottom: 0; }
 
 h2.main_t {
   font-size: 36px; }
 
-h2.gs_main_score {
+h2.pdn_main_score {
   font-family: "Noto Sans SC", Helvetica, Arial, sans-serif;
   font-size: 40px;
   font-weight: 500; }
 
-.gs_score {
-  color: rgba(2, 42, 72, 0.7);
-  font-size: 26px;
-  font-family: "Noto Sans SC", Helvetica, Arial, sans-serif;
-  margin-bottom: 0;
-  font-weight: 500; }
-  .gs_score strong {
-    color: #022a48; }
+.pdn_score {
+  font-size: 30px; }
 
-.gs_subtitle {
+.pdn_subtitle {
   color: rgba(2, 42, 72, 0.7);
   font-size: 13px; }
 
-.gs_list {
+.pdn_list {
   list-style: none; }
 
 .list_separator li {
@@ -1162,6 +1154,10 @@ ol {
     ol.nonumber li:before {
       content: ""; }
 
+.pdn_main_nav {
+  background: #34b3eb;
+  height: 59px; }
+
 .divider {
   border-top: 1px solid #ccc;
   margin-bottom: 20px;
@@ -1172,15 +1168,48 @@ ol {
     margin-top: 30px;
     padding-top: 40px; }
 
-section {
-  padding: 100px 0;
+section.pdn_m {
+  padding: 60px 0;
   margin: 40px 0; }
 
-section.gs_nomargin {
+section.pdn_nomargin {
   margin: 0;
   padding: 30px 0 0; }
-  section.gs_nomargin.top {
+  section.pdn_nomargin.top {
     padding-bottom: 100px; }
+
+.pdn_card_m_info h1 {
+  font-size: 27px;
+  padding-top: 30px;
+  font-weight: 700; }
+
+.pdn_card_m_info h3 {
+  line-height: 41px;
+  font-weight: 400;
+  padding-top: 30px; }
+
+.pdn_main_nav {
+  background: #159cd7;
+  margin-top: 20px; }
+  .pdn_main_nav li {
+    display: inline-block;
+    width: 19.77%;
+    text-align: center; }
+    .pdn_main_nav li.current a:link,
+    .pdn_main_nav li.current a:visited {
+      background: #f2f2f2;
+      color: #666666;
+      font-weight: 700; }
+  .pdn_main_nav a:link,
+  .pdn_main_nav a:visited {
+    background: #34b3eb;
+    color: white;
+    line-height: 59px;
+    height: 59px;
+    display: block; }
+    .pdn_main_nav a:link:hover,
+    .pdn_main_nav a:visited:hover {
+      background: #159cd7; }
 
 /* =Gobierno Fácil brand
 -------------------------------------------------------------- */
