@@ -40,7 +40,7 @@
 			<tbody>
 				<tr v-for="compa in response.results">
 					<td>
-						<a :href="`/perfil/${compa._id}`">
+						<a :href="`/perfil/${compa._id}/informacion`">
 					    {{compa.informacion_personal.informacion_general.nombres}}
 					    {{compa.informacion_personal.informacion_general.primer_apellido}}
 					    {{compa.informacion_personal.informacion_general.segundo_apellido}}
