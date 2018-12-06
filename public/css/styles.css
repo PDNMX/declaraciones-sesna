@@ -1178,6 +1178,8 @@ section.pdn_nomargin {
   section.pdn_nomargin.top {
     padding-bottom: 100px; }
 
+/* = PDN card
+-------------------------------------------------------------- */
 .pdn_card_m_info h1 {
   font-size: 27px;
   padding-top: 30px;
@@ -1190,7 +1192,7 @@ section.pdn_nomargin {
 
 .pdn_main_nav {
   background: #159cd7;
-  margin-top: 20px; }
+  margin: 20px 0; }
   .pdn_main_nav li {
     display: inline-block;
     width: 19.77%;
@@ -1210,6 +1212,10 @@ section.pdn_nomargin {
     .pdn_main_nav a:link:hover,
     .pdn_main_nav a:visited:hover {
       background: #159cd7; }
+
+.pnd_box {
+  background: #f2f2f2;
+  padding: 15px; }
 
 /* =Gobierno Fácil brand
 -------------------------------------------------------------- */
