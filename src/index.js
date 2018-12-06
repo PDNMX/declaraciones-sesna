@@ -5,17 +5,70 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 // libraries
-import * as d3 from "d3";
+import Vue from "vue";
+import VueRouter from 'vue-router';
 
-console.log("me");
+// Components LV1
+import Busqueda from './main-components/busqueda.vue';
+import Perfil from './main-components/perfil.vue';
 
-// endpoint
-const ENDPOINT = "https://demospdn.host/demo1/api/s1/declaraciones",
-      EXAMPLE  = "https://demospdn.host/demo1/api/s1/declaraciones?id=5bd8ec5680f35b060acf70da",
-      NAME     = "https://demospdn.host/demo1/api/s1/declaraciones?nombres=pedro&apellidos=MELIANI";
+// Components LV2
+import Activos from './main-components/activos.vue';
+import Informacion from './main-components/informacion.vue';
+import Ingresos from './main-components/ingresos.vue';
+import Intereses from './main-components/intereses.vue';
+import Pasivos from './main-components/pasivos.vue';
+
+// Components LV3
 
 
-// sample code
-let response = d3.json(EXAMPLE).then(d => {
-  console.log("x: ", d);
-} );
+
+const API_PATH = "https://demospdn.host/demo1/api/v2/s1/declaraciones";
+
+
+////////////////////////////////////////////////////////////////////////////////
+// 
+// INICIA EL ROUTER DE VUE
+//
+////////////////////////////////////////////////////////////////////////////////
+
+// configura el router de Vue
+Vue.use(VueRouter);
+
+// define las rutas
+const routes = [
+  { path : '/', component : Busqueda},
+  { path : '/perfil/:id', component : Perfil}
+];
+
+// crea el ruoter
+const router = new VueRouter({ mode: 'history', routes });
+
+////////////////////////////////////////////////////////////////////////////////
+// 
+// INICIA EL APP DE VUE
+//
+////////////////////////////////////////////////////////////////////////////////
+const vueController = new Vue({
+
+    /*
+     * E L
+     * ----------------------------------------------------------------------
+     */ 
+    el : "#vue-app",
+
+    /*
+     * R O U T E R
+     * ----------------------------------------------------------------------
+     */ 
+    router,
+
+    /*
+     * D A T A
+     * ----------------------------------------------------------------------
+     */ 
+    data : {
+    	endpoint : API_PATH,
+    	profile  : null
+    }
+});
