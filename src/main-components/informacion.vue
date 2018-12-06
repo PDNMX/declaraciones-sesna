@@ -17,6 +17,17 @@
 	  	    datos curriculares
 	  	  </router-link>
 	    </li>
+	    <li>
+	    	<router-link :to="`/perfil/${userID}/informacion/experiencia-laboral`">
+	  	    experiencia laboral
+	  	  </router-link>
+	    </li>
+
+	    <li>
+	    	<router-link :to="`/perfil/${userID}/informacion/dependientes-economicos`">
+	  	    dependientes economicos
+	  	  </router-link>
+	    </li>
 	  </ul>
 		<router-view></router-view>
 	</div>
