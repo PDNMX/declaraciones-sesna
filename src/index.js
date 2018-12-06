@@ -68,6 +68,7 @@ const vueController = new Vue({
      * ----------------------------------------------------------------------
      */ 
     data : {
-    	endpoint : API_PATH
+    	endpoint : API_PATH,
+    	profile  : null
     }
 });
