@@ -20,6 +20,10 @@ import Intereses from './main-components/intereses.vue';
 import Pasivos from './main-components/pasivos.vue';
 
 // Components LV3
+// INFORMACIÓN
+import InfoGeneral from './single-components/informacion/informacion-general.vue';
+import InfoPuesto from './single-components/informacion/puesto-actual.vue';
+import InfoCurriculum from './single-components/informacion/datos-curriculares.vue';
 
 
 // constantes
@@ -67,7 +71,21 @@ const routes = [
     children : [
       {
         path : "informacion",
-        component : Informacion
+        component : Informacion,
+        children : [
+          {
+            path : '', 
+            component : InfoGeneral,
+          },
+          {
+            path : 'puesto-actual', 
+            component : InfoPuesto,
+          },
+          {
+            path : 'datos-curriculares', 
+            component : InfoCurriculum,
+          },
+        ]
       },
       {
         path : "intereses",

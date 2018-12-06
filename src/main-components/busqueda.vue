@@ -73,7 +73,7 @@
 				//location : "",
 				office   : "",
 				response : null,
-				pageSize : 10,
+				pageSize : 20,
 				page     : 0, 
 				total    : 0
 			}
