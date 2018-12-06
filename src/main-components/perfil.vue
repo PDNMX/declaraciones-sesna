@@ -29,6 +29,7 @@
 	  	<router-view></router-view>
 	  </div>
 
+	  <p><a href="/">back</a></p>
 
   </div>
 </template>

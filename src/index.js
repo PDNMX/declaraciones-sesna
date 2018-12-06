@@ -20,6 +20,14 @@ import Intereses from './main-components/intereses.vue';
 import Pasivos from './main-components/pasivos.vue';
 
 // Components LV3
+// INFORMACIÓN
+import InfoGeneral from './single-components/informacion/informacion-general.vue';
+import InfoPuesto from './single-components/informacion/puesto-actual.vue';
+import InfoCurriculum from './single-components/informacion/datos-curriculares.vue';
+
+// PASIVOS
+import PasivosDeudas from './single-components/pasivos/deudas.vue';
+import PasivosObligaciones from './single-components/pasivos/otras-obligaciones.vue';
 
 
 // constantes
@@ -66,24 +74,64 @@ const routes = [
     component : Perfil,
     children : [
       {
+        //
+        // RUTAS PARA INFORMACIÓN
+        //
         path : "informacion",
-        component : Informacion
+        component : Informacion,
+        children : [
+          {
+            path : '', 
+            component : InfoGeneral,
+          },
+          {
+            path : 'puesto-actual', 
+            component : InfoPuesto,
+          },
+          {
+            path : 'datos-curriculares', 
+            component : InfoCurriculum,
+          },
+        ]
       },
       {
+        //
+        // RUTAS PARA INTERESES
+        //
         path : "intereses",
         component : Intereses
       },
       {
+
+        //
+        // RUTAS PARA INGRESOS
+        // 
         path : "ingresos",
         component : Ingresos
       },
       {
+        //
+        // RUTAS PARA ACTIVOS
+        //
         path : "activos",
         component : Activos
       },
       {
+        //
+        // RUTAS PARA PASIVOS
+        //
         path : "pasivos",
-        component : Pasivos
+        component : Pasivos,
+        children : [
+          {
+            path : '', 
+            component : PasivosDeudas,
+          },
+          {
+            path : 'otras-obligaciones', 
+            component : PasivosObligaciones,
+          }
+        ]
       }
     ]
   }
