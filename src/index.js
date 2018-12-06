@@ -61,7 +61,32 @@ Vue.use(VueRouter);
 const routes = [
   { path : '/', component : Busqueda},
   { path : '/busqueda', component : Busqueda},
-  { path : '/perfil/:id', component : Perfil}
+  { 
+    path : '/perfil/:id', 
+    component : Perfil,
+    children : [
+      {
+        path : "informacion",
+        component : Informacion
+      },
+      {
+        path : "intereses",
+        component : Intereses
+      },
+      {
+        path : "ingresos",
+        component : Ingresos
+      },
+      {
+        path : "activos",
+        component : Activos
+      },
+      {
+        path : "pasivos",
+        component : Pasivos
+      }
+    ]
+  }
 ];
 
 // crea el ruoter
@@ -85,6 +110,22 @@ const vueController = new Vue({
      * ----------------------------------------------------------------------
      */ 
     router,
+
+    methods : {
+      getProfile(id){
+        let conf = Object.assign({}, this.fetchObj),
+            that = this;
+        conf.body = JSON.stringify({id : id});
+        fetch(this.endpoint, conf)
+          .then(response => response.json())
+          .then(d => { 
+            if(d._id == id){
+              console.log(d);
+              that.profile = d;
+            }
+          });
+      }
+    },
 
     /*
      * D A T A
