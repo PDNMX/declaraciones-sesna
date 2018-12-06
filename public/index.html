@@ -1,21 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title></title>
+	<meta charset="utf-8">
+	<title>Declaración de intereses y constancia de presentación de declaración fiscal | PDN</title>
+	<meta name="description" content="La Plataforma Digital Nacional (PDN) integra los datos de las declaraciones patrimoniales, de intereses y las constancias de la declaración fiscal de los servidores públicos">
+	<link rel="stylesheet" type="text/css" href="/css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,400,500,700,900" rel="stylesheet">
   <!--
-  <meta name="description" content="">
+ 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="/css/styles.css">
   <link rel="stylesheet" type="text/css" href="/css/chartist.min.css">
   <link rel="stylesheet" type="text/css" href="/css/chartist-plugin-tooltip.css">
 -->
 </head>
 <body>
-  <div id="vue-app">
-	  <!--header-->
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h1 class="pdn_l">Plataforma Digital Nacional</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="breadcrumb">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<ul>
+						<li><a href="#">Plataforma Digital Nacional</a></li>
+						<li>Declaraciones</li> 
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!---app-->
+	<div id="vue-app">
+		<div class="container">
 		<router-view></router-view>
-  </div>
+		</div>
+  	</div>
+  
+  	<!--footer-->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-7">
+					<p class="pdn_footer">PDN</p>
+					<h2>Plataforma Digital Nacional</h2>
+					<p>Inteligencia de Datos Anticorrupción</p>
+					<p class="libreuso">Libre uso</p>
+					<p class="openk">Open knoeledge</p>
+				</div>
+				<div class="col-sm-3">
+					<ul>
+						<li>Sistemas</li>
+						<li><a href="#">Declaraciones</a></li>
+						<li><a href="#">Servidores en contrataciones</a></li>
+						<li><a href="#">Sancionados</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-2">
+					<ul>
+						<li>PDN</li>
+						<li><a href="#">¿Qué es la PDN</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Términos de uso</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<div class="pdn_b_sesna ">
+		<h2 class="logo_sesna">Secretaría Ejecutiva SNA</h2>
+	</div>
   <script src="/js/index.js"></script>
 </body>
 </html>
