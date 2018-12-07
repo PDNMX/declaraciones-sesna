@@ -26,6 +26,28 @@
 					<p><input type="submit" class="pdn_input" name="submit" value="buscar"></p>
 				</div>
 			</div>
+
+			<p>más filtros!</p>
+			<p>
+				<label>
+				  <input type="radio" name="nivel" value="" v-model="level">Todos
+			  </label>
+			</p>
+			<p>
+				<label>
+				  <input type="radio" name="nivel" value="FED" v-model="level">Federal
+			  </label>
+			</p>
+			<p>
+				<label>
+				  <input type="radio" name="nivel" value="EST" v-model="level">Estatal
+			  </label>
+			</p>
+			<p>
+				<label>
+				  <input type="radio" name="nivel" value="MUN" v-model="level">Municipal
+			  </label>
+			</p>
 		</form>
 
 		<table v-if="response && response.results.length">
@@ -81,6 +103,7 @@
 				surnameB : "",
 				//location : "",
 				office   : "",
+				level    : "",
 				response : null,
 				pageSize : 20,
 				page     : 0, 
@@ -101,6 +124,7 @@
 
 				  	console.log("la respuesta completa: ", this.response);
 				  	console.log("un usuario: ", this.response.results[0]); 
+				  	console.log("nivel: ", this.response.results.map(d => d.informacion_personal.datos_encargo_actual.nivel_gobierno.codigo)); 
 				  });
 			},
 
@@ -111,7 +135,8 @@
 
 				if(this.names) searchObj.query[this.nameKeys.nombres] = this.names;
 				if(this.surnameA) searchObj.query[this.nameKeys.apellido1] = this.surnameA;
-				if(this.office) searchObj.query[this.nameKeys.institucionResponsable] = this.office;
+				if(this.office) searchObj.query[this.nameKeys.ente] = this.office;
+				if(this.level) searchObj.query[this.nameKeys.nivelGobierno] = this.level;
 				return JSON.stringify(searchObj);
 			}
 		},

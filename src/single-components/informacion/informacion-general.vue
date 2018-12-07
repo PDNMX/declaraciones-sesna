@@ -6,18 +6,20 @@
 		<div class="row">
 			<div class="col-sm-7">
 				<div class="pdn_d_box">
-					<p class="pdn_label">Nacionalidad</p>
-					<p class="pdn_data_p">{{profile.informacion_personal.informacion_general.nacionalidades}}</p>
+					<p class="pdn_label">Nacionalidades</p>
+					<p class="pdn_data_p" v-for="nacionalidad in items.informacion_general.nacionalidades">
+					  {{nacionalidad.valor}}
+				  </p>
 					<p class="pdn_label">Lugar de nacimiento</p>
-					<p class="pdn_data_p">{{profile.informacion_personal.informacion_general.entidad_federativa_nacimiento}}</p>
+					<p class="pdn_data_p">{{items.informacion_general.entidad_federativa_nacimiento.nom_ent}}</p>
 				</div>
 			</div>
 			<div class="col-sm-5">
 				<div class="pdn_d_box">
 					<p class="pdn_label">Estado Civil</p>
-					<p class="pdn_data_p">{{profile.informacion_personal.informacion_general.estado_civil}}</p>
+					<p class="pdn_data_p">{{items.informacion_general.estado_civil.valor}}</p>
 					<p class="pdn_label">Regimen matrimonial</p>
-					<p class="pdn_data_p">{{profile.informacion_personal.informacion_general.regimen_matrimonial}}</p>
+					<p class="pdn_data_p">{{items.informacion_general.regimen_matrimonial.valor}}</p>
 				</div>
 			</div>
 		</div>
@@ -30,6 +32,9 @@
 		computed : {
 			profile(){
 				return this.$parent.profile;
+			},
+			items(){
+				return this.profile.informacion_personal;
 			}
 		}
 	}
