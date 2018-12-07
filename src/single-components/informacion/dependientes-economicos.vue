@@ -1,6 +1,15 @@
 <template>
-	<div>
-		<h3>Dependientes económicos</h3>
+	<div class="col-sm-9 col-sm-offset-3 sidecontent">
+		<h2>Dependientes económicos</h2>
+		
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="pdn_d_box"  v-for="dependiente in items">
+					<p class="pdn_data_p">{{dependiente.tipo_relacion.valor}}</p>
+				{{dependiente}}
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 
