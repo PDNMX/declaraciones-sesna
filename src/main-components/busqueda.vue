@@ -1,23 +1,30 @@
 <template>
-	<div>
-		<h1>La búsqueda</h1>
+	<div class="col-sm-12">
+		<h2>Busca un servidor público</h2>
 		<form v-on:submit.prevent="search(0)">
-			<p>
-				nombres
-				<input type="text" name="names" v-model="names">
-			</p>
-
-			<p>
-				primer apellido
-				<input type="text" name="surname-a" v-model="surnameA">
-			</p>
-
-			<p>
-				oficina
-				<input type="text" name="office" v-model="office">
-			</p>
-
-			<p><input type="submit" name="submit" value="buscar"></p>
+			<div class="row">
+				<div class="col-sm-3">
+					<p>
+						Nombres
+						<input type="text" class="pdn_input" name="names" v-model="names">
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						Primer apellido
+						<input type="text" class="pdn_input" name="surname-a" v-model="surnameA">
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p>
+						Oficina
+						<input type="text" class="pdn_input" name="office" v-model="office">
+					</p>
+				</div>
+				<div class="col-sm-3">
+					<p><input type="submit" class="pdn_input" name="submit" value="buscar"></p>
+				</div>
+			</div>
 		</form>
 
 		<table v-if="response && response.results.length">
