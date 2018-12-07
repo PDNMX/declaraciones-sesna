@@ -50,6 +50,17 @@ import IngresosPremios from './single-components/ingresos/premios.vue';
 import IngresosOtros from './single-components/ingresos/otros.vue';
 import IngresosEnajenacion from './single-components/ingresos/enajenacion.vue';
 
+// ACTIVOS
+import ActivosBienesInmuebles from './single-components/activos/bienes-inmuebles.vue';
+import ActivosBienesMuebles from './single-components/activos/bienes-muebles.vue';
+import ActivosBienesMueblesNoRegistrables from './single-components/activos/bienes-muebles-no-registrables.vue';
+import ActivosInversiones from './single-components/activos/inversiones.vue';
+import ActivosEfectivo from './single-components/activos/efectivo-y-metales.vue';
+import ActivosFideicomisos from './single-components/activos/fideicomisos.vue';
+import ActivosBienesIntangibles from './single-components/activos/bienes-intangibles.vue';
+import ActivosCuentasPorCobrar from './single-components/activos/cuentas-por-cobrar.vue';
+import ActivosBeneficiosEnEspecie from './single-components/activos/beneficios-en-especie.vue';
+
 // PASIVOS
 import PasivosDeudas from './single-components/pasivos/deudas.vue';
 import PasivosObligaciones from './single-components/pasivos/otras-obligaciones.vue';
@@ -227,7 +238,45 @@ const routes = [
         // RUTAS PARA ACTIVOS
         //
         path : "activos",
-        component : Activos
+        component : Activos,
+        children : [
+          {
+            path : '', 
+            component : ActivosBienesInmuebles,
+          },
+          {
+            path : 'bienes-muebles', 
+            component : ActivosBienesMuebles,
+          },
+          {
+            path : 'bienes-muebles-no-registrables', 
+            component : ActivosBienesMueblesNoRegistrables,
+          },
+          {
+            path : 'inversiones', 
+            component : ActivosInversiones,
+          },
+          {
+            path : 'efectivo-y-metales', 
+            component : ActivosEfectivo,
+          },
+          {
+            path : 'fideicomisos', 
+            component : ActivosFideicomisos,
+          },
+          {
+            path : 'bienes-intangibles', 
+            component : ActivosBienesIntangibles,
+          },
+          {
+            path : 'cuentas-por-cobrar', 
+            component : ActivosCuentasPorCobrar,
+          },
+          {
+            path : 'beneficios-en-especie', 
+            component : ActivosBeneficiosEnEspecie,
+          }
+        ]
       },
       {
         //
