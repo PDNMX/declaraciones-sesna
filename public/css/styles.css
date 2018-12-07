@@ -231,7 +231,7 @@ input[type="search"]::-webkit-search-decoration {
   height: 30px;
   margin-top: 5px; }
   .pdn_input[type="submit"] {
-    margin-top: 26px;
+    margin-top: 0;
     color: white;
     border: 0;
     background: #34b3eb;
