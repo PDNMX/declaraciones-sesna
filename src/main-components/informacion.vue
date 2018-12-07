@@ -1,36 +1,39 @@
 <template>
-	<div>
-		<h2>Información</h2>
+<div>
+	<div class="col-sm-3 sidebar">
+								<h2>Información personal</h2>
 		<ul>
 			<li>
 	  	  <router-link :to="`/perfil/${userID}/informacion`">
-	  	    información general
+	  	    Información general
 	  	  </router-link>
 	    </li>
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/informacion/puesto-actual`">
-	  	    puesto actual
+	  	    Puesto actual
 	  	  </router-link>
 	    </li>
 	    <li>
 	    	<router-link :to="`/perfil/${userID}/informacion/datos-curriculares`">
-	  	    datos curriculares
+	  	    Datos curriculares
 	  	  </router-link>
 	    </li>
 	    <li>
 	    	<router-link :to="`/perfil/${userID}/informacion/experiencia-laboral`">
-	  	    experiencia laboral
+	  	    Experiencia laboral
 	  	  </router-link>
 	    </li>
 
 	    <li>
 	    	<router-link :to="`/perfil/${userID}/informacion/dependientes-economicos`">
-	  	    dependientes economicos
+	  	    Dependientes económicos
 	  	  </router-link>
 	    </li>
 	  </ul>
-		<router-view></router-view>
+		
 	</div>
+	<router-view></router-view>
+</div>
 </template>
 
 <script>
