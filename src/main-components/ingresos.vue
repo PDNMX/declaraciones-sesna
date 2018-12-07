@@ -1,5 +1,6 @@
 <template>
-	<div>
+<div>
+	<div class="col-sm-3 sidebar">
 		<h2>Ingresos</h2>
 		<ul>
 			<li>
@@ -65,6 +66,7 @@
 	    
 	    
 	  </ul>
+	 </div>
 		<router-view></router-view>
 	</div>
 </template>
