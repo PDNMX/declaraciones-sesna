@@ -25,7 +25,9 @@
 					<p class="pdn_label">Nivel de encargo</p>
 					<p class="pdn_data_p">{{items.nivel_encargo}}</p>
 					<p class="pdn_label">Funciones</p>
-					<p class="pdn_data_p">{{items.funciones_principales.valor}}</p>
+					<p class="pdn_data_p" v-for="funciones in items.funciones_principales">
+					  {{funciones.valor}}
+				  </p>
 					<p class="pdn_label">Fecha de ingreso</p>
 					<p class="pdn_data_p">{{items.fecha_posesion}}</p>
 				</div>
