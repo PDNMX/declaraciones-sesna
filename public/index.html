@@ -33,16 +33,16 @@
 				<div class="col-sm-12">
 					<ul>
 						<li><a href="#">Plataforma Digital Nacional</a></li>
-						<li>
-							<a href="/">Declaraciones</a>
-						</li> 
+						<li v-if="isProfile"><a href="/">Declaraciones</a></li>
+						<li v-if="!isProfile">Declaraciones</li> 
 						<li v-if="profile">{{profile.informacion_personal.informacion_general.nombres}}</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="pdn_b_title">
+	<!-- ocultar este div -->
+	<div class="pdn_b_title" v-if="!isProfile">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-2 col-sm-offset-2">

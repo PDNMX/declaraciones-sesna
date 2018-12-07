@@ -355,5 +355,11 @@ const vueController = new Vue({
     },
     mounted(){
       console.log(this.$route.path, this.$route);
+    },
+
+    computed : {
+      isProfile(){
+        return this.$route.path.indexOf("perfil") != -1;
+      }
     }
 });
