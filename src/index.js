@@ -27,6 +27,29 @@ import InfoCurriculum from './single-components/informacion/datos-curriculares.v
 import InfoExperiencia from './single-components/informacion/experiencia-laboral.vue';
 import InfoDependientes from './single-components/informacion/dependientes-economicos.vue';
 
+// INTERESES
+import InteresesEmpresas from './single-components/intereses/empresas.vue';
+import InteresesMembresias from './single-components/intereses/membresias.vue';
+import InteresesApoyos from './single-components/intereses/apoyos.vue';
+import InteresesRepActiva from './single-components/intereses/representacion-activa.vue';
+import InteresesRepPasiva from './single-components/intereses/representacion-pasiva.vue';
+import InteresesSocios from './single-components/intereses/socios.vue';
+import InteresesClientes from './single-components/intereses/clientes.vue';
+import InteresesOtras from './single-components/intereses/otras.vue';
+import InteresesBeneficios from './single-components/intereses/beneficios.vue';
+
+// INGRESOS
+import IngresosSueldosPublicos from './single-components/ingresos/sueldos-publicos.vue';
+import IngresosSueldosOtros from './single-components/ingresos/sueldos-otros.vue';
+import IngresosActividadProfesional from './single-components/ingresos/actividad-profesional.vue';
+import IngresosActividadEmpresarial from './single-components/ingresos/actividad-empresarial.vue';
+import IngresosActividadEconomica from './single-components/ingresos/actividad-economica.vue';
+import IngresosArrendamiento from './single-components/ingresos/arrendamiento.vue';
+import IngresosIntereses from './single-components/ingresos/intereses.vue';
+import IngresosPremios from './single-components/ingresos/premios.vue';
+import IngresosOtros from './single-components/ingresos/otros.vue';
+import IngresosEnajenacion from './single-components/ingresos/enajenacion.vue';
+
 // PASIVOS
 import PasivosDeudas from './single-components/pasivos/deudas.vue';
 import PasivosObligaciones from './single-components/pasivos/otras-obligaciones.vue';
@@ -109,7 +132,45 @@ const routes = [
         // RUTAS PARA INTERESES
         //
         path : "intereses",
-        component : Intereses
+        component : Intereses,
+        children : [
+          {
+            path : '', 
+            component : InteresesEmpresas,
+          },
+          {
+            path : 'membresias', 
+            component : InteresesMembresias,
+          },
+          {
+            path : 'apoyos', 
+            component : InteresesApoyos,
+          },
+          {
+            path : 'representacion-activa', 
+            component : InteresesRepActiva,
+          },
+          {
+            path : 'representacion-pasiva', 
+            component : InteresesRepPasiva,
+          },
+          {
+            path : 'socios', 
+            component : InteresesSocios,
+          },
+          {
+            path : 'clientes', 
+            component : InteresesClientes,
+          },
+          {
+            path : 'otras', 
+            component : InteresesOtras,
+          },
+          {
+            path : 'beneficios', 
+            component : InteresesBeneficios,
+          }
+        ]
       },
       {
 
@@ -117,7 +178,49 @@ const routes = [
         // RUTAS PARA INGRESOS
         // 
         path : "ingresos",
-        component : Ingresos
+        component : Ingresos,
+        children : [
+          {
+            path : '', 
+            component : IngresosSueldosPublicos,
+          },
+          {
+            path : 'sueldos-otros', 
+            component : IngresosSueldosOtros,
+          },
+          {
+            path : 'actividad-profesional', 
+            component : IngresosActividadProfesional,
+          },
+          {
+            path : 'actividad-empresarial', 
+            component : IngresosActividadEmpresarial,
+          },
+          {
+            path : 'actividad-economica-menor', 
+            component : IngresosActividadEconomica,
+          },
+          {
+            path : 'arrendamiento', 
+            component : IngresosArrendamiento,
+          },
+          {
+            path : 'intereses', 
+            component : IngresosIntereses,
+          },
+          {
+            path : 'premios', 
+            component : IngresosPremios,
+          },
+          {
+            path : 'otros-ingresos', 
+            component : IngresosOtros,
+          },
+          {
+            path : 'enajenacion', 
+            component : IngresosEnajenacion,
+          }
+        ]
       },
       {
         //
