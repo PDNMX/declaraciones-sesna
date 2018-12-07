@@ -1,4 +1,5 @@
 <template>
+<div class="row">
 	<div class="col-sm-12">
 		<h2>Busca un servidor público</h2>
 		<form v-on:submit.prevent="search(0)">
@@ -68,6 +69,7 @@
 
 		<p v-if="response && !response.results.length">No hubo resultados :(</p>
 	</div>
+</div>
 </template>
 
 <script>
