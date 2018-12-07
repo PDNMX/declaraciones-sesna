@@ -231,7 +231,7 @@ input[type="search"]::-webkit-search-decoration {
   height: 30px;
   margin-top: 5px; }
   .pdn_input[type="submit"] {
-    margin-top: 26px;
+    margin-top: 0;
     color: white;
     border: 0;
     background: #34b3eb;
@@ -1206,7 +1206,7 @@ section.pdn_nomargin {
 /* = PDN buscador
 -------------------------------------------------------------- */
 .pdn_b_title {
-  background: url("../img/pdn_sis1.jpeg") no-repeat center center;
+  background: url("/img/pdn_sis1.jpeg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

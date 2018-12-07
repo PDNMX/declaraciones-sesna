@@ -4,50 +4,69 @@
 		<h2>Busca un servidor público</h2>
 		<form v-on:submit.prevent="search(0)">
 			<div class="row">
-				<div class="col-sm-3">
+				<div class="col-sm-4">
 					<p>
 						Nombres
 						<input type="text" class="pdn_input" name="names" v-model="names">
 					</p>
 				</div>
-				<div class="col-sm-3">
+				<div class="col-sm-4">
 					<p>
 						Primer apellido
 						<input type="text" class="pdn_input" name="surname-a" v-model="surnameA">
 					</p>
 				</div>
-				<div class="col-sm-3">
+				<div class="col-sm-4">
 					<p>
 						Oficina
 						<input type="text" class="pdn_input" name="office" v-model="office">
 					</p>
 				</div>
-				<div class="col-sm-3">
+				
+				<div class="col-sm-8">
+					<div class="row">
+						<div class="col-sm-3">
+							<p>Nivel de gobierno:</p>
+						</div>
+						<div class="col-sm-9">
+							<div class="row">
+								<div class="col-sm-3">
+							
+									<p>
+										<label>
+										  <input type="radio" name="nivel" value="" v-model="level">Todos
+									  </label>
+									</p>
+								</div>
+								<div class="col-sm-3">
+									<p>
+										<label>
+										  <input type="radio" name="nivel" value="FED" v-model="level">Federal
+									  </label>
+									</p>
+								</div>
+								<div class="col-sm-3">
+									<p>
+										<label>
+										  <input type="radio" name="nivel" value="EST" v-model="level">Estatal
+									  </label>
+									</p>
+								</div>
+								<div class="col-sm-3">
+									<p>
+										<label>
+										  <input type="radio" name="nivel" value="MUN" v-model="level">Municipal
+									  </label>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
 					<p><input type="submit" class="pdn_input" name="submit" value="buscar"></p>
 				</div>
 			</div>
-
-			<p>más filtros!</p>
-			<p>
-				<label>
-				  <input type="radio" name="nivel" value="" v-model="level">Todos
-			  </label>
-			</p>
-			<p>
-				<label>
-				  <input type="radio" name="nivel" value="FED" v-model="level">Federal
-			  </label>
-			</p>
-			<p>
-				<label>
-				  <input type="radio" name="nivel" value="EST" v-model="level">Estatal
-			  </label>
-			</p>
-			<p>
-				<label>
-				  <input type="radio" name="nivel" value="MUN" v-model="level">Municipal
-			  </label>
-			</p>
 		</form>
 
 		<table v-if="response && response.results.length">
