@@ -82,9 +82,19 @@
 				</tr>
 			</tbody>
 
-			<ul v-if="total">
+			<ul v-if="total && pages > 1">
+				<li v-if="page>0">
+					<a href="#" v-on:click.prevent="search(page-1)">prev</a>
+				</li>
 				<li v-for="n in pages">
 				  <a href="#" v-on:click.prevent="search(n-1)">{{n}}</a>
+			  </li>
+			  <li>
+			  	<vue-numeric :min="1" :empty-value="1" :value="page">
+			  	</vue-numeric> {{page}}/{{pages}}
+			  </li>
+			  <li v-if="page < pages-1">
+			  	<a href="#" v-on:click.prevent="search(page+1)">next</a>
 			  </li>
 			</ul>
 		</table>
@@ -95,7 +105,11 @@
 </template>
 
 <script>
+	import VueNumeric from 'vue-numeric';
 	export default {
+		components: {
+      VueNumeric
+    },
 		data(){
 			return {
 				names    : "",

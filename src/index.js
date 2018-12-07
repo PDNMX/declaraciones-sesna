@@ -352,5 +352,8 @@ const vueController = new Vue({
     		},
     		body : null
     	}
+    },
+    mounted(){
+      console.log(this.$route.path, this.$route);
     }
 });
