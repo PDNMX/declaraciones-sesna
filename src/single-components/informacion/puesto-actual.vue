@@ -20,10 +20,14 @@
 			</div>
 			<div class="col-sm-4">
 				<div class="pdn_d_box">
-					<p class="pdn_label">Estado Civil</p>
-					<p class="pdn_data_p">{{profile.informacion_personal.informacion_general.estado_civil.valor}}</p>
-					<p class="pdn_label">Regimen matrimonial</p>
-					<p class="pdn_data_p">{{profile.informacion_personal.informacion_general.regimen_matrimonial.valor}}</p>
+					<p class="pdn_data_p" v-if="items.contratado_honorarios == false">Sin contrato por honorarios</p>
+					<p class="pdn_data_p" v-else>Contrato por honorarios</p>
+					<p class="pdn_label">Nivel de encargo</p>
+					<p class="pdn_data_p">{{items.nivel_encargo}}</p>
+					<p class="pdn_label">Funciones</p>
+					<p class="pdn_data_p">{{items.funciones_principales.valor}}</p>
+					<p class="pdn_label">Fecha de ingreso</p>
+					<p class="pdn_data_p">{{items.fecha_posesion}}</p>
 				</div>
 			</div>
 		</div>
