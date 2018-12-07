@@ -19,7 +19,9 @@
 				<div class="col-sm-4">
 					<p>
 						Oficina
-						<input type="text" class="pdn_input" name="office" v-model="office">
+						<selectize v-model="selected" :settings="settings">
+							<option v-for="office in offices" :value="office">{{office}}</option>
+						</selectize>
 					</p>
 				</div>
 				
@@ -125,9 +127,12 @@
 
 <script>
 	import VueNumeric from 'vue-numeric';
+	import Selectize from 'vue2-selectize';
+
 	export default {
 		components: {
-      VueNumeric
+      VueNumeric,
+      Selectize
     },
 		data(){
 			return {
@@ -140,7 +145,9 @@
 				response : null,
 				pageSize : 20,
 				page     : 0, 
-				total    : 0
+				total    : 0,
+				settings : {},
+				selected : ""
 			}
 		},
 		methods : {
@@ -157,7 +164,7 @@
 
 				  	console.log("la respuesta completa: ", this.response);
 				  	console.log("un usuario: ", this.response.results[0]); 
-				  	console.log("nivel: ", this.response.results.map(d => d.informacion_personal.datos_encargo_actual.nivel_gobierno.codigo)); 
+				  	//console.log("nivel: ", this.response.results.map(d => d.informacion_personal.datos_encargo_actual.nivel_gobierno.codigo)); 
 				  });
 			},
 
@@ -183,6 +190,9 @@
 			fetchObj(){
 				return this.$parent.fetchObj;
 			},
+			offices(){
+				return this.$parent.offices;
+			},
 			pages(){
 				if(!this.total) return 0;
 				return Math.ceil(this.total / this.pageSize);
@@ -190,4 +200,8 @@
 		}
 	}
 </script>
+
+<style scoped>
+	@import "~selectize/dist/css/selectize.bootstrap3.css";
+</style>
 
