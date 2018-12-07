@@ -24,6 +24,8 @@ import Pasivos from './main-components/pasivos.vue';
 import InfoGeneral from './single-components/informacion/informacion-general.vue';
 import InfoPuesto from './single-components/informacion/puesto-actual.vue';
 import InfoCurriculum from './single-components/informacion/datos-curriculares.vue';
+import InfoExperiencia from './single-components/informacion/experiencia-laboral.vue';
+import InfoDependientes from './single-components/informacion/dependientes-economicos.vue';
 
 // PASIVOS
 import PasivosDeudas from './single-components/pasivos/deudas.vue';
@@ -91,6 +93,14 @@ const routes = [
           {
             path : 'datos-curriculares', 
             component : InfoCurriculum,
+          },
+          {
+            path : 'experiencia-laboral', 
+            component : InfoExperiencia,
+          },
+          {
+            path : 'dependientes-economicos', 
+            component : InfoDependientes,
           },
         ]
       },
