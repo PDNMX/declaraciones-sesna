@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<h3>Intereses</h3>
+	<div class="col-sm-9 col-sm-offset-3 sidecontent">
+		<h2>Intereses</h2>
 	</div>
 </template>
 
