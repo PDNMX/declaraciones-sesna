@@ -24,7 +24,7 @@
 					<p class="pdn_data_p">{{sueldo.observaciones}}</p>
 
 
-					<p class="pdn_data_p">{{sueldo}}</p>
+				
 
 				</div>
 			</div>
