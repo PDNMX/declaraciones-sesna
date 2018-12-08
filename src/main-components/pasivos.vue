@@ -1,20 +1,22 @@
 <template>
-	<div>
+<div>
+	<div class="col-sm-3 sidebar">
 		<h2>Pasivos</h2>
 		<ul>
 			<li>
 	  	  <router-link :to="`/perfil/${userID}/pasivos`">
-	  	    deduas
+	  	    Deudas
 	  	  </router-link>
 	    </li>
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/pasivos/otras-obligaciones`">
-	  	    otras obligaciones
+	  	    Otras obligaciones
 	  	  </router-link>
 	    </li>
 	  </ul>
-	  <router-view></router-view>
 	</div>
+	  <router-view></router-view>
+</div>
 </template>
 
 <script>
