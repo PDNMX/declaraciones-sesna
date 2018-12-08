@@ -39,7 +39,7 @@
 					<p class="pdn_label">Valor Catastral</p>
 					<p class="pdn_data_p">${{inmueble.valor_catastral}}</p>
 					
-					<p class="pdn_label">Fecha de adquisición</p>
+					<p class="pdn_label">Observaciones</p>
 					<p class="pdn_data_p">{{inmueble.observaciones}}</p>
 		
 				</div>
