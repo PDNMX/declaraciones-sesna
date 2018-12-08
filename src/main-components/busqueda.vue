@@ -71,7 +71,7 @@
 			</div>
 		</form>
 
-		<table v-if="response && response.results.length">
+		<table v-if="response && response.results.length" class="table">
 			<thead>
 				<tr>
 					<th>nombre</th>
