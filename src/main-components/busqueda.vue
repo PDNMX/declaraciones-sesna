@@ -19,7 +19,7 @@
 				<div class="col-sm-4">
 					<p>
 						Oficina
-						<selectize v-model="selected" :settings="settings">
+						<selectize v-model="office" :settings="settings">
 							<option v-for="office in offices" :value="office">{{office}}</option>
 						</selectize>
 					</p>
@@ -90,12 +90,21 @@
 					    {{compa.informacion_personal.informacion_general.segundo_apellido}}
 					  </a>
 					</td>
+<!--
+					<td>
+					  {{compa.metadatos.institucion_responsable}}
+				  </td>
+					-->
 					<td>
 					  {{compa.informacion_personal.datos_encargo_actual.ente_publico}}
 				  </td>
+				
+				  
 					<td>
 					  {{compa.informacion_personal.datos_encargo_actual.empleo_cargo_comision}}
 				  </td>
+				
+				  
 					<td>
 					{{compa.informacion_personal.datos_encargo_actual.direccion_encargo.entidad_federativa.nom_ent}}</td>
 					<td>
@@ -103,19 +112,27 @@
 				</tr>
 			</tbody>
 
+
+			<!-- paginación -->
 			<ul v-if="total && pages > 1">
 				<li v-if="page>0">
-					<a href="#" v-on:click.prevent="search(page-1)">prev</a>
+					<a href="#" v-on:click.prevent="search(page-1)">anterior</a>
 				</li>
+				<!-- 
 				<li v-for="n in pages">
 				  <a href="#" v-on:click.prevent="search(n-1)">{{n}}</a>
 			  </li>
+			-->
 			  <li>
-			  	<vue-numeric :min="1" :empty-value="1" :value="page">
-			  	</vue-numeric> {{page}}/{{pages}}
+			  	<form v-on:submit.prevent="search(null)">
+			  		<p>
+			  			<input id="page-select" type="number" min="1" step="1" :value="page+1">
+			  			 / {{pages}}
+			  		</p>
+			  	</form>
 			  </li>
 			  <li v-if="page < pages-1">
-			  	<a href="#" v-on:click.prevent="search(page+1)">next</a>
+			  	<a href="#" v-on:click.prevent="search(page+1)">siguiente</a>
 			  </li>
 			</ul>
 		</table>
@@ -146,13 +163,24 @@
 				pageSize : 20,
 				page     : 0, 
 				total    : 0,
-				settings : {},
-				selected : ""
+				settings : {}
 			}
 		},
 		methods : {
 			search(page){
-				this.page     = page;
+				if(page == null){
+					let p = Number(document.querySelector("#page-select").value);
+					if(p && p-1 < this.pages){
+						this.page = p-1;
+					}
+					else{
+						document.querySelector("#page-select").value = this.page+1; 
+						return;
+					}
+				}
+				else{
+					this.page = page;
+				}
 				let connObj   = Object.assign({}, this.fetchObj);
 				connObj.body  = this.makeQuery();
 
@@ -177,6 +205,8 @@
 				if(this.surnameA) searchObj.query[this.nameKeys.apellido1] = this.surnameA;
 				if(this.office) searchObj.query[this.nameKeys.ente] = this.office;
 				if(this.level) searchObj.query[this.nameKeys.nivelGobierno] = this.level;
+
+				console.log("office: ", this.office);
 				return JSON.stringify(searchObj);
 			}
 		},
