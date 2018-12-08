@@ -1297,10 +1297,11 @@ section.pdn_nomargin {
         font-weight: 700;
         display: block; }
     .sidebar ul a {
-      line-height: 39px;
+      display: inline-block;
+      min-height: 39px;
       font-weight: 400;
       color: #999999;
-      padding: 0 10px; }
+      padding: 10px; }
       .sidebar ul a:hover {
         color: #34b3eb; }
       .sidebar ul a.router-link-exact-active {
@@ -1328,7 +1329,8 @@ section.pdn_nomargin {
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   border-radius: 15px;
-  padding: 15px; }
+  padding: 15px;
+  margin-bottom: 30px; }
   .pdn_d_box .pdn_divider {
     margin: 0;
     padding-top: 15px; }
