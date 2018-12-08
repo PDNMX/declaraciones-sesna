@@ -23,13 +23,13 @@
 
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/intereses/representacion-activa`">
-	  	    representación activa
+	  	    Representación activa
 	  	  </router-link>
 	    </li>
 
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/intereses/representacion-pasiva`">
-	  	    representación pasiva
+	  	    Representación pasiva
 	  	  </router-link>
 	    </li>
 
