@@ -1,6 +1,6 @@
 <template>
 	<div class="col-sm-9 col-sm-offset-3 sidecontent">
-		<h3>otras partes relacionadas</h3>
+		<h2>Otras partes relacionadas</h2>
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="pdn_d_box" v-for="interes in items">
