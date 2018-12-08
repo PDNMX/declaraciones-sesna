@@ -1233,9 +1233,10 @@ section.pdn_nomargin {
   font-weight: 700; }
 
 .pdn_card_m_info h3 {
-  line-height: 41px;
+  line-height: 1.2;
   font-weight: 400;
-  padding-top: 30px; }
+  padding-top: 30px;
+  margin-bottom: 15px; }
 
 .pdn_main_nav {
   background: #159cd7;
