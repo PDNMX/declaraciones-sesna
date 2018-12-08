@@ -23,43 +23,43 @@
 
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/ingresos/actividad-empresarial`">
-	  	    actividad empresarial
+	  	    Actividad empresarial
 	  	  </router-link>
 	    </li>
 
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/ingresos/actividad-economica-menor`">
-	  	    actividad económica menor
+	  	    Actividad económica menor
 	  	  </router-link>
 	    </li>
 
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/ingresos/arrendamiento`">
-	  	    arrendamiento
+	  	    Arrendamiento
 	  	  </router-link>
 	    </li>
 
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/ingresos/intereses`">
-	  	    intereses
+	  	    Intereses
 	  	  </router-link>
 	    </li>
 
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/ingresos/premios`">
-	  	    premios
+	  	    Premios
 	  	  </router-link>
 	    </li>
 
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/ingresos/otros-ingresos`">
-	  	    otros ingresos
+	  	    Otros ingresos
 	  	  </router-link>
 	    </li>
 
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/ingresos/enajenacion`">
-	  	    enajenación de bienes
+	  	    Enajenación de bienes
 	  	  </router-link>
 	    </li>
 
