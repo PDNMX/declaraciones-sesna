@@ -35,7 +35,7 @@
 						<li><a href="#">Plataforma Digital Nacional</a></li>
 						<li v-if="isProfile"><a href="/">Declaraciones</a></li>
 						<li v-if="!isProfile">Declaraciones</li> 
-						<li v-if="profile">{{profile.informacion_personal.informacion_general.nombres}}</li>
+						<li v-if="profile">{{profile.informacion_personal.informacion_general.nombres}} {{profile.informacion_personal.informacion_general.primer_apellido}} {{profile.informacion_personal.informacion_general.segundo_apellido}}</li>
 					</ul>
 				</div>
 			</div>
