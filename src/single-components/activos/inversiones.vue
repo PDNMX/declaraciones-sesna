@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<h3>inversiones, cuentas y valores</h3>
+	<div class="col-sm-9 col-sm-offset-3 sidecontent">
+		<h2>Inversiones, cuentas y valores</h2>
 	</div>
 </template>
 

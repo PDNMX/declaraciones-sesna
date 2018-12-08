@@ -1,5 +1,6 @@
 <template>
-	<div>
+<div>
+	<div class="col-sm-3 sidebar">
 		<h2>Activos</h2>
 		<ul>
 			
@@ -58,8 +59,9 @@
 	    </li>
 
 	  </ul>
-	  <router-view></router-view>
 	</div>
+	  <router-view></router-view>
+</div>
 </template>
 
 <script>

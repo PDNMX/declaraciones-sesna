@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<h3>cuentas por cobrar</h3>
+	<div class="col-sm-9 col-sm-offset-3 sidecontent">
+		<h2>Cuentas por cobrar</h2>
 	</div>
 </template>
 
