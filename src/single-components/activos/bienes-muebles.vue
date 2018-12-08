@@ -42,11 +42,9 @@
 					<p class="pdn_label">Precio de adquisición</p>
 					<p class="pdn_data_p">${{mueble.precio_adquisicion.valor}} {{mueble.precio_adquisicion.moneda.codigo}} ({{mueble.precio_adquisicion.moneda.moneda}}) </p>
 					
-				
 					
-					<p class="pdn_label">Fecha de adquisición</p>
+					<p class="pdn_label">Observaciones</p>
 					<p class="pdn_data_p">{{mueble.observaciones}}</p>
-
 		
 				</div>
 			</div>
