@@ -35,7 +35,7 @@
 						<li><a href="https://plataformadigitalnacional.org/pdn/home">Plataforma Digital Nacional</a></li>
 						<li v-if="isProfile"><a href="/">Declaraciones</a></li>
 						<li v-if="!isProfile">Declaraciones</li> 
-						<li v-if="profile">{{profile.informacion_personal.informacion_general.nombres}}</li>
+						<li v-if="profile">{{profile.informacion_personal.informacion_general.nombres}} {{profile.informacion_personal.informacion_general.primer_apellido}} {{profile.informacion_personal.informacion_general.segundo_apellido}}</li>
 					</ul>
 				</div>
 			</div>
@@ -96,9 +96,29 @@
 			</div>
 		</div>
 	</footer>
-	<div class="pdn_b_sesna ">
-		<h2 class="logo_sesna">Secretaría Ejecutiva SNA</h2>
+	<div class="pdn_b_sesna">
+		<div class="container">
+			<div class="col-sm-7">
+				<h2 class="logo_sesna">Secretaría Ejecutiva SNA</h2>
+			</div>
+			<div class="col-sm-5">
+				<p class="right">
+					Forjado artesanalmente por<br>
+					<a href="https://gobiernofacil.com/" class="gobiernofacil">Gobierno Facil</a>
+				</p>
+			</div>
+		</div>
 	</div>
   <script src="/js/index.js"></script>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-45473222-18"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-45473222-18');
+</script>
 </body>
 </html>

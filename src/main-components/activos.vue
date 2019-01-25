@@ -1,53 +1,54 @@
 <template>
-	<div>
+<div>
+	<div class="col-sm-3 sidebar">
 		<h2>Activos</h2>
 		<ul>
 			
 			<li>
 	  	  <router-link :to="`/perfil/${userID}/activos`">
-	  	    bienes inmuebles
+	  	    Bienes inmuebles
 	  	  </router-link>
 	    </li>
 	    
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/activos/bienes-muebles`">
-	  	    bienes muebles registrables
+	  	    Bienes muebles registrables
 	  	  </router-link>
 	    </li>
 
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/activos/bienes-muebles-no-registrables`">
-	  	    bienes muebles no registrables
+	  	    Bienes muebles no registrables
 	  	  </router-link>
 	    </li>
 
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/activos/inversiones`">
-	  	    inversiones
+	  	    Inversiones
 	  	  </router-link>
 	    </li>
 
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/activos/efectivo-y-metales`">
-	  	    efectivo y metales
+	  	    Efectivo y metales
 	  	  </router-link>
 	    </li>
 
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/activos/fideicomisos`">
-	  	    fideicomisos
+	  	    Fideicomisos
 	  	  </router-link>
 	    </li>
 
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/activos/bienes-intangibles`">
-	  	    bienes intangibles
+	  	    Bienes intangibles
 	  	  </router-link>
 	    </li>
 
 	    <li>
 	  	  <router-link :to="`/perfil/${userID}/activos/cuentas-por-cobrar`">
-	  	    cuentas por cobrar
+	  	    Cuentas por cobrar
 	  	  </router-link>
 	    </li>
 
@@ -58,8 +59,9 @@
 	    </li>
 
 	  </ul>
-	  <router-view></router-view>
 	</div>
+	  <router-view></router-view>
+</div>
 </template>
 
 <script>

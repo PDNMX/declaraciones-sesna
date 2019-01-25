@@ -20,7 +20,7 @@
 				<strong>{{profile.informacion_personal.datos_encargo_actual.ente_publico}}</strong></p>
 		</div>
 		<div class="col-sm-3">
-				<h3><span class="pdn_score">${{profile.ingresos.sueldos_salarios_publicos.ingreso_bruto_anual}}</span></h3>
+				<h3><span class="pdn_score">${{ingresosAnualesNetos}}</span></h3>
 				<p>Ingresos anuales netos</p>
 				<p><small>Actualización: {{profile.informacion_personal.informacion_general.fecha_declaracion}} </small></p>
 		</div>
@@ -67,6 +67,11 @@
 </template>
 
 <script>
+	const fields = ["actividad_economica_menor", "actividad_empresarial",
+	              "actividad_profesional", "arrendamiento", "enajenacion_bienes",
+	              "intereses", "otros_ingresos", "premios", 
+	              "sueldos_salarios_otros_empleos", "sueldos_salarios_publicos"];
+	const reducer = (accumulator, currentValue) => accumulator + currentValue;
 	export default {
 		data(){
 			return {
@@ -85,6 +90,18 @@
 
 		  profile(){
 		  	return this.$parent.profile;
+		  },
+		  ingresosAnualesNetos(){
+		  	let i, all = [];
+		  	for(i = 0; i < fields.length; i++){
+		  		if(this.profile.ingresos[fields[i]].length ){
+		  			all = all.concat(this.profile.ingresos[fields[i]].map(d => d.ingreso_bruto_anual));
+		  		}
+		  	}
+		  	
+		  	all = all.filter(d => d.moneda.codigo == "MXN").map(d => d.valor);
+
+		  	return all.reduce(reducer).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 		  }
 		}
 	}
