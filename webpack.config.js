@@ -1,7 +1,6 @@
 const path = require("path");
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
-
 module.exports = {
   entry : {
     index       : './src/index.js'
@@ -14,6 +13,7 @@ module.exports = {
     contentBase : path.resolve(__dirname + "/public"),
     lazy: false,
     publicPath: '/js/',
+    host: '0.0.0.0',
     historyApiFallback: true,
     historyApiFallback: {
       rewrites: [
@@ -43,4 +43,3 @@ module.exports = {
   },
   mode : 'development'
 }
-
