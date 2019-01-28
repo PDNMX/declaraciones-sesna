@@ -186,7 +186,7 @@ li a:focus {
 a.thumb, .share a, #controls a, .flex-control-nav a, .flex-direction-nav a, .viewer .close, #disqus_thread a {
   border: none; }
 
-/* = MEDIA 
+/* = MEDIA
 ---------------------------------------------------
 	remember inline heights within markup will break proportional scaling
 */
@@ -1206,7 +1206,7 @@ section.pdn_nomargin {
 /* = PDN buscador
 -------------------------------------------------------------- */
 .pdn_b_title {
-  background: url("/img/pdn_sis1.jpeg") no-repeat center center;
+  background: url("./img/pdn_sis1.jpeg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
