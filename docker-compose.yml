@@ -9,4 +9,4 @@ services:
     tty: true
     restart: always
     ports:
-      - "3000:8080"
+      - "5002:8080"
