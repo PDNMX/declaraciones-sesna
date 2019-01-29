@@ -24,7 +24,7 @@
 						</selectize>
 					</p>
 				</div>
-				
+
 				<div class="col-sm-8">
 					<div class="row">
 						<div class="col-sm-3">
@@ -33,7 +33,7 @@
 						<div class="col-sm-9">
 							<div class="row">
 								<div class="col-sm-3">
-							
+
 									<p>
 										<label>
 										  <input type="radio" name="nivel" value="" v-model="level">Todos
@@ -84,7 +84,7 @@
 			<tbody>
 				<tr v-for="compa in response.results">
 					<td>
-						<a :href="`/perfil/${compa._id}/informacion`">
+						<a :href="`${base_url}/perfil/${compa._id}/informacion`">
 					    {{compa.informacion_personal.informacion_general.nombres}}
 					    {{compa.informacion_personal.informacion_general.primer_apellido}}
 					    {{compa.informacion_personal.informacion_general.segundo_apellido}}
@@ -98,13 +98,13 @@
 					<td>
 					  {{compa.informacion_personal.datos_encargo_actual.ente_publico}}
 				  </td>
-				
-				  
+
+
 					<td>
 					  {{compa.informacion_personal.datos_encargo_actual.empleo_cargo_comision}}
 				  </td>
-				
-				  
+
+
 					<td>
 					{{compa.informacion_personal.datos_encargo_actual.direccion_encargo.entidad_federativa.nom_ent}}</td>
 					<td>
@@ -118,7 +118,7 @@
 				<li v-if="page>0">
 					<a href="#" v-on:click.prevent="search(page-1)">anterior</a>
 				</li>
-				<!-- 
+				<!--
 				<li v-for="n in pages">
 				  <a href="#" v-on:click.prevent="search(n-1)">{{n}}</a>
 			  </li>
@@ -161,7 +161,7 @@
 				level    : "",
 				response : null,
 				pageSize : 20,
-				page     : 0, 
+				page     : 0,
 				total    : 0,
 				settings : {}
 			}
@@ -174,7 +174,7 @@
 						this.page = p-1;
 					}
 					else{
-						document.querySelector("#page-select").value = this.page+1; 
+						document.querySelector("#page-select").value = this.page+1;
 						return;
 					}
 				}
@@ -186,13 +186,12 @@
 
 				fetch(this.endpoint, connObj)
 				  .then(response => response.json())
-				  .then(d => { 
+				  .then(d => {
 				  	this.response = d;
 				  	this.total    = d.total;
-
 				  	console.log("la respuesta completa: ", this.response);
-				  	console.log("un usuario: ", this.response.results[0]); 
-				  	//console.log("nivel: ", this.response.results.map(d => d.informacion_personal.datos_encargo_actual.nivel_gobierno.codigo)); 
+				  	console.log("un usuario: ", this.response.results[0]);
+				  	//console.log("nivel: ", this.response.results.map(d => d.informacion_personal.datos_encargo_actual.nivel_gobierno.codigo));
 				  });
 			},
 
@@ -223,6 +222,9 @@
 			offices(){
 				return this.$parent.offices;
 			},
+			base_url(){
+				return this.$parent.base;
+			},
 			pages(){
 				if(!this.total) return 0;
 				return Math.ceil(this.total / this.pageSize);
@@ -234,4 +236,3 @@
 <style scoped>
 	@import "~selectize/dist/css/selectize.bootstrap3.css";
 </style>
-

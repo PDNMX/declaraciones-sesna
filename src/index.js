@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-// 
+//
 // DEFINE LAS DEPENDENCIAS
 //
 ////////////////////////////////////////////////////////////////////////////////
@@ -96,7 +96,7 @@ const OFICINAS = ["ADMINISTRACION DEL PATRIMONIO DE LA BENEFICENCIA PUBLICA","AD
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// 
+//
 // INICIA EL ROUTER DE VUE
 //
 ////////////////////////////////////////////////////////////////////////////////
@@ -108,8 +108,8 @@ Vue.use(VueRouter);
 const routes = [
   { path : '/', component : Busqueda},
   { path : '/busqueda', component : Busqueda},
-  { 
-    path : '/perfil/:id', 
+  {
+    path : '/perfil/:id',
     component : Perfil,
     children : [
       {
@@ -120,23 +120,23 @@ const routes = [
         component : Informacion,
         children : [
           {
-            path : '', 
+            path : '',
             component : InfoGeneral,
           },
           {
-            path : 'puesto-actual', 
+            path : 'puesto-actual',
             component : InfoPuesto,
           },
           {
-            path : 'datos-curriculares', 
+            path : 'datos-curriculares',
             component : InfoCurriculum,
           },
           {
-            path : 'experiencia-laboral', 
+            path : 'experiencia-laboral',
             component : InfoExperiencia,
           },
           {
-            path : 'dependientes-economicos', 
+            path : 'dependientes-economicos',
             component : InfoDependientes,
           },
         ]
@@ -149,39 +149,39 @@ const routes = [
         component : Intereses,
         children : [
           {
-            path : '', 
+            path : '',
             component : InteresesEmpresas,
           },
           {
-            path : 'membresias', 
+            path : 'membresias',
             component : InteresesMembresias,
           },
           {
-            path : 'apoyos', 
+            path : 'apoyos',
             component : InteresesApoyos,
           },
           {
-            path : 'representacion-activa', 
+            path : 'representacion-activa',
             component : InteresesRepActiva,
           },
           {
-            path : 'representacion-pasiva', 
+            path : 'representacion-pasiva',
             component : InteresesRepPasiva,
           },
           {
-            path : 'socios', 
+            path : 'socios',
             component : InteresesSocios,
           },
           {
-            path : 'clientes', 
+            path : 'clientes',
             component : InteresesClientes,
           },
           {
-            path : 'otras', 
+            path : 'otras',
             component : InteresesOtras,
           },
           {
-            path : 'beneficios', 
+            path : 'beneficios',
             component : InteresesBeneficios,
           }
         ]
@@ -190,48 +190,48 @@ const routes = [
 
         //
         // RUTAS PARA INGRESOS
-        // 
+        //
         path : "ingresos",
         component : Ingresos,
         children : [
           {
-            path : '', 
+            path : '',
             component : IngresosSueldosPublicos,
           },
           {
-            path : 'sueldos-otros', 
+            path : 'sueldos-otros',
             component : IngresosSueldosOtros,
           },
           {
-            path : 'actividad-profesional', 
+            path : 'actividad-profesional',
             component : IngresosActividadProfesional,
           },
           {
-            path : 'actividad-empresarial', 
+            path : 'actividad-empresarial',
             component : IngresosActividadEmpresarial,
           },
           {
-            path : 'actividad-economica-menor', 
+            path : 'actividad-economica-menor',
             component : IngresosActividadEconomica,
           },
           {
-            path : 'arrendamiento', 
+            path : 'arrendamiento',
             component : IngresosArrendamiento,
           },
           {
-            path : 'intereses', 
+            path : 'intereses',
             component : IngresosIntereses,
           },
           {
-            path : 'premios', 
+            path : 'premios',
             component : IngresosPremios,
           },
           {
-            path : 'otros-ingresos', 
+            path : 'otros-ingresos',
             component : IngresosOtros,
           },
           {
-            path : 'enajenacion', 
+            path : 'enajenacion',
             component : IngresosEnajenacion,
           }
         ]
@@ -244,39 +244,39 @@ const routes = [
         component : Activos,
         children : [
           {
-            path : '', 
+            path : '',
             component : ActivosBienesInmuebles,
           },
           {
-            path : 'bienes-muebles', 
+            path : 'bienes-muebles',
             component : ActivosBienesMuebles,
           },
           {
-            path : 'bienes-muebles-no-registrables', 
+            path : 'bienes-muebles-no-registrables',
             component : ActivosBienesMueblesNoRegistrables,
           },
           {
-            path : 'inversiones', 
+            path : 'inversiones',
             component : ActivosInversiones,
           },
           {
-            path : 'efectivo-y-metales', 
+            path : 'efectivo-y-metales',
             component : ActivosEfectivo,
           },
           {
-            path : 'fideicomisos', 
+            path : 'fideicomisos',
             component : ActivosFideicomisos,
           },
           {
-            path : 'bienes-intangibles', 
+            path : 'bienes-intangibles',
             component : ActivosBienesIntangibles,
           },
           {
-            path : 'cuentas-por-cobrar', 
+            path : 'cuentas-por-cobrar',
             component : ActivosCuentasPorCobrar,
           },
           {
-            path : 'beneficios-en-especie', 
+            path : 'beneficios-en-especie',
             component : ActivosBeneficiosEnEspecie,
           }
         ]
@@ -289,11 +289,11 @@ const routes = [
         component : Pasivos,
         children : [
           {
-            path : '', 
+            path : '',
             component : PasivosDeudas,
           },
           {
-            path : 'otras-obligaciones', 
+            path : 'otras-obligaciones',
             component : PasivosObligaciones,
           }
         ]
@@ -302,11 +302,14 @@ const routes = [
   }
 ];
 
+let base_url = process.env.APP_URL || '/';
+// console.log(process.env.APP_URL);
+
 // crea el ruoter
-const router = new VueRouter({ mode: 'history', routes });
+const router = new VueRouter({base: base_url, mode: 'history', routes });
 
 ////////////////////////////////////////////////////////////////////////////////
-// 
+//
 // INICIA EL APP DE VUE
 //
 ////////////////////////////////////////////////////////////////////////////////
@@ -315,13 +318,13 @@ const vueController = new Vue({
     /*
      * E L
      * ----------------------------------------------------------------------
-     */ 
+     */
     el : "#vue-app",
 
     /*
      * R O U T E R
      * ----------------------------------------------------------------------
-     */ 
+     */
     router,
 
     methods : {
@@ -331,7 +334,7 @@ const vueController = new Vue({
         conf.body = JSON.stringify({id : id});
         fetch(this.endpoint, conf)
           .then(response => response.json())
-          .then(d => { 
+          .then(d => {
             if(d._id == id){
               console.log(d);
               that.profile = d;
@@ -343,11 +346,12 @@ const vueController = new Vue({
     /*
      * D A T A
      * ----------------------------------------------------------------------
-     */ 
+     */
     data : {
     	endpoint : API_PATH,
     	names    : PROP_NAMES,
       offices  : OFICINAS,
+      base : base_url,
     	profile  : null,
     	fetchObj : {
     		method : "POST",
@@ -358,7 +362,7 @@ const vueController = new Vue({
     	}
     },
     mounted(){
-      //console.log(this.$route.path, this.$route);
+      // this.$route.path = base_url;
     },
 
     computed : {
