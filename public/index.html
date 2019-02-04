@@ -1,124 +1,41 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-	<meta charset="utf-8">
-	<title>Declaración de intereses y constancia de presentación de declaración fiscal | PDN</title>
-	<meta name="description" content="La Plataforma Digital Nacional (PDN) integra los datos de las declaraciones patrimoniales, de intereses y las constancias de la declaración fiscal de los servidores públicos">
-	<link rel="stylesheet" type="text/css" href="/css/styles.css">
-	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,400,500,700,900" rel="stylesheet">
-  <!--
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="/css/chartist.min.css">
-  <link rel="stylesheet" type="text/css" href="/css/chartist-plugin-tooltip.css">
--->
-</head>
-<body>
-	<header>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<h1 class="pdn_l">Plataforma Digital Nacional</h1>
-				</div>
-			</div>
-		</div>
-	</header>
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
-	<!---app-->
-	<div id="vue-app">
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
-		<div class="breadcrumb">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<ul>
-						<li><a href="https://plataformadigitalnacional.org/pdn/home">Plataforma Digital Nacional</a></li>
-						<li v-if="isProfile"><a href="/">Declaraciones</a></li>
-						<li v-if="!isProfile">Declaraciones</li>
-						<li v-if="profile">{{profile.informacion_personal.informacion_general.nombres}} {{profile.informacion_personal.informacion_general.primer_apellido}} {{profile.informacion_personal.informacion_general.segundo_apellido}}</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- ocultar este div -->
-	<div class="pdn_b_title" v-if="!isProfile">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-2 col-sm-offset-2">
-					<img src="/img/1_icono.svg" width="150px">
-				</div>
-				<div class="col-sm-6">
-					<h1><strong>Declaraciones</strong></h1>
-				</div>
-				<div class="col-sm-6">
-					<p>Consulta, visualiza y descarga los datos de las declaraciones patrimoniales, de intereses y las constancias de la declaración fiscal de los servidores públicos.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-		<section class="pdn_m">
-		<div class="container">
-			<router-view></router-view>
-		</div>
-		</section>
-  	</div>
-
-  	<!--footer-->
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-7">
-					<p class="pdn_footer">PDN</p>
-					<h2>Plataforma Digital Nacional</h2>
-					<p>Inteligencia de Datos Anticorrupción</p>
-					<p class="libreuso">Libre uso</p>
-					<p class="openk">Open knoeledge</p>
-				</div>
-				<div class="col-sm-3">
-					<ul>
-						<li>Sistemas</li>
-						<li><a href="#">Declaraciones</a></li>
-						<li><a href="#">Servidores en contrataciones</a></li>
-						<li><a href="#">Sancionados</a></li>
-					</ul>
-				</div>
-				<div class="col-sm-2">
-					<ul>
-						<li>PDN</li>
-						<li><a href="#">¿Qué es la PDN</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Términos de uso</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<div class="pdn_b_sesna">
-		<div class="container">
-			<div class="col-sm-7">
-				<h2 class="logo_sesna">Secretaría Ejecutiva SNA</h2>
-			</div>
-			<div class="col-sm-5">
-				<p class="right">
-					Forjado artesanalmente por<br>
-					<a href="https://gobiernofacil.com/" class="gobiernofacil">Gobierno Facil</a>
-				</p>
-			</div>
-		</div>
-	</div>
-  <script src="/js/index.js"></script>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-45473222-18"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-45473222-18');
-</script>
-</body>
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
 </html>
