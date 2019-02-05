@@ -15,6 +15,8 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,400,500,700,900">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -27,17 +29,74 @@
     <title>React App</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="pdn_l">Plataforma Digital Nacional</h1>
+        </div>
+      </div>
+    </div>
+  </header>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  <!---app-->
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  
+    <!--footer-->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7">
+          <p class="pdn_footer">PDN</p>
+          <h2>Plataforma Digital Nacional</h2>
+          <p>Inteligencia de Datos Anticorrupción</p>
+          <p class="libreuso">Libre uso</p>
+          <p class="openk">Open knoeledge</p>
+        </div>
+        <div class="col-sm-3">
+          <ul>
+            <li>Sistemas</li>
+            <li><a href="#">Declaraciones</a></li>
+            <li><a href="#">Servidores en contrataciones</a></li>
+            <li><a href="#">Sancionados</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-2">
+          <ul>
+            <li>PDN</li>
+            <li><a href="#">¿Qué es la PDN</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Términos de uso</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="pdn_b_sesna">
+    <div class="container">
+      <div class="col-sm-7">
+        <h2 class="logo_sesna">Secretaría Ejecutiva SNA</h2>
+      </div>
+      <div class="col-sm-5">
+        <p class="right">
+          Forjado artesanalmente por<br>
+          <a href="https://gobiernofacil.com/" class="gobiernofacil">Gobierno Facil</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-45473222-18"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+  gtag('config', 'UA-45473222-18');
+</script>
+
+   
   </body>
 </html>
