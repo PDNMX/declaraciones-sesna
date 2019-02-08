@@ -30,7 +30,8 @@ class App extends Component {
       page : 0,
       pages : 0,
       pageSize : 20,
-      response : null
+      response : null,
+      settings : null
     }
 
     // hack culero para el scope
@@ -38,6 +39,8 @@ class App extends Component {
     this.getProfile = this.getProfile.bind(this);
     this.makeQuery  = this.makeQuery.bind(this);
     this.showTable  = this.showTable.bind(this);
+
+    this.updatePage = this.updatePage.bind(this);
   }
 
   /*
@@ -106,7 +109,7 @@ class App extends Component {
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   getUsers(settings){
-    console.log(settings);
+    this.setState({settings : settings});
 
     let connObj = Object.assign({}, ConstClass.fetchObj);
 
@@ -130,7 +133,9 @@ class App extends Component {
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   updatePage(page){
-    console.log(page);
+    this.setState({page : page}, () => {
+      this.getUsers(this.state.settings);
+    });
   }
 
   /*
