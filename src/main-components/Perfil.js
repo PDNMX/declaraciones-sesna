@@ -7,14 +7,33 @@
 */
 import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
+
 import Informacion from "./Informacion";
+import Pasivos from "./Pasivos";
+import Intereses from "./Intereses";
+import Activos from "./Activos";
+
+/*
+import Ingresos from "./Ingresos";
+import Activos from "./Activos";
+*/
 
 import * as ConstClass from  '../ConstValues.js';
 
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
+/*
+	////////////////////////////////////////////////////////////////////////////////
+  //
+  // DEFINE LA CLASE PRINCIPAL
+  //
+  ////////////////////////////////////////////////////////////////////////////////
+*/
 class Perfil extends Component{
-
+	/*
+	 * C O N S T R U C T O R
+	 * ----------------------------------------------------------------------
+	 */
 	constructor(props){
 		super(props);
 		this.state = {
@@ -27,43 +46,10 @@ class Perfil extends Component{
 		this.getProfile(this.props.match.params.id);
 	}
 
-
 	/*
-  /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-  /
-  /  hace el llamado al api para obtener la info
-  /  de un servidor público
-  /
-  /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-  */
-  getProfile(id){
-    let conf = Object.assign({}, ConstClass.fetchObj);
-
-    conf.body = JSON.stringify({id : id});
-
-    fetch(ConstClass.endpoint, conf)
-      .then(response => response.json())
-      .then(d => {
-        console.log("yaaaa:", d);
-        this.setState({profile : d});
-      });
-  }
-
-  ingresosAnualesNetos(){
-		  	let i, all = [];
-		  	for(i = 0; i < ConstClass.Incomefields.length; i++){
-		  		if(this.state.profile.ingresos[ConstClass.Incomefields[i]].length ){
-		  			all = all.concat(this.state.profile.ingresos[ConstClass.Incomefields[i]].map(d => d.ingreso_bruto_anual));
-		  		}
-		  	}
-		  	
-		  	all = all.filter(d => d.moneda.codigo == "MXN").map(d => d.valor);
-
-		  	return all.reduce(reducer).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-	}
-
-
-
+	 * R E N D E R
+	 * ----------------------------------------------------------------------
+	 */
 	render(){
 		if(!this.state.profile){
 			console.log("nel"); 
@@ -127,7 +113,19 @@ class Perfil extends Component{
 
 
 	<div className="row pnd_box">
-		<Informacion profile={this.state.profile} />
+		<Switch>
+	    <Route path='/perfil/:id/informacion' render={() => <Informacion profile={this.state.profile} /> }/>
+	    <Route path='/perfil/:id/pasivos' render={() => <Pasivos profile={this.state.profile} /> }/>
+	    <Route path='/perfil/:id/intereses' render={() => <Intereses profile={this.state.profile} /> }/>
+	    <Route path='/perfil/:id/activos' render={() => <Activos profile={this.state.profile} /> }/>
+	    {/*
+	    <Route path='/perfil/:id/ingresos' render={() => <Ingresos profile={this.state.profile} /> }/>
+	    <Route path='/perfil/:id/intereses' render={() => <Intereses profile={this.state.profile} /> }/>
+	    <Route path='/perfil/:id/activos' render={() => <Activos profile={this.state.profile} /> }/>
+	    <Route path='/perfil/:id/pasivos' render={() => <Pasivos profile={this.state.profile} /> }/>
+	  */}
+
+	  </Switch>
 	</div>
 		
 			
@@ -136,6 +134,59 @@ class Perfil extends Component{
 </div>
 		);
 	}
+
+	/*
+	 * M E T H O D S
+	 * ----------------------------------------------------------------------
+	 */
+
+	/*
+  /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+  /
+  /  hace el llamado al api para obtener la info
+  /  de un servidor público
+  /
+  /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+  */
+  getProfile(id){
+    let conf = Object.assign({}, ConstClass.fetchObj);
+
+    conf.body = JSON.stringify({id : id});
+
+    fetch(ConstClass.endpoint, conf)
+      .then(response => response.json())
+      .then(d => {
+        console.log("yaaaa:", d);
+        this.setState({profile : d});
+      });
+  }
+
+  /*
+  /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+  /
+  /  
+  /
+  /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+  */
+  ingresosAnualesNetos(){
+		  	let i, all = [];
+		  	for(i = 0; i < ConstClass.Incomefields.length; i++){
+		  		if(this.state.profile.ingresos[ConstClass.Incomefields[i]].length ){
+		  			all = all.concat(this.state.profile.ingresos[ConstClass.Incomefields[i]].map(d => d.ingreso_bruto_anual));
+		  		}
+		  	}
+		  	
+		  	all = all.filter(d => d.moneda.codigo == "MXN").map(d => d.valor);
+
+		  	return all.reduce(reducer).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+	}
 }
 
+/*
+	////////////////////////////////////////////////////////////////////////////////
+  //
+  // REGRESA EL COMPONENTE
+  //
+  ////////////////////////////////////////////////////////////////////////////////
+*/
 export default Perfil;

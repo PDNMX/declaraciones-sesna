@@ -9,10 +9,22 @@ import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
 
 // PASIVOS
-import PasivosDeudas from './single-components/pasivos/deudas.vue';
-import PasivosObligaciones from './single-components/pasivos/otras-obligaciones.vue';
+import PasivosDeudas from '../single-components/pasivos/deudas';
+import PasivosObligaciones from '../single-components/pasivos/otras-obligaciones';
 
+/*
+	////////////////////////////////////////////////////////////////////////////////
+  //
+  // DEFINE LA CLASE PRINCIPAL
+  //
+  ////////////////////////////////////////////////////////////////////////////////
+*/
 class Pasivos extends Component{
+
+	/*
+	 * R E N D E R
+	 * ----------------------------------------------------------------------
+	 */
 	render(){
 		return(
 			<div>
@@ -33,11 +45,18 @@ class Pasivos extends Component{
 	</div>
 	  <Switch>
 	    <Route exact path='/perfil/:id/pasivos' render={() => <PasivosDeudas profile={this.props.profile}  />}/>
-	    <Route exact path='/perfil/:id/pasivos/otras-obligaciones' render={() => <PasivosDeudas profile={this.props.profile}  />}/>
+	    <Route exact path='/perfil/:id/pasivos/otras-obligaciones' render={() => <PasivosObligaciones profile={this.props.profile}  />}/>
 	  </Switch>
 	  </div>
 		);
 	}
 }
 
+/*
+	////////////////////////////////////////////////////////////////////////////////
+  //
+  // REGRESA EL COMPONENTE
+  //
+  ////////////////////////////////////////////////////////////////////////////////
+*/
 export default Pasivos;

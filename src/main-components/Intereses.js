@@ -82,6 +82,7 @@ class Intereses extends Component{
 	    </li>
 	    
 	  </ul>
+	  </div>
 	  <Switch>
 	    <Route exact path='/perfil/:id/intereses' render={() => <InteresesEmpresas profile={this.props.profile}  />}/>
 	    <Route exact path='/perfil/:id/intereses/membresias' render={() => <InteresesMembresias profile={this.props.profile}  />}/>
@@ -93,7 +94,6 @@ class Intereses extends Component{
 	    <Route exact path='/perfil/:id/intereses/otras' render={() => <InteresesOtras profile={this.props.profile}  />}/>
 	    <Route exact path='/perfil/:id/intereses/beneficios' render={() => <InteresesBeneficios profile={this.props.profile}  />}/>
 	  </Switch>
-	</div>
 </div>
 		);
 	}
