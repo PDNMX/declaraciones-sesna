@@ -16,10 +16,6 @@ import InfoDependientes from '../single-components/informacion/dependientes-econ
 
 class Informacion extends Component{
 
-	constructor(){
-		super();
-	}
-
 	render(){
 		return(
 			<div>
