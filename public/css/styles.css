@@ -1363,6 +1363,9 @@ section.pdn_nomargin {
     .pdn_d_box .pdn_data_p:last-child {
       border: 0;
       padding: 0; }
+    .pdn_d_box .pdn_data_p.pdn_border {
+      border-bottom: 1px solid #f2f2f2;
+      padding-bottom: 1em; }
   .pdn_d_box h3 {
     font-size: 18px;
     font-weight: 500; }
@@ -1372,13 +1375,32 @@ section.pdn_nomargin {
       color: #159cd7;
       border-bottom: dotted 1px #34b3eb; }
 
+.pdn_border {
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 1em;
+  margin-bottom: 1em; }
+
 .pnd_box_note {
   font-size: 13px; }
+  .pnd_box_note.pdn_gray {
+    color: #898888; }
 
 .pdn_label {
   color: #cccccc;
   font-weight: 400;
   margin-bottom: 0; }
+
+/* = pdn labels
+-------------------------------------------------------------- */
+.ambito {
+  background: #ccc;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 10px;
+  margin-bottom: 20px; }
+  .ambito.publico {
+    background: #f7d116; }
 
 /* = NAV icons
 -------------------------------------------------------------- */
