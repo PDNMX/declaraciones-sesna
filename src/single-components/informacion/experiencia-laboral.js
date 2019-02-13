@@ -12,6 +12,14 @@ class InfoExperiencia extends Component{
 		return(
 			<div className="col-sm-9 col-sm-offset-3 sidecontent">
 		<h2>Experiencia laboral</h2>
+		<div className="row">
+			<div className="col-sm-12">
+				<div className="pdn_d_box">
+					<p className="pdn_graph_label"><b className="pdn_graph_label_item ambito publico"></b> Ámbito público</p>
+				</div>
+			</div>
+		</div>
+
 
 		<div className="row">
 			<div className="col-sm-12">
