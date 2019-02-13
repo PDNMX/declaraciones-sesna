@@ -7,10 +7,9 @@
 */
 import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
-import Busqueda from './Busqueda';
 
+import Busqueda from './Busqueda';
 import Perfil from './Perfil';
-//import * as ConstClass from  '../ConstValues.js';
 
 /*
 	////////////////////////////////////////////////////////////////////////////////
@@ -36,9 +35,6 @@ class Container extends Component{
 		}
 	}
 
-	/*
-	<Route path='/winemakers/:code' component={WineMaker}/>
-	*/
 	/*
 	 * R E N D E R
 	 * ----------------------------------------------------------------------

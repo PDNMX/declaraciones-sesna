@@ -14,8 +14,19 @@ import InfoCurriculum from '../single-components/informacion/datos-curriculares'
 import InfoExperiencia from '../single-components/informacion/experiencia-laboral';
 import InfoDependientes from '../single-components/informacion/dependientes-economicos';
 
+/*
+	////////////////////////////////////////////////////////////////////////////////
+  //
+  // DEFINE LA CLASE PRINCIPAL
+  //
+  ////////////////////////////////////////////////////////////////////////////////
+*/
 class Informacion extends Component{
 
+	/*
+	 * R E N D E R
+	 * ----------------------------------------------------------------------
+	 */
 	render(){
 		return(
 			<div>
@@ -65,4 +76,11 @@ class Informacion extends Component{
 	}
 }
 
+/*
+	////////////////////////////////////////////////////////////////////////////////
+  //
+  // REGRESA EL COMPONENTE
+  //
+  ////////////////////////////////////////////////////////////////////////////////
+*/
 export default Informacion;
