@@ -18,9 +18,9 @@ class InfoGeneral extends Component{
 			<div className="col-sm-7">
 				<div className="pdn_d_box">
 					<p className="pdn_label">Nacionalidades</p>
-					<p className="pdn_data_p">
-					  { this.props.items.nacionalidades.map(d => d.valor) }
-				  </p>
+					{ this.props.items.nacionalidades.map((d, i) => 
+					  <p className="pdn_data_p" key={"nac-" + i}>{d.valor}</p>
+					)}
 					<p className="pdn_label">Lugar de nacimiento</p>
 					<p className="pdn_data_p">{this.props.items.entidad_federativa_nacimiento.nom_ent}</p>
 				</div>
