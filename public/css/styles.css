@@ -1348,6 +1348,9 @@ section.pdn_nomargin {
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   border-radius: 15px;
+  -webkit-box-shadow: 1px 1px 2px #eaeaea;
+  -moz-box-shadow: 1px 1px 2px #eaeaea;
+  box-shadow: 1px 1px 2px #eaeaea;
   padding: 15px;
   margin-bottom: 30px; }
   .pdn_d_box .pdn_divider {
@@ -1360,6 +1363,17 @@ section.pdn_nomargin {
     .pdn_d_box .pdn_data_p:last-child {
       border: 0;
       padding: 0; }
+  .pdn_d_box h3 {
+    font-size: 18px;
+    font-weight: 500; }
+  .pdn_d_box p a {
+    color: #34b3eb; }
+    .pdn_d_box p a:hover {
+      color: #159cd7;
+      border-bottom: dotted 1px #34b3eb; }
+
+.pnd_address_note {
+  font-size: 13px; }
 
 .pdn_label {
   color: #cccccc;
