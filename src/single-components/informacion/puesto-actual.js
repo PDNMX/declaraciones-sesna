@@ -18,7 +18,7 @@ class InfoPuesto extends Component{
 				<div className="pdn_d_box">
 					<h3 className="pdn_data_p">{ this.props.profile.informacion_personal.datos_encargo_actual.empleo_cargo_comision}</h3>
 					<p className="pdn_label">Área de adscripción</p>
-					<p className="pdn_data_p pnd_address_note"><strong>{ this.props.profile.informacion_personal.datos_encargo_actual.area_adscripcion}</strong><br/>
+					<p className="pdn_data_p pnd_box_note"><strong>{ this.props.profile.informacion_personal.datos_encargo_actual.area_adscripcion}</strong><br/>
 					{ this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.vialidad.tipo_vial }	{ this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.vialidad.nom_vial }	#{ this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.numExt }
 					<span>{ this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.numExt ? ", int. #" + this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.numExt : "" }</span><br/>
 					{ this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.localidad.nom_loc }, { this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.municipio.nom_mun }<br/>
