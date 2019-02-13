@@ -6,8 +6,10 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import { BrowserRouter } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import Busqueda from './Busqueda';
+
+import Perfil from './Perfil';
 //import * as ConstClass from  '../ConstValues.js';
 
 /*
@@ -34,6 +36,9 @@ class Container extends Component{
 		}
 	}
 
+	/*
+	<Route path='/winemakers/:code' component={WineMaker}/>
+	*/
 	/*
 	 * R E N D E R
 	 * ----------------------------------------------------------------------
@@ -72,9 +77,10 @@ class Container extends Component{
 
 		  <section className="pdn_m">
 			  <div className="container">
-				  <BrowserRouter>
-				    <Busqueda />
-				  </BrowserRouter>
+				  <Switch>
+				    <Route exact path='/' component={Busqueda}/>
+				    <Route path='/perfil/:id' component={Perfil}/>
+				  </Switch>
 			  </div>
 		  </section>
 		  </div>
