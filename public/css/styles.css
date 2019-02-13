@@ -1402,6 +1402,15 @@ section.pdn_nomargin {
   .ambito.publico {
     background: #f7d116; }
 
+.pdn_graph_label_item {
+  display: inline-block;
+  height: 12px;
+  margin: 0;
+  padding: 5px; }
+
+.pdn_graph_label {
+  font-size: 12px; }
+
 /* = NAV icons
 -------------------------------------------------------------- */
 .pdn_i_ {
