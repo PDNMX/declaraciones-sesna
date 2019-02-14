@@ -75,7 +75,7 @@ class Container extends Component{
 			  <div className="container">
 				  <Switch>
 				    <Route exact path='/' component={Busqueda}/>
-				    <Route path='/perfil/:id/:section' component={Perfil}/>
+				    <Route path='/perfil/:id/:section/:subsection?' component={Perfil}/>
 				  </Switch>
 			  </div>
 		  </section>

@@ -23,23 +23,25 @@ import InfoDependientes from '../single-components/informacion/dependientes-econ
 */
 class Informacion extends Component{
 
+
 	/*
 	 * R E N D E R
 	 * ----------------------------------------------------------------------
 	 */
 	render(){
+		let section = this.props.section;
 		return(
 			<div>
 	<div className="col-sm-3 sidebar">
 								<h2>Información personal</h2>
 		<ul>
 			<li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/informacion`}>
+	  	  <Link className={ !section ?"router-link-active" : ""} to={`/perfil/${this.props.profile._id}/informacion`}>
 	  	    Información general
 	  	  </Link>
 	    </li>
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/informacion/puesto-actual`}>
+	  	  <Link className={ section == "puesto-actual" ?"router-link-active" : ""} to={`/perfil/${this.props.profile._id}/informacion/puesto-actual`}>
 	  	    Puesto actual
 	  	  </Link>
 	    </li>

@@ -18,7 +18,9 @@ class InteresesEmpresas extends Component{
   constructor(){
     super();
 
-    console.log("yooo");
+    this.state = {
+
+    }
   }
   /*
    * R E N D E R
@@ -42,7 +44,7 @@ class InteresesEmpresas extends Component{
       <div className="col-sm-12">
         {/* comienza box*/ }
         { this.items().map( (interes, i) =>
-        <div className="pdn_d_box" key={"interes-" + i}>
+        <div className="pdn_d_box" key={"interes-" + i} id={"interes-" + i}>
             <div className="row pdn_border">
               <div className="col-sm-6">
                 <p><span className="label declarante"> Declarante</span></p>

@@ -45,7 +45,7 @@ class Perfil extends Component{
 
 		this.getProfile(this.props.match.params.id);
 
-		console.log("props:", this.props);
+		console.log(this.props);
 	}
 
 	/*
@@ -125,17 +125,11 @@ class Perfil extends Component{
 
 	<div className="row pnd_box">
 		<Switch>
-	    <Route path='/perfil/:id/informacion' render={() => <Informacion profile={this.state.profile} /> }/>
-	    <Route path='/perfil/:id/pasivos' render={() => <Pasivos profile={this.state.profile} /> }/>
-	    <Route path='/perfil/:id/intereses' render={() => <Intereses profile={this.state.profile} /> }/>
-	    <Route path='/perfil/:id/activos' render={() => <Activos profile={this.state.profile} /> }/>
-	    <Route path='/perfil/:id/ingresos' render={() => <Ingresos profile={this.state.profile} /> }/>
-	    {/*
-	    <Route path='/perfil/:id/ingresos' render={() => <Ingresos profile={this.state.profile} /> }/>
-	    <Route path='/perfil/:id/intereses' render={() => <Intereses profile={this.state.profile} /> }/>
-	    <Route path='/perfil/:id/activos' render={() => <Activos profile={this.state.profile} /> }/>
-	    <Route path='/perfil/:id/pasivos' render={() => <Pasivos profile={this.state.profile} /> }/>
-	  */}
+	    <Route path='/perfil/:id/informacion' render={() => <Informacion section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
+	    <Route path='/perfil/:id/pasivos' render={() => <Pasivos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
+	    <Route path='/perfil/:id/intereses' render={() => <Intereses section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
+	    <Route path='/perfil/:id/activos' render={() => <Activos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
+	    <Route path='/perfil/:id/ingresos' render={() => <Ingresos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
 
 	  </Switch>
 	</div>

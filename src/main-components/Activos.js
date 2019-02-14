@@ -21,6 +21,7 @@ import ActivosBeneficiosEnEspecie from '../single-components/activos/beneficios-
 
 class Activos extends Component{
 	render(){
+		let section = this.props.section;
 		return(
 			<div>
 	<div class="col-sm-3 sidebar">
