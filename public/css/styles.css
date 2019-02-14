@@ -292,6 +292,23 @@ table {
   text-transform: uppercase;
   padding: 15px; }
 
+.pdn_d_box .table {
+  margin-bottom: 30px; }
+
+.pdn_d_box .table > thead > tr > th {
+  background: white;
+  border-bottom: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #cccccc;
+  text-transform: none; }
+
+.pdn_d_box .table > tbody > tr > td {
+  background: #f7f7f7;
+  border-bottom-color: white;
+  color: #606060;
+  font-size: 14px; }
+
 .table > tfoot > tr > td {
   background: rgba(204, 204, 204, 0.8);
   color: white;
@@ -1344,10 +1361,7 @@ section.pdn_nomargin {
 
 .pdn_d_box {
   background: white;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  border-radius: 15px;
+  /*@include rounded(15px);*/
   -webkit-box-shadow: 1px 1px 2px #eaeaea;
   -moz-box-shadow: 1px 1px 2px #eaeaea;
   box-shadow: 1px 1px 2px #eaeaea;
@@ -1421,12 +1435,17 @@ section.pdn_nomargin {
   height: 30px;
   margin: 20px 0 10px;
   width: 100%; }
+  .pdn_bar_container.darken {
+    background: #bcbcbc;
+    height: 19px; }
   .pdn_bar_container .pdn_bar {
     position: absolute;
     width: 100%;
-    height: 30px; }
+    height: 100%; }
     .pdn_bar_container .pdn_bar.conyuge {
       background: #e8b3e2; }
+    .pdn_bar_container .pdn_bar.participacion {
+      background: #34b3eb; }
 
 /* = NAV icons
 -------------------------------------------------------------- */
