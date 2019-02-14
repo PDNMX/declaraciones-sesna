@@ -44,6 +44,8 @@ class Perfil extends Component{
 		this.ingresosAnualesNetos = this.ingresosAnualesNetos.bind(this);
 
 		this.getProfile(this.props.match.params.id);
+
+		console.log("props:", this.props);
 	}
 
 	/*
@@ -55,6 +57,9 @@ class Perfil extends Component{
 			console.log("nel");
 			return null;
 	  }
+
+	  // shortcut para el valor de la sección
+	  let section = this.props.match.params.section;
 		return(
 			<div>
 <div v-if="profile">
@@ -92,23 +97,25 @@ class Perfil extends Component{
 			<nav className="pdn_main_nav">
 				<ul>
 					<li>
-						<Link to={`/perfil/${this.props.match.params.id}/informacion`}><b className="pdn_i_ info"></b>Información</Link>
+						<Link className={ section == "informacion" ?"router-link-active" : ""} to={`/perfil/${this.props.match.params.id}/informacion`}>
+						  <b className="pdn_i_ info"></b>Información
+						</Link>
 					</li>
 
 					<li>
-						<Link to={`/perfil/${this.props.match.params.id}/intereses`}><b className="pdn_i_ intereses"></b>Intereses</Link>
+						<Link className={ section == "intereses" ?"router-link-active" : ""} to={`/perfil/${this.props.match.params.id}/intereses`}><b className="pdn_i_ intereses"></b>Intereses</Link>
 					</li>
 
 					<li>
-						<Link to={`/perfil/${this.props.match.params.id}/ingresos`}><b className="pdn_i_ ingresos"></b>Ingresos</Link>
+						<Link className={ section == "ingresos" ?"router-link-active" : ""} to={`/perfil/${this.props.match.params.id}/ingresos`}><b className="pdn_i_ ingresos"></b>Ingresos</Link>
 					</li>
 
 					<li>
-						<Link to={`/perfil/${this.props.match.params.id}/activos`}><b className="pdn_i_ activos"></b>Activos</Link>
+						<Link className={ section == "activos" ?"router-link-active" : ""} to={`/perfil/${this.props.match.params.id}/activos`}><b className="pdn_i_ activos"></b>Activos</Link>
 					</li>
 
 					<li>
-						<Link to={`/perfil/${this.props.match.params.id}/pasivos`}><b className="pdn_i_ pasivos"></b>Pasivos</Link>
+						<Link className={ section == "pasivos" ?"router-link-active" : ""} to={`/perfil/${this.props.match.params.id}/pasivos`}><b className="pdn_i_ pasivos"></b>Pasivos</Link>
 					</li>
 				</ul>
 			</nav>
