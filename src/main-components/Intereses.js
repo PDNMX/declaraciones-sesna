@@ -24,7 +24,7 @@ class Intereses extends Component{
 	render(){
 		return(
 			<div>
-	<div class="col-sm-3 sidebar">
+	<div className="col-sm-3 sidebar">
 		<h2>Intereses</h2>
 		<ul>
 			<li>
@@ -80,7 +80,7 @@ class Intereses extends Component{
 	  	    Beneficios gratuitos
 	  	  </Link>
 	    </li>
-	    
+
 	  </ul>
 	  </div>
 	  <Switch>
