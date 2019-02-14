@@ -44,7 +44,12 @@ class InteresesEmpresas extends Component{
         { this.items().map( (interes, i) =>
         <div className="pdn_d_box" key={"interes-" + i}>
             <div className="row pdn_border">
-
+              <div className="col-sm-6">
+                <p><span className="label declarante"> Declarante</span></p>
+              </div>
+              <div className="col-sm-6 right">
+                <a heref="#" className="pdn_arrow close"></a>
+              </div>
             </div>
             <div className="row pdn_border">
               {/* empresa, sociedad o asociación */}
@@ -90,7 +95,7 @@ class InteresesEmpresas extends Component{
               <tbody>
                 <tr>
                   <td><strong>{interes.rol}</strong></td>
-                  <td>{interes.actividad_economica ? "Sí" : "No"} </td>
+                  <td><b className= { 'pdn_' + interes.actividad_economica}></b> {interes.actividad_economica ? "Sí" : "No"} </td>
                   <td>{interes.porcentaje_participacion}%
                     <div className="pdn_bar_container darken">
                       <div className="pdn_bar participacion" style={{ width: interes.porcentaje_participacion + '%' }}></div>
