@@ -15,7 +15,7 @@ class InfoExperiencia extends Component{
 		<div className="row">
 			<div className="col-sm-12">
 				<div className="pdn_d_box">
-					<p className="pdn_graph_label"><b className="pdn_graph_label_item ambito publico"></b> Ámbito público</p>
+					<p className="pdn_graph_label"><b className="pdn_graph_label_item label publico"></b> Ámbito público</p>
 				</div>
 			</div>
 		</div>
@@ -30,7 +30,7 @@ class InfoExperiencia extends Component{
 							<p className="pnd_box_note pdn_gray">Del {job.fecha_ingreso} al {job.fecha_salida}</p>
 						</div>
 						<div className="col-sm-6">
-							<p className="right"><span className={ 'ambito ' + job.ambito.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}>Ámbito {job.ambito.valor}</span></p>
+							<p className="right"><span className={ 'label ' + job.ambito.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}>Ámbito {job.ambito.valor}</span></p>
 						</div>
 					</div>
 					<h3 className="pdn_data_p">{job.cargo_puesto}</h3>
