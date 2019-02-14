@@ -22,7 +22,7 @@ class InteresesMembresias extends Component{
   render(){
     return(
     <div className="col-sm-9 col-sm-offset-3 sidecontent">
-      <h2>Membresías</h2>
+      <h2>Membresías ({this.items().length})</h2>
       <div className="row">
         <div className="col-sm-12">
           {/* box starts*/}
