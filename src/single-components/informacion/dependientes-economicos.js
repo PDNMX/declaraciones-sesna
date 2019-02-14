@@ -28,8 +28,8 @@ class InfoDependientes extends Component{
 			<div className="col-sm-12">
 			  { this.props.items.map( (dependiente, i) =>
 				<div className="pdn_d_box" key={"dependiente-" + i}>
-					<div class="row pdn_border">
-						<div class="col-sm-6">
+					<div className="row pdn_border">
+						<div className="col-sm-6">
 							<p><span className={ 'label ' + dependiente.tipo_relacion.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}> {dependiente.tipo_relacion.valor}</span></p>
 						</div>
 					</div>
