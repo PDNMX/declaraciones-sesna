@@ -22,6 +22,7 @@ import IngresosEnajenacion from '../single-components/ingresos/enajenacion';
 
 class Ingresos extends Component{
 	render(){
+		let section = this.props.section;
 		return(
 			<div>
 	<div class="col-sm-3 sidebar">

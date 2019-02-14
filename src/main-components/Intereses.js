@@ -22,6 +22,7 @@ import InteresesBeneficios from '../single-components/intereses/beneficios';
 
 class Intereses extends Component{
 	render(){
+		let section = this.props.section;
 		return(
 			<div>
 	<div className="col-sm-3 sidebar">

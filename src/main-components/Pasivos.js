@@ -26,6 +26,7 @@ class Pasivos extends Component{
 	 * ----------------------------------------------------------------------
 	 */
 	render(){
+		let section = this.props.section;
 		return(
 			<div>
 			<div class="col-sm-3 sidebar">
