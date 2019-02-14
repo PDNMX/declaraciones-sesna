@@ -12,10 +12,10 @@ import Informacion from "./Informacion";
 import Pasivos from "./Pasivos";
 import Intereses from "./Intereses";
 import Activos from "./Activos";
+import Ingresos from "./Ingresos";
 
 /*
 import Ingresos from "./Ingresos";
-import Activos from "./Activos";
 */
 
 import * as ConstClass from  '../ConstValues.js';
@@ -122,6 +122,7 @@ class Perfil extends Component{
 	    <Route path='/perfil/:id/pasivos' render={() => <Pasivos profile={this.state.profile} /> }/>
 	    <Route path='/perfil/:id/intereses' render={() => <Intereses profile={this.state.profile} /> }/>
 	    <Route path='/perfil/:id/activos' render={() => <Activos profile={this.state.profile} /> }/>
+	    <Route path='/perfil/:id/ingresos' render={() => <Ingresos profile={this.state.profile} /> }/>
 	    {/*
 	    <Route path='/perfil/:id/ingresos' render={() => <Ingresos profile={this.state.profile} /> }/>
 	    <Route path='/perfil/:id/intereses' render={() => <Intereses profile={this.state.profile} /> }/>
