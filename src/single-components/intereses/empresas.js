@@ -15,13 +15,23 @@ import React, {Component} from "react";
   ////////////////////////////////////////////////////////////////////////////////
 */
 class InteresesEmpresas extends Component{
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
+
+    let elems = this.props.profile.intereses.empresas_sociedades_asociaciones.map(d => {
+                  let item = d;
+                  d.show = true;
+
+                  return d;
+                });
 
     this.state = {
-
+      items : elems
     }
+
+    this.toggl = this.toggl.bind(this);
   }
+
   /*
    * R E N D E R
    * ----------------------------------------------------------------------
@@ -43,17 +53,18 @@ class InteresesEmpresas extends Component{
     <div className="row">
       <div className="col-sm-12">
         {/* comienza box*/ }
-        { this.items().map( (interes, i) =>
+        { this.state.items.map( (interes, i) =>
         <div className="pdn_d_box" key={"interes-" + i} id={"interes-" + i}>
             <div className="row pdn_border">
               <div className="col-sm-6">
                 <p><span className="label declarante"> Declarante</span></p>
               </div>
               <div className="col-sm-6 right">
-                <a heref="#" className="pdn_arrow close"></a>
+                <a onClick={(e) => this.toggl(interes, i, e)} heref="#" className={"pdn_arrow " + (interes.show ?  "close" : "open")}></a>
               </div>
             </div>
-            <div className="row pdn_border">
+            
+            <div className="row pdn_border" style={ {display : (interes.show ? "block" : "none")} }>
               {/* empresa, sociedad o asociación */}
               <div className="col-sm-9">
                 <p className="pdn_label">Nombre de la empresa, sociedad o asociación</p>
@@ -119,6 +130,21 @@ class InteresesEmpresas extends Component{
    * M E T H O D S
    * ----------------------------------------------------------------------
    */
+  toggl(item, index, e){
+    console.log(item, index, e);
+
+    let items    = this.state.items,
+        newItems = items.map( d => {
+          if(item == d){
+            d.show = !item.show;
+          }
+
+          return d;
+        });
+    
+    this.setState({items : newItems});
+  }
+
   items(){
     return this.props.profile.intereses.empresas_sociedades_asociaciones;
   }
