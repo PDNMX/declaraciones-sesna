@@ -22,10 +22,10 @@ class InteresesApoyos extends Component{
   render(){
     return(
       <div className="col-sm-9 col-sm-offset-3 sidecontent">
-    <h2>Apoyos</h2>
+        <h2>Apoyos ({this.items().length})</h2>
     <div className="row">
       <div className="col-sm-12">
-        { this.items().map( (interes, i) => 
+        { this.items().map( (interes, i) =>
         <div className="pdn_d_box" v-for="interes in items">
         <p className="pdn_label">Es beneficiario</p>
         <p className="pdn_data_p">{interes.es_beneficiario ? "Sí" : "No"}</p>

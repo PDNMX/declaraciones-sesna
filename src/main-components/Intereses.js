@@ -29,56 +29,56 @@ class Intereses extends Component{
 		<h2>Intereses</h2>
 		<ul>
 			<li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/intereses`}>
-	  	    Empresas o asociaciones
+	  	  <Link className={ !section ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/intereses`}>
+					Empresas o asociaciones <span>{this.props.profile.intereses.empresas_sociedades_asociaciones.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/intereses/membresias`}>
-	  	    Membresías
+	  	  <Link className={ section == "membresias" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/intereses/membresias`} >
+	  	    Membresías <span>{this.props.profile.intereses.membresias.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/intereses/apoyos`}>
-	  	    Apoyos
+	  	  <Link className={ section == "apoyos" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/intereses/apoyos`}>
+	  	    Apoyos  <span>{this.props.profile.intereses.apoyos_beneficios_publicos.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/intereses/representacion-activa`}>
-	  	    Representación activa
+	  	  <Link className={ section == "representacion-activa" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/intereses/representacion-activa`}>
+	  	    Representación activa <span>{this.props.profile.intereses.representacion_activa.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/intereses/representacion-pasiva`}>
-	  	    Representación pasiva
+	  	  <Link className={ section == "representacion-pasiva" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/intereses/representacion-pasiva`}>
+	  	    Representación pasiva <span>{this.props.profile.intereses.representacion_pasiva.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/intereses/socios`}>
-	  	    Socios comerciales
+	  	  <Link className={ section == "socios" ?"router-link-exact-active router-link-active" : ""}  to={`/perfil/${this.props.profile._id}/intereses/socios`}>
+	  	    Socios comerciales <span>{this.props.profile.intereses.socios_comerciales.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/intereses/clientes`}>
-	  	    Clientes principales
+	  	  <Link className={ section == "clientes" ?"router-link-exact-active router-link-active" : ""}   to={`/perfil/${this.props.profile._id}/intereses/clientes`}>
+	  	    Clientes principales <span>{this.props.profile.intereses.clientes_principales.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/intereses/otras`}>
-	  	    Otras partes relacionadas
+	  	  <Link className={ section == "otras" ?"router-link-exact-active router-link-active" : ""}   to={`/perfil/${this.props.profile._id}/intereses/otras`}>
+	  	    Otras partes relacionadas <span>{this.props.profile.intereses.otras_partes.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/intereses/beneficios`}>
-	  	    Beneficios gratuitos
+	  	  <Link className={ section == "beneficios" ?"router-link-exact-active router-link-active" : ""}  to={`/perfil/${this.props.profile._id}/intereses/beneficios`}>
+	  	    Beneficios gratuitos <span>{this.props.profile.intereses.beneficios_gratuitos.length}</span>
 	  	  </Link>
 	    </li>
 
