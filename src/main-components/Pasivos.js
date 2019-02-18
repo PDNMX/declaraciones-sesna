@@ -33,13 +33,13 @@ class Pasivos extends Component{
 		<h2>Pasivos</h2>
 		<ul>
 			<li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/pasivos`}>
-	  	    Deudas
+	  	  <Link className={ !section ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/pasivos`}>
+	  	    Deudas <span>{this.props.profile.pasivos.deudas.length}</span>
 	  	  </Link>
 	    </li>
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/pasivos/otras-obligaciones`}>
-	  	    Otras obligaciones
+	  	  <Link className={ section == "otras-obligaciones" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/pasivos/otras-obligaciones`}>
+	  	    Otras obligaciones <span>{this.props.profile.pasivos.otras_obligaciones.length}</span>
 	  	  </Link>
 	    </li>
 	  </ul>
