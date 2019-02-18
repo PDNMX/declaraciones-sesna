@@ -43,7 +43,7 @@ class GobLevel extends Component{
 				         ]
 			},
 			fake6 : {
-				series : [12, 15, 13, 20, 10, 20, 10]        
+				series : [12, 15, 13, 20, 10, 20, 10]
 			},
 
 			donutOptions : {donut: true, donutWidth: 30}
@@ -65,17 +65,18 @@ class GobLevel extends Component{
 		return(
 			<div>
 				<h1>Por Nivel de Gobierno</h1>
-
+				<div className="pdn_divider"></div>
 				<h2>Funcionarios por nivel de gobierno (total)</h2>
 				<ChartistGraph data={this.state.fake} type={"Bar"} />
-
+				<div className="pdn_divider"></div>
 				<h2>Funcionarios por Nivel de gobierno (porcentaje)</h2>
 				<ChartistGraph data={ { series : this.state.fake2.series} } type={"Pie"} options={st.donutOptions} />
+				<div className="pdn_divider"></div>
 
 				<h2>Funcionarios por nivel de gobierno y edad (total)</h2>
 				<ChartistGraph data={st.fake5} type={"Bar"} />
 
-				<ul>
+				<ul className="list_inline">
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
 				    </span> {this.state.fake5._labels[0]}
@@ -98,13 +99,14 @@ class GobLevel extends Component{
 				  </li>
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#589634"} }>
-				    </span> {this.state.fake5._labels[5]} 
+				    </span> {this.state.fake5._labels[5]}
 				  </li>
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#2d1a9c"} }>
 				    </span> {this.state.fake5._labels[6]}
 				  </li>
 				</ul>
+				<div className="pdn_divider"></div>
 
 				<h2>Funcionarios por nivel de gobierno y edad (porcentaje)</h2>
 				<ul>
@@ -122,7 +124,7 @@ class GobLevel extends Component{
 				  </li>
 				</ul>
 
-				<ul>
+				<ul className="list_inline">
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
 				    </span> {this.state.fake5._labels[0]}
@@ -145,7 +147,7 @@ class GobLevel extends Component{
 				  </li>
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#589634"} }>
-				    </span> {this.state.fake5._labels[5]} 
+				    </span> {this.state.fake5._labels[5]}
 				  </li>
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#2d1a9c"} }>
@@ -153,10 +155,10 @@ class GobLevel extends Component{
 				  </li>
 				</ul>
 
-
+				<div className="pdn_divider"></div>
 				<h2>Funcionarios por nivel de gobierno y nivel educativo (total)</h2>
 				<ChartistGraph data={st.fake5} type={"Bar"} />
-				<ul>
+				<ul className="list_inline">
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
 				    </span> {this.state.fake5.__labels[0]}
@@ -179,14 +181,14 @@ class GobLevel extends Component{
 				  </li>
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#589634"} }>
-				    </span> {this.state.fake5.__labels[5]} 
+				    </span> {this.state.fake5.__labels[5]}
 				  </li>
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#2d1a9c"} }>
 				    </span> {this.state.fake5.__labels[6]}
 				  </li>
 				</ul>
-
+				<div className="pdn_divider"></div>
 				<h2>Funcionarios por nivel de gobierno y nivel educativo (porcentaje)</h2>
 				<ul>
 				  <li style={ {float: "left"} }>
@@ -203,7 +205,7 @@ class GobLevel extends Component{
 				  </li>
 				</ul>
 
-				<ul>
+				<ul className="list_inline">
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
 				    </span> {this.state.fake5.__labels[0]}
@@ -226,7 +228,7 @@ class GobLevel extends Component{
 				  </li>
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#589634"} }>
-				    </span> {this.state.fake5.__labels[5]} 
+				    </span> {this.state.fake5.__labels[5]}
 				  </li>
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#2d1a9c"} }>
@@ -242,10 +244,10 @@ class GobLevel extends Component{
 	  let connObj = Object.assign({}, ConstClass.fetchObj);
 
 	  connObj.body = this.makeQuery(_from, _to);
-	      
+
 	  return fetch(ConstClass.endpoint, connObj)
           .then(response => response.json())
-          .then(d => { 
+          .then(d => {
             return d.total;
           });
   }
@@ -263,7 +265,7 @@ class GobLevel extends Component{
   		res.push({
   			label   : (currentYear - i) + " - " + (currentYear - i+st.step),
   			promise : this.getInfo(_from(i-10),  _to(i)).catch(error => { return error }),
-  			from    : _from(i-10), 
+  			from    : _from(i-10),
   			to      :  _to(i)
   		});
   		i-= st.step;
@@ -275,7 +277,7 @@ class GobLevel extends Component{
   makeQuery(_from, _to){
   	let str     = ConstClass.PROP_NAMES.nacimiento,
   	    search  = {query : {}, limit : 2};
-	  
+
 	  search.query[str] = {desde : _from, hasta : _to};
 	  return JSON.stringify(search);
   }

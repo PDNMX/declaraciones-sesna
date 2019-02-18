@@ -86,7 +86,7 @@ class Education extends Component{
 
 				<h2>Funcionarios por nivel educativo (total)</h2>
 				<ChartistGraph data={this.state.fake} type={"Bar"} />
-
+				<div className="pdn_divider"></div>
 				<h2>Funcionarios por nivel educativo (porcentaje)</h2>
 				<ChartistGraph data={ { series : this.state.fake6.series} } type={"Pie"} options={st.donutOptions} />
 				<ul className="list_inline">
@@ -120,7 +120,7 @@ class Education extends Component{
 				  </li>
 				</ul>
 
-
+				<div className="pdn_divider"></div>
 
 				<h2>Funcionarios por nivel educativo y rango de edad (total) </h2>
 				<ChartistGraph data={st.fake5} type={"Line"} />
@@ -154,7 +154,7 @@ class Education extends Component{
 				    </span> {st.labels._labels[6]}
 				  </li>
 				</ul>
-
+				<div className="pdn_divider"></div>
 
 				<h2>Funcionarios por nivel educativo y rango de edad  (porcentaje)</h2>
 				<ul>
@@ -218,7 +218,7 @@ class Education extends Component{
 				    </span> {st.labels._labels[6]}
 				  </li>
 				</ul>
-
+				<div className="pdn_divider"></div>
 				<h2>Funcionarios por nivel educativo y nivel de gobierno (total)</h2>
 				<ChartistGraph data={this.state.fake7} type={"Bar"} />
 				<ul className="list_inline">
@@ -235,7 +235,7 @@ class Education extends Component{
 				    </span> Municipal
 				  </li>
 				</ul>
-
+				<div className="pdn_divider"></div>
 				<h2>Funcionarios por nivel educativo y nivel de gobierno (porcentaje)</h2>
 				<ul>
 				  <li style={ {float: "left"} }>
@@ -292,10 +292,10 @@ class Education extends Component{
 	  let connObj = Object.assign({}, ConstClass.fetchObj);
 
 	  connObj.body = this.makeQuery(_from, _to);
-	      
+
 	  return fetch(ConstClass.endpoint, connObj)
           .then(response => response.json())
-          .then(d => { 
+          .then(d => {
             return d.total;
           });
   }
@@ -313,7 +313,7 @@ class Education extends Component{
   		res.push({
   			label   : (currentYear - i) + " - " + (currentYear - i+st.step),
   			promise : this.getInfo(_from(i-10),  _to(i)).catch(error => { return error }),
-  			from    : _from(i-10), 
+  			from    : _from(i-10),
   			to      :  _to(i)
   		});
   		i-= st.step;
@@ -325,7 +325,7 @@ class Education extends Component{
   makeQuery(_from, _to){
   	let str     = ConstClass.PROP_NAMES.nacimiento,
   	    search  = {query : {}, limit : 2};
-	  
+
 	  search.query[str] = {desde : _from, hasta : _to};
 	  return JSON.stringify(search);
   }

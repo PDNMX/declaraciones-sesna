@@ -68,7 +68,7 @@ class State extends Component{
 
 				<h2>Funcionarios por entidad federativa (total)</h2>
 				<ChartistGraph data={st.fake} type={"Bar"} />
-
+				<div className="pdn_divider"></div>
 				<h2>Funcionarios por entidad federativa (porcentaje)</h2>
 				<ChartistGraph data={ { series : st.fake.series[0]} } type={"Pie"} options={st.donutOptions} />
 
@@ -102,6 +102,7 @@ class State extends Component{
 				    </span> {st.labels.___labels[6]}
 				  </li>
 				</ul>
+				<div className="pdn_divider"></div>
 
 				<h2>Funcionarios por estado seleccionado y rango de edad</h2>
 				<ChartistGraph data={st.fake5} type={"Line"} />
@@ -136,6 +137,7 @@ class State extends Component{
 				    </span> {st.labels._labels[6]}
 				  </li>
 				</ul>
+				<div className="pdn_divider"></div>
 
 				<h2>Funcionarios por estado seleccionado y rango de edad (porcentaje)</h2>
 				<ul>
@@ -199,6 +201,7 @@ class State extends Component{
 				  </li>
 				</ul>
 
+				<div className="pdn_divider"></div>
 
 				<h2>Funcionarios por estado seleccionado y nivel educativo</h2>
 				<ChartistGraph data={st.fake5} type={"Line"} />
@@ -233,6 +236,7 @@ class State extends Component{
 				    </span> {st.labels.__labels[6]}
 				  </li>
 				</ul>
+				<div className="pdn_divider"></div>
 
 				<h2>Funcionarios por estado seleccionado y nivel educativo (porcentaje)</h2>
 				<ul>
@@ -304,10 +308,10 @@ class State extends Component{
 	  let connObj = Object.assign({}, ConstClass.fetchObj);
 
 	  connObj.body = this.makeQuery(_from, _to);
-	      
+
 	  return fetch(ConstClass.endpoint, connObj)
           .then(response => response.json())
-          .then(d => { 
+          .then(d => {
             return d.total;
           });
   }
@@ -325,7 +329,7 @@ class State extends Component{
   		res.push({
   			label   : (currentYear - i) + " - " + (currentYear - i+st.step),
   			promise : this.getInfo(_from(i-10),  _to(i)).catch(error => { return error }),
-  			from    : _from(i-10), 
+  			from    : _from(i-10),
   			to      :  _to(i)
   		});
   		i-= st.step;
@@ -337,7 +341,7 @@ class State extends Component{
   makeQuery(_from, _to){
   	let str     = ConstClass.PROP_NAMES.nacimiento,
   	    search  = {query : {}, limit : 2};
-	  
+
 	  search.query[str] = {desde : _from, hasta : _to};
 	  return JSON.stringify(search);
   }
