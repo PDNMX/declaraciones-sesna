@@ -63,8 +63,8 @@ class InteresesEmpresas extends Component{
                 <a onClick={(e) => this.toggl(interes, i, e)} heref="#" className={"pdn_arrow " + (interes.show ?  "close" : "open")}></a>
               </div>
             </div>
-            
-            <div className="row pdn_border" style={ {display : (interes.show ? "block" : "none")} }>
+            <div style={ {display : (interes.show ? "block" : "none")} }>
+            <div className="row pdn_border">
               {/* empresa, sociedad o asociación */}
               <div className="col-sm-9">
                 <p className="pdn_label">Nombre de la empresa, sociedad o asociación</p>
@@ -118,6 +118,7 @@ class InteresesEmpresas extends Component{
                 </tr>
               </tbody>
             </table>
+            </div>
         </div>
         )}
       </div>
@@ -141,7 +142,7 @@ class InteresesEmpresas extends Component{
 
           return d;
         });
-    
+
     this.setState({items : newItems});
   }
 
