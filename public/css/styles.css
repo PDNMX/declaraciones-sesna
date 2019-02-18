@@ -1168,17 +1168,22 @@ h2.pdn_main_score {
   border-bottom: 1px solid rgba(102, 102, 102, 0.1);
   padding: 15px; }
 
+.list_inline li {
+  list-style: none;
+  margin-right: 10px;
+  display: inline-block; }
+
 ol {
-  counter-reset: gesoc-counter;
+  counter-reset: pdn-counter;
   margin-left: 15px; }
   ol li {
     margin-bottom: 30px;
     padding-left: 40px;
     list-style: none;
-    counter-increment: gesoc-counter;
+    counter-increment: pdn-counter;
     position: relative; }
     ol li:before {
-      content: counter(gesoc-counter) ". ";
+      content: counter(pdn-counter) ". ";
       position: absolute;
       left: -18px; }
   ol ol {
