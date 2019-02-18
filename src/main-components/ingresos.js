@@ -29,67 +29,67 @@ class Ingresos extends Component{
 		<h2>Ingresos</h2>
 		<ul>
 			<li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/ingresos`}>
-	  	    Sueldos y Salarios por el Encargo Público
+	  	  <Link className={ !section ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/ingresos`}>
+	  	    Sueldos y Salarios por el Encargo Público <span>{this.props.profile.ingresos.sueldos_salarios_publicos.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/ingresos/sueldos-otros`}>
-	  	    Sueldos y Salarios por otros empleos
+	  	  <Link className={ section == "sueldos-otros" ?"router-link-exact-active router-link-active" : ""}  to={`/perfil/${this.props.profile._id}/ingresos/sueldos-otros`}>
+	  	    Sueldos y Salarios por otros empleos	<span>{this.props.profile.ingresos.sueldos_salarios_otros_empleos.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/ingresos/actividad-profesional`}>
-	  	    Actividad profesional
+	  	  <Link className={ section == "actividad-profesional" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/ingresos/actividad-profesional`}>
+	  	    Actividad profesional	<span>{this.props.profile.ingresos.actividad_profesional.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/ingresos/actividad-empresarial`}>
-	  	    Actividad empresarial
+	  	  <Link className={ section == "actividad-empresarial" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/ingresos/actividad-empresarial`}>
+	  	    Actividad empresarial	<span>{this.props.profile.ingresos.actividad_empresarial.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/ingresos/actividad-economica-menor`}>
-	  	    Actividad económica menor
+	  	  <Link className={ section == "actividad-economica-menor" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/ingresos/actividad-economica-menor`}>
+	  	    Actividad económica menor	<span>{this.props.profile.ingresos.actividad_economica_menor.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/ingresos/arrendamiento`}>
-	  	    Arrendamiento
+	  	  <Link className={ section == "arrendamiento" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/ingresos/arrendamiento`}>
+	  	    Arrendamiento	<span>{this.props.profile.ingresos.arrendamiento.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/ingresos/intereses`}>
-	  	    Intereses
+	  	  <Link className={ section == "intereses" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/ingresos/intereses`}>
+	  	    Intereses	<span>{this.props.profile.ingresos.intereses.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/ingresos/premios`}>
-	  	    Premios
+	  	  <Link className={ section == "premios" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/ingresos/premios`}>
+	  	    Premios	<span>{this.props.profile.ingresos.premios.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/ingresos/otros-ingresos`}>
-	  	    Otros ingresos
+	  	  <Link className={ section == "otros-ingresos" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/ingresos/otros-ingresos`}>
+	  	    Otros ingresos <span>{this.props.profile.ingresos.otros_ingresos.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link to={`/perfil/${this.props.profile._id}/ingresos/enajenacion`}>
-	  	    Enajenación de bienes
+	  	  <Link className={ section == "enajenacion" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/ingresos/enajenacion`}>
+	  	    Enajenación de bienes <span>{this.props.profile.ingresos.enajenacion_bienes.length}</span>
 	  	  </Link>
 	    </li>
 
-	    
-	    
+
+
 	  </ul>
 	 </div>
 	 <Switch>

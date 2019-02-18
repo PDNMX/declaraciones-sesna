@@ -1468,6 +1468,8 @@ section.pdn_nomargin {
       background: #e8b3e2; }
     .pdn_bar_container .pdn_bar.participacion {
       background: #34b3eb; }
+    .pdn_bar_container .pdn_bar.declarante {
+      background: #83dfff; }
 
 /* = NAV icons
 -------------------------------------------------------------- */
