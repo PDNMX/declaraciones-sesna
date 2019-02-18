@@ -9,6 +9,7 @@ import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
 
 import Busqueda from './Busqueda';
+import Stats from './Stats';
 import Perfil from './Perfil';
 
 /*
@@ -76,6 +77,7 @@ class Container extends Component{
 				  <Switch>
 				    <Route exact path='/' component={Busqueda}/>
 				    <Route path='/perfil/:id/:section/:subsection?' component={Perfil}/>
+				    <Route path='/estadistica' component={Stats}/>
 				  </Switch>
 			  </div>
 		  </section>
@@ -97,12 +99,13 @@ class Container extends Component{
 	*/
 	breadcrumb(){
 		if(this.state.isProfile){
+			let amigo = this.state.profile.informacion_personal.informacion_general;
 			return(
 				<ul>
   		    <li><a href="#">Plataforma Digital Nacional</a></li>
-  		    <li>{this.state.profile.informacion_personal.informacion_general.nombres}
-  		        {this.state.profile.informacion_personal.informacion_general.primer_apellido}
-  		        {this.state.profile.informacion_personal.informacion_general.segundo_apellido}
+  		    <li>{amigo.nombres}
+  		        {amigo.primer_apellido}
+  		        {amigo.segundo_apellido}
   		    </li>
   		  </ul>
 			);
