@@ -28,41 +28,45 @@ class Stats extends Component{
 
 	render(){
 		return(
-			<div>
+			<div className="row">
+				<div className="col-sm-12">
+			<nav className="pdn_main_nav">
 			  <ul>
 					<li>
 						<Link to="/estadistica/edad">
-						  edad
+						  Edad
 						</Link>
 					</li>
 					<li>
 						<Link to="/estadistica/nivel-de-gobierno">
-						  nivel de gobierno
+						  Nivel de gobierno
 						</Link>
 					</li>
 
 					<li>
 						<Link to="/estadistica/entidad-federativa">
-						  estado
+						  Estado
 						</Link>
 					</li>
 
 					<li>
 						<Link  to="/estadistica/educacion">
-						  educación
+						  Educación
 						</Link>
 					</li>
 
-					<li>bienes inmuebles</li>
+					<li>Bienes inmuebles</li>
 
 					<li>Salarios</li>
 				</ul>
+				</nav>
 			  <Switch>
 				    <Route path='/estadistica/edad' component={Age} />
 				    <Route path='/estadistica/nivel-de-gobierno' component={GobLevel} />
 				    <Route path='/estadistica/entidad-federativa' component={State} />
 				    <Route path='/estadistica/educacion' component={Education} />
 				</Switch>
+				</div>
 			</div>
 		);
 	}
