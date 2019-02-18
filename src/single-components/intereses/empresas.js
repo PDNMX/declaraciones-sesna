@@ -63,62 +63,66 @@ class InteresesEmpresas extends Component{
                 <a onClick={(e) => this.toggl(interes, i, e)} heref="#" className={"pdn_arrow " + (interes.show ?  "close" : "open")}></a>
               </div>
             </div>
+            {/* div close/open */}
             <div style={ {display : (interes.show ? "block" : "none")} }>
-            <div className="row pdn_border">
-              {/* empresa, sociedad o asociación */}
-              <div className="col-sm-9">
-                <p className="pdn_label">Nombre de la empresa, sociedad o asociación</p>
-                <h3> { interes.nombre_empresa_sociedad_asociacion } </h3>
-                <p className="pdn_data_p pnd_box_note pdn_gray">{interes.domicilio.vialidad.tipo_vial+' '+interes.domicilio.vialidad.nom_vial+' No.' +interes.domicilio.numExt+ ' No. Int.'+interes.domicilio.numInt}
-                 <br/> { interes.domicilio.localidad.nom_loc+', '+interes.domicilio.municipio.nom_mun+', '+interes.domicilio.entidad_federativa.nom_ent+', '+interes.domicilio.pais.valor+' C.P. '+interes.domicilio.cp } </p>
+              <div className="row pdn_border">
+                {/* empresa, sociedad o asociación */}
+                <div className="col-sm-9">
+                  <p className="pdn_label">Nombre de la empresa, sociedad o asociación</p>
+                  <h3> { interes.nombre_empresa_sociedad_asociacion } </h3>
+                  <p className="pdn_data_p pnd_box_note pdn_gray">{interes.domicilio.vialidad.tipo_vial+' '+interes.domicilio.vialidad.nom_vial+' No.' +interes.domicilio.numExt+ ' No. Int.'+interes.domicilio.numInt}
+                   <br/> { interes.domicilio.localidad.nom_loc+', '+interes.domicilio.municipio.nom_mun+', '+interes.domicilio.entidad_federativa.nom_ent+', '+interes.domicilio.pais.valor+' C.P. '+interes.domicilio.cp } </p>
+                </div>
+                {/* constitución */}
+                <div className="col-sm-3">
+                  <p className="pdn_label">Fecha de constitución</p>
+                  <p className="pdn_data_p">{interes.fecha_constitucion} </p>
+                </div>
               </div>
-              {/* constitución */}
-              <div className="col-sm-3">
-                <p className="pdn_label">Fecha de constitución</p>
-                <p className="pdn_data_p">{interes.fecha_constitucion} </p>
+              {/* row ends*/}
+              <div className="row pdn_border">
+                {/* país*/}
+                <div className="col-sm-4">
+                  <p className="pdn_label">País</p>
+                  <p className="pdn_data_p">{interes.pais_registro.valor} </p>
+                </div>
+                {/* RFC*/}
+                <div className="col-sm-4">
+                  <p className="pdn_label">R.F.C</p>
+                  <p className="pdn_data_p">{interes.rfc} </p>
+                </div>
+                {/* # registro */}
+                <div className="col-sm-4">
+                  <p className="pdn_label">Número de registro</p>
+                  <p className="pdn_data_p">{interes.numero_registro} </p>
+                </div>
               </div>
+              {/* table */}
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Rol</th>
+                    <th>Actividad económica</th>
+                    <th>Porcentaje de participación</th>
+                    <th>Sector o industria</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>{interes.rol}</strong></td>
+                    <td><b className= { 'pdn_' + interes.actividad_economica}></b> {interes.actividad_economica ? "Sí" : "No"} </td>
+                    <td>{interes.porcentaje_participacion}%
+                      <div className="pdn_bar_container darken">
+                        <div className="pdn_bar participacion" style={{ width: interes.porcentaje_participacion + '%' }}></div>
+                      </div>
+                    </td>
+                    <td>{interes.sector_industria.valor}</td>
+                  </tr>
+                </tbody>
+              </table>
+              {/* table ends */}
             </div>
-            {/* row ends*/}
-            <div className="row pdn_border">
-              {/* país*/}
-              <div className="col-sm-4">
-                <p className="pdn_label">País</p>
-                <p className="pdn_data_p">{interes.pais_registro.valor} </p>
-              </div>
-              {/* RFC*/}
-              <div className="col-sm-4">
-                <p className="pdn_label">R.F.C</p>
-                <p className="pdn_data_p">{interes.rfc} </p>
-              </div>
-              {/* # registro */}
-              <div className="col-sm-4">
-                <p className="pdn_label">Número de registro</p>
-                <p className="pdn_data_p">{interes.numero_registro} </p>
-              </div>
-            </div>
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>Rol</th>
-                  <th>Actividad económica</th>
-                  <th>Porcentaje de participación</th>
-                  <th>Sector o industria</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>{interes.rol}</strong></td>
-                  <td><b className= { 'pdn_' + interes.actividad_economica}></b> {interes.actividad_economica ? "Sí" : "No"} </td>
-                  <td>{interes.porcentaje_participacion}%
-                    <div className="pdn_bar_container darken">
-                      <div className="pdn_bar participacion" style={{ width: interes.porcentaje_participacion + '%' }}></div>
-                    </div>
-                  </td>
-                  <td>{interes.sector_industria.valor}</td>
-                </tr>
-              </tbody>
-            </table>
-            </div>
+            {/* div close/open ends */}
         </div>
         )}
       </div>
