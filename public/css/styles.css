@@ -1408,6 +1408,11 @@ section.pdn_nomargin {
     .pdn_d_box p a:hover {
       color: #159cd7;
       border-bottom: dotted 1px #34b3eb; }
+  .pdn_d_box .pdn_amount {
+    font-size: 26px; }
+    .pdn_d_box .pdn_amount span {
+      display: block;
+      font-size: 12px; }
 
 .pdn_border {
   border-bottom: 1px solid #f2f2f2;
