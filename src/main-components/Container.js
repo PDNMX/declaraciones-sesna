@@ -24,9 +24,10 @@ class Container extends Component{
 	 * C O N S T R U C T O R
 	 * ----------------------------------------------------------------------
 	 */
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 
+		console.log("container:", this.props);
 		//
 		// THE STATE
 		//
@@ -41,6 +42,7 @@ class Container extends Component{
 	 * ----------------------------------------------------------------------
 	 */
   render(){
+  	let show = this.props.location.pathname == "/";
   	return(
   	  <div id="react-app">
   		  <div className="breadcrumb">
@@ -55,7 +57,7 @@ class Container extends Component{
 
 
 
-  		<div className="pdn_b_title">
+  		<div className="pdn_b_title" style={ {display : (show ? "block" : "none")} }>
 			  <div className="container">
 				  <div className="row">
 					  <div className="col-sm-2 col-sm-offset-2">
