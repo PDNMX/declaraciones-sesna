@@ -37,7 +37,7 @@ class Age extends Component{
 			},
 
 			fake4 : {
-				series : [30, 50, 20]        
+				series : [30, 50, 20]
 			},
 
 			fake5    : {
@@ -53,7 +53,7 @@ class Age extends Component{
 			},
 
 			fake6 : {
-				series : [12, 15, 13, 20, 10, 20, 10]        
+				series : [12, 15, 13, 20, 10, 20, 10]
 			},
 
 			donutOptions : {donut: true, donutWidth: 30}
@@ -73,15 +73,17 @@ class Age extends Component{
 	render(){
 		let st = this.state;
 		return(
-			<div>
+			<div clas="row">
+				<div class="col-sm-12">
 				<h1>Por edad</h1>
-
+				<div className="pdn_divider"></div>
 				<h2>Funcionarios por rango de edad (total)</h2>
 				<ChartistGraph data={st.fake} type={"Bar"} />
+				<div className="pdn_divider"></div>
 
 				<h2>Funcionarios por rango de edad (porcentaje)</h2>
 				<ChartistGraph data={ { series : st.fake2.series} } type={"Pie"} options={st.donutOptions} />
-				<ul>
+				<ul className="list_inline">
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
 				    </span> {st.fake.labels[0]}
@@ -112,10 +114,10 @@ class Age extends Component{
 				  </li>
 
 				</ul>
-
+				<div className="pdn_divider"></div>
 				<h2>Funcionarios por rango de edad y nivel de gobierno (total)</h2>
 				<ChartistGraph data={st.fake3} type={"Bar"} />
-				<ul>
+				<ul className="list_inline">
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
 				    </span> Federal
@@ -129,7 +131,7 @@ class Age extends Component{
 				    </span> Municipal
 				  </li>
 				</ul>
-
+				<div className="pdn_divider"></div>
 				<h2>Funcionarios por rango de edad y nivel de gobierno (porcentaje)</h2>
 				<ul>
 				  <li style={ {float: "left"} }>
@@ -162,7 +164,7 @@ class Age extends Component{
 				  </li>
 				</ul>
 
-				<ul>
+				<ul className="list_inline">
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
 				    </span> Federal
@@ -176,11 +178,12 @@ class Age extends Component{
 				    </span> Municipal
 				  </li>
 				</ul>
+				<div className="pdn_divider"></div>
 
 				<h2>Funcionarios por rango de edad y estado seleccionado </h2>
 				<ChartistGraph data={st.fake5} type={"Line"} />
 
-				<ul>
+				<ul className="list_inline">
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
 				    </span> Ciudad de México
@@ -203,7 +206,7 @@ class Age extends Component{
 				  </li>
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#589634"} }>
-				    </span> Veracruz 
+				    </span> Veracruz
 				  </li>
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#2d1a9c"} }>
@@ -212,10 +215,10 @@ class Age extends Component{
 
 				</ul>
 
-
+				<div className="pdn_divider"></div>
 				<h2>Funcionarios por nivel educativo (total) </h2>
 				<ChartistGraph data={st.fake5} type={"Line"} />
-				<ul>
+				<ul className="list_inline">
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
 				    </span> Primaria
@@ -238,13 +241,14 @@ class Age extends Component{
 				  </li>
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#589634"} }>
-				    </span> Doctorado 
+				    </span> Doctorado
 				  </li>
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#2d1a9c"} }>
 				    </span> post-doc
 				  </li>
 				</ul>
+				<div className="pdn_divider"></div>
 
 				<h2>Funcionarios por rango de edad y nivel educativo (porcentaje)</h2>
 				<ul>
@@ -278,7 +282,7 @@ class Age extends Component{
 				  </li>
 				</ul>
 
-				<ul>
+				<ul className="list_inline">
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
 				    </span> Primaria
@@ -301,7 +305,7 @@ class Age extends Component{
 				  </li>
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#589634"} }>
-				    </span> Doctorado 
+				    </span> Doctorado
 				  </li>
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#2d1a9c"} }>
@@ -309,7 +313,7 @@ class Age extends Component{
 				  </li>
 				</ul>
 
-
+				</div>
 			</div>
 		);
 	}
@@ -318,10 +322,10 @@ class Age extends Component{
 	  let connObj = Object.assign({}, ConstClass.fetchObj);
 
 	  connObj.body = this.makeQuery(_from, _to);
-	      
+
 	  return fetch(ConstClass.endpoint, connObj)
           .then(response => response.json())
-          .then(d => { 
+          .then(d => {
             return d.total;
           });
   }
@@ -339,7 +343,7 @@ class Age extends Component{
   		res.push({
   			label   : (currentYear - i) + " - " + (currentYear - i+st.step),
   			promise : this.getInfo(_from(i-10),  _to(i)).catch(error => { return error }),
-  			from    : _from(i-10), 
+  			from    : _from(i-10),
   			to      :  _to(i)
   		});
   		i-= st.step;
@@ -351,7 +355,7 @@ class Age extends Component{
   makeQuery(_from, _to){
   	let str     = ConstClass.PROP_NAMES.nacimiento,
   	    search  = {query : {}, limit : 2};
-	  
+
 	  search.query[str] = {desde : _from, hasta : _to};
 	  return JSON.stringify(search);
   }
