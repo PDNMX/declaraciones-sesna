@@ -71,47 +71,86 @@ class ActivosBienesInmuebles extends Component{
               {/* div close/open */}
               <div style={ {display : (inmueble.show ? "block" : "none")} }>
                 <div className="row pdn_border">
-                  <div className="col-sm-9">
+                  {/* Tipo de bien*/}
+                  <div className="col-sm-7">
                     <p className="pdn_label">Tipo de bien</p>
                     <h3>{inmueble.tipo_bien.valor}</h3>
                   </div>
-                  <div className="col-sm-3">
-                    <p className="pdn_label">Precio de adquisición</p>
-                    <p className="pdn_data_p">${inmueble.precio_adquisicion.valor} {inmueble.precio_adquisicion.moneda.codigo} ({inmueble.precio_adquisicion.moneda.moneda}) </p>
+                  {/* Precio de adquisición*/}
+                  <div className="col-sm-5">
+                    <p className="pdn_label right">Precio de adquisición</p>
+                    <h3 className="pdn_amount right">${inmueble.precio_adquisicion.valor} {inmueble.precio_adquisicion.moneda.codigo} <span>({inmueble.precio_adquisicion.moneda.moneda})</span> </h3>
                   </div>
                 </div>
+                {/* row ends*/}
+
+                <div className="row pdn_border">
+                  {/* Superficie del terreno*/}
+                  <div className="col-sm-4">
+                    <p className="pdn_label">Superficie del terreno</p>
+                    <p className="pdn_data_p">{inmueble.superficie_terreno}</p>
+                  </div>
+                  {/* Superficie de construcción */}
+                  <div className="col-sm-4">
+                    <p className="pdn_label">Superficie de construcción</p>
+                    <p className="pdn_data_p">{inmueble.superficie_construccion}</p>
+                  </div>
+                  {/* Valor Catastral*/}
+                  <div className="col-sm-4">
+                    <p className="pdn_label">Valor Catastral</p>
+                    <p className="pdn_data_p">${inmueble.valor_catastral}</p>
+                  </div>
+                </div>
+                {/* row ends*/}
+
+                <div className="row pdn_border">
+                  {/* Fecha de adquisición */}
+                  <div className="col-sm-4">
+                    <p className="pdn_label">Fecha de adquisición</p>
+                    <p className="pdn_data_p">{inmueble.fecha_adquisicion}</p>
+                  </div>
+                  {/* Forma  de adquisición */}
+                  <div className="col-sm-4">
+                    <p className="pdn_label">Forma  de adquisición</p>
+                    <p className="pdn_data_p">{inmueble.forma_adquisicion.valor}</p>
+                  </div>
+                  {/* Tipo de operación*/}
+                  <div className="col-sm-4">
+                    <p className="pdn_label">Tipo de operación</p>
+                    <p className="pdn_data_p">{inmueble.tipo_operacion.valor}</p>
+                  </div>
+                </div>
+                {/* row ends*/}
+
+                {/* table */}
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th>Relación con la persona que lo adquirio </th>
+                      <th>Porcentaje de la propiedad</th>
+                      <th>Sector o industria</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{inmueble.relacion_persona_adquirio.valor}</td>
+                      <td>{inmueble.porcentaje_propiedad}%
+                        <div className="pdn_bar_container darken">
+                          <div className="pdn_bar participacion" style={{ width: inmueble.porcentaje_propiedad + '%' }}></div>
+                        </div>
+                      </td>
+                      <td>{inmueble.sector_industria.valor}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                {/* table ends */}
               </div>
-          <p className="pdn_label">Tipo de operación</p>
-          <p className="pdn_data_p">{inmueble.tipo_operacion.valor}</p>
+              {/* div close/open  ends*/}
 
 
 
 
-          <p className="pdn_label">Superficie del terreno</p>
-          <p className="pdn_data_p">{inmueble.superficie_terreno}</p>
 
-          <p className="pdn_label">Superficie de construcción</p>
-          <p className="pdn_data_p">{inmueble.superficie_construccion}</p>
-
-          <p className="pdn_label">Porcentaje  de propiedad</p>
-          <p className="pdn_data_p">{inmueble.porcentaje_propiedad}</p>
-
-          <p className="pdn_label">Forma  de adquisición</p>
-          <p className="pdn_data_p">{inmueble.forma_adquisicion.valor}</p>
-
-          <p className="pdn_label">Relación con la persona que lo adquirió</p>
-          <p className="pdn_data_p">{inmueble.relacion_persona_adquirio.valor}</p>
-
-          <p className="pdn_label">Sector/Industria</p>
-          <p className="pdn_data_p">{inmueble.sector_industria.valor}</p>
-
-          <p className="pdn_label">Fecha de adquisición</p>
-          <p className="pdn_data_p">{inmueble.fecha_adquisicion}</p>
-
-
-
-          <p className="pdn_label">Valor Catastral</p>
-          <p className="pdn_data_p">${inmueble.valor_catastral}</p>
 
           <p className="pdn_label">Observaciones</p>
           <p className="pdn_data_p">{inmueble.observaciones}</p>
