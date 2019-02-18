@@ -144,17 +144,11 @@ class ActivosBienesInmuebles extends Component{
                   </tbody>
                 </table>
                 {/* table ends */}
+                <p className="pdn_label">Observaciones</p>
+                <p className="pdn_data_p">{inmueble.observaciones}</p>
+
               </div>
               {/* div close/open  ends*/}
-
-
-
-
-
-
-          <p className="pdn_label">Observaciones</p>
-          <p className="pdn_data_p">{inmueble.observaciones}</p>
-
         </div>
         )}
       </div>
