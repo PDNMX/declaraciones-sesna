@@ -73,8 +73,8 @@ class Age extends Component{
 	render(){
 		let st = this.state;
 		return(
-			<div clas="row">
-				<div class="col-sm-12">
+			<div className="row">
+				<div className="col-sm-12">
 				<h1>Por edad</h1>
 				<div className="pdn_divider"></div>
 				<h2>Funcionarios por rango de edad (total)</h2>
@@ -216,7 +216,7 @@ class Age extends Component{
 				</ul>
 
 				<div className="pdn_divider"></div>
-				<h2>Funcionarios por nivel educativo (total) </h2>
+				<h2>Funcionarios por rango de edad y nivel educativo (total) </h2>
 				<ChartistGraph data={st.fake5} type={"Line"} />
 				<ul className="list_inline">
 				  <li>

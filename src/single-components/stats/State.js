@@ -61,8 +61,8 @@ class State extends Component{
 	render(){
 		let st = this.state;
 		return(
-			<div clas="row">
-				<div class="col-sm-12">
+			<div clasnName="row">
+				<div className="col-sm-12">
 				<h1>Por entidad</h1>
 				<div className="pdn_divider"></div>
 
