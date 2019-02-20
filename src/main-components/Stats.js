@@ -61,10 +61,10 @@ class Stats extends Component{
 				</ul>
 				</nav>
 			  <Switch>
-				    <Route path='/estadistica/edad' component={Age} />
-				    <Route path='/estadistica/nivel-de-gobierno' component={GobLevel} />
-				    <Route path='/estadistica/entidad-federativa' component={State} />
-				    <Route path='/estadistica/educacion' component={Education} />
+				    <Route path='/estadistica/edad/:categoria?' component={Age} />
+				    <Route path='/estadistica/nivel-de-gobierno/:categoria?' component={GobLevel} />
+				    <Route path='/estadistica/entidad-federativa/:categoria?' component={State} />
+				    <Route path='/estadistica/educacion/:categoria?' component={Education} />
 				</Switch>
 				</div>
 			</div>

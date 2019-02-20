@@ -326,14 +326,14 @@ class Age extends Component{
 	  return fetch(ConstClass.endpoint, connObj)
           .then(response => response.json())
           .then(d => {
-            return d.total;
+            return d;
           });
   }
 
   makeData(){
   	let currentYear = (new Date()).getFullYear(),
   	    _from = d => `${d}-01-01`,
-  	    _to   = d => `${d}-12-31`,
+  	    _to   = d => `${d}-07-07`,
   	    st    = this.state,
   	    i     = currentYear - st.ageFrom,
   	    res   = [],
@@ -356,7 +356,7 @@ class Age extends Component{
   	let str     = ConstClass.PROP_NAMES.nacimiento,
   	    search  = {query : {}, limit : 2};
 
-	  search.query[str] = {desde : _from, hasta : _to};
+	  search.query[str] = {"desde" : _from, "hasta" : _to};
 	  return JSON.stringify(search);
   }
 }
