@@ -6,15 +6,25 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import * as ConstClass from  '../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
-import "../../css/chartist.min.css"
+import "../../css/chartist.min.css";
+
+import * as ConstClass from  '../../ConstValues.js';
+
+import NivelGobiernoTotal from './gob-level/NivelGobiernoTotal';
+import NivelGobiernoPorcentaje from './gob-level/NivelGobiernoPorcentaje';
+
+import NivelGobiernoEducacion from './gob-level/NivelGobiernoEducacion';
 
 class GobLevel extends Component{
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 
+		this.nivelGobierno = this.nivelGobierno.bind(this);
+
+		console.log("las props!", this.props);
 		this.state = {
+			cat : this.props.match.params.categoria,
 			ageFrom : 18,
 			ageTo   : 98,
 			step    : 10,
@@ -61,11 +71,21 @@ class GobLevel extends Component{
 	};
 
 	render(){
-		let st = this.state;
 		return(
 			<div>
+			  <ul>
+			  	<li><a href="#">nivel de gobierno</a></li>
+			  	<li><a href="#">nivel de gobierno y edad</a></li>
+			  	<li><a href="#">nivel de gobierno y educación</a></li>
+			  </ul>
+			  { this.nivelGobierno() }
+			</div>
+		);
+
+			  /*
 				<h1>Por Nivel de Gobierno</h1>
 				<div className="pdn_divider"></div>
+
 				<h2>Funcionarios por nivel de gobierno (total)</h2>
 				<ChartistGraph data={this.state.fake} type={"Bar"} />
 				<div className="pdn_divider"></div>
@@ -235,9 +255,26 @@ class GobLevel extends Component{
 				    </span> {this.state.fake5.__labels[6]}
 				  </li>
 				</ul>
+			*/
+	}
 
-			</div>
-		);
+	nivelGobierno(){
+		if(!this.state.cat){
+			return(
+			  <div>
+			    <NivelGobiernoTotal />
+			    <NivelGobiernoPorcentaje />
+			  </div>
+			);
+	  }
+	  else if(this.state.cat == "gobierno-y-edad"){
+
+	  }
+	  else{
+	  	return(
+	  		<NivelGobiernoEducacion />
+	  	);
+	  }
 	}
 
 	getInfo(_from, _to){
@@ -255,7 +292,7 @@ class GobLevel extends Component{
   makeData(){
   	let currentYear = (new Date()).getFullYear(),
   	    _from = d => `${d}-01-01`,
-  	    _to   = d => `${d}-12-31`,
+  	    _to   = d => `${d}-07-07`,
   	    st    = this.state,
   	    i     = currentYear - st.ageFrom,
   	    res   = [],
