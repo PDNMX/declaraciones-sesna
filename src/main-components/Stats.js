@@ -23,34 +23,34 @@ import Education from "../single-components/stats/Education.js";
 class Stats extends Component{
 	constructor(){
 		super();
-
 	}
 
 	render(){
+		let section = this.props.match.params.section;
 		return(
 			<div className="row">
 				<div className="col-sm-12">
 			<nav className="pdn_main_nav">
 			  <ul>
 					<li>
-						<Link to="/estadistica/edad">
+						<Link to="/estadistica/edad" className={ section == "edad" ? "router-link-active" : "" }>
 						  Edad
 						</Link>
 					</li>
 					<li>
-						<Link to="/estadistica/nivel-de-gobierno">
+						<Link to="/estadistica/nivel-de-gobierno" className={ section == "nivel-de-gobierno" ? "router-link-active" : "" }>
 						  Nivel de gobierno
 						</Link>
 					</li>
 
 					<li>
-						<Link to="/estadistica/entidad-federativa">
+						<Link to="/estadistica/entidad-federativa" className={ section == "entidad-federativa" ? "router-link-active" : "" }>
 						  Estado
 						</Link>
 					</li>
 
 					<li>
-						<Link  to="/estadistica/educacion">
+						<Link  to="/estadistica/educacion" className={ section == "educacion" ? "router-link-active" : "" }>
 						  Educación
 						</Link>
 					</li>

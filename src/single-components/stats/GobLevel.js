@@ -14,6 +14,9 @@ import NivelGobiernoPorcentaje from './gob-level/NivelGobiernoPorcentaje';
 import NivelGobiernoEducacion from './gob-level/NivelGobiernoEducacion';
 import NivelGobiernoEducacionPorcentaje from './gob-level/NivelGobiernoEducacionPorcentaje';
 
+import NivelGobiernoEdad from './gob-level/NivelGobiernoEdad';
+import NivelGobiernoEdadPorcentaje from './gob-level/NivelGobiernoEdadPorcentaje';
+
 /*
   ////////////////////////////////////////////////////////////////////////////////
   //
@@ -35,17 +38,18 @@ class GobLevel extends Component{
 	 * ----------------------------------------------------------------------
 	 */
 	render(){
+		let cat = this.props.match.params.categoria;
 		return(
 			<div>
 			  <ul>
 			  	<li>
-			  	  <Link to="/estadistica/nivel-de-gobierno">nivel de gobierno</Link>
+			  	  <Link to="/estadistica/nivel-de-gobierno" className={ !cat ? "router-link-active" : "" }>nivel de gobierno</Link>
 			  	</li>
 			  	<li>
-			  	  <Link to="/estadistica/nivel-de-gobierno/gobierno-y-edad" >nivel de gobierno y edad</Link>
+			  	  <Link to="/estadistica/nivel-de-gobierno/gobierno-y-edad" className={ cat == "gobierno-y-edad" ? "router-link-active" : "" }>nivel de gobierno y edad</Link>
 			  	</li>
 			  	<li>
-			  	  <Link to="/estadistica/nivel-de-gobierno/gobierno-y-educacion" >nivel de gobierno y educación</Link>
+			  	  <Link to="/estadistica/nivel-de-gobierno/gobierno-y-educacion" className={ cat == "gobierno-y-educacion" ? "router-link-active" : "" }>nivel de gobierno y educación</Link>
 			  	</li>
 			  </ul>
 			  { this.nivelGobierno() }
@@ -76,7 +80,12 @@ class GobLevel extends Component{
 			);
 	  }
 	  else if(cat == "gobierno-y-edad"){
-
+	  	return(
+	  		<div>
+	  		  <NivelGobiernoEdad />
+	  		  <NivelGobiernoEdadPorcentaje />
+	  		</div>
+	  	);
 	  }
 	  else if(cat == "gobierno-y-educacion"){
 	  	return(
