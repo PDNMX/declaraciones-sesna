@@ -65,7 +65,7 @@ class InteresesApoyos extends Component{
                   {/* valor anual*/}
                   <div className="col-sm-3">
                     <p className="pdn_label">Valor anual del apoyo</p>
-                    <p className="pdn_data_p right">${interes.valor_anual_apoyo} </p>
+                    <h3 className="pdn_amount right">${interes.valor_anual_apoyo} </h3>
                   </div>
                 </div>
                 {/* row ends*/}
