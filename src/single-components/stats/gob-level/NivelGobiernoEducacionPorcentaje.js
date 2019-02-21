@@ -58,7 +58,7 @@ class NivelGobiernoEducacionPorcentaje extends Component{
     let colors = ConstClass.ChartColors;
     return(
       <div>
-        <h2>Funcionarios por nivel de gobierno y nivel educativo (total)</h2>
+        <h2>Funcionarios por nivel de gobierno y nivel educativo (porcentaje)</h2>
         <ul>
         { this.state.data.series.map( (d,i) => 
           <li key={"ngepg-" + i}>
@@ -164,8 +164,6 @@ class NivelGobiernoEducacionPorcentaje extends Component{
 
     search.query[str1] = gl;
     search.query[str2] = ne;
-
-    console.log(search);
 
 
     return JSON.stringify(search);

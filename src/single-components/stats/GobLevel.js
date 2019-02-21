@@ -15,6 +15,7 @@ import NivelGobiernoEducacion from './gob-level/NivelGobiernoEducacion';
 import NivelGobiernoEducacionPorcentaje from './gob-level/NivelGobiernoEducacionPorcentaje';
 
 import NivelGobiernoEdad from './gob-level/NivelGobiernoEdad';
+import NivelGobiernoEdadPorcentaje from './gob-level/NivelGobiernoEdadPorcentaje';
 
 /*
   ////////////////////////////////////////////////////////////////////////////////
@@ -82,6 +83,7 @@ class GobLevel extends Component{
 	  	return(
 	  		<div>
 	  		  <NivelGobiernoEdad />
+	  		  <NivelGobiernoEdadPorcentaje />
 	  		</div>
 	  	);
 	  }

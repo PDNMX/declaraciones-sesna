@@ -18,7 +18,7 @@ import "../../../css/chartist.min.css"
   ////////////////////////////////////////////////////////////////////////////////
 */
 class NivelGobiernoEdad extends Component{
-    /*
+  /*
    * C O N S T R U C T O R
    * ----------------------------------------------------------------------
    */
@@ -45,8 +45,6 @@ class NivelGobiernoEdad extends Component{
         _labels : [...new Set(promises.map(d => d._label))],
         series  : this.buildMatrix(d, promises)
       }
-
-      console.log(promises, data);
 
       this.setState({data : data});
       
@@ -158,6 +156,13 @@ class NivelGobiernoEdad extends Component{
     return res;
   }
 
+  /*
+  /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+  /
+  /  
+  /
+  /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+  */
   makeQuery(_from, _to, gl){
     let str1   = ConstClass.PROP_NAMES.nacimiento,
         str2   = ConstClass.PROP_NAMES.nivelGobierno,
