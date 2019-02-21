@@ -130,7 +130,6 @@ class NivelGobiernoEducacion extends Component{
 
     for(i =0; i < ne.length; i++ ){
       for(j =0; j < gl.length; j++){
-        console.log(gl[j].key);
         res.push({
           promise : this.getInfo(ne[i], gl[j].key ), 
           label : gl[j].label
@@ -155,8 +154,6 @@ class NivelGobiernoEducacion extends Component{
 
     search.query[str1] = gl;
     search.query[str2] = ne;
-
-    console.log(search);
 
 
     return JSON.stringify(search);
