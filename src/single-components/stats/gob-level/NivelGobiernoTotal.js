@@ -36,14 +36,12 @@ class NivelGobiernoTotal extends Component{
 	 	let promises = this.makeData();
 
 		Promise.all(promises.map(d => d.promise)).then(d => {
-			console.log("yaiii:", d);
 
 			let data = {
 				labels : promises.map(d => d.label),
 				series : [d]
 			}
-
-			console.log(data);
+			
 			this.setState({data : data});
 		});
 	 }

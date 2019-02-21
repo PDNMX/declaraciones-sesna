@@ -37,16 +37,13 @@ class NivelGobiernoEducacion extends Component{
     let promises = this.makeData();
 
     Promise.all(promises.map(d => d.promise)).then(d => {
-      console.log(this.buildMatrix(d));
 
-      
       let data = {
         labels : [...new Set(promises.map(d => d.label))],
         series : this.buildMatrix(d)
       }
 
       this.setState({data : data});
-      
     });
    }
 
@@ -55,12 +52,22 @@ class NivelGobiernoEducacion extends Component{
    * ----------------------------------------------------------------------
    */
 	render(){
-    let st = this.state.data;
-
-    if(!st) return null;
+    if(!this.state.data) return null;
+    let colors = ConstClass.ChartColors;
 		return(
       <div>
-        <ChartistGraph data={st} type={"Bar"} />
+        <h2>Funcionarios por nivel de gobierno y nivel educativo (total)</h2>
+        <ChartistGraph data={this.state.data} type={"Bar"} />
+        <div className="pdn_divider"></div>
+
+        <ul className="list_inline">
+        {ConstClass.NivelEducacion.map( (d, i) =>
+          <li key={"ngel-" + i}>
+            <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
+            </span> {d}
+          </li>
+        )}
+        </ul>
       </div>
 		);
 	}
@@ -89,6 +96,13 @@ class NivelGobiernoEducacion extends Component{
           });
   }
 
+  /*
+  /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+  /
+  /  
+  /
+  /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+  */
   buildMatrix(data){
     let b   = [...data], 
         gl  = ConstClass.GobLevels,
@@ -123,12 +137,6 @@ class NivelGobiernoEducacion extends Component{
         });
       }
     }
-      /*
-      res.push({
-        promise : this.getInfo(gl[i].key), 
-        label : gl[i].label
-      });
-      */
 
     return res;
   }
