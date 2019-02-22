@@ -38,6 +38,10 @@ class InfoGeneral extends Component{
 </div>
 		);
 	}
+
+	items(){
+    return this.props.profile.informacion_personal.informacion_general;
+  }
 }
 
 export default InfoGeneral;

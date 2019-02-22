@@ -85,6 +85,11 @@ class InfoExperiencia extends Component{
 	</div>
 		);
 	}
+
+	items(){
+    return this.props.profile.informacion_personal.experiencia_laboral;
+  }
+  
 }
 
 export default InfoExperiencia;

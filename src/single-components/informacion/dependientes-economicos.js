@@ -8,10 +8,11 @@
 import React, {Component} from "react";
 
 class InfoDependientes extends Component{
+
 	render(){
 		return(
 			<div className="col-sm-9 col-sm-offset-3 sidecontent">
-			<h2>Dependientes económicos: {this.props.items.length}</h2>
+			<h2>Dependientes económicos: {this.items().length}</h2>
 			<div className="row">
 				<div className="col-sm-12">
 					<div className="pdn_d_box">
@@ -26,14 +27,14 @@ class InfoDependientes extends Component{
 
 		<div className="row">
 			<div className="col-sm-12">
-			  { this.props.items.map( (dependiente, i) =>
+			  { this.items().map( (dependiente, i) =>
 				<div className="pdn_d_box" key={"dependiente-" + i}>
 					<div className="row pdn_border">
 						<div className="col-sm-6">
 							<p><span className={ 'label ' + dependiente.tipo_relacion.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}> {dependiente.tipo_relacion.valor}</span></p>
 						</div>
 					</div>
-					<div class="row pdn_border">
+					<div className="row pdn_border">
 						<div className="col-sm-6">
 							<p className="pdn_label">Sector / Industria</p>
 							<p className="pdn_data_p">{dependiente.sector_industria.valor}</p>
@@ -44,7 +45,7 @@ class InfoDependientes extends Component{
 						</div>
 					</div>
 
-					<div class="row pdn_border">
+					<div className="row pdn_border">
 						<div className="col-sm-6">
 							<p className="pdn_label">Intereses en el mismo Sector/Industria</p>
 							<p className="pdn_data_p">{!dependiente.tiene_intereses_mismo_sector_declarante ? "No" : "Sí"}</p>
@@ -73,7 +74,7 @@ class InfoDependientes extends Component{
 						<div className="row">
 						<div className="col-sm-6">
 							<p className="pdn_label">Tipo de apoyo</p>
-							<p className="pdn_data_p">{programa.tipo_apoyo}</p>
+							<p className="pdn_data_p">{programa.tipo_apoyo.valor}</p>
 						</div>
 						<div className="col-sm-6">
 							<p className="pdn_label">Valor del Apoyoo</p>
@@ -90,6 +91,11 @@ class InfoDependientes extends Component{
 	</div>
 		);
 	}
+
+	items(){
+    return this.props.profile.informacion_personal.dependientes_economicos;
+  }
+
 }
 
 export default InfoDependientes;

@@ -44,6 +44,11 @@ class InfoCurriculum extends Component{
 	</div>
 		);
 	}
+
+	items(){
+    return this.props.profile.informacion_personal.datos_curriculares;
+  }
+  
 }
 
 export default InfoCurriculum;

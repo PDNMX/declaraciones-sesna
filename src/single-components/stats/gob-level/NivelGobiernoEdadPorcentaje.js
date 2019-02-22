@@ -154,7 +154,7 @@ class NivelGobiernoEdadPorcentaje extends Component{
     for(i =0; i < gl.length; i++ ){
       while(year1 > currentYear - conf.to){
         res.push({
-          promise : this.getInfo(_from(year1), _to(year2), gl[i].key ), 
+          promise : this.getInfo(_from(year2), _to(year1), gl[i].key ), 
           label : gl[i].label,
           _label : `${currentYear - year1} - ${currentYear - year2}`
         });

@@ -55,6 +55,10 @@ class InfoPuesto extends Component{
 	</div>
 		);
 	}
+
+	items(){
+    return this.props.profile.informacion_personal.datos_encargo_actual;
+  }
 }
 
 export default InfoPuesto;
