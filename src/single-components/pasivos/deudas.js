@@ -60,8 +60,6 @@ class Deudas extends Component{
 				<div className="row">
 					<div className="col-sm-12">
 					  { this.items().map( (pasivo, i) =>
-
-
 						<div className="pdn_d_box" key={"pasivo-" + i} id={"pasivo-" + i}>
 							{/* row starts*/}
 							<div className="row pdn_border">
