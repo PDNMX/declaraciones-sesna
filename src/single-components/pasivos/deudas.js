@@ -47,7 +47,7 @@ class Deudas extends Component{
             { this.items().map( (pasivo, i) =>
             <div className="pdn_d_box">
               <div className="pdn_bar_container">
-                <div className="pdn_bar declarante"></div>
+                <div className={ 'pdn_bar ' + pasivo.titularidad_deuda.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}></div>
               </div>
               <p className="pdn_graph_label">
               <b className={ 'pdn_graph_label_item label ' + pasivo.titularidad_deuda.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}></b> {pasivo.titularidad_deuda.valor}</p>
