@@ -36,6 +36,8 @@ class IngresosSueldosPublicos extends Component{
    * ----------------------------------------------------------------------
    */
   render(){
+    console.log("some stuff",  this.items() );
+    //return null;
     return(
       <div className="col-sm-9 col-sm-offset-3 sidecontent">
         <h2>Sueldos y Salarios por el Encargo Público ({this.items().length})</h2>
@@ -76,7 +78,7 @@ class IngresosSueldosPublicos extends Component{
                   {/* Ente público */}
                   <div className="col-sm-7">
                     <p className="pdn_label">Ente público</p>
-                    <h3>{sueldo.ente_publico}</h3>
+                    <h3>{sueldo.ente_publico.valor}</h3>
                   </div>
                   {/* Ingreso bruto anual*/}
                   <div className="col-sm-5">

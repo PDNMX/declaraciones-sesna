@@ -37,6 +37,7 @@ class InteresesMembresias extends Component{
    * ----------------------------------------------------------------------
    */
   render(){
+
     return(
     <div className="col-sm-9 col-sm-offset-3 sidecontent">
       <h2>Membresías ({this.items().length})</h2>
@@ -76,7 +77,7 @@ class InteresesMembresias extends Component{
                   </div>
                 <div className="col-sm-6">
                   <p className="pdn_label">Naturaleza de membresía</p>
-                  <p className="pdn_data_p">{interes.naturaleza_membresia} </p>
+                  <p className="pdn_data_p">{interes.naturaleza_membresia.valor} </p>
                 </div>
               </div>
               {/* row ends*/}

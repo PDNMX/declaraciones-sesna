@@ -24,7 +24,7 @@ class Activos extends Component{
 		let section = this.props.section;
 		return(
 			<div>
-	<div class="col-sm-3 sidebar">
+	<div className="col-sm-3 sidebar">
 		<h2>Activos</h2>
 		<ul>
 

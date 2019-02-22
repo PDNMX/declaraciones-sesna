@@ -78,7 +78,7 @@ class PasivosObligaciones extends Component{
                   {/* Tipo de obligación*/}
                   <div className="col-sm-4">
                     <p className="pdn_label">Tipo de obligación</p>
-                    <h3>{pasivo.tipo_obligacion}</h3>
+                    <h3>{pasivo.tipo_obligacion.valor}</h3>
                   </div>
                   {/* Monto original*/}
                   <div className="col-sm-4">

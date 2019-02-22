@@ -71,15 +71,15 @@ class InteresesApoyos extends Component{
                 {/* row ends*/}
 
                 <div className="row pdn_border">
-                  <div class="col-sm-4">
+                  <div className="col-sm-4">
                     <p className="pdn_label">Institución otorgante</p>
                     <p className="pdn_data_p" >{interes.institucion_otorgante}</p>
                   </div>
-                  <div class="col-sm-4">
+                  <div className="col-sm-4">
                     <p className="pdn_label">Nivel de Gobierno</p>
                     <p className="pdn_data_p" >{interes.nivel_orden_gobierno.valor}</p>
                   </div>
-                  <div class="col-sm-4">
+                  <div className="col-sm-4">
                     <p className="pdn_label">Tipo de Apoyo</p>
                     <p className="pdn_data_p" >{interes.tipo_apoyo.valor}</p>
                   </div>
@@ -87,11 +87,11 @@ class InteresesApoyos extends Component{
                 {/* row ends*/}
 
                 <div className="row pdn_border">
-                  <div class="col-sm-3">
+                  <div className="col-sm-3">
                     <p className="pdn_label">Es beneficiario</p>
                     <p className="pdn_data_p"><b className= { 'pdn_' + interes.es_beneficiario}></b> {interes.es_beneficiario ? "Sí" : "No"}</p>
                   </div>
-                  <div class="col-sm-9">
+                  <div className="col-sm-9">
                     <p className="pdn_label">Explicación</p>
                     <p className="pdn_data_p">{interes.observaciones}</p>
                   </div>
