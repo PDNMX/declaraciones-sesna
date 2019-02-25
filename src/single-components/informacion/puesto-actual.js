@@ -20,7 +20,7 @@ class InfoPuesto extends Component{
 					<p className="pdn_label">Área de adscripción</p>
 					<p className="pdn_data_p pnd_box_note"><strong>{ this.props.profile.informacion_personal.datos_encargo_actual.area_adscripcion}</strong><br/>
 					{ this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.vialidad.tipo_vial }	{ this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.vialidad.nom_vial }	#{ this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.numExt }
-					<span>{ this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.numExt ? ", int. #" + this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.numExt : "" }</span><br/>
+					<span>{ this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.numInt ? ", int. #" + this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.numInt : "" }</span><br/>
 					{ this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.localidad.nom_loc }, { this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.municipio.nom_mun }<br/>
 					{ this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.entidad_federativa.nom_ent }. C.P. { this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.cp }
 					</p>

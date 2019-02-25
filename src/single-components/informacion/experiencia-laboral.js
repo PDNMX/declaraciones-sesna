@@ -39,7 +39,7 @@ class InfoExperiencia extends Component{
 							<p className="pdn_label">Institución</p>
 							<p className="pdn_data_p">{job.nombre_institucion}<br/>
 							<span className="pnd_box_note">{ job.direccion.vialidad.tipo_vial }	{ job.direccion.vialidad.nom_vial }	#{ job.direccion.numExt }
-							<span>{ job.direccion.numExt ? ", int. #" + job.direccion.numExt : "" }</span><br/>
+							<span>{ job.direccion.numInt ? ", int. #" + job.direccion.numInt : "" }</span><br/>
 							{ job.direccion.localidad.nom_loc }, { job.direccion.municipio.nom_mun }<br/>
 							{ job.direccion.entidad_federativa.nom_ent }. C.P. { job.direccion.cp }
 							</span>
@@ -89,7 +89,7 @@ class InfoExperiencia extends Component{
 	items(){
     return this.props.profile.informacion_personal.experiencia_laboral;
   }
-  
+
 }
 
 export default InfoExperiencia;
