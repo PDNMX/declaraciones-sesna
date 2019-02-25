@@ -59,10 +59,10 @@ class EdadTotalEducacionPorcentaje extends Component{
     let colors = ConstClass.ChartColors;
 		return(
       <div>
-        <h2>Funcionarios por rango de edad y nivel educativo (porcentaje)</h2>
+        <h2>Funcionarios por rango de edad y nivel de gobierno (porcentaje)</h2>
         <ul>
         { this.state.data.series.map( (d,i) => 
-          <li key={"ngnepgx-" + i}>
+          <li key={"ngnepgxs-" + i}>
             <ChartistGraph data={ {series : d} } type={"Pie"} options={this.state.options} />
             <p>{this.state.data.labels[i]}</p>
             <div className="pdn_divider"></div>
@@ -71,10 +71,10 @@ class EdadTotalEducacionPorcentaje extends Component{
         </ul>
 
         <ul className="list_inline">
-        {ConstClass.NivelEducacion.map( (d, i) =>
-          <li key={"ngenplx-" + i}>
+        {ConstClass.GobLevels.map( (d, i) =>
+          <li key={"ngenplxs-" + i}>
             <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
-            </span> {d}
+            </span> {d.label}
           </li>
         )}
         </ul>
@@ -95,10 +95,10 @@ class EdadTotalEducacionPorcentaje extends Component{
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
-  getInfo(_from, _to, ne){
+  getInfo(_from, _to, lg){
     let connObj = Object.assign({}, ConstClass.fetchObj);
 
-    connObj.body = this.makeQuery(_from, _to, ne);
+    connObj.body = this.makeQuery(_from, _to, lg);
 
     return fetch(ConstClass.endpoint, connObj)
           .then(response => response.json())
@@ -116,11 +116,11 @@ class EdadTotalEducacionPorcentaje extends Component{
   */
   buildMatrix(data, length){
     let b   = [...data], 
-        ne  = ConstClass.NivelEducacion, 
+        lg  = ConstClass.GobLevels, 
         i, j, res = [];
 
     for(i =0; i < length; i++ ){
-      res.push(b.splice(0, ne.length))
+      res.push(b.splice(0, lg.length))
     }
 
     return res;
@@ -141,13 +141,13 @@ class EdadTotalEducacionPorcentaje extends Component{
         conf = ConstClass.AgeChartsConf,
         year1 = currentYear - conf.from,
         year2 = year1 - conf.step,
-        ne  = ConstClass.NivelEducacion, 
+        lg  = ConstClass.GobLevels, 
         i, j;
 
       while(year1 > currentYear - conf.to){
-      	for(i = 0; i < ne.length; i++ ){
+      	for(i = 0; i < lg.length; i++ ){
           res.push({
-            promise : this.getInfo(_from(year2), _to(year1), ne[i] ), 
+            promise : this.getInfo(_from(year2), _to(year1), lg[i].key ), 
             label   : `${currentYear - year1} - ${currentYear - year2}`
           });
         }
@@ -166,13 +166,13 @@ class EdadTotalEducacionPorcentaje extends Component{
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
-  makeQuery(_from, _to, ne){
+  makeQuery(_from, _to, lg){
     let str1   = ConstClass.PROP_NAMES.nacimiento,
-        str2   = ConstClass.PROP_NAMES.escolaridad,
+        str2   = ConstClass.PROP_NAMES.nivelGobierno,
         search = {query : {}, limit : 2};
 
     search.query[str1] = {"desde" : _from, "hasta" : _to};;
-    search.query[str2] = ne;
+    search.query[str2] = lg;
 
 
     return JSON.stringify(search);
