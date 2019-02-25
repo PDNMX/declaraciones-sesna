@@ -25,13 +25,6 @@ import NivelGobiernoEdadPorcentaje from './gob-level/NivelGobiernoEdadPorcentaje
   ////////////////////////////////////////////////////////////////////////////////
 */
 class GobLevel extends Component{
-	/*
-	 * C O N S T R U C T O R
-	 * ----------------------------------------------------------------------
-	 */
-	constructor(props){
-		super(props);
-	};
 
 	/*
 	 * R E N D E R

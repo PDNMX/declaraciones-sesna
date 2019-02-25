@@ -6,9 +6,26 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
+import { Link } from 'react-router-dom';
+
 import * as ConstClass from  '../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../css/chartist.min.css"
+
+import EdadTotal from './age/EdadTotal';
+import EdadTotalPorcentaje from './age/EdadTotalPorcentaje';
+
+/*
+
+import EdadTotalEducacion from './age/EdadTotalEducacion';
+import EdadTotalEducacionPorcentaje from './gob-level/EdadTotalEducacionPorcentaje';
+
+import EdadTotalEstado from './age/EdadTotalEstado';
+import EdadTotalEstadoPorcentaje from './gob-level/EdadTotalEstadoPorcentaje';
+
+import EdadTotalNivelGobierno from './age/EdadTotalNivelGobierno';
+import EdadTotalNivelGobiernoPorcentaje from './gob-level/EdadTotalNivelGobiernoPorcentaje';
+*/
 
 class Age extends Component{
 	constructor(){
@@ -78,42 +95,10 @@ class Age extends Component{
 				<h1>Por edad</h1>
 				<div className="pdn_divider"></div>
 				<h2>Funcionarios por rango de edad (total)</h2>
-				<ChartistGraph data={st.fake} type={"Bar"} />
-				<div className="pdn_divider"></div>
-
-				<h2>Funcionarios por rango de edad (porcentaje)</h2>
-				<ChartistGraph data={ { series : st.fake2.series} } type={"Pie"} options={st.donutOptions} />
-				<ul className="list_inline">
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
-				    </span> {st.fake.labels[0]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#e95a55"} }>
-				    </span> {st.fake.labels[1]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#edcb4f"} }>
-				    </span> {st.fake.labels[2]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#ca7c24"} }>
-				    </span> {st.fake.labels[3]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#453d3f"} }>
-				    </span> {st.fake.labels[4]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#589634"} }>
-				    </span> {st.fake.labels[5]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#2d1a9c"} }>
-				    </span> {st.fake.labels[6]}
-				  </li>
-
-				</ul>
+				
+				<EdadTotal />
+				<EdadTotalPorcentaje />
+	
 				<div className="pdn_divider"></div>
 				<h2>Funcionarios por rango de edad y nivel de gobierno (total)</h2>
 				<ChartistGraph data={st.fake3} type={"Bar"} />
