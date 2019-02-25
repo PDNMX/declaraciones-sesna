@@ -38,7 +38,7 @@ class ActivosFideicomisos extends Component{
   render(){
     return(
       <div className="col-sm-9 col-sm-offset-3 sidecontent">
-        <h2>Fideicomisos</h2>
+        <h2>Fideicomisos ({this.items().length})</h2>
 
         {/* row */ }
         <div className="row">

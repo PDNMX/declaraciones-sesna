@@ -38,7 +38,7 @@ class ActivosBienesIntangibles extends Component{
   render(){
     return(
       <div className="col-sm-9 col-sm-offset-3 sidecontent">
-        <h2>Bienes intangibles</h2>
+        <h2>Bienes intangibles ({this.items().length})</h2>
 
         {/* row */ }
         <div className="row">
