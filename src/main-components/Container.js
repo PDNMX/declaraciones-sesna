@@ -55,8 +55,8 @@ class Container extends Component{
   		  </div>
 
 
-
-  		<div className="pdn_b_title" style={ {display : (show ? "block" : "none")} }>
+		<div style={ {display : (show ? "block" : "none")} }>
+  		<div className="pdn_b_title">
 			  <div className="container">
 				  <div className="row">
 					  <div className="col-sm-2 col-sm-offset-2">
@@ -66,13 +66,31 @@ class Container extends Component{
 						  <h1><strong>Declaraciones</strong></h1>
 					  </div>
 					  <div className="col-sm-6">
-						  <p>Consulta, visualiza y descarga los datos de las declaraciones patrimoniales, 
+						  <p>Consulta, visualiza y descarga los datos de las declaraciones patrimoniales,
 						  de intereses y las constancias de la declaración fiscal de los servidores públicos.</p>
 					  </div>
 				  </div>
 			  </div>
 		  </div>
+			{/* <!--section nav--> */}
+			<section className="pdn_sis_nav">
+				<div className="container">
+					<div className="row">
+						<ul className="pdn_cont_nav">
+							<li className="current">
+								<a href="/">
+									<figure><img src="/img/servidores_declaraciones.svg" width="60px" /></figure>
+									Buscar un servidor público
+								</a>
+							</li>
+							<li><a href="/estadistica/edad"><figure><img src="/img/estadisticas.svg" width="60px" /></figure>Estadísticas</a></li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</div>
 
+			{/* <!--section pdn_m--> */}
 		  <section className="pdn_m">
 			  <div className="container">
 				  <Switch>
