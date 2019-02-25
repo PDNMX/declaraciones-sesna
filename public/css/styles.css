@@ -1206,6 +1206,39 @@ ol {
   background: #f2f2f2;
   height: 59px; }
 
+section.pdn_sis_nav {
+  background: #34b3eb; }
+
+.pdn_cont_nav {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0;
+  min-height: 102px; }
+  .pdn_cont_nav li {
+    font-weight: 300;
+    width: 100%; }
+    .pdn_cont_nav li.current a {
+      background: #777776;
+      font-weight: 500; }
+  .pdn_cont_nav a:link,
+  .pdn_cont_nav a:visited {
+    color: white;
+    display: block;
+    height: 100%;
+    padding: 23px 15px 31px; }
+    .pdn_cont_nav a:link:hover,
+    .pdn_cont_nav a:visited:hover {
+      color: white;
+      background: #777776; }
+    .pdn_cont_nav a:link figure,
+    .pdn_cont_nav a:visited figure {
+      height: 100%;
+      display: inline-block;
+      float: left;
+      margin-right: 8px; }
+
 .pdn_divider {
   border-top: 1px solid #f2f2f2;
   margin-bottom: 20px;
