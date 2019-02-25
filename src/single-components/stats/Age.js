@@ -16,11 +16,11 @@ import EdadTotal from './age/EdadTotal';
 import EdadTotalPorcentaje from './age/EdadTotalPorcentaje';
 
 import EdadTotalEducacion from './age/EdadTotalEducacion';
+import EdadTotalEducacionPorcentaje from './age/EdadTotalEducacionPorcentaje';
+
+import EdadTotalNivelGobierno from './age/EdadTotalNivelGobierno';
 
 /*
-
-import EdadTotalEducacion from './age/EdadTotalEducacion';
-import EdadTotalEducacionPorcentaje from './gob-level/EdadTotalEducacionPorcentaje';
 
 import EdadTotalEstado from './age/EdadTotalEstado';
 import EdadTotalEstadoPorcentaje from './gob-level/EdadTotalEstadoPorcentaje';
@@ -90,23 +90,10 @@ class Age extends Component{
 				<EdadTotal />
 				<EdadTotalPorcentaje />
 				<EdadTotalEducacion />
+				<EdadTotalEducacionPorcentaje />
+				<EdadTotalNivelGobierno />
 
-				<ChartistGraph data={st.fake3} type={"Bar"} />
-				<ul className="list_inline">
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
-				    </span> Federal
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#e95a55"} }>
-				    </span> Estatal
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#edcb4f"} }>
-				    </span> Municipal
-				  </li>
-				</ul>
-				<div className="pdn_divider"></div>
+
 				<h2>Funcionarios por rango de edad y nivel de gobierno (porcentaje)</h2>
 				<ul>
 				  <li style={ {float: "left"} }>
