@@ -81,13 +81,13 @@ class ActivosCuentasPorCobrar extends Component{
                   </div>
                   {/* Fecha de préstamo*/}
                   <div className="col-sm-4">
-                    <p className="pdn_label right">Fecha de préstamo</p>
-                    <p className="pdn_data_p">{cuentas.fecha_prestamo}</p>
+                    <p className="pdn_label center">Fecha de préstamo</p>
+                    <p className="pdn_data_p center">{cuentas.fecha_prestamo}</p>
                   </div>
                   {/* Fecha de vencimiento*/}
                   <div className="col-sm-4">
                     <p className="pdn_label right">Fecha de vencimiento</p>
-                    <p className="pdn_data_p">{cuentas.fecha_vencimiento}</p>
+                    <p className="pdn_data_p right">{cuentas.fecha_vencimiento}</p>
                   </div>
                 </div>
                 {/* row ends*/}
