@@ -77,7 +77,7 @@ export const reducer = (accumulator, currentValue) => accumulator + currentValue
 */
 export const AgeChartsConf = {
   from : 18,
-  to   : 88,
+  to   : 78,
   step : 10
 };
 

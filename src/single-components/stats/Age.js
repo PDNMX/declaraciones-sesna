@@ -15,6 +15,8 @@ import "../../css/chartist.min.css"
 import EdadTotal from './age/EdadTotal';
 import EdadTotalPorcentaje from './age/EdadTotalPorcentaje';
 
+import EdadTotalEducacion from './age/EdadTotalEducacion';
+
 /*
 
 import EdadTotalEducacion from './age/EdadTotalEducacion';
@@ -76,15 +78,6 @@ class Age extends Component{
 			donutOptions : {donut: true, donutWidth: 30}
 		}
 
-		this.getInfo  = this.getInfo.bind(this);
-		this.makeData = this.makeData.bind(this);
-
-		let promises = this.makeData();
-
-		Promise.all(promises.map(d => d.promise)).then(d => {
-			console.log("res:", d);
-		});
-
 	};
 
 	render(){
@@ -93,14 +86,11 @@ class Age extends Component{
 			<div className="row">
 				<div className="col-sm-12">
 				<h1>Por edad</h1>
-				<div className="pdn_divider"></div>
-				<h2>Funcionarios por rango de edad (total)</h2>
 				
 				<EdadTotal />
 				<EdadTotalPorcentaje />
-	
-				<div className="pdn_divider"></div>
-				<h2>Funcionarios por rango de edad y nivel de gobierno (total)</h2>
+				<EdadTotalEducacion />
+
 				<ChartistGraph data={st.fake3} type={"Bar"} />
 				<ul className="list_inline">
 				  <li>
@@ -303,47 +293,6 @@ class Age extends Component{
 		);
 	}
 
-	getInfo(_from, _to){
-	  let connObj = Object.assign({}, ConstClass.fetchObj);
-
-	  connObj.body = this.makeQuery(_from, _to);
-
-	  return fetch(ConstClass.endpoint, connObj)
-          .then(response => response.json())
-          .then(d => {
-            return d;
-          });
-  }
-
-  makeData(){
-  	let currentYear = (new Date()).getFullYear(),
-  	    _from = d => `${d}-01-01`,
-  	    _to   = d => `${d}-07-07`,
-  	    st    = this.state,
-  	    i     = currentYear - st.ageFrom,
-  	    res   = [],
-  	    _f, _t;
-
-  	while(i > currentYear - st.ageTo){
-  		res.push({
-  			label   : (currentYear - i) + " - " + (currentYear - i+st.step),
-  			promise : this.getInfo(_from(i-10),  _to(i)).catch(error => { return error }),
-  			from    : _from(i-10),
-  			to      :  _to(i)
-  		});
-  		i-= st.step;
-  	}
-
-  	return res;
-  }
-
-  makeQuery(_from, _to){
-  	let str     = ConstClass.PROP_NAMES.nacimiento,
-  	    search  = {query : {}, limit : 2};
-
-	  search.query[str] = {"desde" : _from, "hasta" : _to};
-	  return JSON.stringify(search);
-  }
 }
 
 export default Age;

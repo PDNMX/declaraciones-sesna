@@ -45,8 +45,6 @@ class EdadTotalPorcentaje extends Component{
 				series : d.map(d => (d/total) * 100 )
 			}
 
-      console.log("percentxxxx:", data);
-
 			this.setState({data : data});
 		});
 	 }

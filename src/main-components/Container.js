@@ -27,7 +27,6 @@ class Container extends Component{
 	constructor(props){
 		super(props);
 
-		console.log("container:", this.props);
 		//
 		// THE STATE
 		//
