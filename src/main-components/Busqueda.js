@@ -53,7 +53,9 @@ class App extends Component {
         <div className="col-sm-12">
         <h2>Busca un servidor público</h2>
         <SearchForm getUsers={this.getUsers} />
+        <div className="pdn_mobile_table">
         {this.showTable()}
+        </div>
       </div>
       </div>
     );
@@ -73,8 +75,8 @@ class App extends Component {
   */
   showTable(){
     if(this.state.response){
-      return <SearchTable results={this.state.response.results} 
-                          pages={this.state.pages} 
+      return <SearchTable results={this.state.response.results}
+                          pages={this.state.pages}
                           page={this.state.page}
                           search={this.updatePage} />
     }
@@ -117,11 +119,11 @@ class App extends Component {
 
     fetch(ConstClass.endpoint, connObj)
           .then(response => response.json())
-          .then(d => { 
+          .then(d => {
 
             let pages = Math.ceil(d.total / this.state.pageSize);
             this.setState({response : d});
-            this.setState({pages : pages}); 
+            this.setState({pages : pages});
           });
   }
 
@@ -147,7 +149,7 @@ class App extends Component {
   */
   makeQuery(settings){
     let searchObj   = {query : {}};
-    
+
     searchObj.limit = this.state.pageSize;
     searchObj.skip  = this.state.page * this.state.pageSize;
 
