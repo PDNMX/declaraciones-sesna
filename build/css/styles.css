@@ -1206,6 +1206,39 @@ ol {
   background: #f2f2f2;
   height: 59px; }
 
+section.pdn_sis_nav {
+  background: #34b3eb; }
+
+.pdn_cont_nav {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0;
+  min-height: 102px; }
+  .pdn_cont_nav li {
+    font-weight: 300;
+    width: 100%; }
+    .pdn_cont_nav li.current a {
+      background: #777776;
+      font-weight: 500; }
+  .pdn_cont_nav a:link,
+  .pdn_cont_nav a:visited {
+    color: white;
+    display: block;
+    height: 100%;
+    padding: 23px 15px 31px; }
+    .pdn_cont_nav a:link:hover,
+    .pdn_cont_nav a:visited:hover {
+      color: white;
+      background: #777776; }
+    .pdn_cont_nav a:link figure,
+    .pdn_cont_nav a:visited figure {
+      height: 100%;
+      display: inline-block;
+      float: left;
+      margin-right: 8px; }
+
 .pdn_divider {
   border-top: 1px solid #f2f2f2;
   margin-bottom: 20px;
@@ -1668,7 +1701,98 @@ footer {
     left: 89%; }
   #menu li a {
     font-size: 16px;
-    padding: 15px 0; } }
+    padding: 15px 0; }
+  .pdn_card_m_info img {
+    width: 30%; }
+  .sidebar {
+    position: relative; }
+  .sidecontent {
+    padding: 20px 15px; }
+  .pdn_label + h3 {
+    border-bottom: 1px solid #f2f2f2;
+    padding-bottom: 1em;
+    margin-bottom: 1em; }
+  .pdn_mobile_table {
+    overflow-x: auto; }
+  section.pdn_m {
+    padding: 30px 0 60px;
+    margin: 20px 0 110px; }
+  .openk {
+    margin-bottom: 40px; }
+  .pdn_b_sesna .logo_sesna {
+    float: none;
+    margin: 0 auto 30px;
+    width: 113px; }
+  .pdn_b_sesna .right {
+    text-align: center; }
+  .pdn_b_sesna .gobiernofacil {
+    float: none; } }
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  h1.main_t {
+    font-size: 37px; }
+  h1 {
+    font-size: 23px; }
+  h2 {
+    font-size: 17px; }
+  h3 {
+    font-size: 16px; }
+  p,
+  li {
+    font-size: 14px; }
+  blockquote {
+    border-left-width: 7px;
+    font-size: 13px;
+    padding: 15px 0 15px 11px; }
+  #menuToggle {
+    top: -76px;
+    left: 89%; }
+  #menu li a {
+    font-size: 16px;
+    padding: 15px 0; }
+  .pdn_card_m_info img {
+    width: 30%; }
+  .sidebar {
+    position: relative; }
+  .sidecontent {
+    padding: 20px 15px; }
+  .pdn_label + h3 {
+    border-bottom: 1px solid #f2f2f2;
+    padding-bottom: 1em;
+    margin-bottom: 1em; }
+  .pdn_mobile_table {
+    overflow-x: auto; }
+  section.pdn_m {
+    padding: 30px 0 60px;
+    margin: 20px 0 110px; }
+  .openk {
+    margin-bottom: 40px; }
+  .pdn_b_sesna .logo_sesna {
+    float: none;
+    margin: 0 auto 30px;
+    width: 113px; }
+  .pdn_b_sesna .right {
+    text-align: center; }
+  .pdn_b_sesna .gobiernofacil {
+    float: none; } }
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .sidebar {
+    padding: 20px 15px; }
+    .sidebar ul a {
+      font-size: 13px; }
+  .sidecontent {
+    min-height: 671px; }
+  .pdn_score {
+    font-size: 25px; }
+  .pdn_d_box h3 {
+    font-size: 16px; }
+  .pdn_d_box .pdn_amount {
+    font-size: 21px; }
+  .pdn_label {
+    font-size: 13px; }
+  .pdn_card_m_info p.pdn_mail {
+    font-size: 11px; } }
 
 /* =Print
 ----------------------------------------------- */
