@@ -98,6 +98,7 @@ class InteresesEmpresas extends Component{
                 </div>
               </div>
               {/* table */}
+              <div className="pdn_mobile_table">
               <table className="table">
                 <thead>
                   <tr>
@@ -120,6 +121,7 @@ class InteresesEmpresas extends Component{
                   </tr>
                 </tbody>
               </table>
+              </div>
               {/* table ends */}
             </div>
             {/* div close/open ends */}
