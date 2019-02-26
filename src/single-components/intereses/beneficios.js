@@ -76,7 +76,7 @@ class InteresesBeneficios extends Component{
                   {/* Tipo de beneficio */}
                   <div className="col-sm-9">
                     <p className="pdn_label">Tipo de beneficio</p>
-                    <h3>{interes.tipo_beneficio.valor}</h3>
+                    <h3>{interes.tipo_beneficio}</h3>
                   </div>
                   {/*Valor de beneficio */}
                   <div className="col-sm-3">
