@@ -10,6 +10,24 @@ import * as ConstClass from  '../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../css/chartist.min.css"
 
+
+import EducacionTotal from './education/EducacionTotal';
+import EducacionPorcentaje from './education/EducacionPorcentaje';
+
+import EducacionEdad from './education/EducacionEdad';
+import EducacionEdadPorcentaje from './education/EducacionEdadPorcentaje';
+
+import EducacionNivelGobierno from './education/EducacionNivelGobierno';
+import EducacionNivelGobiernoPorcentaje from './education/EducacionNivelGobiernoPorcentaje';
+/*
+import EducacionEdad from './education/EducacionEdad';
+import EducacionEdadPorcentaje from './education/EducacionEdadPorcentaje';
+import EducacionNivelGobierno from './education/EducacionNivelGobierno';
+import EducacionNivelGobiernoPorcentaje from './education/EducacionNivelGobiernoPorcentaje';
+import EducacionPorcentaje from './education/EducacionPorcentaje';
+import EducacionTotal from './education/EducacionTotal';
+*/
+
 class Education extends Component{
 	constructor(){
 		super();
@@ -65,15 +83,6 @@ class Education extends Component{
 			donutOptions : {donut: true, donutWidth: 30}
 		}
 
-		this.getInfo  = this.getInfo.bind(this);
-		this.makeData = this.makeData.bind(this);
-
-		let promises = this.makeData();
-
-		Promise.all(promises.map(d => d.promise)).then(d => {
-			console.log("res:", d);
-		});
-
 	};
 
 	render(){
@@ -84,251 +93,19 @@ class Education extends Component{
 				<h1>Nivel educativo</h1>
 				<div className="pdn_divider"></div>
 
-				<h2>Funcionarios por nivel educativo (total)</h2>
-				<ChartistGraph data={this.state.fake} type={"Bar"} />
-				<div className="pdn_divider"></div>
-				<h2>Funcionarios por nivel educativo (porcentaje)</h2>
-				<ChartistGraph data={ { series : this.state.fake6.series} } type={"Pie"} options={st.donutOptions} />
-				<ul className="list_inline">
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
-				    </span> {st.labels.__labels[0]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#e95a55"} }>
-				    </span> {st.labels.__labels[1]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#edcb4f"} }>
-				    </span> {st.labels.__labels[2]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#ca7c24"} }>
-				    </span> {st.labels.__labels[3]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#453d3f"} }>
-				    </span> {st.labels.__labels[4]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#589634"} }>
-				    </span> {st.labels.__labels[5]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#2d1a9c"} }>
-				    </span> {st.labels.__labels[6]}
-				  </li>
-				</ul>
+				<EducacionTotal />
+				<EducacionPorcentaje />
+				
+				<EducacionEdad />
+				<EducacionEdadPorcentaje />
 
-				<div className="pdn_divider"></div>
-
-				<h2>Funcionarios por nivel educativo y rango de edad (total) </h2>
-				<ChartistGraph data={st.fake5} type={"Line"} />
-				<ul className="list_inline">
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
-				    </span> {st.labels._labels[0]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#e95a55"} }>
-				    </span> {st.labels._labels[1]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#edcb4f"} }>
-				    </span> {st.labels._labels[2]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#ca7c24"} }>
-				    </span> {st.labels._labels[3]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#453d3f"} }>
-				    </span> {st.labels._labels[4]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#589634"} }>
-				    </span> {st.labels._labels[5]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#2d1a9c"} }>
-				    </span> {st.labels._labels[6]}
-				  </li>
-				</ul>
-				<div className="pdn_divider"></div>
-
-				<h2>Funcionarios por nivel educativo y rango de edad  (porcentaje)</h2>
-				<ul>
-				  <li style={ {float: "left"} }>
-				    <ChartistGraph data={ { series : st.fake6.series} } type={"Pie"} options={st.donutOptions} />
-				    <p>{st.fake.labels[0]}</p>
-				  </li>
-				  <li style={ {float: "left"} }>
-				    <ChartistGraph data={ { series : st.fake6.series} } type={"Pie"} options={st.donutOptions} />
-				    <p>{st.fake.labels[1]}</p>
-				  </li>
-				  <li style={ {float: "left"} }>
-				    <ChartistGraph data={ { series : st.fake6.series} } type={"Pie"} options={st.donutOptions} />
-				    <p>{st.fake.labels[2]}</p>
-				  </li>
-				  <li style={ {float: "left"} }>
-				    <ChartistGraph data={ { series : st.fake6.series} } type={"Pie"} options={st.donutOptions} />
-				    <p>{st.fake.labels[3]}</p>
-				  </li>
-				  <li style={ {float: "left"} }>
-				    <ChartistGraph data={ { series : st.fake6.series} } type={"Pie"} options={st.donutOptions} />
-				    <p>{st.fake.labels[4]}</p>
-				  </li>
-				  <li style={ {float: "left"} }>
-				    <ChartistGraph data={ { series : st.fake6.series} } type={"Pie"} options={st.donutOptions} />
-				    <p>{st.fake.labels[5]}</p>
-				  </li>
-				  <li>
-				    <ChartistGraph data={ { series : st.fake6.series} } type={"Pie"} options={st.donutOptions} />
-				    <p>{st.fake.labels[6]}</p>
-				  </li>
-				</ul>
-
-				<ul className="list_inline">
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
-				    </span> {st.labels._labels[0]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#e95a55"} }>
-				    </span> {st.labels._labels[1]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#edcb4f"} }>
-				    </span> {st.labels._labels[2]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#ca7c24"} }>
-				    </span> {st.labels._labels[3]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#453d3f"} }>
-				    </span> {st.labels._labels[4]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#589634"} }>
-				    </span> {st.labels._labels[5]}
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#2d1a9c"} }>
-				    </span> {st.labels._labels[6]}
-				  </li>
-				</ul>
-				<div className="pdn_divider"></div>
-				<h2>Funcionarios por nivel educativo y nivel de gobierno (total)</h2>
-				<ChartistGraph data={this.state.fake7} type={"Bar"} />
-				<ul className="list_inline">
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
-				    </span> Federal
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#e95a55"} }>
-				    </span> Estatal
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#edcb4f"} }>
-				    </span> Municipal
-				  </li>
-				</ul>
-				<div className="pdn_divider"></div>
-				<h2>Funcionarios por nivel educativo y nivel de gobierno (porcentaje)</h2>
-				<ul>
-				  <li style={ {float: "left"} }>
-				    <ChartistGraph data={ { series : st.fake4.series} } type={"Pie"} options={st.donutOptions} />
-				    <p>{st.labels.__labels[0]}</p>
-				  </li>
-				  <li style={ {float: "left"} }>
-				    <ChartistGraph data={ { series : st.fake4.series} } type={"Pie"} options={st.donutOptions} />
-				    <p>{st.labels.__labels[1]}</p>
-				  </li>
-				  <li style={ {float: "left"} }>
-				    <ChartistGraph data={ { series : st.fake4.series} } type={"Pie"} options={st.donutOptions} />
-				    <p>{st.labels.__labels[2]}</p>
-				  </li>
-				  <li style={ {float: "left"} }>
-				    <ChartistGraph data={ { series : st.fake4.series} } type={"Pie"} options={st.donutOptions} />
-				    <p>{st.labels.__labels[3]}</p>
-				  </li>
-				  <li style={ {float: "left"} }>
-				    <ChartistGraph data={ { series : st.fake4.series} } type={"Pie"} options={st.donutOptions} />
-				    <p>{st.labels.__labels[4]}</p>
-				  </li>
-				  <li style={ {float: "left"} }>
-				    <ChartistGraph data={ { series : st.fake4.series} } type={"Pie"} options={st.donutOptions} />
-				    <p>{st.labels.__labels[5]}</p>
-				  </li>
-				  <li>
-				    <ChartistGraph data={ { series : st.fake4.series} } type={"Pie"} options={st.donutOptions} />
-				    <p>{st.labels.__labels[6]}</p>
-				  </li>
-				</ul>
-
-				<ul className="list_inline">
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
-				    </span> Federal
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#e95a55"} }>
-				    </span> Estatal
-				  </li>
-				  <li>
-				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#edcb4f"} }>
-				    </span> Municipal
-				  </li>
-				</ul>
-
+				<EducacionNivelGobierno />
+				<EducacionNivelGobiernoPorcentaje />
+				
 			</div>
 			</div>
 		);
 	}
-
-	getInfo(_from, _to){
-	  let connObj = Object.assign({}, ConstClass.fetchObj);
-
-	  connObj.body = this.makeQuery(_from, _to);
-
-	  return fetch(ConstClass.endpoint, connObj)
-          .then(response => response.json())
-          .then(d => {
-            return d.total;
-          });
-  }
-
-  makeData(){
-  	let currentYear = (new Date()).getFullYear(),
-  	    _from = d => `${d}-01-01`,
-  	    _to   = d => `${d}-12-31`,
-  	    st    = this.state,
-  	    i     = currentYear - st.ageFrom,
-  	    res   = [],
-  	    _f, _t;
-
-  	while(i > currentYear - st.ageTo){
-  		res.push({
-  			label   : (currentYear - i) + " - " + (currentYear - i+st.step),
-  			promise : this.getInfo(_from(i-10),  _to(i)).catch(error => { return error }),
-  			from    : _from(i-10),
-  			to      :  _to(i)
-  		});
-  		i-= st.step;
-  	}
-
-  	return res;
-  }
-
-  makeQuery(_from, _to){
-  	let str     = ConstClass.PROP_NAMES.nacimiento,
-  	    search  = {query : {}, limit : 2};
-
-	  search.query[str] = {desde : _from, hasta : _to};
-	  return JSON.stringify(search);
-  }
 }
 
 export default Education;
