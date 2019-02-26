@@ -1714,6 +1714,14 @@ footer {
     margin-bottom: 1em; }
   .pdn_mobile_table {
     overflow-x: auto; }
+  .pdn_b_title {
+    padding: 40px 0; }
+  .pdn_cont_nav a:link figure,
+  .pdn_cont_nav a:visited figure {
+    float: none;
+    display: block;
+    height: auto;
+    margin-bottom: 5px; }
   section.pdn_m {
     padding: 30px 0 60px;
     margin: 20px 0 110px; }
