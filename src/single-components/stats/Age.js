@@ -23,23 +23,28 @@ import EdadTotalNivelGobiernoPorcentaje from './age/EdadTotalNivelGobiernoPorcen
 
 
 class Age extends Component{
-	
+
 	render(){
 		let cat = this.props.match.params.categoria;
 		return(
-			<div>
+		<div>
+			<div className="col-sm-3 sidebar">
+				<h2>Edad</h2>
 			  <ul>
 			  	<li>
-			  	  <Link to="/estadistica/edad" className={ !cat ? "router-link-active" : "" }>rango de edad</Link>
+			  	  <Link to="/estadistica/edad" className={ !cat ? "router-link-exact-active router-link-active" : "" }>Rango de edad</Link>
 			  	</li>
 			  	<li>
-			  	  <Link to="/estadistica/edad/edad-y-gobierno" className={ cat == "edad-y-gobierno" ? "router-link-active" : "" }>rango de edad y nivel de gobierno</Link>
+			  	  <Link to="/estadistica/edad/edad-y-gobierno" className={ cat == "edad-y-gobierno" ? "router-link-exact-active router-link-active" : "" }>Rango de edad y nivel de gobierno</Link>
 			  	</li>
 			  	<li>
-			  	  <Link to="/estadistica/edad/edad-y-educacion" className={ cat == "edad-y-educacion" ? "router-link-active" : "" }>rango de edad y nivel educativo</Link>
+			  	  <Link to="/estadistica/edad/edad-y-educacion" className={ cat == "edad-y-educacion" ? "router-link-exact-active router-link-active" : "" }>Rango de edad y nivel educativo</Link>
 			  	</li>
 			  </ul>
-			  { this.rangoEdad() }
+				</div>
+				<div className="col-sm-9 col-sm-offset-3 sidecontent">
+					{ this.rangoEdad() }
+				</div>
 			</div>
 		);
 	}
@@ -52,7 +57,7 @@ class Age extends Component{
 	/*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
