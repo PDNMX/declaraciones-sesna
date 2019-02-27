@@ -43,11 +43,11 @@ class EdadTotal extends Component{
 				labels : promises.map(d => d.label),
 				series : [d]
 			}
-			
+
 			this.setState({data : data});
 		});
 	 }
-	 
+
 	/*
 	 * R E N D E R
 	 * ----------------------------------------------------------------------
@@ -55,11 +55,13 @@ class EdadTotal extends Component{
 	render(){
 		if(!this.state.data) return null;
 		return(
-			<div>
-				<h2>Funcionarios por rango de edad (total)</h2>
-
-				<ChartistGraph data={this.state.data} type={"Bar"} />
-				<div className="pdn_divider"></div>
+			<div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
+						<h2>Funcionarios por rango de edad (total)</h2>
+						<ChartistGraph data={this.state.data} type={"Bar"} />
+					</div>
+				</div>
 			</div>
 		);
 	}
@@ -72,7 +74,7 @@ class EdadTotal extends Component{
 	/*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
@@ -91,12 +93,12 @@ class EdadTotal extends Component{
 	/*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   makeData(){
-    let res = [], 
+    let res = [],
         currentYear = (new Date()).getFullYear(),
         _from = d => `${d}-01-01`,
         _to   = d => `${d}-07-07`,
@@ -107,7 +109,7 @@ class EdadTotal extends Component{
 
     while(year1 > currentYear - conf.to){
         res.push({
-          promise : this.getInfo(_from(year2), _to(year1) ), 
+          promise : this.getInfo(_from(year2), _to(year1) ),
           label : `${currentYear - year1} - ${currentYear - year2}`
         });
       year1-= conf.step;
@@ -120,7 +122,7 @@ class EdadTotal extends Component{
 	/*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */

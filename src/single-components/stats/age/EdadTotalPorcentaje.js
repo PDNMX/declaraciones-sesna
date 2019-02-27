@@ -60,18 +60,23 @@ class EdadTotalPorcentaje extends Component{
     let st = this.state;
     let colors = ConstClass.ChartColors;
 		return(
-			<div>
-				<h2>Funcionarios por rango de edad (porcentaje)</h2>
-				<ChartistGraph data={ { series : st.data.series} } type={"Pie"} options={st.options} />
-				<ul className="list_inline">
-        {this.state.data.labels.map( (d, i) =>
-          <li key={"ngel-" + i}>
-            <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
-            </span> {d}
-          </li>
-        )}
-        </ul>
+			<div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
+						<h2>Funcionarios por rango de edad (porcentaje)</h2>
+						<ChartistGraph data={ { series : st.data.series} } type={"Pie"} options={st.options} />
+						<div className="pdn_divider"></div>
+						<ul className="list_inline">
+		        {this.state.data.labels.map( (d, i) =>
+		          <li key={"ngel-" + i}>
+		            <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
+		            </span> {d}
+		          </li>
+		        )}
+		        </ul>
+				</div>
 			</div>
+		</div>
 		);
 	}
 
@@ -83,7 +88,7 @@ class EdadTotalPorcentaje extends Component{
 	/*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
@@ -102,12 +107,12 @@ class EdadTotalPorcentaje extends Component{
 	/*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   makeData(){
-    let res = [], 
+    let res = [],
         currentYear = (new Date()).getFullYear(),
         _from = d => `${d}-01-01`,
         _to   = d => `${d}-07-07`,
@@ -118,7 +123,7 @@ class EdadTotalPorcentaje extends Component{
 
     while(year1 > currentYear - conf.to){
         res.push({
-          promise : this.getInfo(_from(year2), _to(year1) ), 
+          promise : this.getInfo(_from(year2), _to(year1) ),
           label : `${currentYear - year1} - ${currentYear - year2}`
         });
       year1-= conf.step;
@@ -131,7 +136,7 @@ class EdadTotalPorcentaje extends Component{
 	/*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */

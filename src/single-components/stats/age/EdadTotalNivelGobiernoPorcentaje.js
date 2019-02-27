@@ -58,28 +58,32 @@ class EdadTotalEducacionPorcentaje extends Component{
     if(!this.state.data) return null;
     let colors = ConstClass.ChartColors;
 		return(
-      <div>
-        <h2>Funcionarios por rango de edad y nivel de gobierno (porcentaje)</h2>
-        <ul>
-        { this.state.data.series.map( (d,i) => 
-          <li key={"ngnepgxs-" + i}>
-            <ChartistGraph data={ {series : d} } type={"Pie"} options={this.state.options} />
-            <p>{this.state.data.labels[i]}</p>
-            <div className="pdn_divider"></div>
-          </li>
-        )}
-        </ul>
+      <div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
+            <h2>Funcionarios por rango de edad y nivel de gobierno (porcentaje)</h2>
+            <nav class="pdn_viz">
+              <ul>
+              { this.state.data.series.map( (d,i) =>
+                <li key={"ngnepgxs-" + i}>
+                  <ChartistGraph data={ {series : d} } type={"Pie"} options={this.state.options} />
+                  <p>{this.state.data.labels[i]}</p>
+                </li>
+              )}
+              </ul>
+            </nav>
+            <ul className="list_inline">
+            {ConstClass.GobLevels.map( (d, i) =>
+              <li key={"ngenplxs-" + i}>
+                <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
+                </span> {d.label}
+              </li>
+            )}
+            </ul>
 
-        <ul className="list_inline">
-        {ConstClass.GobLevels.map( (d, i) =>
-          <li key={"ngenplxs-" + i}>
-            <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
-            </span> {d.label}
-          </li>
-        )}
-        </ul>
-        
+        </div>
       </div>
+    </div>
 		);
 	}
 
@@ -91,7 +95,7 @@ class EdadTotalEducacionPorcentaje extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
@@ -110,13 +114,13 @@ class EdadTotalEducacionPorcentaje extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   buildMatrix(data, length){
-    let b   = [...data], 
-        lg  = ConstClass.GobLevels, 
+    let b   = [...data],
+        lg  = ConstClass.GobLevels,
         i, j, res = [];
 
     for(i =0; i < length; i++ ){
@@ -129,25 +133,25 @@ class EdadTotalEducacionPorcentaje extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   makeData(){
-    let res = [], 
+    let res = [],
          currentYear = (new Date()).getFullYear(),
         _from = d => `${d}-01-01`,
         _to   = d => `${d}-07-07`,
         conf = ConstClass.AgeChartsConf,
         year1 = currentYear - conf.from,
         year2 = year1 - conf.step,
-        lg  = ConstClass.GobLevels, 
+        lg  = ConstClass.GobLevels,
         i, j;
 
       while(year1 > currentYear - conf.to){
       	for(i = 0; i < lg.length; i++ ){
           res.push({
-            promise : this.getInfo(_from(year2), _to(year1), lg[i].key ), 
+            promise : this.getInfo(_from(year2), _to(year1), lg[i].key ),
             label   : `${currentYear - year1} - ${currentYear - year2}`
           });
         }
@@ -162,7 +166,7 @@ class EdadTotalEducacionPorcentaje extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */

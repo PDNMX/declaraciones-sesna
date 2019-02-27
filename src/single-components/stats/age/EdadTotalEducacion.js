@@ -38,7 +38,7 @@ class EdadTotalEducacion extends Component{
 
     Promise.all(promises.map(d => d.promise)).then(d => {
 
-      
+
       let labels = [...new Set(promises.map(d => d.label))],
           data   = {
                      labels,
@@ -46,7 +46,7 @@ class EdadTotalEducacion extends Component{
                    }
 
       this.setState({data : data});
-      
+
     });
    }
 
@@ -58,20 +58,24 @@ class EdadTotalEducacion extends Component{
     if(!this.state.data) return null;
     let colors = ConstClass.ChartColors;
     return(
-      <div>
-        <h2>Funcionarios por rango de edad y nivel educativo (total)</h2>
-        <ChartistGraph data={this.state.data} type={"Bar"} />
-        <div className="pdn_divider"></div>
+      <div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
+            <h2>Funcionarios por rango de edad y nivel educativo (total)</h2>
+            <ChartistGraph data={this.state.data} type={"Bar"} />
+            <div className="pdn_divider"></div>
 
-        <ul className="list_inline">
-        {ConstClass.NivelEducacion.map( (d, i) =>
-          <li key={"ngel-" + i}>
-            <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
-            </span> {d}
-          </li>
-        )}
-        </ul>
+            <ul className="list_inline">
+            {ConstClass.NivelEducacion.map( (d, i) =>
+              <li key={"ngel-" + i}>
+                <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
+                </span> {d}
+              </li>
+            )}
+            </ul>
+        </div>
       </div>
+    </div>
     );
   }
 
@@ -83,7 +87,7 @@ class EdadTotalEducacion extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
@@ -102,13 +106,13 @@ class EdadTotalEducacion extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   buildMatrix(data, length){
-    let b   = [...data], 
-        ne  = ConstClass.NivelEducacion, 
+    let b   = [...data],
+        ne  = ConstClass.NivelEducacion,
         i, j, res = [];
     for(i =0; i < ne.length; i++ ){
       res.push(b.splice(0, length))
@@ -120,25 +124,25 @@ class EdadTotalEducacion extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   makeData(){
-    let res = [], 
+    let res = [],
          currentYear = (new Date()).getFullYear(),
         _from = d => `${d}-01-01`,
         _to   = d => `${d}-07-07`,
         conf = ConstClass.AgeChartsConf,
         year1 = currentYear - conf.from,
         year2 = year1 - conf.step,
-        ne  = ConstClass.NivelEducacion, 
+        ne  = ConstClass.NivelEducacion,
         i, j;
 
     for(i =0; i < ne.length; i++ ){
       while(year1 > currentYear - conf.to){
         res.push({
-          promise : this.getInfo(_from(year2), _to(year1), ne[i] ), 
+          promise : this.getInfo(_from(year2), _to(year1), ne[i] ),
           label   : `${currentYear - year1} - ${currentYear - year2}`
         });
 
@@ -156,7 +160,7 @@ class EdadTotalEducacion extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
