@@ -28,46 +28,60 @@ class Stats extends Component{
 	render(){
 		let section = this.props.match.params.section;
 		return(
+	<div>
+			{/* título */}
 			<div className="row">
 				<div className="col-sm-12">
-			<nav className="pdn_main_nav">
-			  <ul>
-					<li>
-						<Link to="/estadistica/edad" className={ section == "edad" ? "router-link-active" : "" }>
-						  Edad
-						</Link>
-					</li>
-					<li>
-						<Link to="/estadistica/nivel-de-gobierno" className={ section == "nivel-de-gobierno" ? "router-link-active" : "" }>
-						  Nivel de gobierno
-						</Link>
-					</li>
+					<h1>Estadísticas</h1>
+				</div>
+			</div>
 
-					<li>
-						<Link to="/estadistica/entidad-federativa" className={ section == "entidad-federativa" ? "router-link-active" : "" }>
-						  Estado
-						</Link>
-					</li>
+			{/* navegación */}
+			<div className="row">
+				<div className="col-sm-12">
+					<nav className="pdn_main_nav">
+					  <ul>
+							<li>
+								<Link to="/estadistica/edad" className={ section == "edad" ? "router-link-active" : "" }>
+								  Edad
+								</Link>
+							</li>
+							<li>
+								<Link to="/estadistica/nivel-de-gobierno" className={ section == "nivel-de-gobierno" ? "router-link-active" : "" }>
+								  Nivel de gobierno
+								</Link>
+							</li>
 
-					<li>
-						<Link  to="/estadistica/educacion" className={ section == "educacion" ? "router-link-active" : "" }>
-						  Educación
-						</Link>
-					</li>
+							<li>
+								<Link to="/estadistica/entidad-federativa" className={ section == "entidad-federativa" ? "router-link-active" : "" }>
+								  Estado
+								</Link>
+							</li>
 
-					<li>Bienes inmuebles</li>
+							<li>
+								<Link  to="/estadistica/educacion" className={ section == "educacion" ? "router-link-active" : "" }>
+								  Educación
+								</Link>
+							</li>
 
-					<li>Salarios</li>
-				</ul>
-				</nav>
+							<li>Bienes inmuebles</li>
+
+							<li>Salarios</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+
+			<div className="row pnd_box">
 			  <Switch>
 				    <Route path='/estadistica/edad/:categoria?' component={Age} />
 				    <Route path='/estadistica/nivel-de-gobierno/:categoria?' component={GobLevel} />
 				    <Route path='/estadistica/entidad-federativa/:categoria?' component={State} />
 				    <Route path='/estadistica/educacion/:categoria?' component={Education} />
 				</Switch>
-				</div>
 			</div>
+
+	</div>
 		);
 	}
 }
