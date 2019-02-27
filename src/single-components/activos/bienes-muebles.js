@@ -127,6 +127,7 @@ class ActivosBienesMuebles extends Component{
                 {/* row ends*/}
 
                 {/* table */}
+                <div className="pdn_mobile_table">
                 <table className="table">
                   <thead>
                     <tr>
@@ -147,6 +148,7 @@ class ActivosBienesMuebles extends Component{
                     </tr>
                   </tbody>
                 </table>
+                </div>
                 {/* table ends */}
 
                 <p className="pdn_label">Observaciones</p>

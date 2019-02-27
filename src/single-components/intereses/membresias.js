@@ -81,6 +81,7 @@ class InteresesMembresias extends Component{
                 </div>
               </div>
               {/* row ends*/}
+              <div className="pdn_mobile_table">
               <table className="table">
                 <thead>
                   <tr>
@@ -97,7 +98,7 @@ class InteresesMembresias extends Component{
                   </tr>
                 </tbody>
               </table>
-
+              </div>
 
 
               <p className="pdn_label">Observaciones</p>

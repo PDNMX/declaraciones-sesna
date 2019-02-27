@@ -122,6 +122,7 @@ class ActivosFideicomisos extends Component{
 
 
                 {/* table */}
+                <div className="pdn_mobile_table">
                 <table className="table">
                   <thead>
                     <tr>
@@ -142,6 +143,7 @@ class ActivosFideicomisos extends Component{
                     </tr>
                   </tbody>
                 </table>
+                </div>
                 {/* table ends */}
 
                 {/* fideicomisario */}
