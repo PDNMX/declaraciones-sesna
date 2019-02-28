@@ -59,11 +59,15 @@ class NivelGobiernoPorcentaje extends Component{
 
     let st = this.state;
 		return(
-			<div>
-				<h2>Funcionarios por nivel de gobierno (porcentaje)</h2>
-				<ChartistGraph data={ { series : st.data.series} } type={"Pie"} options={st.options} />
-				<div className="pdn_divider"></div>
+			<div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
+						<h2>Funcionarios por nivel de gobierno (porcentaje)</h2>
+						<ChartistGraph data={ { series : st.data.series} } type={"Pie"} options={st.options} />
+						<div className="pdn_divider"></div>
+				</div>
 			</div>
+		</div>
 		);
 	}
 
@@ -75,7 +79,7 @@ class NivelGobiernoPorcentaje extends Component{
 	/*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
@@ -94,18 +98,18 @@ class NivelGobiernoPorcentaje extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   makeData(){
-  	let res = [], 
-  	    gl  = ConstClass.GobLevels, 
+  	let res = [],
+  	    gl  = ConstClass.GobLevels,
   	    i;
 
   	for(i =0; i < gl.length; i++ ){
   		res.push({
-  			promise : this.getInfo(gl[i].key), 
+  			promise : this.getInfo(gl[i].key),
   			label : gl[i].label
   		});
   	}
@@ -116,7 +120,7 @@ class NivelGobiernoPorcentaje extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */

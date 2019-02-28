@@ -57,28 +57,32 @@ class NivelGobiernoEducacionPorcentaje extends Component{
 		if(!this.state.data) return null;
     let colors = ConstClass.ChartColors;
     return(
-      <div>
-        <h2>Funcionarios por nivel de gobierno y nivel educativo (porcentaje)</h2>
-        <ul>
-        { this.state.data.series.map( (d,i) => 
-          <li key={"ngepg-" + i}>
-            <ChartistGraph data={ {series : d} } type={"Pie"} options={this.state.options} />
-            <p>{this.state.data.labels[i]}</p>
-            <div className="pdn_divider"></div>
-          </li>
-        )}
-        </ul>
+      <div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
+            <h2>Funcionarios por nivel de gobierno y nivel educativo (porcentaje)</h2>
+            <nav class="pdn_viz">
+              <ul>
+              { this.state.data.series.map( (d,i) =>
+                <li key={"ngepg-" + i}>
+                  <ChartistGraph data={ {series : d} } type={"Pie"} options={this.state.options} />
+                  <p>{this.state.data.labels[i]}</p>
+                </li>
+              )}
+              </ul>
+            </nav>
+            <ul className="list_inline">
+            {ConstClass.NivelEducacion.map( (d, i) =>
+              <li key={"ngepl-" + i}>
+                <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
+                </span> {d}
+              </li>
+            )}
+            </ul>
 
-        <ul className="list_inline">
-        {ConstClass.NivelEducacion.map( (d, i) =>
-          <li key={"ngepl-" + i}>
-            <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
-            </span> {d}
-          </li>
-        )}
-        </ul>
-        
+        </div>
       </div>
+    </div>
     );
 	}
 
@@ -90,7 +94,7 @@ class NivelGobiernoEducacionPorcentaje extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
@@ -109,14 +113,14 @@ class NivelGobiernoEducacionPorcentaje extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   buildMatrix(data){
-    let b   = [...data], 
+    let b   = [...data],
         gl  = ConstClass.GobLevels,
-        ne  = ConstClass.NivelEducacion, 
+        ne  = ConstClass.NivelEducacion,
         i, j, res = [];
     for(i =0; i < gl.length; i++ ){
       res.push(b.splice(0, ne.length))
@@ -128,20 +132,20 @@ class NivelGobiernoEducacionPorcentaje extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   makeData(){
-    let res = [], 
+    let res = [],
         gl  = ConstClass.GobLevels,
-        ne  = ConstClass.NivelEducacion, 
+        ne  = ConstClass.NivelEducacion,
         i, j;
 
     for(i =0; i < gl.length; i++ ){
       for(j =0; j < ne.length; j++){
         res.push({
-          promise : this.getInfo(ne[j], gl[i].key ), 
+          promise : this.getInfo(ne[j], gl[i].key ),
           label   : gl[i].label
         });
       }
@@ -153,7 +157,7 @@ class NivelGobiernoEducacionPorcentaje extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */

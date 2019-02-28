@@ -55,20 +55,24 @@ class NivelGobiernoEducacion extends Component{
     if(!this.state.data) return null;
     let colors = ConstClass.ChartColors;
 		return(
-      <div>
-        <h2>Funcionarios por nivel de gobierno y nivel educativo (total)</h2>
-        <ChartistGraph data={this.state.data} type={"Bar"} />
-        <div className="pdn_divider"></div>
+      <div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
+            <h2>Funcionarios por nivel de gobierno y nivel educativo (total)</h2>
+            <ChartistGraph data={this.state.data} type={"Bar"} />
+            <div className="pdn_divider"></div>
 
-        <ul className="list_inline">
-        {ConstClass.NivelEducacion.map( (d, i) =>
-          <li key={"ngel-" + i}>
-            <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
-            </span> {d}
-          </li>
-        )}
-        </ul>
+            <ul className="list_inline">
+            {ConstClass.NivelEducacion.map( (d, i) =>
+              <li key={"ngel-" + i}>
+                <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
+                </span> {d}
+              </li>
+            )}
+            </ul>
+        </div>
       </div>
+    </div>
 		);
 	}
 
@@ -80,7 +84,7 @@ class NivelGobiernoEducacion extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
@@ -99,14 +103,14 @@ class NivelGobiernoEducacion extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   buildMatrix(data){
-    let b   = [...data], 
+    let b   = [...data],
         gl  = ConstClass.GobLevels,
-        ne  = ConstClass.NivelEducacion, 
+        ne  = ConstClass.NivelEducacion,
         i, j, res = [];
     for(i =0; i < ne.length; i++ ){
       res.push(b.splice(0, gl.length))
@@ -118,20 +122,20 @@ class NivelGobiernoEducacion extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   makeData(){
-    let res = [], 
+    let res = [],
         gl  = ConstClass.GobLevels,
-        ne  = ConstClass.NivelEducacion, 
+        ne  = ConstClass.NivelEducacion,
         i, j;
 
     for(i =0; i < ne.length; i++ ){
       for(j =0; j < gl.length; j++){
         res.push({
-          promise : this.getInfo(ne[i], gl[j].key ), 
+          promise : this.getInfo(ne[i], gl[j].key ),
           label : gl[j].label
         });
       }
@@ -143,7 +147,7 @@ class NivelGobiernoEducacion extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */

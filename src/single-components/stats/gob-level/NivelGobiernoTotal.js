@@ -41,7 +41,7 @@ class NivelGobiernoTotal extends Component{
 				labels : promises.map(d => d.label),
 				series : [d]
 			}
-			
+
 			this.setState({data : data});
 		});
 	 }
@@ -53,12 +53,16 @@ class NivelGobiernoTotal extends Component{
 	render(){
 		if(!this.state.data) return null;
 		return(
-			<div>
-				<h2>Funcionarios por nivel de gobierno (total)</h2>
+			<div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
+						<h2>Funcionarios por nivel de gobierno (total)</h2>
 
-				<ChartistGraph data={this.state.data} type={"Bar"} />
-				<div className="pdn_divider"></div>
+						<ChartistGraph data={this.state.data} type={"Bar"} />
+						<div className="pdn_divider"></div>
+				</div>
 			</div>
+		</div>
 		);
 	}
 
@@ -70,7 +74,7 @@ class NivelGobiernoTotal extends Component{
 	/*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
@@ -89,18 +93,18 @@ class NivelGobiernoTotal extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   makeData(){
-  	let res = [], 
-  	    gl  = ConstClass.GobLevels, 
+  	let res = [],
+  	    gl  = ConstClass.GobLevels,
   	    i;
 
   	for(i =0; i < gl.length; i++ ){
   		res.push({
-  			promise : this.getInfo(gl[i].key), 
+  			promise : this.getInfo(gl[i].key),
   			label : gl[i].label
   		});
   	}
@@ -111,7 +115,7 @@ class NivelGobiernoTotal extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
