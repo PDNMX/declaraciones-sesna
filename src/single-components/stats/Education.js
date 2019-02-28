@@ -88,20 +88,22 @@ class Education extends Component{
 	render(){
 		let st = this.state;
 		return(
-			<div className="row">
-				<div className="col-sm-12">
-				<h1>Nivel educativo</h1>
-				<div className="pdn_divider"></div>
+
+			<div>
+			<div className="col-sm-3 sidebar">
+				<h2>Nivel Educativo</h2>
+			</div>
+			<div className="col-sm-9 col-sm-offset-3 sidecontent">
 
 				<EducacionTotal />
 				<EducacionPorcentaje />
-				
+
 				<EducacionEdad />
 				<EducacionEdadPorcentaje />
 
 				<EducacionNivelGobierno />
 				<EducacionNivelGobiernoPorcentaje />
-				
+
 			</div>
 			</div>
 		);
