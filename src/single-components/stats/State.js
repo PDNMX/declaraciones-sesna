@@ -61,14 +61,23 @@ class State extends Component{
 	render(){
 		let st = this.state;
 		return(
-			<div clasnName="row">
-				<div className="col-sm-12">
-				<h1>Por entidad</h1>
-				<div className="pdn_divider"></div>
+			<div>
+				<div className="col-sm-3 sidebar">
+					<h2>Por entidad</h2>
+				</div>
 
+				<div className="col-sm-9 col-sm-offset-3 sidecontent">
+				<div className="row">
+					<div className="col-sm-12">
+						<div className="pdn_d_box">
 				<h2>Funcionarios por entidad federativa (total)</h2>
 				<ChartistGraph data={st.fake} type={"Bar"} />
-				<div className="pdn_divider"></div>
+							</div>
+						</div>
+					</div>
+			<div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
 				<h2>Funcionarios por entidad federativa (porcentaje)</h2>
 				<ChartistGraph data={ { series : st.fake.series[0]} } type={"Pie"} options={st.donutOptions} />
 
@@ -102,7 +111,12 @@ class State extends Component{
 				    </span> {st.labels.___labels[6]}
 				  </li>
 				</ul>
-				<div className="pdn_divider"></div>
+				</div>
+			</div>
+		</div>
+<div className="row">
+	<div className="col-sm-12">
+		<div className="pdn_d_box">
 
 				<h2>Funcionarios por estado seleccionado y rango de edad</h2>
 				<ChartistGraph data={st.fake5} type={"Line"} />
@@ -137,9 +151,15 @@ class State extends Component{
 				    </span> {st.labels._labels[6]}
 				  </li>
 				</ul>
-				<div className="pdn_divider"></div>
+				</div>
+			</div>
+		</div>
+<div className="row">
+	<div className="col-sm-12">
+		<div className="pdn_d_box">
 
 				<h2>Funcionarios por estado seleccionado y rango de edad (porcentaje)</h2>
+				<nav class="pdn_viz">
 				<ul>
 				  <li style={ {float: "left"} }>
 				    <ChartistGraph data={ { series : st.fake6.series} } type={"Pie"} options={st.donutOptions} />
@@ -170,6 +190,7 @@ class State extends Component{
 				    <p>{st.labels.___labels[6]}</p>
 				  </li>
 				</ul>
+				</nav>
 				<ul className="list_inline">
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
@@ -201,7 +222,13 @@ class State extends Component{
 				  </li>
 				</ul>
 
-				<div className="pdn_divider"></div>
+				</div>
+			</div>
+		</div>
+
+<div className="row">
+	<div className="col-sm-12">
+		<div className="pdn_d_box">
 
 				<h2>Funcionarios por estado seleccionado y nivel educativo</h2>
 				<ChartistGraph data={st.fake5} type={"Line"} />
@@ -236,9 +263,15 @@ class State extends Component{
 				    </span> {st.labels.__labels[6]}
 				  </li>
 				</ul>
-				<div className="pdn_divider"></div>
+				</div>
+			</div>
+		</div>
+		<div className="row">
+		<div className="col-sm-12">
+		<div className="pdn_d_box">
 
 				<h2>Funcionarios por estado seleccionado y nivel educativo (porcentaje)</h2>
+				<nav class="pdn_viz">
 				<ul>
 				  <li style={ {float: "left"} }>
 				    <ChartistGraph data={ { series : st.fake6.series} } type={"Pie"} options={st.donutOptions} />
@@ -269,6 +302,7 @@ class State extends Component{
 				    <p>{st.labels.___labels[6]}</p>
 				  </li>
 				</ul>
+				</nav>
 				<ul className="list_inline">
 				  <li>
 				    <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
@@ -299,6 +333,11 @@ class State extends Component{
 				    </span> {st.labels.__labels[6]}
 				  </li>
 				</ul>
+
+				</div>
+			</div>
+		</div>
+
 			</div>
 			</div>
 		);
