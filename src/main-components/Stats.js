@@ -43,30 +43,30 @@ class Stats extends Component{
 					  <ul>
 							<li>
 								<Link to="/estadistica/edad" className={ section == "edad" ? "router-link-active" : "" }>
-								  Edad
+								  <b className="pdn_i_ age"></b>Edad
 								</Link>
 							</li>
 							<li>
 								<Link to="/estadistica/nivel-de-gobierno" className={ section == "nivel-de-gobierno" ? "router-link-active" : "" }>
-								  Nivel de gobierno
+								  <b className="pdn_i_ gov"></b>Nivel de gobierno
 								</Link>
 							</li>
 
 							<li>
 								<Link to="/estadistica/entidad-federativa" className={ section == "entidad-federativa" ? "router-link-active" : "" }>
-								  Estado
+								  <b className="pdn_i_ state"></b>Estado
 								</Link>
 							</li>
 
 							<li>
 								<Link  to="/estadistica/educacion" className={ section == "educacion" ? "router-link-active" : "" }>
-								  Educación
+								  <b className="pdn_i_ education"></b>Educación
 								</Link>
 							</li>
 
-							<li>Bienes inmuebles</li>
+							<li><b className="pdn_i_ property"></b>Bienes inmuebles</li>
 
-							<li>Salarios</li>
+							<li><b className="pdn_i_ salary"></b>Salarios</li>
 						</ul>
 					</nav>
 				</div>
