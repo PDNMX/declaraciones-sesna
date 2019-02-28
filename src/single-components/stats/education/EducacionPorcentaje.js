@@ -60,21 +60,25 @@ class EducacionPorcentaje extends Component{
     let st     = this.state;
     let colors = ConstClass.ChartColors;
 		return(
-			<div>
-				<h2>Funcionarios por nivel educativo (porcentaje)</h2>
-				<ChartistGraph data={ { series : st.data.series} } type={"Pie"} options={st.options} />
-				<div className="pdn_divider"></div>
+			<div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
+						<h2>Funcionarios por nivel educativo (porcentaje)</h2>
+						<ChartistGraph data={ { series : st.data.series} } type={"Pie"} options={st.options} />
+						<div className="pdn_divider"></div>
 
-        <ul className="list_inline">
-        {ConstClass.NivelEducacion.map( (d, i) =>
-          <li key={"ngel-" + i}>
-            <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
-            </span> {d}
-          </li>
-        )}
-        </ul>
+		        <ul className="list_inline">
+		        {ConstClass.NivelEducacion.map( (d, i) =>
+		          <li key={"ngel-" + i}>
+		            <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
+		            </span> {d}
+		          </li>
+		        )}
+		        </ul>
 
+				</div>
 			</div>
+		</div>
 		);
 	}
 
@@ -86,7 +90,7 @@ class EducacionPorcentaje extends Component{
 	/*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
@@ -105,18 +109,18 @@ class EducacionPorcentaje extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   makeData(){
-  	let res = [], 
-  	    gl  = ConstClass.NivelEducacion, 
+  	let res = [],
+  	    gl  = ConstClass.NivelEducacion,
   	    i;
 
   	for(i =0; i < gl.length; i++ ){
   		res.push({
-  			promise : this.getInfo(gl[i]), 
+  			promise : this.getInfo(gl[i]),
   			label : gl[i]
   		});
   	}
@@ -127,7 +131,7 @@ class EducacionPorcentaje extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */

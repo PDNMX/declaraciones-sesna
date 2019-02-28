@@ -40,8 +40,8 @@ class EducacionEdadPorcentaje extends Component{
 
     Promise.all(promises.map(d => d.promise)).then(d => {
 
-      
-      
+
+
       let data = {
         labels  : [...new Set(promises.map(d => d.label))],
         _labels : [...new Set(promises.map(d => d._label))],
@@ -49,7 +49,7 @@ class EducacionEdadPorcentaje extends Component{
       }
 
       this.setState({data : data});
-      
+
     });
    }
 
@@ -61,28 +61,32 @@ class EducacionEdadPorcentaje extends Component{
     if(!this.state.data) return null;
     let colors = ConstClass.ChartColors;
 		return(
-      <div>
-        <h2>Funcionarios por nivel de estudios y rango de edad (porcentaje)</h2>
-        <ul>
-        { this.state.data.series.map( (d,i) => 
-          <li key={"ngnepcg-" + i}>
-            <ChartistGraph data={ {series : d} } type={"Pie"} options={this.state.options} />
-            <p>{this.state.data.labels[i]}</p>
-            <div className="pdn_divider"></div>
-          </li>
-        )}
-        </ul>
+      <div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
+            <h2>Funcionarios por nivel de estudios y rango de edad (porcentaje)</h2>
+            <nav class="pdn_viz">
+              <ul>
+              { this.state.data.series.map( (d,i) =>
+                <li key={"ngnepcg-" + i}>
+                  <ChartistGraph data={ {series : d} } type={"Pie"} options={this.state.options} />
+                  <p>{this.state.data.labels[i]}</p>
+                </li>
+              )}
+              </ul>
 
-        <ul className="list_inline">
-        {this.state.data._labels.map( (d, i) =>
-          <li key={"ngecnpl-" + i}>
-            <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
-            </span> {d}
-          </li>
-        )}
-        </ul>
-        
+              <ul className="list_inline">
+              {this.state.data._labels.map( (d, i) =>
+                <li key={"ngecnpl-" + i}>
+                  <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
+                  </span> {d}
+                </li>
+              )}
+              </ul>
+            </nav>
+        </div>
       </div>
+    </div>
 		);
 	}
   /*
@@ -93,7 +97,7 @@ class EducacionEdadPorcentaje extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
@@ -112,14 +116,14 @@ class EducacionEdadPorcentaje extends Component{
    /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   buildMatrix(data, response){
     console.log(data, response);
 
-    let b   = [...data], 
+    let b   = [...data],
         gl  = ConstClass.NivelEducacion,
         ra  = [...new Set(response.map(d => d._label))],
         i, j, res = [];
@@ -133,12 +137,12 @@ class EducacionEdadPorcentaje extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   makeData(){
-    let res = [], 
+    let res = [],
         gl  = ConstClass.NivelEducacion,
         currentYear = (new Date()).getFullYear(),
         _from = d => `${d}-01-01`,
@@ -151,7 +155,7 @@ class EducacionEdadPorcentaje extends Component{
     for(i =0; i < gl.length; i++ ){
       while(year1 > currentYear - conf.to){
         res.push({
-          promise : this.getInfo(_from(year2), _to(year1), gl[i] ), 
+          promise : this.getInfo(_from(year2), _to(year1), gl[i] ),
           label : gl[i],
           _label : `${currentYear - year1} - ${currentYear - year2}`
         });
@@ -170,7 +174,7 @@ class EducacionEdadPorcentaje extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
