@@ -6,6 +6,8 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
+import { Link } from 'react-router-dom';
+
 import * as ConstClass from  '../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../css/chartist.min.css"
@@ -85,29 +87,81 @@ class Education extends Component{
 
 	};
 
+	/*
+	 * R E N D E R
+	 * ----------------------------------------------------------------------
+	 */
+
 	render(){
+		let cat = this.props.match.params.categoria;
 		let st = this.state;
 		return(
 
 			<div>
-			<div className="col-sm-3 sidebar">
-				<h2>Nivel Educativo</h2>
-			</div>
-			<div className="col-sm-9 col-sm-offset-3 sidecontent">
+				<div className="col-sm-3 sidebar">
+					<h2>Nivel Educativo</h2>
+					<ul>
+				  	<li>
+				  	  <Link to="/estadistica/educacion" className={ !cat ? "router-link-exact-active router-link-active" : "" }>Funcionarios por nivel educativo</Link>
+				  	</li>
+				  	<li>
+				  	  <Link to="/estadistica/educacion/estudios-y-edad" className={ cat == "estudios-y-edad" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por nivel educativo y edad</Link>
+				  	</li>
+				  	<li>
+				  	  <Link to="/estadistica/educacion/estudios-y-gobierno" className={ cat == "estudios-y-gobierno" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por nivel educativo y nivel de gobierno</Link>
+				  	</li>
+				  </ul>
+				</div>
+				<div className="col-sm-9 col-sm-offset-3 sidecontent">
 
-				<EducacionTotal />
-				<EducacionPorcentaje />
+					{ this.educacionNav() }
 
-				<EducacionEdad />
-				<EducacionEdadPorcentaje />
-
-				<EducacionNivelGobierno />
-				<EducacionNivelGobiernoPorcentaje />
-
-			</div>
+				</div>
 			</div>
 		);
 	}
+		/*
+		 * T E M P L A T E S
+		 * ----------------------------------------------------------------------
+		 */
+
+		/*
+	  /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+	  /
+	  /
+	  /
+	  /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+	  */
+		educacionNav(){
+			let cat = this.props.match.params.categoria;
+			if(!cat){
+				return(
+				  <div>
+				    <EducacionTotal />
+				    <EducacionPorcentaje />
+				  </div>
+				);
+		  }
+		  else if(cat == "estudios-y-edad"){
+		  	return(
+		  		<div>
+		  		  <EducacionEdad />
+		  		  <EducacionEdadPorcentaje />
+		  		</div>
+		  	);
+		  }
+		  else if(cat == "estudios-y-gobierno"){
+		  	return(
+		  		<div>
+		  		  <EducacionNivelGobierno />
+		  		  <EducacionNivelGobiernoPorcentaje />
+		  		</div>
+		  	);
+		  }
+		  else{
+		  	return null;
+		  }
+		}
 }
 
 export default Education;
