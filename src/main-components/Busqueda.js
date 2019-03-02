@@ -54,7 +54,7 @@ class App extends Component {
       <div className="row">
         <div className="col-sm-12">
         <h2>Busca un servidor público</h2>
-        <BusquedaFromMaterialUI />
+        <BusquedaFromMaterialUI getUsers={this.getUsers} />
         <SearchForm getUsers={this.getUsers} />
         <div className="pdn_mobile_table">
         {this.showTable()}

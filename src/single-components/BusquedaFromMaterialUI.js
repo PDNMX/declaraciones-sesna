@@ -27,23 +27,30 @@ class BusquedaFromMaterialUI extends Component {
 
   render(){
     return(
-        <form>
-          <Grid container spacing={16}>
+        <form onSubmit={this.searchUsers}>
+          <Grid container spacing={24}>
             <Grid item xs={12} sm={4}>
               <TextField
                 id="mui-name"
                 label="Nombres"
-                defaultValue=""
+                value={this.state.names}
+                name="names"
+                onChange={this.handleInputChange}
                 margin="normal"
+                fullWidth
               />
             </Grid>
 
             <Grid item xs={12} sm={4}>
               <TextField
                 id="mui-surname_a"
+                name="surname_a"
+                value={this.state.surname_a}
+                onChange={this.handleInputChange}
                 label="Primer apellido"
                 defaultValue=""
                 margin="normal"
+                fullWidth
               />
             </Grid>
 
@@ -53,6 +60,7 @@ class BusquedaFromMaterialUI extends Component {
                 label="Segundo apellido"
                 defaultValue=""
                 margin="normal"
+                fullWidth
               />
             </Grid>
           </Grid>
@@ -88,12 +96,26 @@ class BusquedaFromMaterialUI extends Component {
             </Grid>
 
             <Grid item xs={12} sm={4}>
-              <Button variant="contained" color="primary">Buscar</Button>
+              <Button type="submit" variant="contained" color="primary" fullWidth>Buscar</Button>
             </Grid>
 
           </Grid>
         </form>
     );
+  }
+
+  /*
+  /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+  /
+  /  pasa los argumentos de la búsqueda a una 
+  /  función que llama al api de búsqueda 
+  /  (definidia en Busqueda, el parent)
+  /
+  /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+  */
+  searchUsers = event => {
+    event.preventDefault();
+    this.props.getUsers(this.state);
   }
 
   /*
