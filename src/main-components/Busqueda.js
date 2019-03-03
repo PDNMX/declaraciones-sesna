@@ -11,6 +11,7 @@ import SearchForm from  '../single-components/BusquedaForm.js';
 import SearchTable from  '../single-components/BusquedaTable.js';
 
 import BusquedaFromMaterialUI from "../single-components/BusquedaFromMaterialUI";
+import BusquedaTableMaterialUI from "../single-components/BusquedaTableMaterialUI";
 
 /*
   ////////////////////////////////////////////////////////////////////////////////

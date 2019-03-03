@@ -7,8 +7,11 @@
 */
 import React, {Component}  from "react";
 
-import {Typography, TextField, Grid, RadioGroup, Radio, FormControlLabel, FormGroup, Button} from '@material-ui/core';
-import red from '@material-ui/core/colors/red';
+import {Typography, TextField, Grid, RadioGroup, 
+        Radio, FormControlLabel, FormControl, InputLabel, 
+        Select, MenuItem, FormGroup, Button} from '@material-ui/core';
+
+import * as ConstClass from  '../ConstValues.js';
 /*
   ////////////////////////////////////////////////////////////////////////////////
   //
@@ -48,20 +51,32 @@ class BusquedaFromMaterialUI extends Component {
                 value={this.state.surname_a}
                 onChange={this.handleInputChange}
                 label="Primer apellido"
-                defaultValue=""
                 margin="normal"
                 fullWidth
               />
             </Grid>
 
             <Grid item xs={12} sm={4}>
-              <TextField
-                id="mui-surname_b"
-                label="Segundo apellido"
-                defaultValue=""
-                margin="normal"
-                fullWidth
-              />
+              <FormControl style={ {width : "100%"} }>
+                <InputLabel htmlFor="age-simple">Oficina</InputLabel>
+                  <Select
+
+                    style={ {paddingTop : 15} }
+                    value={this.state.office}
+                    onChange={this.handleInputChange}
+                    inputProps={{
+                      name: 'office',
+                      id: 'age-simple',
+                    }}>
+                    <MenuItem value="">
+                      <em>Selecciona una oficina</em>
+                    </MenuItem>
+                    ${ConstClass.OFICINAS.map( (d,i)=> 
+                      <MenuItem key={("oficina-"+i)} value={d}>{d}</MenuItem>
+                    )}
+                    
+                  </Select>
+                </FormControl>
             </Grid>
           </Grid>
 
