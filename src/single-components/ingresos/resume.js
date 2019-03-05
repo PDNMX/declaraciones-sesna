@@ -104,7 +104,7 @@ class IngresosSueldosPublicos extends Component{
             <b className='pdn_graph_label_item label hijos'></b> Hijo/Hija
             <b className='pdn_graph_label_item label padres'></b> Padre/Madre
             <b className='pdn_graph_label_item label suegros'></b> Suegro/Suegra
-            <b className='pdn_graph_label_item label otro'></b> otro
+            <b className='pdn_graph_label_item label otro'></b> Otro
             </p>
             </div>
           </Grid>
