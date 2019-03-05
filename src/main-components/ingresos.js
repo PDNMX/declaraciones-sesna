@@ -9,6 +9,7 @@ import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
 
 // INGRESOS
+import IngresosSueldosResume from '../single-components/ingresos/resume';
 import IngresosSueldosPublicos from '../single-components/ingresos/sueldos-publicos';
 import IngresosSueldosOtros from '../single-components/ingresos/sueldos-otros';
 import IngresosActividadProfesional from '../single-components/ingresos/actividad-profesional';
@@ -29,7 +30,7 @@ class Ingresos extends Component{
 		<h2>Ingresos</h2>
 		<ul>
 			<li>
-	  	  <Link className={ !section ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/ingresos`}>
+	  	  <Link className={ section == "sueldos-salarios" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/ingresos/sueldos-salarios`}>
 	  	    Sueldos y Salarios por el Encargo Público <span>{this.props.profile.ingresos.sueldos_salarios_publicos.length}</span>
 	  	  </Link>
 	    </li>
@@ -93,7 +94,8 @@ class Ingresos extends Component{
 	  </ul>
 	 </div>
 	 <Switch>
-	   <Route exact path='/perfil/:id/ingresos' render={() => <IngresosSueldosPublicos profile={this.props.profile}  />}/>
+	 	 <Route exact path='/perfil/:id/ingresos' render={() => <IngresosSueldosResume profile={this.props.profile}  />}/>
+	   <Route exact path='/perfil/:id/ingresos/sueldos-salarios' render={() => <IngresosSueldosPublicos profile={this.props.profile}  />}/>
 	   <Route exact path='/perfil/:id/ingresos/sueldos-otros' render={() => <IngresosSueldosOtros profile={this.props.profile}  />}/>
 	   <Route exact path='/perfil/:id/ingresos/actividad-profesional' render={() => <IngresosActividadProfesional profile={this.props.profile}  />}/>
 	   <Route exact path='/perfil/:id/ingresos/actividad-empresarial' render={() => <IngresosActividadEmpresarial profile={this.props.profile}  />}/>
