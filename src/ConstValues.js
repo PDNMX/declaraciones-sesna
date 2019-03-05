@@ -105,7 +105,7 @@ export const ChartColors = ["#d0001c", "#e95a55", "#edcb4f", "#ca7c24", "#453d3f
 
 export const BarChartConf = {
   width : 800,
-  heigth : 100,
+  height : 100,
   labelsWidthPercent : .2,
   barsWidthPercent : .7,
   dividerWidthPerecent : .03,
@@ -117,7 +117,7 @@ export const BarChartConf = {
     left : 20
   },
   bars : {
-    heigth : 30,
+    height : 30,
     margin : 10
   }
 }

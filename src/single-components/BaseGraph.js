@@ -20,16 +20,35 @@ class BaseGraph extends Component{
 		return d3.scaleLinear().domain([0, d3.max(values)]).range([0, barsMaxWidth]);
 	}
 
+	drawLines(width, total, y0, y1, _x){
+		let spacing = width/total,
+		    lines = [], i;
+
+		for(i=0; i< total; i++){
+			let x = (spacing * i) + _x;
+
+			lines.push(<line x1={x} 
+				               x2={x} 
+				               y1={y0}
+				               y2={y1}
+				               style={ {stroke:"black"} }
+				               key={uniqid()} />);
+		}
+
+		return lines;
+	}
+
 	render(){
 		console.log(ConstClass.BarChartConf, this.props);
 
 		let conf  = ConstClass.BarChartConf,
 		    data  = this.props.data,
 		   width  = conf.width,
-		   heigth = conf.margin.top + conf.margin.bottom + (data.length * (conf.bars.heigth + conf.bars.margin ) ),
-		   gutter = conf.bars.heigth + conf.bars.margin,
+		   height = conf.margin.top + conf.margin.bottom + (data.length * (conf.bars.height + conf.bars.margin ) ),
+		   gutter = conf.bars.height + conf.bars.margin,
 		   hfunc  = index => (gutter * index) + conf.margin.top,
 		   realWidth = (width - conf.margin.left - conf.margin.right),
+		   realHeight = height - (conf.margin.top + conf.margin.bottom),
 		   labelRightMargin = realWidth * conf.labelsWidthPercent,
 		   barsLeftMargin   = ( realWidth * conf.dividerWidthPerecent) + labelRightMargin,
 		   barsMaxWidth = realWidth * conf.barsWidthPercent,
@@ -38,9 +57,9 @@ class BaseGraph extends Component{
 		   format  = d3.format("$,"),
 		   ticks   = _ticks.map(d => format(d));
 
-		   console.log("lines", ticks);
+		   console.log("thicks", ticks);
 		return(
-			<svg id="resume-graph" viewBox={`0 0 ${width} ${heigth}`} width="100%" heigth="auto">
+			<svg id="resume-graph" viewBox={`0 0 ${width} ${height}`} width="100%" height="auto">
 
 			  {data.map( (d,i) =>
 			  	<g key={uniqid()}>
@@ -50,11 +69,13 @@ class BaseGraph extends Component{
 			  		
 			  		<rect style={ {fill : "black"}  } 
 			  		      x={barsLeftMargin} 
-			  		      y={ hfunc(i) - conf.bars.heigth/2 } 
-			  		      width={100} 
-			  		      height={conf.bars.heigth} />
+			  		      y={ hfunc(i) - conf.bars.height/2 } 
+			  		      width={ scale(d.amount[0]) } 
+			  		      height={conf.bars.height} />
 			  	</g>
 			  )}
+
+			  {this.drawLines(realWidth * conf.barsWidthPercent, 10, conf.margin.top, realHeight,  barsLeftMargin)}
 			</svg>
 		);
 	}
