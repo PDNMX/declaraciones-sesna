@@ -57,6 +57,8 @@ class BaseGraph extends Component{
 			  		      y={ hfunc(i) - conf.bars.height/2 } 
 			  		      width={ scale(d.amount[0]) } 
 			  		      height={conf.bars.height} />
+
+			  		{ this.makeBars(d.amount, barsLeftMargin, hfunc, conf, scale, i) }
 			  	</g>
 			  )}
 
@@ -81,6 +83,34 @@ class BaseGraph extends Component{
    * ----------------------------------------------------------------------
    */
 
+  makeBars(data, lmargin, hfunc, conf, scale, j){
+  	let bars,
+  	    slider = lmargin, 
+  	    i;
+
+
+  	console.log(slider);
+
+  	bars = data.map( (d,i) => {
+  		if(!d){
+  			return null;
+  		}
+  		else{
+  		 let r = <rect key={uniqid()} style={ {fill : conf.colors[i]}  } 
+			  		  x={slider} 
+			  		  y={ hfunc(j) - conf.bars.height/2 } 
+			  		  width={ scale(d) } 
+			  		  height={conf.bars.height} />
+
+			  slider = slider + (scale(d) || 0);
+			  return r;
+  		}
+		});
+
+		console.log(data, slider, bars);
+
+  	return bars;
+  }
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
@@ -137,7 +167,7 @@ class BaseGraph extends Component{
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   makeScale(data, barsMaxWidth){
-		let values = data.map(d => d.amount).flat();
+		let values = data.map(d => d.amount.reduce(ConstClass.reducer));
 
 		return d3.scaleLinear().domain([0, d3.max(values)]).range([0, barsMaxWidth]);
 	}

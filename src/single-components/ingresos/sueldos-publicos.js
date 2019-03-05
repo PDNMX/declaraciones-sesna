@@ -53,12 +53,12 @@ class IngresosSueldosPublicos extends Component{
 
       {
         name : "Inversiones",
-        amount : [150000, 0, 0, 0, 0, 0]
+        amount : [150000, 50000, 0, 0, 20000, 0]
       },
 
       {
         name : "Fideicomiso",
-        amount : [250000,0, 0, 0, 0, 0]
+        amount : [250000,0, 0, 0, 0, 20000]
       },
 
       {
