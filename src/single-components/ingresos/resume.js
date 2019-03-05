@@ -48,7 +48,7 @@ class IngresosSueldosPublicos extends Component{
 
       {
         name : "Otros sueldos",
-        amount : [100000, 0, 0, 0, 0, 0]
+        amount : [100000, 20000, 20000, 20000, 0, 0]
       },
 
       {
@@ -73,7 +73,7 @@ class IngresosSueldosPublicos extends Component{
 
       {
         name : "Intereses",
-        amount : [43000, 0, 0, 0, 0, 0]
+        amount : [43000, 20000, 0, 0, 0, 0]
       },
 
       {
@@ -83,12 +83,12 @@ class IngresosSueldosPublicos extends Component{
 
       {
         name : "Otros ingresos",
-        amount : [3000, 0, 0, 0, 0, 0]
+        amount : [3000, 0, 20000, 0, 0, 0]
       },
 
       {
         name : "Enajenación de bienes",
-        amount : [13000, 0, 0, 0, 0, 0]
+        amount : [13000, 0, 0, 0, 0, 20000]
       }
     ];
 
@@ -98,6 +98,14 @@ class IngresosSueldosPublicos extends Component{
           <Grid item xs={12}>
             <div className="pdn_d_box">
             <BaseGraph data={fakeData} />
+            <p className="pdn_graph_label right">
+            <b className='pdn_graph_label_item label declarante'></b> Declarante
+            <b className='pdn_graph_label_item label conyuge'></b> Conyugé
+            <b className='pdn_graph_label_item label hijos'></b> Hijo/Hija
+            <b className='pdn_graph_label_item label padres'></b> Padre/Madre
+            <b className='pdn_graph_label_item label suegros'></b> Suegro/Suegra
+            <b className='pdn_graph_label_item label otro'></b> otro
+            </p>
             </div>
           </Grid>
         </Grid>
