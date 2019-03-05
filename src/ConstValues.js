@@ -94,3 +94,30 @@ export const StatsChartOptions = {
 }
 
 export const ChartColors = ["#d0001c", "#e95a55", "#edcb4f", "#ca7c24", "#453d3f", "#589634", "#2d1a9c"];
+
+/*
+  ////////////////////////////////////////////////////////////////////////////////
+  //
+  // SVG GRAPH OPTIONS
+  //
+  ////////////////////////////////////////////////////////////////////////////////
+*/
+
+export const BarChartConf = {
+  width : 800,
+  heigth : 100,
+  labelsWidthPercent : .2,
+  barsWidthPercent : .7,
+  dividerWidthPerecent : .03,
+  dividerLines : 9,
+  margin : {
+    top: 100,
+    right : 20,
+    bottom : 200,
+    left : 20
+  },
+  bars : {
+    heigth : 30,
+    margin : 10
+  }
+}
