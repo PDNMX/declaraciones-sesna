@@ -40,40 +40,11 @@ class IngresosSueldosPublicos extends Component{
    */
   render(){
 
-    let fakeData = [
-      {
-        name : "Bienes Inmuebles",
-        amount : [50000, 0, 0, 0, 0, 0]
-      },
-
-      {
-        name : "Bienes muebles registrables",
-        amount : [100000, 0, 0, 0, 0, 0]
-      },
-
-      {
-        name : "Inversiones",
-        amount : [150000, 0, 0, 0, 0, 0]
-      },
-
-      {
-        name : "Fideicomiso",
-        amount : [250000,0, 0, 0, 0, 0]
-      },
-
-      {
-        name : "Bienes intangibles",
-        amount : [30000, 0, 0, 0, 0, 0]
-      }
-    ];
+    
 
     return(
       <div className="col-sm-9 col-sm-offset-3 sidecontent">
-        <Grid container spacing={16}>
-          <Grid item xs={12}>
-            <BaseGraph data={fakeData} />
-          </Grid>
-        </Grid>
+
         <h2>Sueldos y Salarios por el Encargo Público ({this.items().length})</h2>
 
         {/* row */ }
