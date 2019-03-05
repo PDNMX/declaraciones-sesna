@@ -50,13 +50,6 @@ class BaseGraph extends Component{
 			  		<text textAnchor="end" 
 			  		      x={labelRightMargin} 
 			  		      y={ hfunc(i) }>{d.name}</text>
-			  
-			 
-			  		<rect style={ {fill : "black"}  } 
-			  		      x={barsLeftMargin} 
-			  		      y={ hfunc(i) - conf.bars.height/2 } 
-			  		      width={ scale(d.amount[0]) } 
-			  		      height={conf.bars.height} />
 
 			  		{ this.makeBars(d.amount, barsLeftMargin, hfunc, conf, scale, i) }
 			  	</g>
@@ -88,9 +81,6 @@ class BaseGraph extends Component{
   	    slider = lmargin, 
   	    i;
 
-
-  	console.log(slider);
-
   	bars = data.map( (d,i) => {
   		if(!d){
   			return null;
@@ -106,8 +96,6 @@ class BaseGraph extends Component{
 			  return r;
   		}
 		});
-
-		console.log(data, slider, bars);
 
   	return bars;
   }
