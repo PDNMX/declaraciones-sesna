@@ -121,7 +121,7 @@ class Container extends Component{
 			let amigo = this.state.profile.informacion_personal.informacion_general;
 			return(
 				<ul>
-  		    <li><a href="#">Plataforma Digital Nacional</a></li>
+  		    <li><a href="https://plataformadigitalnacional.org/">Plataforma Digital Nacional</a></li>
   		    <li>{amigo.nombres}
   		        {amigo.primer_apellido}
   		        {amigo.segundo_apellido}
@@ -132,7 +132,7 @@ class Container extends Component{
 
 		return(
 			<ul>
-			  <li><a href="#">Plataforma Digital Nacional</a></li>
+			  <li><a href="https://plataformadigitalnacional.org/">Plataforma Digital Nacional</a></li>
 				<li v-if="isProfile"><a href="/">Declaraciones</a></li>
 			</ul>
 		);
