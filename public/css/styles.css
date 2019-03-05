@@ -1497,6 +1497,16 @@ section.pdn_nomargin {
 .pdn_graph_label {
   font-size: 12px; }
 
+/* = pdn graph
+-------------------------------------------------------------- */
+#resume-graph {
+  font-family: "Noto Sans SC", Helvetica, Arial, sans-serif;
+  font-size: 12px; }
+  #resume-graph rect {
+    fill: #34b3eb !important; }
+  #resume-graph line {
+    stroke: rgba(0, 0, 0, 0.1) !important; }
+
 /* = pdn bars
 -------------------------------------------------------------- */
 .pdn_bar_container {
