@@ -58,7 +58,7 @@ class IngresosSueldosPublicos extends Component{
 
       {
         name : "Fideicomiso",
-        amount : [0,250000, 0, 0, 0, 0]
+        amount : [250000,0, 0, 0, 0, 0]
       },
 
       {

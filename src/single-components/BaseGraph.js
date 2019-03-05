@@ -20,6 +20,17 @@ class BaseGraph extends Component{
 		return d3.scaleLinear().domain([0, d3.max(values)]).range([0, barsMaxWidth]);
 	}
 
+	makeNumGuides(ticks, _x, y, scale){
+		let format = d3.format("$,"),
+		    guides, i;
+
+		guides = ticks.map( d=>
+			<text x={scale(d) + _x} y={y/2} key={uniqid()}> {format(d)} </text>
+		);
+
+		return guides;
+	}
+
 	drawLines(width, total, y0, y1, _x){
 		let spacing = width/total,
 		    lines = [], i;
@@ -53,20 +64,19 @@ class BaseGraph extends Component{
 		   barsLeftMargin   = ( realWidth * conf.dividerWidthPerecent) + labelRightMargin,
 		   barsMaxWidth = realWidth * conf.barsWidthPercent,
 		   scale = this.makeScale(this.props.data, barsMaxWidth),
-		   _ticks  = scale.ticks(5),
-		   format  = d3.format("$,"),
-		   ticks   = _ticks.map(d => format(d));
+		   _ticks  = scale.ticks(5);
 
-		   console.log("thicks", ticks);
 		return(
 			<svg id="resume-graph" viewBox={`0 0 ${width} ${height}`} width="100%" height="auto">
 
 			  {data.map( (d,i) =>
+			  
 			  	<g key={uniqid()}>
 			  		<text textAnchor="end" 
 			  		      x={labelRightMargin} 
 			  		      y={ hfunc(i) }>{d.name}</text>
-			  		
+			  
+			 
 			  		<rect style={ {fill : "black"}  } 
 			  		      x={barsLeftMargin} 
 			  		      y={ hfunc(i) - conf.bars.height/2 } 
@@ -75,7 +85,10 @@ class BaseGraph extends Component{
 			  	</g>
 			  )}
 
+			  {/* las líneas guías */}
 			  {this.drawLines(realWidth * conf.barsWidthPercent, 10, conf.margin.top, realHeight,  barsLeftMargin)}
+
+			  {this.makeNumGuides(_ticks, barsLeftMargin, conf.margin.top, scale)}
 			</svg>
 		);
 	}
