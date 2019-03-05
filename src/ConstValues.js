@@ -14,7 +14,7 @@ export const fetchObj =  {
 	                         },
 	                         body : null
 	                       };
-	                       
+
 export const PROP_NAMES = {
   institucionResponsable : "metadatos.institucion_responsable",
   ente : "informacion_personal.datos_encargo_actual.ente_publico",
@@ -46,7 +46,7 @@ export const PROP_NAMES = {
 */
 export const Incomefields = ["actividad_economica_menor", "actividad_empresarial",
                 "actividad_profesional", "arrendamiento", "enajenacion_bienes",
-                "intereses", "otros_ingresos", "premios", 
+                "intereses", "otros_ingresos", "premios",
                 "sueldos_salarios_otros_empleos", "sueldos_salarios_publicos"];
 
 export const GobLevels = [
@@ -119,5 +119,5 @@ export const BarChartConf = {
     height : 30,
     margin : 10
   },
-  colors : ["#7fdefa", "#ecb3e6", "#b7ccdf", "#b5dece", "#e6e082", "#e8999c"]
+  colors : ["#83dfff", "#e8b3e2", "#b3cde2", "#b3e0ce", "#e5e27f", "#e09d9d"]
 }
