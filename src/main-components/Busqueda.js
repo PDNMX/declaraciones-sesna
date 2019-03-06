@@ -32,7 +32,7 @@ class App extends Component {
     this.state = {
       page : 0,
       pages : 0,
-      pageSize : 20,
+      pageSize : 10,
       response : null,
       settings : null
     }
@@ -56,7 +56,7 @@ class App extends Component {
         <div className="col-sm-12">
         <h2>Busca un servidor público</h2>
         <BusquedaFromMaterialUI getUsers={this.getUsers} />
-        <SearchForm getUsers={this.getUsers} />
+        {/* <SearchForm getUsers={this.getUsers} /> */}
         <div className="pdn_mobile_table">
         {this.showTable()}
         </div>
@@ -81,14 +81,17 @@ class App extends Component {
     if(this.state.response){
       return(
         <Fragment>
+        {/*
           <SearchTable results={this.state.response.results}
                        pages={this.state.pages}
                        page={this.state.page}
                        search={this.updatePage} />
-          
+          */}
           <BusquedaTableMaterialUI results={this.state.response.results}
                        pages={this.state.pages}
                        page={this.state.page}
+                       total={this.state.response.total}
+                       pageSize={this.state.pageSize}
                        search={this.updatePage} />
         </Fragment>
       );
