@@ -25,6 +25,18 @@ class BusquedaTableMaterialUI extends Component{
 			<div>
 				<h6>test</h6>
 				<Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>nombre</TableCell>
+              <TableCell>oficina</TableCell>
+              <TableCell>cargo</TableCell>
+              <TableCell>estado</TableCell>
+              <TableCell>municipio</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            
+          </TableBody>
 				</Table>
 			</div>
 		);

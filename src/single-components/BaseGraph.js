@@ -9,7 +9,7 @@ import React, { Component } from 'react';
 import * as ConstClass from  '../ConstValues.js';
 
 
-let d3     = Object.assign({}, require("d3-format"), require("d3-scale"), require("d3-array")),
+let d3     = Object.assign({}, require("d3-scale"), require("d3-array")),
     uniqid = require('uniqid');
 
 /*
@@ -107,7 +107,7 @@ class BaseGraph extends Component{
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   makeNumGuides(ticks, _x, y, scale){
-		let format = d3.format("$,"),
+		let format = this.props.format,
 		    guides, i;
 
 		guides = ticks.map( d=>

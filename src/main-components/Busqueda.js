@@ -5,7 +5,7 @@
   //
   ////////////////////////////////////////////////////////////////////////////////
 */
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import * as ConstClass from  '../ConstValues.js';
 import SearchForm from  '../single-components/BusquedaForm.js';
 import SearchTable from  '../single-components/BusquedaTable.js';
@@ -79,10 +79,19 @@ class App extends Component {
   */
   showTable(){
     if(this.state.response){
-      return <SearchTable results={this.state.response.results}
-                          pages={this.state.pages}
-                          page={this.state.page}
-                          search={this.updatePage} />
+      return(
+        <Fragment>
+          <SearchTable results={this.state.response.results}
+                       pages={this.state.pages}
+                       page={this.state.page}
+                       search={this.updatePage} />
+          
+          <BusquedaTableMaterialUI results={this.state.response.results}
+                       pages={this.state.pages}
+                       page={this.state.page}
+                       search={this.updatePage} />
+        </Fragment>
+      );
     }
     return "";
   }

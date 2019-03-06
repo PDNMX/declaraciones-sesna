@@ -10,6 +10,8 @@ import {Typography, Grid} from '@material-ui/core';
 
 import BaseGraph from "../BaseGraph";
 
+let d3 = Object.assign({}, require("d3-format"));
+
 /*
 	////////////////////////////////////////////////////////////////////////////////
   //
@@ -97,7 +99,7 @@ class IngresosSueldosPublicos extends Component{
         <Grid container spacing={16}>
           <Grid item xs={12}>
             <div className="pdn_d_box">
-            <BaseGraph data={fakeData} />
+            <BaseGraph data={fakeData} format={d3.format("$,")} />
             <p className="pdn_graph_label right">
             <b className='pdn_graph_label_item label declarante'></b> Declarante
             <b className='pdn_graph_label_item label conyuge'></b> Conyugé
