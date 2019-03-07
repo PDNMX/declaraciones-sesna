@@ -9,6 +9,7 @@ import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
 
 // PASIVOS
+import PasivosResume from '../single-components/pasivos/resume-pasivos';
 import PasivosDeudas from '../single-components/pasivos/deudas';
 import PasivosObligaciones from '../single-components/pasivos/otras-obligaciones';
 
@@ -33,7 +34,7 @@ class Pasivos extends Component{
 		<h2>Pasivos</h2>
 		<ul>
 			<li>
-	  	  <Link className={ !section ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/pasivos`}>
+	  	  <Link className={ section == "deudas" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/pasivos/deudas`}>
 	  	    Deudas <span>{this.props.profile.pasivos.deudas.length}</span>
 	  	  </Link>
 	    </li>
@@ -45,7 +46,8 @@ class Pasivos extends Component{
 	  </ul>
 	</div>
 	  <Switch>
-	    <Route exact path='/perfil/:id/pasivos' render={() => <PasivosDeudas profile={this.props.profile}  />}/>
+			<Route exact path='/perfil/:id/pasivos' render={() => <PasivosResume profile={this.props.profile}  />}/>
+	    <Route exact path='/perfil/:id/pasivos/deudas' render={() => <PasivosDeudas profile={this.props.profile}  />}/>
 	    <Route exact path='/perfil/:id/pasivos/otras-obligaciones' render={() => <PasivosObligaciones profile={this.props.profile}  />}/>
 	  </Switch>
 	  </div>
