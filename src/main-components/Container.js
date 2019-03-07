@@ -11,6 +11,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 import Busqueda from './Busqueda';
 import Stats from './Stats';
 import Perfil from './Perfil';
+import PerfilMaterialUI from './PerfilMaterialUI';
 
 /*
 	////////////////////////////////////////////////////////////////////////////////
@@ -95,7 +96,7 @@ class Container extends Component{
 			  <div className="container">
 				  <Switch>
 				    <Route exact path='/' component={Busqueda}/>
-				    <Route path='/perfil/:id/:section/:subsection?' component={Perfil}/>
+				    <Route path='/perfil/:id/:section/:subsection?' component={PerfilMaterialUI}/>
 				    <Route path='/estadistica/:section' component={Stats}/>
 				  </Switch>
 			  </div>
