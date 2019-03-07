@@ -9,6 +9,7 @@ import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
 
 // INTERESES
+import InteresesResume from '../single-components/intereses/resume_intereses';
 import InteresesEmpresas from '../single-components/intereses/empresas';
 import InteresesMembresias from '../single-components/intereses/membresias';
 import InteresesApoyos from '../single-components/intereses/apoyos';
@@ -29,7 +30,7 @@ class Intereses extends Component{
 		<h2>Intereses</h2>
 		<ul>
 			<li>
-	  	  <Link className={ !section ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/intereses`}>
+	  	  <Link className={ section == "empresas" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/intereses/empresas`}>
 					Empresas o asociaciones <span>{this.props.profile.intereses.empresas_sociedades_asociaciones.length}</span>
 	  	  </Link>
 	    </li>
@@ -85,7 +86,8 @@ class Intereses extends Component{
 	  </ul>
 	  </div>
 	  <Switch>
-	    <Route exact path='/perfil/:id/intereses' render={() => <InteresesEmpresas profile={this.props.profile}  />}/>
+	    <Route exact path='/perfil/:id/intereses' render={() => <InteresesResume profile={this.props.profile}  />}/>
+			<Route exact path='/perfil/:id/intereses/empresas' render={() => <InteresesEmpresas profile={this.props.profile}  />}/>
 	    <Route exact path='/perfil/:id/intereses/membresias' render={() => <InteresesMembresias profile={this.props.profile}  />}/>
 	    <Route exact path='/perfil/:id/intereses/apoyos' render={() => <InteresesApoyos profile={this.props.profile}  />}/>
 	    <Route exact path='/perfil/:id/intereses/representacion-activa' render={() => <InteresesRepActiva profile={this.props.profile}  />}/>
