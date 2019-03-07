@@ -43,24 +43,26 @@ class BaseGraph extends Component{
 		return(
 			<svg id="resume-graph" viewBox={`0 0 ${width} ${height}`} width="100%" height="auto">
 
+      {/* las líneas guías */}
+      {this.drawLines(realWidth * conf.barsWidthPercent,
+                      8,
+                      conf.margin.top/ 1.5,
+                      realHeight,
+                      barsLeftMargin)}
+                      
 			  {/* las etiquetas y las barras */}
 			  {data.map( (d,i) =>
-			  
+
 			  	<g key={uniqid()}>
-			  		<text textAnchor="end" 
-			  		      x={labelRightMargin} 
+			  		<text textAnchor="end"
+			  		      x={labelRightMargin}
 			  		      y={ hfunc(i) }>{d.name}</text>
 
 			  		{ this.makeBars(d.amount, barsLeftMargin, hfunc, conf, scale, i) }
 			  	</g>
 			  )}
 
-			  {/* las líneas guías */}
-			  {this.drawLines(realWidth * conf.barsWidthPercent, 
-			  	              8, 
-			  	              conf.margin.top/ 1.5, 
-			  	              realHeight,
-			  	              barsLeftMargin)}
+
 
 			  {/* las guías numéricas (top) */}
 			  {this.makeNumGuides(_ticks, barsLeftMargin, conf.margin.top/ 2, scale)}
@@ -78,7 +80,7 @@ class BaseGraph extends Component{
 
   makeBars(data, lmargin, hfunc, conf, scale, j){
   	let bars,
-  	    slider = lmargin, 
+  	    slider = lmargin,
   	    i;
 
   	bars = data.map( (d,i) => {
@@ -86,10 +88,10 @@ class BaseGraph extends Component{
   			return null;
   		}
   		else{
-  		 let r = <rect key={uniqid()} style={ {fill : conf.colors[i]}  } 
-			  		  x={slider} 
-			  		  y={ hfunc(j) - conf.bars.height/2 } 
-			  		  width={ scale(d) } 
+  		 let r = <rect key={uniqid()} style={ {fill : conf.colors[i]}  }
+			  		  x={slider}
+			  		  y={ hfunc(j) - conf.bars.height/2 }
+			  		  width={ scale(d) }
 			  		  height={conf.bars.height} />
 
 			  slider = slider + (scale(d) || 0);
@@ -102,7 +104,7 @@ class BaseGraph extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  / 
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
@@ -120,7 +122,7 @@ class BaseGraph extends Component{
 	/*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  / 
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
@@ -131,8 +133,8 @@ class BaseGraph extends Component{
 		for(i=0; i<= total; i++){
 			let x = (spacing * i) + _x;
 
-			lines.push(<line x1={x} 
-				               x2={x} 
+			lines.push(<line x1={x}
+				               x2={x}
 				               y1={y0}
 				               y2={y0 + y1}
 				               style={ {stroke:"black"} }
@@ -150,7 +152,7 @@ class BaseGraph extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  / 
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
