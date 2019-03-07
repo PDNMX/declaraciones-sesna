@@ -9,6 +9,7 @@ import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
 
 // ACTIVOS
+import ActivosResume from '../single-components/activos/resume-activos';
 import ActivosBienesInmuebles from '../single-components/activos/bienes-inmuebles';
 import ActivosBienesMuebles from '../single-components/activos/bienes-muebles';
 import ActivosBienesMueblesNoRegistrables from '../single-components/activos/bienes-muebles-no-registrables';
@@ -29,7 +30,7 @@ class Activos extends Component{
 		<ul>
 
 			<li>
-	  	  <Link className={ !section ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/activos`}>
+	  	  <Link className={ section == "bienes-inmuebles" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/activos/bienes-inmuebles`}>
 	  	    Bienes inmuebles <span>{this.props.profile.activos.bienes_inmuebles.length}</span>
 	  	  </Link>
 	    </li>
@@ -85,7 +86,8 @@ class Activos extends Component{
 	  </ul>
 	</div>
 	  <Switch>
-	    <Route exact path='/perfil/:id/activos' render={() => <ActivosBienesInmuebles profile={this.props.profile}  />}/>
+	    <Route exact path='/perfil/:id/activos' render={() => <ActivosResume profile={this.props.profile}  />}/>
+			<Route exact path='/perfil/:id/activos/bienes-inmuebles' render={() => <ActivosBienesInmuebles profile={this.props.profile}  />}/>
 	    <Route exact path='/perfil/:id/activos/bienes-muebles' render={() => <ActivosBienesMuebles profile={this.props.profile}  />}/>
 	    <Route exact path='/perfil/:id/activos/bienes-muebles-no-registrables' render={() => <ActivosBienesMueblesNoRegistrables profile={this.props.profile}  />}/>
 	    <Route exact path='/perfil/:id/activos/inversiones' render={() => <ActivosInversiones profile={this.props.profile}  />}/>
