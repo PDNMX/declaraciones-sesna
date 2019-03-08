@@ -78,9 +78,9 @@ class PerfilMaterialUI extends Component{
 				</Grid>
 				<Grid item sm={8}>
 				{/*<div className="col-sm-8">*/}
-					<Typography variant={"h1"}>
+					<h1>
 					{this.state.profile.informacion_personal.informacion_general.nombres} {this.state.profile.informacion_personal.informacion_general.primer_apellido} {this.state.profile.informacion_personal.informacion_general.segundo_apellido}
-					</Typography>
+					</h1>
 					<p className="pdn_mail">{this.state.profile.informacion_personal.informacion_general.correo_electronico.laboral}</p>
 					<p className="pdn_label">ENCARGO ACTUAL</p>
 					<p>{this.state.profile.informacion_personal.datos_encargo_actual.empleo_cargo_comision}</p>
@@ -190,7 +190,7 @@ class PerfilMaterialUI extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
@@ -201,7 +201,7 @@ class PerfilMaterialUI extends Component{
 		  			all = all.concat(this.state.profile.ingresos[ConstClass.Incomefields[i]].map(d => d.ingreso_bruto_anual));
 		  		}
 		  	}
-		  	
+
 		  	all = all.filter(d => d.moneda.codigo == "MXN").map(d => d.valor);
 
 		  	return all.reduce(reducer).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
