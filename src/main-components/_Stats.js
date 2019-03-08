@@ -7,7 +7,6 @@
 */
 import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
-import {Typography, Grid, Button} from '@material-ui/core';
 
 import Age from "../single-components/stats/Age.js";
 import GobLevel from "../single-components/stats/GobLevel.js";
@@ -31,15 +30,15 @@ class Stats extends Component{
 		return(
 	<div>
 			{/* título */}
-			<Grid container spacing={24}>
-				<Grid item sm={12}>
+			<div className="row">
+				<div className="col-sm-12">
 					<h1>Estadísticas</h1>
-				</Grid>
-			</Grid>
+				</div>
+			</div>
 
 			{/* navegación */}
-			<Grid container spacing={24}>
-				<Grid item sm={12}>
+			<div className="row">
+				<div className="col-sm-12">
 					<nav className="pdn_main_nav">
 					  <ul>
 							<li>
@@ -70,8 +69,8 @@ class Stats extends Component{
 							<li><b className="pdn_i_ salary"></b>Salarios</li>
 						</ul>
 					</nav>
-				</Grid>
-			</Grid>
+				</div>
+			</div>
 
 			<div className="row pnd_box">
 			  <Switch>
