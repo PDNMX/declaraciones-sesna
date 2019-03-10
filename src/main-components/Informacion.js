@@ -13,9 +13,6 @@ import InfoPuesto from '../single-components/informacion/puesto-actual';
 import InfoCurriculum from '../single-components/informacion/datos-curriculares';
 import InfoExperiencia from '../single-components/informacion/experiencia-laboral';
 import InfoDependientes from '../single-components/informacion/dependientes-economicos';
-
-import InfoGeneralMaterialUI from '../single-components/informacion/informacion-generalMaterialUI';
-
 /*
 	////////////////////////////////////////////////////////////////////////////////
   //
@@ -68,7 +65,7 @@ class Informacion extends Component{
 	</div>
 
 	<Switch>
-	  <Route exact path='/perfil/:id/informacion' render={() => <InfoGeneralMaterialUI profile={this.props.profile} items={this.props.profile.informacion_personal.informacion_general} />}/>
+	  <Route exact path='/perfil/:id/informacion' render={() => <InfoGeneral profile={this.props.profile} items={this.props.profile.informacion_personal.informacion_general} />}/>
 	  <Route exact path='/perfil/:id/informacion/puesto-actual' render={() => <InfoPuesto profile={this.props.profile} items={this.props.profile.informacion_personal.datos_encargo_actual} />}/>
 	  <Route exact path='/perfil/:id/informacion/datos-curriculares' render={() => <InfoCurriculum profile={this.props.profile} items={this.props.profile.informacion_personal.datos_curriculares} />}/>
 	  <Route exact path='/perfil/:id/informacion/experiencia-laboral' render={() => <InfoExperiencia profile={this.props.profile} items={this.props.profile.informacion_personal.experiencia_laboral} />}/>
