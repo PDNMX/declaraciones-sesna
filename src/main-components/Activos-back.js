@@ -7,7 +7,6 @@
 */
 import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
-import {Typography, Grid, Button} from '@material-ui/core';
 
 // ACTIVOS
 import ActivosResume from '../single-components/activos/resume-activos';
@@ -26,10 +25,10 @@ class Activos extends Component{
 		let section = this.props.section;
 		return(
 			<div>
-	{/*<div className="col-sm-3 sidebar">*/}
-	<Grid item sm ={3} className ="sidebar">
+	<div className="col-sm-3 sidebar">
 		<h2>Activos</h2>
 		<ul>
+
 			<li>
 	  	  <Link className={ section == "bienes-inmuebles" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/activos/bienes-inmuebles`}>
 	  	    Bienes inmuebles <span>{this.props.profile.activos.bienes_inmuebles.length}</span>
@@ -85,8 +84,7 @@ class Activos extends Component{
 	    </li>
 
 	  </ul>
-	{/*</div>*/}
-	</Grid>
+	</div>
 	  <Switch>
 	    <Route exact path='/perfil/:id/activos' render={() => <ActivosResume profile={this.props.profile}  />}/>
 			<Route exact path='/perfil/:id/activos/bienes-inmuebles' render={() => <ActivosBienesInmuebles profile={this.props.profile}  />}/>
