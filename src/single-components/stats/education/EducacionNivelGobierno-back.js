@@ -6,7 +6,6 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Grid, Paper} from '@material-ui/core';
 import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css"
@@ -18,8 +17,7 @@ import "../../../css/chartist.min.css"
   //
   ////////////////////////////////////////////////////////////////////////////////
 */
-class EducacionEdadPorcentaje extends Component{
-
+class EducacionNivelGobierno extends Component{
   /*
    * C O N S T R U C T O R
    * ----------------------------------------------------------------------
@@ -33,24 +31,19 @@ class EducacionEdadPorcentaje extends Component{
     this.buildMatrix = this.buildMatrix.bind();
 
     this.state = {
-      data : null,
-      options : ConstClass.StatsChartOptions.donutOptions
+      data : null
     }
 
     let promises = this.makeData();
 
     Promise.all(promises.map(d => d.promise)).then(d => {
 
-
-
       let data = {
-        labels  : [...new Set(promises.map(d => d.label))],
-        _labels : [...new Set(promises.map(d => d._label))],
-        series  : this.buildMatrix(d, promises)
+        labels : [...new Set(promises.map(d => d.label))],
+        series : this.buildMatrix(d)
       }
 
       this.setState({data : data});
-
     });
    }
 
@@ -62,34 +55,27 @@ class EducacionEdadPorcentaje extends Component{
     if(!this.state.data) return null;
     let colors = ConstClass.ChartColors;
 		return(
-      <Grid container spacing={24}>
-        <Grid item sm={12}>
-          <Paper className="pdn_d_box">
-            <h2>Funcionarios por nivel de estudios y rango de edad (porcentaje)</h2>
-            <nav class="pdn_viz">
-              <ul>
-              { this.state.data.series.map( (d,i) =>
-                <li key={"ngnepcg-" + i}>
-                  <ChartistGraph data={ {series : d} } type={"Pie"} options={this.state.options} />
-                  <p>{this.state.data.labels[i]}</p>
-                </li>
-              )}
-              </ul>
+      <div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
+            <h2>Funcionarios por nivel educativo y nivel de gobierno (total)</h2>
+            <ChartistGraph data={this.state.data} type={"Bar"} />
+            <div className="pdn_divider"></div>
 
-              <ul className="list_inline">
-              {this.state.data._labels.map( (d, i) =>
-                <li key={"ngecnpl-" + i}>
-                  <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
-                  </span> {d}
-                </li>
-              )}
-              </ul>
-            </nav>
-        </Paper>
-      </Grid>
-    </Grid>
+            <ul className="list_inline">
+            {ConstClass.GobLevels.map( (d, i) =>
+              <li key={"ngel-" + i}>
+                <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
+                </span> {d.label}
+              </li>
+            )}
+            </ul>
+        </div>
+      </div>
+    </div>
 		);
 	}
+
   /*
    * M E T H O D S
    * ----------------------------------------------------------------------
@@ -102,10 +88,10 @@ class EducacionEdadPorcentaje extends Component{
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
-  getInfo(_from, _to, gl){
+  getInfo(gl, ne){
     let connObj = Object.assign({}, ConstClass.fetchObj);
 
-    connObj.body = this.makeQuery(_from, _to, gl);
+    connObj.body = this.makeQuery(gl, ne);
 
     return fetch(ConstClass.endpoint, connObj)
           .then(response => response.json())
@@ -114,22 +100,20 @@ class EducacionEdadPorcentaje extends Component{
           });
   }
 
-   /*
+  /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
   /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
-  buildMatrix(data, response){
-    console.log(data, response);
-
+  buildMatrix(data){
     let b   = [...data],
-        gl  = ConstClass.NivelEducacion,
-        ra  = [...new Set(response.map(d => d._label))],
+        gl  = ConstClass.GobLevels,
+        ne  = ConstClass.NivelEducacion,
         i, j, res = [];
     for(i =0; i < gl.length; i++ ){
-      res.push(b.splice(0, ra.length))
+      res.push(b.splice(0, ne.length))
     }
 
     return res;
@@ -144,29 +128,17 @@ class EducacionEdadPorcentaje extends Component{
   */
   makeData(){
     let res = [],
-        gl  = ConstClass.NivelEducacion,
-        currentYear = (new Date()).getFullYear(),
-        _from = d => `${d}-01-01`,
-        _to   = d => `${d}-07-07`,
-        conf = ConstClass.AgeChartsConf,
-        year1 = currentYear - conf.from,
-        year2 = year1 - conf.step,
-        i;
+        gl  = ConstClass.GobLevels,
+        ne  = ConstClass.NivelEducacion,
+        i, j;
 
     for(i =0; i < gl.length; i++ ){
-      while(year1 > currentYear - conf.to){
+      for(j =0; j < ne.length; j++){
         res.push({
-          promise : this.getInfo(_from(year2), _to(year1), gl[i] ),
-          label : gl[i],
-          _label : `${currentYear - year1} - ${currentYear - year2}`
+          promise : this.getInfo(gl[j].key, ne[i]),
+          label : ne[j]
         });
-
-        year1-= conf.step;
-        year2-= conf.step;
       }
-
-      year1 = currentYear - conf.from;
-      year2 = year1 - conf.step;
     }
 
     return res;
@@ -179,13 +151,14 @@ class EducacionEdadPorcentaje extends Component{
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
-  makeQuery(_from, _to, gl){
-    let str1   = ConstClass.PROP_NAMES.nacimiento,
+  makeQuery(gl, ne){
+    let str1   = ConstClass.PROP_NAMES.nivelGobierno,
         str2   = ConstClass.PROP_NAMES.escolaridad,
         search = {query : {}, limit : 2};
 
-    search.query[str1] = {"desde" : _from, "hasta" : _to};
-    search.query[str2] = gl;
+    search.query[str1] = gl;
+    search.query[str2] = ne;
+
 
     return JSON.stringify(search);
   }
@@ -198,4 +171,4 @@ class EducacionEdadPorcentaje extends Component{
   //
   ////////////////////////////////////////////////////////////////////////////////
 */
-export default EducacionEdadPorcentaje;
+export default EducacionNivelGobierno;

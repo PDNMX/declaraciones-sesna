@@ -64,7 +64,7 @@ class EdadTotalEducacionPorcentaje extends Component{
 				<Grid item sm={12}>
 					<Paper className="pdn_d_box">
             <h2>Funcionarios por rango de edad y nivel de gobierno (porcentaje)</h2>
-            <nav class="pdn_viz">
+            <nav className="pdn_viz">
               <ul>
               { this.state.data.series.map( (d,i) =>
                 <li key={"ngnepgxs-" + i}>
@@ -74,7 +74,7 @@ class EdadTotalEducacionPorcentaje extends Component{
               )}
               </ul>
             </nav>
-            
+
             <ul className="list_inline">
             {ConstClass.GobLevels.map( (d, i) =>
               <li key={"ngenplxs-" + i}>
