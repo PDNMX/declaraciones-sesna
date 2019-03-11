@@ -6,7 +6,7 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Typography, Grid, Button, Paper} from '@material-ui/core';
+import {Typography, Grid} from '@material-ui/core';
 
 import BaseGraph from "../BaseGraph";
 
@@ -45,94 +45,85 @@ class IngresosSueldosPublicos extends Component{
 
 
     return(
-      <Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-      <Grid item sm={9}>
+      <div className="col-sm-9 col-sm-offset-3 sidecontent">
 	  	 
         <h2>Sueldos y Salarios por el Encargo Público ({this.items().length})</h2>
 
         {/* row */ }
-        <Grid container spacing={24}>
-          <Grid item sm={12}>
-            <Paper className="pdn_d_box">
-              <Paper className="pdn_bar_container">
-                <Paper className="pdn_bar declarante"></Paper>
-              </Paper>
+        <div className="row">
+          <div className="col-sm-12">
+            <div className="pdn_d_box">
+              <div className="pdn_bar_container">
+                <div className="pdn_bar declarante"></div>
+              </div>
               <p className="pdn_graph_label">
               <b className={ 'pdn_graph_label_item label declarante' }></b> Declarante</p>
-            </Paper>
-          </Grid>
-        </Grid>
+            </div>
+          </div>
+        </div>
         {/* row ends*/ }
 
-        <Grid container spacing={24}>
-          <Grid item sm={12}>
+        <div className="row">
+          <div className="col-sm-12">
             {this.items().map( (sueldo, i) =>
-            <Paper className="pdn_d_box" key={"sueldo-" + i} id={"sueldo-" + i}>
+            <div className="pdn_d_box" key={"sueldo-" + i} id={"sueldo-" + i}>
               {/* row starts*/}
-              <Grid container spacing={24} className="row pdn_border">
-                <Grid item sm={6}>
+              <div className="row pdn_border">
+                <div className="col-sm-6">
                   <p><span className={ 'label declarante' }> Declarante</span></p>
-                </Grid>
-                <Grid item sm={6} className="right">
+                </div>
+                <div className="col-sm-6 right">
                   <a onClick={(e) => this.toggl(sueldo, i, e)} heref="#" className={"pdn_arrow " + (sueldo.show ?  "close" : "open")}></a>
-                </Grid>
-              </Grid>
+                </div>
+              </div>
               {/* row ends*/}
 
               {/* div close/open */}
               <div style={ {display : (sueldo.show ? "block" : "none")} }>
                 {/* row */}
-                <Grid container spacing={24} className="pdn_border">
+                <div className="row pdn_border">
                   {/* Ente público */}
-                  <Grid item sm={7}>
+                  <div className="col-sm-7">
                     <p className="pdn_label">Ente público</p>
                     <h3>{sueldo.ente_publico.valor}</h3>
-                  </Grid>
+                  </div>
                   {/* Ingreso bruto anual*/}
-                  <Grid item sm={5}>
+                  <div className="col-sm-5">
                     <p className="pdn_label right">Ingreso bruto anual</p>
                     <h3 className="pdn_amount right">${sueldo.ingreso_bruto_anual.valor} {sueldo.ingreso_bruto_anual.moneda.codigo} <span>({sueldo.ingreso_bruto_anual.moneda.moneda})</span> </h3>
-                  </Grid>
-                </Grid>
+                  </div>
+                </div>
                 {/* row ends*/}
 
-                <Grid container spacing={24} className="pdn_border">
+                <div className="row pdn_border">
                   {/* R.F.C*/}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">R.F.C</p>
                     <p className="pdn_data_p">{sueldo.rfc}</p>
-                  </Grid>
+                  </div>
                   {/* Duración frecuencia */}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Duración / frecuencia</p>
                     <p className="pdn_data_p">{sueldo.ingreso_bruto_anual.duracion_frecuencia} {sueldo.ingreso_bruto_anual.unidad_temporal.valor}</p>
-                  </Grid>
+                  </div>
                   {/* Fecha de transacción */}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Fecha de transacción</p>
                     <p className="pdn_data_p">{sueldo.ingreso_bruto_anual.fecha_transaccion}</p>
-                  </Grid>
-                </Grid>
+                  </div>
+                </div>
                 {/* row ends*/}
-
-                <Grid container spacing={24}>
-                  <Grid item sm={12}>
                 <p className="pdn_label">Observaciones</p>
                 <p className="pdn_data_p">{sueldo.observaciones}</p>
-                </Grid>
-                </Grid>
-
-
               </div>
               {/* div close/open  ends*/}
-            </Paper>
+            </div>
             )}
-          </Grid>
+          </div>
           {/* pdn_d_box ends*/}
-        </Grid>
+        </div>
         {/* row ends*/}
-      </Grid>
-      </Grid>
+      </div>
     );
   }
 
