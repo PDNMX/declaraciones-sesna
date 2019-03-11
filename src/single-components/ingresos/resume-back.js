@@ -95,8 +95,9 @@ class IngresosSueldosPublicos extends Component{
     ];
 
     return(
-        <Grid container spacing={16} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-          <Grid item xs={9}>
+      <div className="col-sm-9 col-sm-offset-3 sidecontent">
+        <Grid container spacing={16}>
+          <Grid item xs={12}>
             <div className="pdn_d_box">
             <BaseGraph data={fakeData} format={d3.format("$,")} />
             <p className="pdn_graph_label right">
@@ -110,6 +111,7 @@ class IngresosSueldosPublicos extends Component{
             </div>
           </Grid>
         </Grid>
+      </div>
     );
   }
 
