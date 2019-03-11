@@ -6,8 +6,6 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Typography, Grid, Button, Paper} from '@material-ui/core';
-
 import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css";
@@ -60,9 +58,9 @@ class EdadTotalEducacionPorcentaje extends Component{
     if(!this.state.data) return null;
     let colors = ConstClass.ChartColors;
 		return(
-      <Grid container spacing={24}>
-				<Grid item sm={12}>
-					<Paper className="pdn_d_box">
+      <div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
             <h2>Funcionarios por rango de edad y nivel de gobierno (porcentaje)</h2>
             <nav class="pdn_viz">
               <ul>
@@ -74,7 +72,6 @@ class EdadTotalEducacionPorcentaje extends Component{
               )}
               </ul>
             </nav>
-            
             <ul className="list_inline">
             {ConstClass.GobLevels.map( (d, i) =>
               <li key={"ngenplxs-" + i}>
@@ -84,9 +81,9 @@ class EdadTotalEducacionPorcentaje extends Component{
             )}
             </ul>
 
-        </Paper>
-      </Grid>
-    </Grid>
+        </div>
+      </div>
+    </div>
 		);
 	}
 

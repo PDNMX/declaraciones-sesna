@@ -6,8 +6,6 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Typography, Grid, Button, Paper} from '@material-ui/core';
-
 import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css";
@@ -62,9 +60,9 @@ class EdadTotalPorcentaje extends Component{
     let st = this.state;
     let colors = ConstClass.ChartColors;
 		return(
-			<Grid container spacing={24}>
-				<Grid item sm={12}>
-					<Paper className="pdn_d_box">
+			<div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
 						<h2>Funcionarios por rango de edad (porcentaje)</h2>
 						<ChartistGraph data={ { series : st.data.series} } type={"Pie"} options={st.options} />
 						<div className="pdn_divider"></div>
@@ -76,9 +74,9 @@ class EdadTotalPorcentaje extends Component{
 		          </li>
 		        )}
 		        </ul>
-				</Paper>
-			</Grid>
-		</Grid>
+				</div>
+			</div>
+		</div>
 		);
 	}
 
