@@ -35,7 +35,7 @@ class ActivosBeneficiosEnEspecie extends Component{
    * R E N D E R
    * ----------------------------------------------------------------------
    */
-   
+
   render(){
     return(
       <Grid container spacing={24} direction={'row-reverse'} className="sidecontent">
@@ -62,12 +62,10 @@ class ActivosBeneficiosEnEspecie extends Component{
             { this.items().map( (beneficio, i) =>
             <Paper className="pdn_d_box" key={"beneficio-" + i} id={"beneficio-" + i}>
               {/* row starts*/}
-              <Grid container spacing={24}>
-                <Paper className="pdn_border">
+              <Grid container spacing={24}  className="pdn_border">
                   <Grid item sm={6}>
                     <p><span className={ 'label declarante'}> Declarante</span></p>
                   </Grid>
-                </Paper>
                 <Grid item sm={6} className="right">
                   <a onClick={(e) => this.toggl(beneficio, i, e)} heref="#" className={"pdn_arrow " + (beneficio.show ?  "close" : "open")}></a>
                 </Grid>
