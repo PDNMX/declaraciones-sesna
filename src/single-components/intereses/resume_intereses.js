@@ -6,7 +6,7 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Typography, Grid} from '@material-ui/core';
+import {Grid, Paper} from '@material-ui/core';
 
 import BaseGraph from "../BaseGraph";
 let d3 = Object.assign({}, require("d3-format"));
@@ -89,23 +89,25 @@ class InteresesResume extends Component{
     ];
 
     return(
-      <div className="col-sm-9 col-sm-offset-3 sidecontent">
-        <Grid container spacing={16}>
-          <Grid item xs={12}>
-            <div className="pdn_d_box">
-            <BaseGraph data={fakeData} format={d3.format(",")} />
-            <p className="pdn_graph_label right">
-            <b className='pdn_graph_label_item label declarante'></b> Declarante
-            <b className='pdn_graph_label_item label conyuge'></b> Conyugé
-            <b className='pdn_graph_label_item label hijos'></b> Hijo/Hija
-            <b className='pdn_graph_label_item label padres'></b> Padre/Madre
-            <b className='pdn_graph_label_item label suegros'></b> Suegro/Suegra
-            <b className='pdn_graph_label_item label otro'></b> Otro
-            </p>
-            </div>
+      <Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
+        <Grid item sm={9}>
+          <Grid container spacing={16}>
+            <Grid item xs={12}>
+              <Paper className="pdn_d_box">
+              <BaseGraph data={fakeData} format={d3.format(",")} />
+                <p className="pdn_graph_label right">
+                <b className='pdn_graph_label_item label declarante'></b> Declarante
+                <b className='pdn_graph_label_item label conyuge'></b> Conyugé
+                <b className='pdn_graph_label_item label hijos'></b> Hijo/Hija
+                <b className='pdn_graph_label_item label padres'></b> Padre/Madre
+                <b className='pdn_graph_label_item label suegros'></b> Suegro/Suegra
+                <b className='pdn_graph_label_item label otro'></b> Otro
+                </p>
+              </Paper>
+            </Grid>
           </Grid>
         </Grid>
-      </div>
+      </Grid>
     );
   }
 
