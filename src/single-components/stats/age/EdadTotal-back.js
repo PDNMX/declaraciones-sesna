@@ -9,7 +9,7 @@ import React, {Component} from "react";
 import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css";
-import {Grid, Paper} from '@material-ui/core';
+
 /*
   ////////////////////////////////////////////////////////////////////////////////
   //
@@ -55,14 +55,14 @@ class EdadTotal extends Component{
 	render(){
 		if(!this.state.data) return null;
 		return(
-			<Grid container spacing={24}>
-				<Grid item sm={12}>
-					<Paper className="pdn_d_box">
+			<div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
 						<h2>Funcionarios por rango de edad (total)</h2>
 						<ChartistGraph data={this.state.data} type={"Bar"} />
-					</Paper>
-				</Grid>
-			</Grid>
+					</div>
+				</div>
+			</div>
 		);
 	}
 

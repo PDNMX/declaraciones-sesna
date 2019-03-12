@@ -9,7 +9,7 @@ import React, {Component} from "react";
 import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css";
-import {Grid, Paper} from '@material-ui/core';
+
 /*
   ////////////////////////////////////////////////////////////////////////////////
   //
@@ -17,7 +17,7 @@ import {Grid, Paper} from '@material-ui/core';
   //
   ////////////////////////////////////////////////////////////////////////////////
 */
-class EdadTotalEducacion extends Component{
+class EdadTotalNivelGobierno extends Component{
   /*
    * C O N S T R U C T O R
    * ----------------------------------------------------------------------
@@ -25,9 +25,9 @@ class EdadTotalEducacion extends Component{
    constructor(){
     super();
 
-    this.makeData  = this.makeData.bind(this);
-    this.getInfo   = this.getInfo.bind(this);
-    this.makeQuery = this.makeQuery.bind(this);
+    this.makeData    = this.makeData.bind(this);
+    this.getInfo     = this.getInfo.bind(this);
+    this.makeQuery   = this.makeQuery.bind(this);
     this.buildMatrix = this.buildMatrix.bind();
 
     this.state = {
@@ -58,24 +58,24 @@ class EdadTotalEducacion extends Component{
     if(!this.state.data) return null;
     let colors = ConstClass.ChartColors;
     return(
-      <Grid container spacing={24}>
-				<Grid item sm={12}>
-					<Paper className="pdn_d_box">
-            <h2>Funcionarios por rango de edad y nivel educativo (total)</h2>
+      <div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
+            <h2>Funcionarios por rango de edad y nivel de gobierno (total)</h2>
             <ChartistGraph data={this.state.data} type={"Bar"} />
-            <Paper className="pdn_divider"></Paper>
+            <div className="pdn_divider"></div>
 
             <ul className="list_inline">
-            {ConstClass.NivelEducacion.map( (d, i) =>
+            {ConstClass.GobLevels.map( (d, i) =>
               <li key={"ngel-" + i}>
                 <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
-                </span> {d}
+                </span> {d.label}
               </li>
             )}
             </ul>
-          </Paper>
-        </Grid>
-      </Grid>
+        </div>
+      </div>
+    </div>
     );
   }
 
@@ -91,10 +91,10 @@ class EdadTotalEducacion extends Component{
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
-  getInfo(_from, _to, ne){
+  getInfo(_from, _to, lg){
     let connObj = Object.assign({}, ConstClass.fetchObj);
 
-    connObj.body = this.makeQuery(_from, _to, ne);
+    connObj.body = this.makeQuery(_from, _to, lg);
 
     return fetch(ConstClass.endpoint, connObj)
           .then(response => response.json())
@@ -112,9 +112,9 @@ class EdadTotalEducacion extends Component{
   */
   buildMatrix(data, length){
     let b   = [...data],
-        ne  = ConstClass.NivelEducacion,
+        lg  = ConstClass.GobLevels,
         i, j, res = [];
-    for(i =0; i < ne.length; i++ ){
+    for(i =0; i < lg.length; i++ ){
       res.push(b.splice(0, length))
     }
 
@@ -136,13 +136,13 @@ class EdadTotalEducacion extends Component{
         conf = ConstClass.AgeChartsConf,
         year1 = currentYear - conf.from,
         year2 = year1 - conf.step,
-        ne  = ConstClass.NivelEducacion,
+        lg  = ConstClass.GobLevels,
         i, j;
 
-    for(i =0; i < ne.length; i++ ){
+    for(i =0; i < lg.length; i++ ){
       while(year1 > currentYear - conf.to){
         res.push({
-          promise : this.getInfo(_from(year2), _to(year1), ne[i] ),
+          promise : this.getInfo(_from(year2), _to(year1), lg[i].key ),
           label   : `${currentYear - year1} - ${currentYear - year2}`
         });
 
@@ -164,13 +164,13 @@ class EdadTotalEducacion extends Component{
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
-  makeQuery(_from, _to, ne){
+  makeQuery(_from, _to, lg){
     let str1   = ConstClass.PROP_NAMES.nacimiento,
-        str2   = ConstClass.PROP_NAMES.escolaridad,
+        str2   = ConstClass.PROP_NAMES.nivelGobierno,
         search = {query : {}, limit : 2};
 
-    search.query[str1] = {"desde" : _from, "hasta" : _to};;
-    search.query[str2] = ne;
+    search.query[str1] = {"desde" : _from, "hasta" : _to};
+    search.query[str2] = lg;
 
 
     return JSON.stringify(search);
@@ -184,4 +184,4 @@ class EdadTotalEducacion extends Component{
   //
   ////////////////////////////////////////////////////////////////////////////////
 */
-export default EdadTotalEducacion;
+export default EdadTotalNivelGobierno;

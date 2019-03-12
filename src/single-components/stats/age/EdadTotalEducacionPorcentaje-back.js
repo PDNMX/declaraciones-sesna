@@ -9,7 +9,7 @@ import React, {Component} from "react";
 import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css";
-import {Grid, Paper} from '@material-ui/core';
+
 /*
   ////////////////////////////////////////////////////////////////////////////////
   //
@@ -17,36 +17,36 @@ import {Grid, Paper} from '@material-ui/core';
   //
   ////////////////////////////////////////////////////////////////////////////////
 */
-class EdadTotalEducacion extends Component{
-  /*
+class EdadTotalEducacionPorcentaje extends Component{
+
+	/*
    * C O N S T R U C T O R
    * ----------------------------------------------------------------------
    */
    constructor(){
     super();
 
-    this.makeData  = this.makeData.bind(this);
-    this.getInfo   = this.getInfo.bind(this);
-    this.makeQuery = this.makeQuery.bind(this);
+    this.makeData    = this.makeData.bind(this);
+    this.getInfo     = this.getInfo.bind(this);
+    this.makeQuery   = this.makeQuery.bind(this);
     this.buildMatrix = this.buildMatrix.bind();
 
     this.state = {
-      data : null
+      data : null,
+      options : ConstClass.StatsChartOptions.donutOptions
     }
 
     let promises = this.makeData();
 
     Promise.all(promises.map(d => d.promise)).then(d => {
 
-
       let labels = [...new Set(promises.map(d => d.label))],
           data   = {
-                     labels,
-                     series : this.buildMatrix(d, labels.length)
-                   }
+          	labels,
+          	series  : this.buildMatrix(d, labels.length)
+          }
 
       this.setState({data : data});
-
     });
    }
 
@@ -54,32 +54,39 @@ class EdadTotalEducacion extends Component{
    * R E N D E R
    * ----------------------------------------------------------------------
    */
-  render(){
+	render(){
     if(!this.state.data) return null;
     let colors = ConstClass.ChartColors;
-    return(
-      <Grid container spacing={24}>
-				<Grid item sm={12}>
-					<Paper className="pdn_d_box">
-            <h2>Funcionarios por rango de edad y nivel educativo (total)</h2>
-            <ChartistGraph data={this.state.data} type={"Bar"} />
-            <Paper className="pdn_divider"></Paper>
-
+		return(
+      <div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
+            <h2>Funcionarios por rango de edad y nivel educativo (porcentaje)</h2>
+            <nav class="pdn_viz">
+              <ul>
+              { this.state.data.series.map( (d,i) =>
+                <li key={"ngnepgx-" + i}>
+                  <ChartistGraph data={ {series : d} } type={"Pie"} options={this.state.options} />
+                  <p>{this.state.data.labels[i]}</p>
+                </li>
+              )}
+              </ul>
+            </nav>
             <ul className="list_inline">
             {ConstClass.NivelEducacion.map( (d, i) =>
-              <li key={"ngel-" + i}>
+              <li key={"ngenplx-" + i}>
                 <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
                 </span> {d}
               </li>
             )}
             </ul>
-          </Paper>
-        </Grid>
-      </Grid>
-    );
-  }
+          </div>
+        </div>
+      </div>
+		);
+	}
 
-  /*
+	/*
    * M E T H O D S
    * ----------------------------------------------------------------------
    */
@@ -114,8 +121,9 @@ class EdadTotalEducacion extends Component{
     let b   = [...data],
         ne  = ConstClass.NivelEducacion,
         i, j, res = [];
-    for(i =0; i < ne.length; i++ ){
-      res.push(b.splice(0, length))
+
+    for(i =0; i < length; i++ ){
+      res.push(b.splice(0, ne.length))
     }
 
     return res;
@@ -139,20 +147,17 @@ class EdadTotalEducacion extends Component{
         ne  = ConstClass.NivelEducacion,
         i, j;
 
-    for(i =0; i < ne.length; i++ ){
       while(year1 > currentYear - conf.to){
-        res.push({
-          promise : this.getInfo(_from(year2), _to(year1), ne[i] ),
-          label   : `${currentYear - year1} - ${currentYear - year2}`
-        });
+      	for(i = 0; i < ne.length; i++ ){
+          res.push({
+            promise : this.getInfo(_from(year2), _to(year1), ne[i] ),
+            label   : `${currentYear - year1} - ${currentYear - year2}`
+          });
+        }
 
         year1-= conf.step;
         year2-= conf.step;
       }
-
-      year1 = currentYear - conf.from;
-      year2 = year1 - conf.step;
-    }
 
     return res;
   }
@@ -184,4 +189,4 @@ class EdadTotalEducacion extends Component{
   //
   ////////////////////////////////////////////////////////////////////////////////
 */
-export default EdadTotalEducacion;
+export default EdadTotalEducacionPorcentaje;

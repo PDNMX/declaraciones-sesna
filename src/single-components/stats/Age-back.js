@@ -7,7 +7,7 @@
 */
 import React, {Component} from "react";
 import { Link } from 'react-router-dom';
-import {Grid, Paper} from '@material-ui/core';
+
 import * as ConstClass from  '../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../css/chartist.min.css"
@@ -28,7 +28,7 @@ class Age extends Component{
 		let cat = this.props.match.params.categoria;
 		return(
 		<div>
-		 <Grid item sm={3} className="col-sm-3 sidebar">
+			<div className="col-sm-3 sidebar">
 				<h2>Edad</h2>
 			  <ul>
 			  	<li>
@@ -41,13 +41,11 @@ class Age extends Component{
 			  	  <Link to="/estadistica/edad/edad-y-educacion" className={ cat == "edad-y-educacion" ? "router-link-exact-active router-link-active" : "" }>Rango de edad y nivel educativo</Link>
 			  	</li>
 			  </ul>
-		 </Grid>
-				<Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-					<Grid item sm={9}>
+				</div>
+				<div className="col-sm-9 col-sm-offset-3 sidecontent">
 					{ this.rangoEdad() }
-					</Grid>
-				</Grid>
-		</div>
+				</div>
+			</div>
 		);
 	}
 
