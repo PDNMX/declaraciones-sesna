@@ -7,6 +7,7 @@
 */
 import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
+import {Grid, Paper} from '@material-ui/core';
 
 import Busqueda from './Busqueda';
 import Stats from './Stats';
@@ -47,11 +48,11 @@ class Container extends Component{
   	  <div id="react-app">
   		  <div className="breadcrumb">
   		    <div className="container">
-  		      <div className="row">
-  		        <div className="col-sm-12">
+  		      <Grid container spacing={24}>
+  		        <Grid item sm={12}>
   		          {this.breadcrumb()}
-  		        </div>
-  		      </div>
+  		        </Grid>
+  		      </Grid>
   		    </div>
   		  </div>
 
@@ -59,24 +60,25 @@ class Container extends Component{
 		<div style={ {display : (show ? "block" : "none")} }>
   		<div className="pdn_b_title">
 			  <div className="container">
-				  <div className="row">
-					  <div className="col-sm-2 col-sm-offset-2">
+				  <Grid container spacing={24}>
+					  <Grid item sm={2} className="col-sm-offset-2">
 						  <img alt="logo" src="/img/1_icono.svg" width="150px" />
-					  </div>
-					  <div className="col-sm-6">
+					  </Grid>
+					  <Grid item sm={6}>
 						  <h1><strong>Declaraciones</strong></h1>
-					  </div>
-					  <div className="col-sm-6">
+					  </Grid>
+					  <Grid item sm={6}>
 						  <p>Consulta, visualiza y descarga los datos de las declaraciones patrimoniales,
 						  de intereses y las constancias de la declaración fiscal de los servidores públicos.</p>
-					  </div>
-				  </div>
+					  </Grid>
+				  </Grid>
 			  </div>
 		  </div>
 			{/* <!--section nav--> */}
 			<section className="pdn_sis_nav">
 				<div className="container">
-					<div className="row">
+					<Grid container spacing={24}>
+					  <Grid item sm={12}>
 						<ul className="pdn_cont_nav">
 							<li className="current">
 								<a href="/">
@@ -86,7 +88,8 @@ class Container extends Component{
 							</li>
 							<li><a href="/estadistica/edad"><figure><img src="/img/estadisticas.svg" width="60px" /></figure>Estadísticas</a></li>
 						</ul>
-					</div>
+						</Grid>
+					</Grid>
 				</div>
 			</section>
 		</div>

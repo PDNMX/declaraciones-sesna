@@ -6,7 +6,6 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, { Fragment, Component } from 'react';
-import {Grid, Paper} from '@material-ui/core';
 import * as ConstClass from  '../ConstValues.js';
 import SearchForm from  '../single-components/BusquedaForm.js';
 import SearchTable from  '../single-components/BusquedaTable.js';
@@ -53,16 +52,16 @@ class App extends Component {
    */
   render() {
     return (
-    <Grid container spacing={24}>
-     <Grid item sm={12}>
+      <div className="row">
+        <div className="col-sm-12">
         <h2>Busca un servidor público</h2>
         <BusquedaFromMaterialUI getUsers={this.getUsers} />
         {/* <SearchForm getUsers={this.getUsers} /> */}
-        <Paper className="pdn_mobile_table">
+        <div className="pdn_mobile_table">
         {this.showTable()}
-        </Paper>
-      </Grid>
-    </Grid>
+        </div>
+      </div>
+      </div>
     );
   }
 
