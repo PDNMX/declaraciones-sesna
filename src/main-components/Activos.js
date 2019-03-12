@@ -7,7 +7,7 @@
 */
 import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
-import {Typography, Grid, Button} from '@material-ui/core';
+import {Grid, Paper} from '@material-ui/core';
 
 // ACTIVOS
 import ActivosResume from '../single-components/activos/resume-activos';
@@ -26,7 +26,6 @@ class Activos extends Component{
 		let section = this.props.section;
 		return(
 			<div>
-	{/*<div className="col-sm-3 sidebar">*/}
 	<Grid item sm ={3} className ="sidebar">
 		<h2>Activos</h2>
 		<ul>
@@ -85,7 +84,6 @@ class Activos extends Component{
 	    </li>
 
 	  </ul>
-	{/*</div>*/}
 	</Grid>
 	  <Switch>
 	    <Route exact path='/perfil/:id/activos' render={() => <ActivosResume profile={this.props.profile}  />}/>

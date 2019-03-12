@@ -7,7 +7,7 @@
 */
 import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
-import {Grid, Paper} from '@material-ui/core';
+
 import InfoGeneral from '../single-components/informacion/informacion-general';
 import InfoPuesto from '../single-components/informacion/puesto-actual';
 import InfoCurriculum from '../single-components/informacion/datos-curriculares';
@@ -31,8 +31,8 @@ class Informacion extends Component{
 		let section = this.props.section;
 		return(
 			<div>
-	<Grid item sm ={3} className ="sidebar">
-		<h2>Información personal</h2>
+	<div className="col-sm-3 sidebar">
+								<h2>Información personal</h2>
 		<ul>
 			<li>
 	  	  <Link className={ !section ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/informacion`}>
@@ -62,7 +62,7 @@ class Informacion extends Component{
 	    </li>
 	  </ul>
 
-	</Grid>
+	</div>
 
 	<Switch>
 	  <Route exact path='/perfil/:id/informacion' render={() => <InfoGeneral profile={this.props.profile} items={this.props.profile.informacion_personal.informacion_general} />}/>

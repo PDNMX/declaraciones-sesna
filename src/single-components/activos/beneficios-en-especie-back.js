@@ -6,7 +6,7 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Grid, Paper} from '@material-ui/core';
+
 /*
 	////////////////////////////////////////////////////////////////////////////////
   //
@@ -35,64 +35,60 @@ class ActivosBeneficiosEnEspecie extends Component{
    * R E N D E R
    * ----------------------------------------------------------------------
    */
-   
   render(){
     return(
-      <Grid container spacing={24} direction={'row-reverse'} className="sidecontent">
-      <Grid item sm={9}>
+      <div className="col-sm-9 col-sm-offset-3 sidecontent">
         <h2>Uso o Beneficios en Especie Propiedad de un Tercero ({this.items().length})</h2>
 
         {/* row */ }
-        <Grid container spacing={24}>
-          <Grid item sm={12}>
-            <Paper className="pdn_d_box">
-              <Paper className="pdn_bar_container">
-                <Paper className={ 'pdn_bar declarante'}></Paper>
-              </Paper>
+        <div className="row">
+          <div className="col-sm-12">
+            <div className="pdn_d_box">
+              <div className="pdn_bar_container">
+                <div className={ 'pdn_bar declarante'}></div>
+              </div>
               <p className="pdn_graph_label">
               <b className={ 'pdn_graph_label_item label declarante'}></b> Declarante</p>
-            </Paper>
-          </Grid>
-        </Grid>
+            </div>
+          </div>
+        </div>
         {/* row ends*/ }
 
         {/* row */ }
-        <Grid container spacing={24}>
-          <Grid item sm={12}>
+        <div className="row">
+          <div className="col-sm-12">
             { this.items().map( (beneficio, i) =>
-            <Paper className="pdn_d_box" key={"beneficio-" + i} id={"beneficio-" + i}>
+            <div className="pdn_d_box" key={"beneficio-" + i} id={"beneficio-" + i}>
               {/* row starts*/}
-              <Grid container spacing={24}>
-                <Paper className="pdn_border">
-                  <Grid item sm={6}>
-                    <p><span className={ 'label declarante'}> Declarante</span></p>
-                  </Grid>
-                </Paper>
-                <Grid item sm={6} className="right">
+              <div className="row pdn_border">
+                <div className="col-sm-6">
+                  <p><span className={ 'label declarante'}> Declarante</span></p>
+                </div>
+                <div className="col-sm-6 right">
                   <a onClick={(e) => this.toggl(beneficio, i, e)} heref="#" className={"pdn_arrow " + (beneficio.show ?  "close" : "open")}></a>
-                </Grid>
-              </Grid>
+                </div>
+              </div>
               {/* row ends*/}
 
               {/* div close/open */}
               <div style={ {display : (beneficio.show ? "block" : "none")} }>
                 {/* row */}
-                <Grid container spacing={24} className="pdn_border">
+                <div className="row pdn_border">
                   {/* Tipo de bien*/}
-                  <Grid item sm={7}>
+                  <div className="col-sm-7">
                     <p className="pdn_label">Tipo de bien</p>
                     <h3>{beneficio.tipo_bien}</h3>
-                  </Grid>
+                  </div>
                   {/* Ingreso monetario obtenido*/}
-                  <Grid item sm={5}>
+                  <div className="col-sm-5">
                     <p className="pdn_label right">Valor del mercado</p>
                     <h3 className="pdn_amount right">${beneficio.valor_mercado.valor} {beneficio.valor_mercado.moneda.codigo} <span>({beneficio.valor_mercado.moneda.moneda})</span></h3>
-                  </Grid>
-                </Grid>
+                  </div>
+                </div>
                 {/* row ends*/}
 
                 {/* table */}
-                <Grid className="pdn_mobile_table">
+                <div className="pdn_mobile_table">
                 <table className="table">
                   <thead>
                     <tr>
@@ -109,19 +105,18 @@ class ActivosBeneficiosEnEspecie extends Component{
                     </tr>
                   </tbody>
                 </table>
-                </Grid>
+                </div>
                 {/* table ends */}
 
                 <p className="pdn_label">Observaciones</p>
                 <p className="pdn_data_p">{beneficio.observaciones}</p>
               </div>
               {/* div close/open ends */}
-            </Paper>
+            </div>
             )}
-          </Grid>
-        </Grid>
-      </Grid>
-    </Grid>
+          </div>
+        </div>
+      </div>
     );
   }
 
