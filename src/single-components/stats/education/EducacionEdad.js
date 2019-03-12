@@ -6,6 +6,7 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
+import {Grid, Paper} from '@material-ui/core';
 import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css"
@@ -59,9 +60,9 @@ class EducacionEdad extends Component{
     if(!this.state.data) return null;
     let colors = ConstClass.ChartColors;
 		return(
-      <div className="row">
-				<div className="col-sm-12">
-					<div className="pdn_d_box">
+      <Grid container spacing={24}>
+        <Grid item sm={12}>
+          <Paper className="pdn_d_box">
             <h2>Funcionarios por nivel estudios y rango de edad (total)</h2>
             <ChartistGraph data={this.state.data} type={"Bar"} />
             <div className="pdn_divider"></div>
@@ -75,9 +76,9 @@ class EducacionEdad extends Component{
             )}
             </ul>
 
-        </div>
-      </div>
-    </div>
+        </Paper>
+      </Grid>
+    </Grid>
 		);
 	}
 
