@@ -90,11 +90,11 @@ class ActivosBienesInmuebles extends Component{
     ];
 
     return(
-      <Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-        <Grid container spacing={9}>
+      <Grid container spacing={24} direction={'row-reverse'} className="sidecontent">
+        <Grid item sm={9}>
           <Grid container spacing={16}>
             <Grid item xs={12}>
-              <div className="pdn_d_box">
+              <Paper className="pdn_d_box">
               <BaseGraph data={fakeData} format={d3.format("$,")} />
               <p className="pdn_graph_label right">
               <b className='pdn_graph_label_item label declarante'></b> Declarante
@@ -104,7 +104,7 @@ class ActivosBienesInmuebles extends Component{
               <b className='pdn_graph_label_item label suegros'></b> Suegro/Suegra
               <b className='pdn_graph_label_item label otro'></b> Otro
               </p>
-              </div>
+              </Paper>
             </Grid>
           </Grid>
         </Grid>
