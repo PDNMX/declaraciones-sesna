@@ -6,7 +6,8 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Grid, Paper} from '@material-ui/core';
+import {Table, TableCell, TableBody, TableHead, TableRow, Grid, Paper} from '@material-ui/core';
+
 
 /*
 	////////////////////////////////////////////////////////////////////////////////
@@ -105,29 +106,31 @@ class InteresesEmpresas extends Component{
                   {/* row ends*/}
 
                   {/* table */}
-                  <Grid container spacing={24} className="pdn_mobile_table">
-                    <table className="table">
-                      <thead>
-                        <tr>
-                          <th>Rol</th>
-                          <th>Actividad económica</th>
-                          <th>Porcentaje de participación</th>
-                          <th>Sector o industria</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><strong>{interes.rol}</strong></td>
-                          <td><b className= { 'pdn_' + interes.actividad_economica}></b> {interes.actividad_economica ? "Sí" : "No"} </td>
-                          <td>{interes.porcentaje_participacion}%
-                            <div className="pdn_bar_container darken">
-                              <div className="pdn_bar participacion" style={{ width: interes.porcentaje_participacion + '%' }}></div>
-                            </div>
-                          </td>
-                          <td>{interes.sector_industria.valor}</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <Grid container spacing={24} className="pdn_border">
+                    <Grid item xs={12} className="pdn_mobile_table">
+                    <Table className="table">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>Rol</TableCell>
+                          <TableCell>Actividad económica</TableCell>
+                          <TableCell>Porcentaje de participación</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                          <TableRow>
+                            <TableCell component="th" scope="row">
+                              <strong>{interes.rol}</strong>
+                            </TableCell>
+                            <TableCell align="right"><b className= { 'pdn_' + interes.actividad_economica}></b> {interes.actividad_economica ? "Sí" : "No"}</TableCell>
+                            <TableCell align="right">{interes.porcentaje_participacion}%
+                              <div className="pdn_bar_container darken">
+                                <div className="pdn_bar participacion" style={{ width: interes.porcentaje_participacion + '%' }}></div>
+                              </div></TableCell>
+                            <TableCell align="right">{interes.sector_industria.valor}</TableCell>
+                          </TableRow>
+                      </TableBody>
+                    </Table>
+                    </Grid>
                   </Grid>
                   {/* table ends */}
                 </div>
