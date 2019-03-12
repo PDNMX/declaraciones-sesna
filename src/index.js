@@ -7,7 +7,7 @@
 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Contenedor from './main-components/Container';
+import Contenedor from './main-components/Container-back';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route } from 'react-router-dom';
 
@@ -15,11 +15,12 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import {blue, grey} from '@material-ui/core/colors';
 
-console.log(blue, grey);
-
 const theme = createMuiTheme({
   palette: {
-    primary: blue,
+    primary: {
+      main : "#34b3eb",
+      contrastText: "white"
+    },
     secondary : {
       main : grey[500]
     }

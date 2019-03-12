@@ -6,16 +6,20 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component}  from "react";
-
 import {Typography} from '@material-ui/core';
-
 import { withStyles, Table, TableBody, TableCell, TableHead, TableRow, TableFooter, TablePagination } from '@material-ui/core';
-
-import pink from '@material-ui/core/colors/pink';
 
 let uniqid = require('uniqid');
 
 
+const styles = {
+  th : {
+    background : "grey",
+    color : "white",
+    fontSize : "1em",
+    textTransform: "uppercase"
+  }
+};
 
 /*
   ////////////////////////////////////////////////////////////////////////////////
@@ -38,11 +42,11 @@ class BusquedaTableMaterialUI extends Component{
 				<Table>
           <TableHead>
             <TableRow>
-              <TableCell>nombre</TableCell>
-              <TableCell>oficina</TableCell>
-              <TableCell>cargo</TableCell>
-              <TableCell>estado</TableCell>
-              <TableCell>municipio</TableCell>
+              <TableCell className={this.props.classes.th}> nombre</TableCell>
+              <TableCell className={this.props.classes.th}>oficina</TableCell>
+              <TableCell className={this.props.classes.th}>cargo</TableCell>
+              <TableCell className={this.props.classes.th}>estado</TableCell>
+              <TableCell className={this.props.classes.th}>municipio</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -101,4 +105,4 @@ class BusquedaTableMaterialUI extends Component{
   //
   ////////////////////////////////////////////////////////////////////////////////
 */
-export default BusquedaTableMaterialUI;
+export default withStyles(styles)(BusquedaTableMaterialUI);

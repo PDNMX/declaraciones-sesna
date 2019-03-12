@@ -1487,15 +1487,38 @@ section.pdn_nomargin {
     background: #e8b3e2; }
   .label.declarante {
     background: #83dfff; }
+  .label.hijos {
+    background: #b3cde2; }
+  .label.padres {
+    background: #b3e0ce; }
+  .label.suegros {
+    background: #e5e27f; }
+  .label.otro {
+    background: #e09d9d; }
 
 .pdn_graph_label_item {
   display: inline-block;
   height: 12px;
-  margin: 0;
+  margin: 0 0 0 10px;
   padding: 5px; }
+  .pdn_graph_label_item:first-child {
+    margin: 0; }
 
 .pdn_graph_label {
   font-size: 12px; }
+
+/* = pdn graph
+-------------------------------------------------------------- */
+#resume-graph {
+  font-family: "Noto Sans SC", Helvetica, Arial, sans-serif;
+  font-size: 12px; }
+  #resume-graph g text {
+    font-size: 14px;
+    fill: #606060; }
+  #resume-graph line {
+    stroke: rgba(0, 0, 0, 0.1) !important; }
+  #resume-graph text {
+    fill: #969595; }
 
 /* = pdn bars
 -------------------------------------------------------------- */
@@ -1518,6 +1541,14 @@ section.pdn_nomargin {
       background: #34b3eb; }
     .pdn_bar_container .pdn_bar.declarante {
       background: #83dfff; }
+    .pdn_bar_container .pdn_bar.hijos {
+      background: #b3cde2; }
+    .pdn_bar_container .pdn_bar.padres {
+      background: #b3e0ce; }
+    .pdn_bar_container .pdn_bar.suegros {
+      background: #e5e27f; }
+    .pdn_bar_container .pdn_bar.otro {
+      background: #e09d9d; }
 
 /* = NAV icons
 -------------------------------------------------------------- */
