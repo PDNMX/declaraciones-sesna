@@ -6,6 +6,8 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
+import {Grid, Paper} from '@material-ui/core';
+
 import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css"
@@ -76,52 +78,46 @@ class FuncionariosPorEntidadEdad extends Component{
 	render(){
     let st = this.state;
 		return(
-    <div>
+      <Grid container spacing={24}>
+        <Grid item sm={12}>
+          <Paper className="pdn_d_box">
 
-    <div className="row">
-      <div className="col-sm-12">
-        <div className="pdn_d_box">
+            <h2>Funcionarios por estado seleccionado y rango de edad</h2>
+            <ChartistGraph data={st.fake5} type={"Line"} />
 
-      <h2>Funcionarios por estado seleccionado y rango de edad</h2>
-      <ChartistGraph data={st.fake5} type={"Line"} />
-
-      <ul className="list_inline">
-        <li>
-          <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
-          </span> {st.labels._labels[0]}
-        </li>
-        <li>
-          <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#e95a55"} }>
-          </span> {st.labels._labels[1]}
-        </li>
-        <li>
-          <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#edcb4f"} }>
-          </span> {st.labels._labels[2]}
-        </li>
-        <li>
-          <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#ca7c24"} }>
-          </span> {st.labels._labels[3]}
-        </li>
-        <li>
-          <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#453d3f"} }>
-          </span> {st.labels._labels[4]}
-        </li>
-        <li>
-          <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#589634"} }>
-          </span> {st.labels._labels[5]}
-        </li>
-        <li>
-          <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#2d1a9c"} }>
-          </span> {st.labels._labels[6]}
-        </li>
-      </ul>
-      </div>
-    </div>
-  </div>
-
-
-
-  </div>
+            <ul className="list_inline">
+              <li>
+                <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#d0001c"} }>
+                </span> {st.labels._labels[0]}
+              </li>
+              <li>
+                <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#e95a55"} }>
+                </span> {st.labels._labels[1]}
+              </li>
+              <li>
+                <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#edcb4f"} }>
+                </span> {st.labels._labels[2]}
+              </li>
+              <li>
+                <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#ca7c24"} }>
+                </span> {st.labels._labels[3]}
+              </li>
+              <li>
+                <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#453d3f"} }>
+                </span> {st.labels._labels[4]}
+              </li>
+              <li>
+                <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#589634"} }>
+                </span> {st.labels._labels[5]}
+              </li>
+              <li>
+                <span style={ {display: "inline-block", width: "1em", height: "1em", background: "#2d1a9c"} }>
+                </span> {st.labels._labels[6]}
+              </li>
+            </ul>
+          </Paper>
+        </Grid>
+      </Grid>
 		);
 	}
 
