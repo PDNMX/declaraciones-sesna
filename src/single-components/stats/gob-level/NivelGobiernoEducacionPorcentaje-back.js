@@ -6,8 +6,6 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Grid, Paper} from '@material-ui/core';
-
 import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css"
@@ -19,7 +17,8 @@ import "../../../css/chartist.min.css"
   //
   ////////////////////////////////////////////////////////////////////////////////
 */
-class NivelGobiernoEducacion extends Component{
+class NivelGobiernoEducacionPorcentaje extends Component{
+
   /*
    * C O N S T R U C T O R
    * ----------------------------------------------------------------------
@@ -27,13 +26,14 @@ class NivelGobiernoEducacion extends Component{
    constructor(){
     super();
 
-    this.makeData  = this.makeData.bind(this);
-    this.getInfo   = this.getInfo.bind(this);
-    this.makeQuery = this.makeQuery.bind(this);
+    this.makeData    = this.makeData.bind(this);
+    this.getInfo     = this.getInfo.bind(this);
+    this.makeQuery   = this.makeQuery.bind(this);
     this.buildMatrix = this.buildMatrix.bind();
 
     this.state = {
-      data : null
+      data    : null,
+      options : ConstClass.StatsChartOptions.donutOptions
     }
 
     let promises = this.makeData();
@@ -54,28 +54,36 @@ class NivelGobiernoEducacion extends Component{
    * ----------------------------------------------------------------------
    */
 	render(){
-    if(!this.state.data) return null;
+		if(!this.state.data) return null;
     let colors = ConstClass.ChartColors;
-		return(
-      <Grid container spacing={24}>
-        <Grid item sm={12}>
-          <Paper className="pdn_d_box">
-            <h2>Funcionarios por nivel de gobierno y nivel educativo (total)</h2>
-            <ChartistGraph data={this.state.data} type={"Bar"} />
-            <div className="pdn_divider"></div>
-
+    return(
+      <div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
+            <h2>Funcionarios por nivel de gobierno y nivel educativo (porcentaje)</h2>
+            <nav class="pdn_viz">
+              <ul>
+              { this.state.data.series.map( (d,i) =>
+                <li key={"ngepg-" + i}>
+                  <ChartistGraph data={ {series : d} } type={"Pie"} options={this.state.options} />
+                  <p>{this.state.data.labels[i]}</p>
+                </li>
+              )}
+              </ul>
+            </nav>
             <ul className="list_inline">
             {ConstClass.NivelEducacion.map( (d, i) =>
-              <li key={"ngel-" + i}>
+              <li key={"ngepl-" + i}>
                 <span style={ {display: "inline-block", width: "1em", height: "1em", background: colors[i]} }>
                 </span> {d}
               </li>
             )}
             </ul>
-          </Paper>
-        </Grid>
-      </Grid>
-		);
+
+        </div>
+      </div>
+    </div>
+    );
 	}
 
   /*
@@ -114,8 +122,8 @@ class NivelGobiernoEducacion extends Component{
         gl  = ConstClass.GobLevels,
         ne  = ConstClass.NivelEducacion,
         i, j, res = [];
-    for(i =0; i < ne.length; i++ ){
-      res.push(b.splice(0, gl.length))
+    for(i =0; i < gl.length; i++ ){
+      res.push(b.splice(0, ne.length))
     }
 
     return res;
@@ -134,11 +142,11 @@ class NivelGobiernoEducacion extends Component{
         ne  = ConstClass.NivelEducacion,
         i, j;
 
-    for(i =0; i < ne.length; i++ ){
-      for(j =0; j < gl.length; j++){
+    for(i =0; i < gl.length; i++ ){
+      for(j =0; j < ne.length; j++){
         res.push({
-          promise : this.getInfo(ne[i], gl[j].key ),
-          label : gl[j].label
+          promise : this.getInfo(ne[j], gl[i].key ),
+          label   : gl[i].label
         });
       }
     }
@@ -173,4 +181,4 @@ class NivelGobiernoEducacion extends Component{
   //
   ////////////////////////////////////////////////////////////////////////////////
 */
-export default NivelGobiernoEducacion;
+export default NivelGobiernoEducacionPorcentaje;

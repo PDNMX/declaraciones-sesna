@@ -6,6 +6,8 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
+import {Grid, Paper} from '@material-ui/core';
+
 import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css"
@@ -59,15 +61,14 @@ class NivelGobiernoPorcentaje extends Component{
 
     let st = this.state;
 		return(
-			<div className="row">
-				<div className="col-sm-12">
-					<div className="pdn_d_box">
+			<Grid container spacing={24}>
+        <Grid item sm={12}>
+          <Paper className="pdn_d_box">
 						<h2>Funcionarios por nivel de gobierno (porcentaje)</h2>
 						<ChartistGraph data={ { series : st.data.series} } type={"Pie"} options={st.options} />
-						<div className="pdn_divider"></div>
-				</div>
-			</div>
-		</div>
+				</Paper>
+			</Grid>
+		</Grid>
 		);
 	}
 

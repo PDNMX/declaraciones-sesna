@@ -6,8 +6,6 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Grid, Paper} from '@material-ui/core';
-
 import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css"
@@ -19,7 +17,7 @@ import "../../../css/chartist.min.css"
   //
   ////////////////////////////////////////////////////////////////////////////////
 */
-class NivelGobiernoTotal extends Component{
+class NivelGobiernoPorcentaje extends Component{
 	/*
 	 * C O N S T R U C T O R
 	 * ----------------------------------------------------------------------
@@ -32,17 +30,21 @@ class NivelGobiernoTotal extends Component{
 	 	this.makeQuery = this.makeQuery.bind(this);
 
 	 	this.state = {
-	 		data : null
+	 		data    : null,
+      options : ConstClass.StatsChartOptions.donutOptions
 	 	}
 
 	 	let promises = this.makeData();
 
 		Promise.all(promises.map(d => d.promise)).then(d => {
 
+      let total = d.reduce(ConstClass.reducer);
 			let data = {
 				labels : promises.map(d => d.label),
-				series : [d]
+				series : d.map(d => (d/total) * 100 )
 			}
+
+      console.log("percent:", data);
 
 			this.setState({data : data});
 		});
@@ -54,17 +56,18 @@ class NivelGobiernoTotal extends Component{
 	 */
 	render(){
 		if(!this.state.data) return null;
-		return(
-			<Grid container spacing={24}>
-        <Grid item sm={12}>
-          <Paper className="pdn_d_box">
-						<h2>Funcionarios por nivel de gobierno (total)</h2>
 
-						<ChartistGraph data={this.state.data} type={"Bar"} />
+    let st = this.state;
+		return(
+			<div className="row">
+				<div className="col-sm-12">
+					<div className="pdn_d_box">
+						<h2>Funcionarios por nivel de gobierno (porcentaje)</h2>
+						<ChartistGraph data={ { series : st.data.series} } type={"Pie"} options={st.options} />
 						<div className="pdn_divider"></div>
-				</Paper>
-      </Grid>
-    </Grid>
+				</div>
+			</div>
+		</div>
 		);
 	}
 
@@ -137,4 +140,4 @@ class NivelGobiernoTotal extends Component{
   //
   ////////////////////////////////////////////////////////////////////////////////
 */
-export default NivelGobiernoTotal;
+export default NivelGobiernoPorcentaje;
