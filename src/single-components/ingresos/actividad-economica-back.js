@@ -6,7 +6,7 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Grid, Paper} from '@material-ui/core';
+
 /*
 	////////////////////////////////////////////////////////////////////////////////
   //
@@ -14,11 +14,11 @@ import {Grid, Paper} from '@material-ui/core';
   //
   ////////////////////////////////////////////////////////////////////////////////
 */
-class IngresosActividadEmpresarial extends Component{
+class IngresosActividadEconomica extends Component{
   constructor(props){
     super(props);
 
-    let elems = this.props.profile.ingresos.actividad_empresarial.map(d => {
+    let elems = this.props.profile.ingresos.actividad_economica_menor.map(d => {
                   let item = d;
                   d.show = true;
 
@@ -37,10 +37,8 @@ class IngresosActividadEmpresarial extends Component{
    */
   render(){
     return(
-      <Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-        <Grid item sm={9}>
-        <h2>Actividad empresarial({this.items().length})</h2>
-
+      <div className="col-sm-9 col-sm-offset-3 sidecontent">
+        <h2>Actividad económica menor ({this.items().length})</h2>
         {/* row */ }
         <div className="row">
           <div className="col-sm-12">
@@ -112,15 +110,11 @@ class IngresosActividadEmpresarial extends Component{
                 <p className="pdn_data_p">{sueldo.observaciones}</p>
               </div>
               {/* div close/open ends */}
-
             </div>
-            )}
-          </div>
-          {/* col-sm-12 ends*/}
-        </div>
-        {/* row ends*/}
-      </Grid>
-      </Grid>
+        )}
+      </div>
+    </div>
+  </div>
     );
   }
 
@@ -143,7 +137,7 @@ class IngresosActividadEmpresarial extends Component{
      this.setState({items : newItems});
    }
   items(){
-    return this.props.profile.ingresos.actividad_empresarial;
+    return this.props.profile.ingresos.actividad_economica_menor;
   }
 }
 
@@ -154,4 +148,4 @@ class IngresosActividadEmpresarial extends Component{
   //
   ////////////////////////////////////////////////////////////////////////////////
 */
-export default IngresosActividadEmpresarial;
+export default IngresosActividadEconomica;
