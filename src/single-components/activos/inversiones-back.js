@@ -6,7 +6,7 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Grid, Paper} from '@material-ui/core';
+
 /*
 	////////////////////////////////////////////////////////////////////////////////
   //
@@ -37,87 +37,87 @@ class ActivosInversiones extends Component{
    */
   render(){
     return(
-    <Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-      <Grid item sm={9}>
+      <div className="col-sm-9 col-sm-offset-3 sidecontent">
         <h2>Inversiones, cuentas y valores ({this.items().length})</h2>
+
         {/* row */ }
-        <Grid container spacing={24}>
-          <Grid item sm={12}>
+        <div className="row">
+          <div className="col-sm-12">
             { this.items().map( (inversion, i) =>
-            <Paper className="pdn_d_box">
-              <Paper className="pdn_bar_container">
-                <Paper className={ 'pdn_bar ' + inversion.titular_bien.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}></Paper>
-              </Paper>
+            <div className="pdn_d_box">
+              <div className="pdn_bar_container">
+                <div className={ 'pdn_bar ' + inversion.titular_bien.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}></div>
+              </div>
               <p className="pdn_graph_label">
               <b className={ 'pdn_graph_label_item label ' + inversion.titular_bien.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}></b> {inversion.titular_bien.valor}</p>
-            </Paper>
+            </div>
             )}
-          </Grid>
-        </Grid>
+          </div>
+        </div>
         {/* row ends*/ }
 
 
-        <Grid container spacing={24}>
-          <Grid item sm={12}>
+        <div className="row">
+          <div className="col-sm-12">
             { this.items().map( (inversion, i) =>
-            <Paper className="pdn_d_box" key={"inversion-" + i} id={"inversion-" + i}>
+            <div className="pdn_d_box" key={"inversion-" + i} id={"inversion-" + i}>
               {/* row starts*/}
-              <Grid container spacing={24} className="pdn_border">
-                <Grid item sm={6}>
+              <div className="row pdn_border">
+                <div className="col-sm-6">
                   <p><span className={ 'label ' + inversion.titular_bien.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}> {inversion.titular_bien.valor}</span></p>
-                </Grid>
-                <Grid item sm={6} className="right">
+                </div>
+                <div className="col-sm-6 right">
                   <a onClick={(e) => this.toggl(inversion, i, e)} heref="#" className={"pdn_arrow " + (inversion.show ?  "close" : "open")}></a>
-                </Grid>
-              </Grid>
+                </div>
+              </div>
               {/* row ends*/}
 
               {/* div close/open */}
               <div style={ {display : (inversion.show ? "block" : "none")} }>
                 {/* row */}
-                <Grid container spacing={24} className="pdn_border">
+                <div className="row pdn_border">
                   {/*Tipo de bien*/}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Tipo de bien</p>
                     <h3>{inversion.tipo_inversion.valor}</h3>
-                  </Grid>
+                  </div>
                   {/* Tipo especifico de inversión*/}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Tipo especifico de inversión</p>
                     <p className="pdn_data_p">{inversion.tipo_especifico_inversion.valor}</p>
-                  </Grid>
+                  </div>
                   {/* Nombre de la Institución */}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Nombre de la Institución</p>
                     <p className="pdn_data_p">{inversion.nombre_institucion}</p>
-                  </Grid>
-                </Grid>
+                  </div>
+                </div>
                 {/* row ends*/}
 
                 {/* row */}
-                <Grid container spacing={24} className="pdn_border">
+                <div className="row pdn_border">
                   {/* Inversión Nacional o Extranjera */}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Inversión Nacional o Extranjera</p>
                     <p className="pdn_data_p">{inversion.nacional_extranjero.valor}</p>
-                  </Grid>
+                  </div>
 
                   {/* Tipo de moneda */}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Tipo de moneda</p>
                     <p className="pdn_data_p">{inversion.tipo_moneda.moneda}</p>
-                  </Grid>
+                  </div>
 
                   {/* Tipo de operación */}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Tipo de operación</p>
                     <p className="pdn_data_p">{inversion.tipo_operacion.valor}</p>
-                  </Grid>
-                </Grid>
+                  </div>
+                </div>
                 {/* row ends*/}
 
                 {/* table */}
-                <Grid container spacing={24} className="pdn_mobile_table">
+                <div className="pdn_mobile_table">
                 <table className="table">
                   <thead>
                     <tr>
@@ -138,19 +138,18 @@ class ActivosInversiones extends Component{
                     </tr>
                   </tbody>
                 </table>
-                </Grid>
+                </div>
                 {/* table ends */}
                 <p className="pdn_label">Observaciones</p>
                 <p className="pdn_data_p">{inversion.observaciones}</p>
               </div>
               {/* div close/open ends */}
-            </Paper>
+            </div>
             )}
 
-          </Grid>
-        </Grid>
-      </Grid>
-    </Grid>
+          </div>
+        </div>
+      </div>
     );
   }
 

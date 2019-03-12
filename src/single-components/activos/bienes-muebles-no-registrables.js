@@ -6,7 +6,7 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-
+import {Grid, Paper} from '@material-ui/core';
 /*
 	////////////////////////////////////////////////////////////////////////////////
   //
@@ -37,88 +37,88 @@ class ActivosBienesMueblesNoRegistrables extends Component{
    */
   render(){
     return(
-      <div className="col-sm-9 col-sm-offset-3 sidecontent">
+      <Grid container spacing={24} direction={'row-reverse'} className="sidecontent">
+        <Grid item sm={9}>
         <h2>Bienes muebles no registrables ({this.items().length})</h2>
-
         {/* row bars */ }
-        <div className="row">
-          <div className="col-sm-12">
+        <Grid container spacing={24}>
+          <Grid item sm={12}>
             { this.items().map( (mueble, i) =>
-            <div className="pdn_d_box">
-              <div className="pdn_bar_container">
-                <div className={ 'pdn_bar ' + mueble.titular_bien.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}></div>
-              </div>
+            <Paper className="pdn_d_box">
+              <Paper className="pdn_bar_container">
+                <Paper className={ 'pdn_bar ' + mueble.titular_bien.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}></Paper>
+              </Paper>
               <p className="pdn_graph_label">
               <b className={ 'pdn_graph_label_item label ' + mueble.titular_bien.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}></b> {mueble.titular_bien.valor}</p>
-            </div>
+            </Paper>
             )}
-          </div>
-        </div>
+          </Grid>
+        </Grid>
         {/* row bars ends*/ }
 
         {/* row */ }
-        <div className="row">
-          <div className="col-sm-12">
+        <Grid container spacing={24}>
+          <Grid item sm={12}>
             { this.items().map( (mueble, i) =>
-            <div className="pdn_d_box" key={"mueble-" + i} id={"mueble-" + i}>
+            <Paper className="pdn_d_box" key={"mueble-" + i} id={"mueble-" + i}>
               {/* row starts*/}
-              <div className="row pdn_border">
-                <div className="col-sm-6">
+              <Grid container spacing={24} className="row pdn_border">
+                <Grid item sm={6}>
                   <p><span className={ 'label ' + mueble.titular_bien.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}> {mueble.titular_bien.valor}</span></p>
-                </div>
-                <div className="col-sm-6 right">
+                </Grid>
+                <Grid item sm={6} className="right">
                   <a onClick={(e) => this.toggl(mueble, i, e)} heref="#" className={"pdn_arrow " + (mueble.show ?  "close" : "open")}></a>
-                </div>
-              </div>
+                </Grid>
+              </Grid>
               {/* row ends*/}
 
               {/* div close/open */}
               <div style={ {display : (mueble.show ? "block" : "none")} }>
                 {/* row */}
-                <div className="row pdn_border">
+                <Grid container spacing={24} className="row pdn_border">
                   {/* Tipo de bien*/}
-                  <div className="col-sm-7">
+                  <Grid item sm={7}>
                     <p className="pdn_label">Tipo de bien</p>
                     <h3>{mueble.tipo_bien.valor}</h3>
-                  </div>
+                  </Grid>
                   {/* Precio de adquisición*/}
-                  <div className="col-sm-5">
+                  <Grid item sm={5}>
                     <p className="pdn_label right">Precio de adquisición</p>
                     <h3 className="pdn_amount right">${mueble.precio_adquisicion.valor} {mueble.precio_adquisicion.moneda.codigo} <span>({mueble.precio_adquisicion.moneda.moneda})</span> </h3>
-                  </div>
-                </div>
+                  </Grid>
+                </Grid>
                 {/* row ends*/}
 
-                <div className="row pdn_border">
+                <Grid container spacing={24} className="row pdn_border">
                   {/* Descripción*/}
-                  <div className="col-sm-12">
+                  <Grid item sm={12}>
                     <p className="pdn_label">Descripción</p>
                     <p className="pdn_data_p">{mueble.descripcion}</p>
-                  </div>
-                </div>
+                  </Grid>
+                </Grid>
                 {/* row ends*/}
 
-                <div className="row pdn_border">
+                <Grid container spacing={24} className="row pdn_border">
                   {/* Fecha de adquisición */}
-                  <div className="col-sm-4">
+                  <Grid item sm={4}>
                     <p className="pdn_label">Fecha de adquisición</p>
                     <p className="pdn_data_p">{mueble.fecha_adquisicion}</p>
-                  </div>
+                  </Grid>
                   {/* Forma  de adquisición */}
-                  <div className="col-sm-4">
+                  <Grid item sm={4}>
                     <p className="pdn_label">Forma  de adquisición</p>
                     <p className="pdn_data_p">{mueble.forma_adquisicion.valor}</p>
-                  </div>
+                  </Grid>
                   {/* Tipo de operación*/}
-                  <div className="col-sm-4">
+                  <Grid item sm={4}>
                     <p className="pdn_label">Tipo de operación</p>
                     <p className="pdn_data_p">{mueble.tipo_operacion.valor}</p>
-                  </div>
-                </div>
+                  </Grid>
+                </Grid>
                 {/* row ends*/}
 
                 {/* table */}
-                <div className="pdn_mobile_table">
+                <Grid container spacing={24} className="pdn_mobile_table">
                 <table className="table">
                   <thead>
                     <tr>
@@ -137,7 +137,7 @@ class ActivosBienesMueblesNoRegistrables extends Component{
                     </tr>
                   </tbody>
                 </table>
-                </div>
+                </Grid>
                 {/* table ends */}
 
                 <p className="pdn_label">Observaciones</p>
@@ -146,11 +146,13 @@ class ActivosBienesMueblesNoRegistrables extends Component{
               </div>
               {/* div close/open  ends*/}
 
-            </div>
+            </Paper>
             )}
-          </div>
-        </div>
-      </div>
+          </Grid>
+        </Grid>
+
+        </Grid>
+      </Grid>
     );
   }
 

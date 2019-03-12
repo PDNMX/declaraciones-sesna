@@ -6,7 +6,7 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Grid, Paper} from '@material-ui/core';
+
 /*
 	////////////////////////////////////////////////////////////////////////////////
   //
@@ -37,93 +37,92 @@ class ActivosFideicomisos extends Component{
    */
   render(){
     return(
-      <Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-        <Grid item sm={9}>
+      <div className="col-sm-9 col-sm-offset-3 sidecontent">
         <h2>Fideicomisos ({this.items().length})</h2>
 
         {/* row */ }
-        <Grid container spacing={24}>
-          <Grid item sm={12}>
-            <Paper className="pdn_d_box">
-              <Paper className="pdn_bar_container">
-                <Paper className={ 'pdn_bar declarante'}></Paper>
-              </Paper>
+        <div className="row">
+          <div className="col-sm-12">
+            <div className="pdn_d_box">
+              <div className="pdn_bar_container">
+                <div className={ 'pdn_bar declarante'}></div>
+              </div>
               <p className="pdn_graph_label">
               <b className={ 'pdn_graph_label_item label declarante'}></b> Declarante</p>
-            </Paper>
-          </Grid>
-        </Grid>
+            </div>
+          </div>
+        </div>
         {/* row ends*/ }
 
         {/* row */ }
-        <Grid container spacing={24}>
-          <Grid item sm={12}>
+        <div className="row">
+          <div className="col-sm-12">
             { this.items().map( (fideicomiso, i) =>
-            <Paper className="pdn_d_box" key={"fideicomiso-" + i} id={"fideicomiso-" + i}>
+            <div className="pdn_d_box" key={"fideicomiso-" + i} id={"fideicomiso-" + i}>
               {/* row starts*/}
-              <Grid container spacing={24} className="pdn_border">
-                <Grid item sm={6}>
+              <div className="row pdn_border">
+                <div className="col-sm-6">
                   <p><span className={ 'label declarante'}> Declarante</span></p>
-                </Grid>
-                <Grid item sm={6} className="right">
+                </div>
+                <div className="col-sm-6 right">
                   <a onClick={(e) => this.toggl(fideicomiso, i, e)} heref="#" className={"pdn_arrow " + (fideicomiso.show ?  "close" : "open")}></a>
-                </Grid>
-              </Grid>
+                </div>
+              </div>
               {/* row ends*/}
 
               {/* div close/open */}
               <div style={ {display : (fideicomiso.show ? "block" : "none")} }>
                 {/* row */}
-                <Grid container spacing={24} className="pdn_border">
+                <div className="row pdn_border">
                   {/* Tipo de fideicomiso*/}
-                  <Grid item sm={7}>
+                  <div className="col-sm-7">
                     <p className="pdn_label">Tipo de fideicomiso</p>
                     <h3>{fideicomiso.tipo_fideicomiso.valor}</h3>
-                  </Grid>
+                  </div>
                   {/* Ingreso monetario obtenido*/}
-                  <Grid item sm={5}>
+                  <div className="col-sm-5">
                     <p className="pdn_label right">Ingreso monetario obtenido</p>
                     <h3 className="pdn_amount right">${fideicomiso.ingreso_monetario_obtenido} {fideicomiso.moneda.moneda}</h3>
-                  </Grid>
-                </Grid>
+                  </div>
+                </div>
                 {/* row ends*/}
 
-                <Grid container spacing={24} className="pdn_border">
+                <div className="row pdn_border">
                   {/* Identificador del fideicomiso */}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Identificador del fideicomiso</p>
                     <p className="pdn_data_p">{fideicomiso.identificador_fideicomiso}</p>
-                  </Grid>
+                  </div>
                   {/* Fecha de creación */}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Fecha de creación</p>
                       <p className="pdn_data_p">{fideicomiso.fecha_creacion}</p>
-                  </Grid>
+                  </div>
                   {/* Vigencia*/}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Vigencia</p>
                     <p className="pdn_data_p">{fideicomiso.vigencia}</p>
-                  </Grid>
-                </Grid>
+                  </div>
+                </div>
                 {/* row ends*/}
 
-                <Grid container spacing={24} className="pdn_border">
+                <div className="row pdn_border">
                   {/* Objetivo del fideicomiso */}
-                  <Grid item sm={8}>
+                  <div className="col-sm-8">
                     <p className="pdn_label">Objetivo del fideicomiso</p>
                     <p className="pdn_data_p">{fideicomiso.objetivo}</p>
-                  </Grid>
+                  </div>
                   {/* Tipo de operación*/}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Tipo de operación</p>
                     <p className="pdn_data_p">{fideicomiso.tipo_operacion.valor}</p>
-                  </Grid>
-                </Grid>
+                  </div>
+                </div>
                 {/* row ends*/}
 
 
                 {/* table */}
-                <Grid container spacing={24} className="pdn_mobile_table">
+                <div className="pdn_mobile_table">
                 <table className="table">
                   <thead>
                     <tr>
@@ -144,13 +143,13 @@ class ActivosFideicomisos extends Component{
                     </tr>
                   </tbody>
                 </table>
-                </Grid>
+                </div>
                 {/* table ends */}
 
                 {/* fideicomisario */}
-                <Grid container spacing={24} className="pdn_border">
+                <div className="row pdn_border">
                   {/* fideicomisario nombre */}
-                  <Grid item sm={3}>
+                  <div className="col-sm-3">
                     <p className="pdn_label">Fideicomisario</p>
                     <p className="pdn_data_p">{fideicomiso.fideicomisario.nombre}<br/>
                     <span className="pnd_box_note">{ fideicomiso.fideicomisario.domicilio.vialidad.tipo_vial }	{ fideicomiso.fideicomisario.domicilio.vialidad.nom_vial }	#{ fideicomiso.fideicomisario.domicilio.numExt }
@@ -159,29 +158,29 @@ class ActivosFideicomisos extends Component{
       							{ fideicomiso.fideicomisario.domicilio.entidad_federativa.nom_ent }. C.P. { fideicomiso.fideicomisario.domicilio.cp }
       							</span>
                     </p>
-                  </Grid>
+                  </div>
                   {/* Fideicomisario RFC */}
-                  <Grid item sm={3}>
+                  <div className="col-sm-3">
                     <p className="pdn_label">RFC</p>
                       <p className="pdn_data_p">{fideicomiso.fideicomisario.rfc}</p>
-                  </Grid>
+                  </div>
                   {/* CURP*/}
-                  <Grid item sm={3}>
+                  <div className="col-sm-3">
                     <p className="pdn_label">CURP</p>
                     <p className="pdn_data_p">{fideicomiso.fideicomisario.curp}</p>
-                  </Grid>
+                  </div>
                   {/* Contitución */}
-                  <Grid item sm={3}>
+                  <div className="col-sm-3">
                     <p className="pdn_label">Constitución</p>
                     <p className="pdn_data_p">{fideicomiso.fideicomisario.fecha_constitucion}</p>
-                  </Grid>
-                </Grid>
+                  </div>
+                </div>
                 {/* row ends*/}
 
                 {/* fideicomitente */}
-                <Grid container spacing={24} className="pdn_border">
+                <div className="row pdn_border">
                   {/* fideicomitente nombre */}
-                  <Grid item sm={3}>
+                  <div className="col-sm-3">
                     <p className="pdn_label">Fideicomitente</p>
                     <p className="pdn_data_p">{fideicomiso.fideicomitente.nombre}<br/>
                     <span className="pnd_box_note">{ fideicomiso.fideicomitente.domicilio.vialidad.tipo_vial }	{ fideicomiso.fideicomitente.domicilio.vialidad.nom_vial }	#{ fideicomiso.fideicomitente.domicilio.numExt }
@@ -190,29 +189,29 @@ class ActivosFideicomisos extends Component{
       							{ fideicomiso.fideicomitente.domicilio.entidad_federativa.nom_ent }. C.P. { fideicomiso.fideicomitente.domicilio.cp }
       							</span>
                     </p>
-                  </Grid>
+                  </div>
                   {/* Fideicomisario RFC */}
-                  <Grid item sm={3}>
+                  <div className="col-sm-3">
                     <p className="pdn_label">RFC</p>
                       <p className="pdn_data_p">{fideicomiso.fideicomitente.rfc}</p>
-                  </Grid>
+                  </div>
                   {/* CURP*/}
-                  <Grid item sm={3}>
+                  <div className="col-sm-3">
                     <p className="pdn_label">CURP</p>
                     <p className="pdn_data_p">{fideicomiso.fideicomitente.curp}</p>
-                  </Grid>
+                  </div>
                   {/* Contitución */}
-                  <Grid item sm={3}>
+                  <div className="col-sm-3">
                     <p className="pdn_label">Constitución</p>
                     <p className="pdn_data_p">{fideicomiso.fideicomitente.fecha_constitucion}</p>
-                  </Grid>
-                </Grid>
+                  </div>
+                </div>
                 {/* row ends*/}
 
                 {/* fiduciario */}
-                <Grid container spacing={24} className="pdn_border">
+                <div className="row pdn_border">
                   {/* fiduciario nombre */}
-                  <Grid item sm={3}>
+                  <div className="col-sm-3">
                     <p className="pdn_label">Fiduciario</p>
                     <p className="pdn_data_p">{fideicomiso.fiduciario.nombre}<br/>
                     <span className="pnd_box_note">{ fideicomiso.fiduciario.domicilio.vialidad.tipo_vial }	{ fideicomiso.fiduciario.domicilio.vialidad.nom_vial }	#{ fideicomiso.fiduciario.domicilio.numExt }
@@ -221,35 +220,34 @@ class ActivosFideicomisos extends Component{
       							{ fideicomiso.fiduciario.domicilio.entidad_federativa.nom_ent }. C.P. { fideicomiso.fiduciario.domicilio.cp }
       							</span>
                     </p>
-                  </Grid>
+                  </div>
                   {/* Fideicomisario RFC */}
-                  <Grid item sm={3}>
+                  <div className="col-sm-3">
                     <p className="pdn_label">RFC</p>
                       <p className="pdn_data_p">{fideicomiso.fiduciario.rfc}</p>
-                  </Grid>
+                  </div>
                   {/* CURP*/}
-                  <Grid item sm={3}>
+                  <div className="col-sm-3">
                     <p className="pdn_label">CURP</p>
                     <p className="pdn_data_p">{fideicomiso.fiduciario.curp}</p>
-                  </Grid>
+                  </div>
                   {/* Contitución */}
-                  <Grid item sm={3}>
+                  <div className="col-sm-3">
                     <p className="pdn_label">Constitución</p>
                     <p className="pdn_data_p">{fideicomiso.fiduciario.fecha_constitucion}</p>
-                  </Grid>
-                </Grid>
+                  </div>
+                </div>
                 {/* row ends*/}
                 <p className="pdn_label">Observaciones</p>
                 <p className="pdn_data_p">{fideicomiso.observaciones}</p>
 
               </div>
               {/* div close/open ends */}
-            </Paper>
+            </div>
             )}
-          </Grid>
-        </Grid>
-        </Grid>
-      </Grid>
+          </div>
+        </div>
+      </div>
     );
   }
 

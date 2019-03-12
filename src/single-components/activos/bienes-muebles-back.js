@@ -6,7 +6,7 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Grid, Paper} from '@material-ui/core';
+
 /*
 	////////////////////////////////////////////////////////////////////////////////
   //
@@ -37,98 +37,97 @@ class ActivosBienesMuebles extends Component{
    */
   render(){
     return(
-      <Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-        <Grid item sm={9}>
+      <div className="col-sm-9 col-sm-offset-3 sidecontent">
         <h2>Bienes muebles registrables ({this.items().length})</h2>
 
         {/* row */ }
-        <Grid container spacing={24}>
-          <Grid item sm={12}>
+        <div className="row">
+          <div className="col-sm-12">
             { this.items().map( (mueble, i) =>
-            <Paper className="pdn_d_box">
-              <Paper className="pdn_bar_container">
-                <Paper className="pdn_bar declarante"></Paper>
-              </Paper>
+            <div className="pdn_d_box">
+              <div className="pdn_bar_container">
+                <div className="pdn_bar declarante"></div>
+              </div>
               <p className="pdn_graph_label">
               <b className={ 'pdn_graph_label_item label ' + mueble.titular_bien.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}></b> {mueble.titular_bien.valor}</p>
-            </Paper>
+            </div>
             )}
-          </Grid>
-        </Grid>
+          </div>
+        </div>
         {/* row ends*/ }
 
-        <Grid container spacing={24}>>
-          <Grid item sm={12}>
+        <div className="row">
+          <div className="col-sm-12">
             { this.items().map( (mueble, i) =>
-            <Paper className="pdn_d_box" key={"mueble-" + i} id={"mueble-" + i}>
+            <div className="pdn_d_box" key={"mueble-" + i} id={"mueble-" + i}>
               {/* row starts*/}
-              <Grid container spacing={24} className="pdn_border">
-                <Grid item sm={6}>
+              <div className="row pdn_border">
+                <div className="col-sm-6">
                   <p><span className={ 'label ' + mueble.titular_bien.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}> {mueble.titular_bien.valor}</span></p>
-                </Grid>
-                <Grid item sm={6} className="right">
+                </div>
+                <div className="col-sm-6 right">
                   <a onClick={(e) => this.toggl(mueble, i, e)} heref="#" className={"pdn_arrow " + (mueble.show ?  "close" : "open")}></a>
-                </Grid>
-              </Grid>
+                </div>
+              </div>
               {/* row ends*/}
 
               {/* div close/open */}
               <div style={ {display : (mueble.show ? "block" : "none")} }>
-                <Grid container spacing={24} className="pdn_border">
+                <div className="row pdn_border">
                   {/* Tipo de operación*/}
-                  <Grid item sm={7}>
+                  <div className="col-sm-7">
                     <p className="pdn_label">Tipo de bien</p>
                     <h3>{mueble.tipo_bien_mueble.valor}</h3>
-                  </Grid>
+                  </div>
                   {/* Precio de adquisición*/}
-                  <Grid item sm={5}>
+                  <div className="col-sm-5">
                     <p className="pdn_label right">Precio de adquisición</p>
                     <h3 className="pdn_amount right">${mueble.precio_adquisicion.valor} {mueble.precio_adquisicion.moneda.codigo} <span>({mueble.precio_adquisicion.moneda.moneda})</span> </h3>
-                  </Grid>
-                </Grid>
+                  </div>
+                </div>
                 {/* row ends*/}
 
-                <Grid container spacing={24} className="pdn_border">
+                <div className="row pdn_border">
                   {/* Marca*/}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Marca</p>
                     <p className="pdn_data_p">{mueble.marca}</p>
-                  </Grid>
+                  </div>
                   {/* subMarca*/}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Submarca</p>
                     <p className="pdn_data_p">{mueble.submarca}</p>
-                  </Grid>
+                  </div>
                   {/* Modelo*/}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Modelo</p>
                     <p className="pdn_data_p">{mueble.modelo}</p>
-                  </Grid>
-                </Grid>
+                  </div>
+                </div>
                 {/* row ends*/}
 
 
-                <Grid container spacing={24} className="pdn_border">
+                <div className="row pdn_border">
                   {/* Fecha de adquisición */}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Fecha de adquisición</p>
                     <p className="pdn_data_p">{mueble.fecha_adquisicion}</p>
-                  </Grid>
+                  </div>
                   {/* Forma  de adquisición */}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Forma  de adquisición</p>
                     <p className="pdn_data_p">{mueble.forma_adquisicion.valor}</p>
-                  </Grid>
+                  </div>
                   {/* Tipo de operación*/}
-                  <Grid item sm={4}>
+                  <div className="col-sm-4">
                     <p className="pdn_label">Tipo de operación</p>
                     <p className="pdn_data_p">{mueble.tipo_operacion.valor}</p>
-                  </Grid>
-                </Grid>
+                  </div>
+                </div>
                 {/* row ends*/}
 
                 {/* table */}
-                <Grid container spacing={24} className="pdn_mobile_table">
+                <div className="pdn_mobile_table">
                 <table className="table">
                   <thead>
                     <tr>
@@ -149,20 +148,19 @@ class ActivosBienesMuebles extends Component{
                     </tr>
                   </tbody>
                 </table>
-                </Grid>
+                </div>
                 {/* table ends */}
 
                 <p className="pdn_label">Observaciones</p>
                 <p className="pdn_data_p">{mueble.observaciones}</p>
               </div>
               {/* div close/open  ends*/}
-            </Paper>
+            </div>
             )}
-          </Grid>
-        </Grid>
+          </div>
+        </div>
         {/* row ends*/ }
-        </Grid>
-      </Grid>
+      </div>
     );
   }
 
