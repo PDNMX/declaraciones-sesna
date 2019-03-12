@@ -7,7 +7,7 @@
 */
 import React, {Component} from "react";
 import { Link } from 'react-router-dom';
-import {Grid, Paper} from '@material-ui/core';
+
 import * as ConstClass from  '../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../css/chartist.min.css"
@@ -98,7 +98,7 @@ class Education extends Component{
 		return(
 
 			<div>
-				<Grid item sm={3} className="col-sm-3 sidebar">
+				<div className="col-sm-3 sidebar">
 					<h2>Nivel Educativo</h2>
 					<ul>
 				  	<li>
@@ -111,12 +111,12 @@ class Education extends Component{
 				  	  <Link to="/estadistica/educacion/estudios-y-gobierno" className={ cat == "estudios-y-gobierno" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por nivel educativo y nivel de gobierno</Link>
 				  	</li>
 				  </ul>
-				</Grid>
-				<Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-					<Grid item sm={9}>
+				</div>
+				<div className="col-sm-9 col-sm-offset-3 sidecontent">
+
 					{ this.educacionNav() }
-					</Grid>
-				</Grid>
+
+				</div>
 			</div>
 		);
 	}

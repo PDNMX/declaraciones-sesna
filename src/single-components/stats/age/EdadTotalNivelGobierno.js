@@ -9,7 +9,7 @@ import React, {Component} from "react";
 import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css";
-
+import {Grid, Paper} from '@material-ui/core';
 /*
   ////////////////////////////////////////////////////////////////////////////////
   //
@@ -58,12 +58,12 @@ class EdadTotalNivelGobierno extends Component{
     if(!this.state.data) return null;
     let colors = ConstClass.ChartColors;
     return(
-      <div className="row">
-				<div className="col-sm-12">
-					<div className="pdn_d_box">
+     <Grid container spacing={24}>
+				<Grid item sm={12}>
+					<Paper className="pdn_d_box">
             <h2>Funcionarios por rango de edad y nivel de gobierno (total)</h2>
             <ChartistGraph data={this.state.data} type={"Bar"} />
-            <div className="pdn_divider"></div>
+            <Paper className="pdn_divider"></Paper>
 
             <ul className="list_inline">
             {ConstClass.GobLevels.map( (d, i) =>
@@ -73,9 +73,9 @@ class EdadTotalNivelGobierno extends Component{
               </li>
             )}
             </ul>
-        </div>
-      </div>
-    </div>
+        </Paper>
+      </Grid>
+    </Grid>
     );
   }
 

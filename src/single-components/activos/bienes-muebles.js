@@ -57,7 +57,7 @@ class ActivosBienesMuebles extends Component{
         </Grid>
         {/* row ends*/ }
 
-        <Grid container spacing={24}>>
+        <Grid container spacing={24}>
           <Grid item sm={12}>
             { this.items().map( (mueble, i) =>
             <Paper className="pdn_d_box" key={"mueble-" + i} id={"mueble-" + i}>

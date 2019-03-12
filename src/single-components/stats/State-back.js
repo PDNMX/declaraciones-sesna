@@ -8,7 +8,6 @@
 import React, {Component} from "react";
 import { Link } from 'react-router-dom';
 
-import {Grid, Paper} from '@material-ui/core';
 import FuncionariosPorEntidadTotal from './state/FuncionariosPorEntidadTotal';
 import FuncionariosPorEntidadPorcentaje from './state/FuncionariosPorEntidadPorcentaje';
 
@@ -36,7 +35,7 @@ class State extends Component{
 		let cat = this.props.match.params.categoria;
 		return(
 			<div>
-				<Grid item sm={3} className="col-sm-3 sidebar">
+				<div className="col-sm-3 sidebar">
 					<h2>Por entidad</h2>
 					<ul>
 				  	<li>
@@ -49,13 +48,12 @@ class State extends Component{
 				  	  <Link to="/estadistica/entidad-federativa/gobierno-y-educacion" className={ cat == "gobierno-y-educacion" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por entidad y educación</Link>
 				  	</li>
 				  </ul>
-				</Grid>
+				</div>
 
-				<Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-					<Grid item sm={9}>
+				<div className="col-sm-9 col-sm-offset-3 sidecontent">
 					{ this.porEntidad() }
-					</Grid>
-				</Grid>
+
+				</div>
 			</div>
 		);
 	}
