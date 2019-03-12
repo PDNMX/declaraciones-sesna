@@ -6,7 +6,7 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Grid, Paper} from '@material-ui/core';
+
 /*
 	////////////////////////////////////////////////////////////////////////////////
   //
@@ -37,8 +37,7 @@ class IngresosActividadEmpresarial extends Component{
    */
   render(){
     return(
-      <Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-        <Grid item sm={9}>
+      <div className="col-sm-9 col-sm-offset-3 sidecontent">
         <h2>Actividad empresarial({this.items().length})</h2>
 
         {/* row */ }
@@ -119,8 +118,7 @@ class IngresosActividadEmpresarial extends Component{
           {/* col-sm-12 ends*/}
         </div>
         {/* row ends*/}
-      </Grid>
-      </Grid>
+      </div>
     );
   }
 
