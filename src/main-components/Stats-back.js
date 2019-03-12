@@ -7,7 +7,7 @@
 */
 import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
-import { Grid, Paper} from '@material-ui/core';
+import {Typography, Grid, Button} from '@material-ui/core';
 
 import Age from "../single-components/stats/Age.js";
 import GobLevel from "../single-components/stats/GobLevel.js";
@@ -73,16 +73,14 @@ class Stats extends Component{
 				</Grid>
 			</Grid>
 
-			<Grid container spacing={24}>
-				<Grid item sm={12} className="pnd_box">
-					  <Switch>
-						    <Route path='/estadistica/edad/:categoria?' component={Age} />
-						    <Route path='/estadistica/nivel-de-gobierno/:categoria?' component={GobLevel} />
-						    <Route path='/estadistica/entidad-federativa/:categoria?' component={State} />
-						    <Route path='/estadistica/educacion/:categoria?' component={Education} />
-						</Switch>
-				</Grid>
-			</Grid>
+			<div className="row pnd_box">
+			  <Switch>
+				    <Route path='/estadistica/edad/:categoria?' component={Age} />
+				    <Route path='/estadistica/nivel-de-gobierno/:categoria?' component={GobLevel} />
+				    <Route path='/estadistica/entidad-federativa/:categoria?' component={State} />
+				    <Route path='/estadistica/educacion/:categoria?' component={Education} />
+				</Switch>
+			</div>
 
 	</div>
 		);
