@@ -11,6 +11,21 @@ import Contenedor from './main-components/Container';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route } from 'react-router-dom';
 
+// MATERIAL UI THEME STUFF
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import {blue, grey} from '@material-ui/core/colors';
+
+console.log(blue, grey);
+
+const theme = createMuiTheme({
+  palette: {
+    primary: blue,
+    secondary : {
+      main : grey[500]
+    }
+  },
+});
+
 /*
 	////////////////////////////////////////////////////////////////////////////////
   //
@@ -20,8 +35,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 */
 ReactDOM.render(
   <BrowserRouter>
-    
+    <MuiThemeProvider theme={theme}>
     <Route render={(props) => <Contenedor location={props.location}/> }> </Route>
+    </MuiThemeProvider>
   </BrowserRouter>,
   document.getElementById('root'));
 
