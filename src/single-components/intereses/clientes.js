@@ -6,6 +6,7 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
+import {Typography, Grid, Button, Paper} from '@material-ui/core';
 
 /*
 	////////////////////////////////////////////////////////////////////////////////
@@ -37,74 +38,65 @@ class InteresesClientes extends Component{
    */
   render(){
     return(
-      <div  className="col-sm-9 col-sm-offset-3 sidecontent">
-        <h2>Clientes principales ({this.items().length})</h2>
+      <Grid container spacing={24} direction={'row-reverse'} className="sidecontent">
+  			<Grid item sm={9}>
+          <h2>Clientes principales ({this.items().length})</h2>
+          <Grid container spacing={24}>
+            <Grid item sm={12}>
+              <Paper className="pdn_d_box">
+                <Paper className="pdn_bar_container">
+                  <Paper className="pdn_bar declarante"></Paper>
+                </Paper>
+                <p className="pdn_graph_label"> <b className={ 'pdn_graph_label_item label declarante' }></b> Declarante</p>
+              </Paper>
+            </Grid>
+          </Grid>
 
-        {/* row */ }
-        <div className="row">
-          <div className="col-sm-12">
-            <div className="pdn_d_box">
-              <div className="pdn_bar_container">
-                <div className="pdn_bar declarante"></div>
-              </div>
-              <p className="pdn_graph_label">
-              <b className={ 'pdn_graph_label_item label declarante' }></b> Declarante</p>
-            </div>
-          </div>
-        </div>
-        {/* row ends*/ }
-
-        <div className="row">
-          <div className="col-sm-12">
+          <Grid container spacing={24}>
+            <Grid item sm={12}>
             { this.items().map( (interes, i) =>
-            <div className="pdn_d_box" key={"interes-" + i} id={"interes-" + i}>
-              {/* row starts*/}
-              <div className="row pdn_border">
-                <div className="col-sm-6">
-                  <p><span className={ 'label declarante' }> Declarante</span></p>
-                </div>
-                <div className="col-sm-6 right">
-                  <a onClick={(e) => this.toggl(interes, i, e)} heref="#" className={"pdn_arrow " + (interes.show ?  "close" : "open")}></a>
-                </div>
-              </div>
-              {/* row ends*/}
+              <Paper className="pdn_d_box" key={"interes-" + i}>
+                <Grid container spacing={24} className="pdn_border">
+                  <Grid item sm={6}>
+                    <p><span className={ 'label declarante' }> Declarante</span></p>
+                  </Grid>
+                  <Grid item sm={6} className="right">
+                    <a onClick={(e) => this.toggl(interes, i, e)} heref="#" className={"pdn_arrow " + (interes.show ?  "close" : "open")}></a>
+                  </Grid>
+                </Grid>
 
-              {/* div close/open */}
-              <div style={ {display : (interes.show ? "block" : "none")} }>
-                {/* row */}
-                <div className="row pdn_border">
-                  {/* Nombre del negocio */}
-                  <div className="col-sm-9">
-                    <p className="pdn_label">Nombre del negocio</p>
-                    <h3>{interes.nombre_negocio}</h3>
-                  </div>
-                  {/*Número de registro */}
-                  <div className="col-sm-3">
-                    <p className="pdn_label">Número de registro</p>
-                    <h3>{interes.numero_registro}</h3>
-                  </div>
-                </div>
-                {/* row ends*/}
+                <div style={ {display : (interes.show ? "block" : "none")} }>
+                  <Grid container spacing={24} className="pdn_border">
+                    <Grid item sm={9}>
+                      <p className="pdn_label">Nombre del negocio</p>
+                      <h3>{interes.nombre_negocio}</h3>
+                    </Grid>
+                    <Grid item sm={3}>
+                      <p className="pdn_label">Número de registro</p>
+                      <h3>{interes.numero_registro}</h3>
+                    </Grid>
+                  </Grid>
 
-                {/* row */}
-                <div className="row pdn_border">
-                  {/* Sector o industria */}
-                  <div className="col-sm-12">
-                    <p className="pdn_label">Sector o industria</p>
-                    <p className="pdn_data_p">{interes.sector_industria.valor}</p>
-                  </div>
+                  <Grid container spacing={24} className="pdn_border">
+                    <Grid item sm={12}>
+                      <p className="pdn_label">Sector o industria</p>
+                      <p className="pdn_data_p">{interes.sector_industria.valor}</p>
+                    </Grid>
+                  </Grid>
+
+                  <Grid container spacing={24}>
+                    <Grid item sm={12}>
+                      <p className="pdn_label">Observaciones</p>
+                      <p className="pdn_data_p">{interes.observaciones}</p>
+                    </Grid>
+                  </Grid>
                 </div>
-                {/* row ends*/}
-                <p className="pdn_label">Observaciones</p>
-                <p className="pdn_data_p">{interes.observaciones}</p>
-              </div>
-              {/* div close/open  ends*/}
-            </div>
+              </Paper>
             )}
-          </div>
-        </div>
-
-      </div>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
     );
   }
 
