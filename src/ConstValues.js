@@ -81,13 +81,13 @@ export const AgeChartsConf = {
   step : 10
 };
 
-export const SalaryChartConf = {
-  range : [[100000], [100000, 300000], [300000, 600000], [600000 ]]
-};
+export const SalaryChartConf = [
+  [null,100000], [100000, 300000], [300000, 600000], [600000, null ]
+];
 
-export const propertyChartConf = {
-  range : [[100], [100, 200], [200, 400], [400]]
-};
+export const propertyChartConf = [
+  [null, 100], [100, 200], [200, 400], [400, null]
+];
 
 
 /*
