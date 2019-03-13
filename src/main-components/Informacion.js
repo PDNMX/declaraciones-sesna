@@ -32,7 +32,7 @@ class Informacion extends Component{
 		return(
 			<div>
 	<Grid item sm ={3} className ="sidebar">
-		<h2>Información personal</h2>
+		<h2><b className="pdn_i_ info _title"></b> Información personal</h2>
 		<ul>
 			<li>
 	  	  <Link className={ !section ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/informacion`}>

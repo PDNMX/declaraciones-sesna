@@ -27,7 +27,7 @@ class Activos extends Component{
 		return(
 			<div>
 	<Grid item sm ={3} className ="sidebar">
-		<h2>Activos</h2>
+		<h2><b className="pdn_i_ activos _title"></b> Activos</h2>
 		<ul>
 			<li>
 	  	  <Link className={ section == "bienes-inmuebles" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/activos/bienes-inmuebles`}>

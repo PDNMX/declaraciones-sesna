@@ -27,7 +27,7 @@ class Ingresos extends Component{
 		return(
 			<div>
 	<div className="col-sm-3 sidebar">
-		<h2>Ingresos</h2>
+		<h2><b className="pdn_i_ ingresos _title"></b> Ingresos</h2>
 		<ul>
 			<li>
 	  	  <Link className={ section == "sueldos-salarios" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/ingresos/sueldos-salarios`}>
