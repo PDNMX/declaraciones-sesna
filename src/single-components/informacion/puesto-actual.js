@@ -12,10 +12,10 @@ class InfoPuesto extends Component{
 	render(){
 		return(
 		<Grid container spacing={24} direction={'row-reverse'} className="sidecontent">
-			<Grid item sm={9}>
+			<Grid item xs={12} sm={9}>
 				<h2>Puesto actual</h2>
 				<Grid container spacing={24}>
-					<Grid item sm={8}>
+					<Grid item xs={12} sm={8}>
 						<Paper className="pdn_d_box">
 							<h3 className="pdn_data_p">{ this.props.profile.informacion_personal.datos_encargo_actual.empleo_cargo_comision}</h3>
 							<p className="pdn_label">Área de adscripción</p>
@@ -36,7 +36,7 @@ class InfoPuesto extends Component{
 						</Paper>
 					</Grid>
 
-					<Grid item sm={4}>
+					<Grid item xs={12} sm={4}>
 						<Paper className="pdn_d_box">
 							<p className="pdn_data_p">
 								{ !this.props.items.contratado_honorarios ? "Sin contrato por honorarios" : "Contrato por honorarios"}

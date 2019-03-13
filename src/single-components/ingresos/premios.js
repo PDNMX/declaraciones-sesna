@@ -39,11 +39,11 @@ class IngresosPremios extends Component{
   render(){
     return(
       <Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-      <Grid item sm={9}>
+      <Grid item xs={12} sm={9}>
         <h2>Premios ({this.items().length})</h2>
         {/* row */ }
         <Grid container spacing={24}>
-          <Grid item sm={12}>
+          <Grid item xs={12}>
             <Paper className="pdn_d_box">
               <Paper className="pdn_bar_container">
                 <Paper className="pdn_bar declarante"></Paper>
@@ -56,15 +56,15 @@ class IngresosPremios extends Component{
         {/* row ends*/ }
 
         <Grid container spacing={24}>
-          <Grid item sm={12}>
+          <Grid item xs={12}>
             {this.items().map( (sueldo, i) =>
             <Paper className="pdn_d_box" key={"sueldo-" + i} id={"sueldo-" + i}>
               {/* row starts*/}
               <Grid container spacing={24} className="row pdn_border">
-                <Grid item sm={6}>
+                <Grid item xs={6}>
                   <p><span className={ 'label declarante' }> Declarante</span></p>
                 </Grid>
-                <Grid item sm={6} className="right">
+                <Grid item xs={6} className="right">
                   <a onClick={(e) => this.toggl(sueldo, i, e)} heref="#" className={"pdn_arrow " + (sueldo.show ?  "close" : "open")}></a>
                 </Grid>
               </Grid>
@@ -75,12 +75,12 @@ class IngresosPremios extends Component{
                 {/* row */}
                 <Grid container spacing={24} className="pdn_border">
                   {/* Tipo de actividad o servicio */}
-                  <Grid item sm={7}>
+                  <Grid item xs={12} sm={7}>
                     <p className="pdn_label">Tipo de actividad</p>
                     <h3>{sueldo.tipo_actividad_servicio.valor}</h3>
                   </Grid>
                   {/* Ingreso bruto anual*/}
-                  <Grid item sm={5}>
+                  <Grid item xs={12} sm={5}>
                     <p className="pdn_label right">Ingreso bruto anual</p>
                     <h3 className="pdn_amount right">${sueldo.ingreso_bruto_anual.valor} {sueldo.ingreso_bruto_anual.moneda.codigo} <span>({sueldo.ingreso_bruto_anual.moneda.moneda})</span> </h3>
                   </Grid>
@@ -89,32 +89,32 @@ class IngresosPremios extends Component{
 
                 <Grid container spacing={24} className="pdn_border">
                   {/* Sector o industria */}
-                  <Grid item sm={4}>
+                  <Grid item xs={12} sm={4}>
                     <p className="pdn_label">Sector o industria</p>
                     <p className="pdn_data_p">{sueldo.sector_industria.valor}</p>
                   </Grid>
                   {/* Duración frecuencia */}
-                  <Grid item sm={4}>
+                  <Grid item xs={12} sm={4}>
                     <p className="pdn_label">Duración / frecuencia</p>
                     <p className="pdn_data_p">{sueldo.ingreso_bruto_anual.duracion_frecuencia} {sueldo.ingreso_bruto_anual.unidad_temporal.valor}</p>
                   </Grid>
                   {/* Fecha de transacción */}
-                  <Grid item sm={4}>
+                  <Grid item xs={12} sm={4}>
                     <p className="pdn_label">Fecha de transacción</p>
                     <p className="pdn_data_p">{sueldo.ingreso_bruto_anual.fecha_transaccion}</p>
                   </Grid>
                 </Grid>
                 {/* row ends*/}
                 <Grid container spacing={24}>
-                  <Grid item sm={12}>
-                <p className="pdn_label">Descripción de actividad</p>
-                <p className="pdn_data_p">{sueldo.descripcion_actividad}</p>
-                </Grid>
-                  
-                  <Grid item sm={12}>
-                <p className="pdn_label">Observaciones</p>
-                <p className="pdn_data_p">{sueldo.observaciones}</p>
-                </Grid>
+                  <Grid item xs={12}>
+                    <p className="pdn_label">Descripción de actividad</p>
+                    <p className="pdn_data_p">{sueldo.descripcion_actividad}</p>
+                  </Grid>
+
+                  <Grid item xs={12}>
+                    <p className="pdn_label">Observaciones</p>
+                    <p className="pdn_data_p">{sueldo.observaciones}</p>
+                  </Grid>
                 </Grid>
               </div>
               {/* div close/open ends */}

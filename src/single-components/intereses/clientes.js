@@ -39,10 +39,10 @@ class InteresesClientes extends Component{
   render(){
     return(
       <Grid container spacing={24} direction={'row-reverse'} className="sidecontent">
-  			<Grid item sm={9}>
+  			<Grid item xs={12} sm={9}>
           <h2>Clientes principales ({this.items().length})</h2>
           <Grid container spacing={24}>
-            <Grid item sm={12}>
+            <Grid item xs={12}>
               <Paper className="pdn_d_box">
                 <Paper className="pdn_bar_container">
                   <Paper className="pdn_bar declarante"></Paper>
@@ -53,39 +53,39 @@ class InteresesClientes extends Component{
           </Grid>
 
           <Grid container spacing={24}>
-            <Grid item sm={12}>
+            <Grid item xs={12}>
             { this.items().map( (interes, i) =>
               <Paper className="pdn_d_box" key={"interes-" + i}>
                 <Grid container spacing={24} className="pdn_border">
-                  <Grid item sm={6}>
+                  <Grid item xs={6}>
                     <p><span className={ 'label declarante' }> Declarante</span></p>
                   </Grid>
-                  <Grid item sm={6} className="right">
+                  <Grid item xs={6} className="right">
                     <a onClick={(e) => this.toggl(interes, i, e)} heref="#" className={"pdn_arrow " + (interes.show ?  "close" : "open")}></a>
                   </Grid>
                 </Grid>
 
                 <div style={ {display : (interes.show ? "block" : "none")} }>
                   <Grid container spacing={24} className="pdn_border">
-                    <Grid item sm={9}>
+                    <Grid item xs={12} sm={9}>
                       <p className="pdn_label">Nombre del negocio</p>
                       <h3>{interes.nombre_negocio}</h3>
                     </Grid>
-                    <Grid item sm={3}>
+                    <Grid item xs={12} sm={3}>
                       <p className="pdn_label">Número de registro</p>
                       <h3>{interes.numero_registro}</h3>
                     </Grid>
                   </Grid>
 
                   <Grid container spacing={24} className="pdn_border">
-                    <Grid item sm={12}>
+                    <Grid item xs={12}>
                       <p className="pdn_label">Sector o industria</p>
                       <p className="pdn_data_p">{interes.sector_industria.valor}</p>
                     </Grid>
                   </Grid>
 
                   <Grid container spacing={24}>
-                    <Grid item sm={12}>
+                    <Grid item xs={12}>
                       <p className="pdn_label">Observaciones</p>
                       <p className="pdn_data_p">{interes.observaciones}</p>
                     </Grid>

@@ -39,12 +39,12 @@ class ActivosBeneficiosEnEspecie extends Component{
   render(){
     return(
       <Grid container spacing={24} direction={'row-reverse'} className="sidecontent">
-      <Grid item sm={9}>
+        <Grid item xs={12} sm={9}>
         <h2>Uso o Beneficios en Especie Propiedad de un Tercero ({this.items().length})</h2>
 
         {/* row */ }
         <Grid container spacing={24}>
-          <Grid item sm={12}>
+          <Grid item xs={12}>
             <Paper className="pdn_d_box">
               <Paper className="pdn_bar_container">
                 <Paper className={ 'pdn_bar declarante'}></Paper>
@@ -58,15 +58,15 @@ class ActivosBeneficiosEnEspecie extends Component{
 
         {/* row */ }
         <Grid container spacing={24}>
-          <Grid item sm={12}>
+          <Grid item xs={12}>
             { this.items().map( (beneficio, i) =>
             <Paper className="pdn_d_box" key={"beneficio-" + i} id={"beneficio-" + i}>
               {/* row starts*/}
               <Grid container spacing={24}  className="pdn_border">
-                  <Grid item sm={6}>
+                  <Grid item xs={6}>
                     <p><span className={ 'label declarante'}> Declarante</span></p>
                   </Grid>
-                <Grid item sm={6} className="right">
+                <Grid item xs={6} className="right">
                   <a onClick={(e) => this.toggl(beneficio, i, e)} heref="#" className={"pdn_arrow " + (beneficio.show ?  "close" : "open")}></a>
                 </Grid>
               </Grid>
@@ -77,12 +77,12 @@ class ActivosBeneficiosEnEspecie extends Component{
                 {/* row */}
                 <Grid container spacing={24} className="pdn_border">
                   {/* Tipo de bien*/}
-                  <Grid item sm={7}>
+                  <Grid item xs={12}sm={7}>
                     <p className="pdn_label">Tipo de bien</p>
                     <h3>{beneficio.tipo_bien}</h3>
                   </Grid>
                   {/* Ingreso monetario obtenido*/}
-                  <Grid item sm={5}>
+                  <Grid item xs={12} sm={5}>
                     <p className="pdn_label right">Valor del mercado</p>
                     <h3 className="pdn_amount right">${beneficio.valor_mercado.valor} {beneficio.valor_mercado.moneda.codigo} <span>({beneficio.valor_mercado.moneda.moneda})</span></h3>
                   </Grid>
@@ -110,8 +110,12 @@ class ActivosBeneficiosEnEspecie extends Component{
                 </Grid>
                 {/* table ends */}
 
-                <p className="pdn_label">Observaciones</p>
-                <p className="pdn_data_p">{beneficio.observaciones}</p>
+                <Grid container spacing={24}>
+                  <Grid item xs={12}>
+                    <p className="pdn_label">Observaciones</p>
+                    <p className="pdn_data_p">{beneficio.observaciones}</p>
+                  </Grid>
+                </Grid>
               </div>
               {/* div close/open ends */}
             </Paper>

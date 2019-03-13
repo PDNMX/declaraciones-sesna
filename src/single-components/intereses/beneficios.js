@@ -39,12 +39,12 @@ class InteresesBeneficios extends Component{
   render(){
     return(
       <Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-      <Grid item sm={9}>
+        <Grid item xs={12} sm={9}>
         <h2>Beneficios gratuitos ({this.items().length})</h2>
 
         {/* row */ }
         <Grid container spacing={24}>
-          <Grid item sm={12}>
+          <Grid item xs={12}>
             <Paper className="pdn_d_box">
               <Paper className="pdn_bar_container">
                 <Paper className="pdn_bar declarante"></Paper>
@@ -57,15 +57,15 @@ class InteresesBeneficios extends Component{
         {/* row ends*/ }
 
         <Grid container spacing={24}>
-          <Grid item sm={12}>
+          <Grid item xs={12}>
             { this.items().map( (interes, i) =>
             <Paper className="pdn_d_box" key={"interes-" + i} id={"interes-" + i}>
               {/* row starts*/}
               <Grid container spacing={24} className="row pdn_border">
-                <Grid item sm={6}>
+                <Grid item xs={6}>
                   <p><span className={ 'label declarante' }> Declarante</span></p>
                 </Grid>
-                <Grid item sm={6} className="right">
+                <Grid item xs={6} className="right">
                   <a onClick={(e) => this.toggl(interes, i, e)} heref="#" className={"pdn_arrow " + (interes.show ?  "close" : "open")}></a>
                 </Grid>
               </Grid>
@@ -76,19 +76,19 @@ class InteresesBeneficios extends Component{
                 {/* row */}
                 <Grid container spacing={24} className="pdn_border">
                   {/* Tipo de beneficio */}
-                   <Grid item sm={9}>
+                   <Grid item xs={12} sm={9}>
                     <p className="pdn_label">Tipo de beneficio</p>
                     <h3>{interes.tipo_beneficio}</h3>
                   </Grid>
                   {/*Valor de beneficio */}
-                   <Grid item sm={3}>
+                   <Grid item  xs={12} sm={3}>
                     <p className="pdn_label right">Valor de beneficio</p>
                     <h3 className="pdn_amount right">${interes.valor_beneficio}  </h3>
                   </Grid>
                 </Grid>
                 {/* row ends*/}
                 <Grid container spacing={24}>
-                  <Grid item sm={12}>
+                  <Grid item xs={12}>
                   <p className="pdn_label">Sector o industria</p>
                   <p className="pdn_data_p">{interes.sector_industria.valor}</p>
                   <p className="pdn_label">Observaciones</p>

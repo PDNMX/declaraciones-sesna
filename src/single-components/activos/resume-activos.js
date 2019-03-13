@@ -91,7 +91,7 @@ class ActivosBienesInmuebles extends Component{
 
     return(
       <Grid container spacing={24} direction={'row-reverse'} className="sidecontent">
-        <Grid item sm={9}>
+        <Grid item xs={12} sm={9}>
           <Grid container spacing={16}>
             <Grid item xs={12}>
               <Paper className="pdn_d_box">

@@ -38,11 +38,11 @@ class ActivosCuentasPorCobrar extends Component{
   render(){
     return(
       <Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-        <Grid item sm={9}>
+        <Grid item xs={12} sm={9}>
           <h2>Cuentas por cobrar ({this.items().length})</h2>
           {/* row */ }
           <Grid container spacing={24}>
-            <Grid item sm={12}>
+            <Grid item xs={12}>
               <Paper className="pdn_d_box">
                 <Paper className="pdn_bar_container">
                   <Paper className={ 'pdn_bar declarante'}></Paper>
@@ -56,15 +56,15 @@ class ActivosCuentasPorCobrar extends Component{
 
           {/* row */ }
           <Grid container spacing={24}>
-          <Grid item sm={12}>
+            <Grid item xs={12}>
               { this.items().map( (cuentas, i) =>
               <Paper className="pdn_d_box" key={"cuentas-" + i} id={"cuentas-" + i}>
                 {/* row starts*/}
                 <Grid container spacing={24} className="row pdn_border">
-                  <Grid item sm={6}>
+                  <Grid item xs={6}>
                     <p><span className={ 'label declarante'}> Declarante</span></p>
                   </Grid>
-                  <Grid item sm={6} className="right">
+                  <Grid item xs={6} className="right">
                     <a onClick={(e) => this.toggl(cuentas, i, e)} heref="#" className={"pdn_arrow " + (cuentas.show ?  "close" : "open")}></a>
                   </Grid>
                 </Grid>
@@ -75,17 +75,17 @@ class ActivosCuentasPorCobrar extends Component{
                   {/* row */}
                   <Grid container spacing={24} className="row pdn_border">
                     {/* Número de registro */}
-                    <Grid item sm={4}>
+                    <Grid item xs={12} sm={4}>
                       <p className="pdn_label">Número de registro</p>
                       <h3>{cuentas.numero_registro}</h3>
                     </Grid>
                     {/* Fecha de préstamo*/}
-                    <Grid item sm={4}>
+                    <Grid item xs={12} sm={4}>
                       <p className="pdn_label center">Fecha de préstamo</p>
                       <p className="pdn_data_p center">{cuentas.fecha_prestamo}</p>
                     </Grid>
                     {/* Fecha de vencimiento*/}
-                    <Grid item sm={4}>
+                    <Grid item xs={12} sm={4}>
                       <p className="pdn_label right">Fecha de vencimiento</p>
                       <p className="pdn_data_p right">{cuentas.fecha_vencimiento}</p>
                     </Grid>
@@ -116,8 +116,12 @@ class ActivosCuentasPorCobrar extends Component{
                   </table>
                   </Grid>
                   {/* table ends */}
-                  <p className="pdn_label">Observaciones</p>
-                  <p className="pdn_data_p">{cuentas.observaciones}</p>
+                  <Grid container spacing={24}>
+                    <Grid item xs={12}>
+                      <p className="pdn_label">Observaciones</p>
+                      <p className="pdn_data_p">{cuentas.observaciones}</p>
+                    </Grid>
+                  </Grid>
                 </div>
                 {/* div close/open ends */}
               </Paper>
