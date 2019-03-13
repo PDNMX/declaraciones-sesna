@@ -1459,8 +1459,8 @@ section.pdn_nomargin {
 
 .pdn_border {
   border-bottom: 1px solid #f2f2f2;
-  padding-bottom: 1em;
-  margin-bottom: 1em; }
+  padding-bottom: 1em !important;
+  margin-bottom: 1em !important; }
 
 .pnd_box_note {
   font-size: 13px; }
