@@ -43,7 +43,7 @@ class InteresesMembresias extends Component{
         <Grid item xs={12} sm={9}>
           <h2>Membresías ({this.items().length})</h2>
           <Grid container spacing={24}>
-            <Grid item xs={12}>>
+            <Grid item xs={12}>
               <Paper className="pdn_d_box">
                 <Paper className="pdn_bar_container">
                   <Paper className="pdn_bar declarante"></Paper>
