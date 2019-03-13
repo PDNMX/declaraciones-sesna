@@ -7,7 +7,7 @@
 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Contenedor from './main-components/Container-back';
+import Contenedor from './main-components/Container';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route } from 'react-router-dom';
 

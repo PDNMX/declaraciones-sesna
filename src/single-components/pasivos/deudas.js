@@ -40,10 +40,10 @@ class Deudas extends Component{
 	render(){
 		return(
 			<Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-        <Grid item sm={9}>
+        <Grid item xs={12} sm={9}>
 				<h2>Deudas ({this.items().length})</h2>
           <Grid container spacing={24}>
-            <Grid item sm={12}>
+            <Grid item xs={12}>
 						{ this.items().map( (pasivo, i) =>
               <Paper className="pdn_d_box">
                 <Paper className="pdn_bar_container">
@@ -56,15 +56,15 @@ class Deudas extends Component{
           </Grid>
 
           <Grid container spacing={24}>
-            <Grid item sm={12}>
+            <Grid item xs={12}>
               {/* box starts*/}
               { this.items().map( (pasivo, i) =>
               <Paper className="pdn_d_box" key={"interes-" + i}>
                 <Grid container spacing={24} className="row pdn_border">
-                  <Grid item sm={6}>
+                  <Grid item xs={6}>
 										<p><span className={ 'label ' + pasivo.titularidad_deuda.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}> {pasivo.titularidad_deuda.valor}</span></p>
                   </Grid>
-                  <Grid item sm={6} className="right">
+                  <Grid item xs={6} className="right">
                     <a onClick={(e) => this.toggl(pasivo, i, e)} heref="#" className={"pdn_arrow " + (pasivo.show ?  "close" : "open")}></a>
                   </Grid>
                 </Grid>
@@ -73,17 +73,17 @@ class Deudas extends Component{
                 <div style={ {display : (pasivo.show ? "block" : "none")} }>
                   <Grid container spacing={24} className="pdn_border">
                   {/* Tipo de adeudo */}
-                    <Grid item sm={4}>
+                    <Grid item xs={12} sm={4}>
                       <p className="pdn_label">Tipo de adeudo</p>
 											<h3>{pasivo.tipo_adeudo.valor}</h3>
                     </Grid>
 										{/* Monto original*/}
-                    <Grid item sm={4}>
+                    <Grid item xs={12} sm={4}>
 											<p className="pdn_label center">Monto original</p>
 											<h3 className="pdn_amount center">${pasivo.monto_original} {pasivo.tipo_moneda.codigo} <span>({pasivo.tipo_moneda.moneda})</span> </h3>
                     </Grid>
 										{/* Saldo pendiente*/}
-                    <Grid item sm={4}>
+                    <Grid item xs={12} sm={4}>
 											<p className="pdn_label right">Saldo pendiente</p>
 											<h3 className="pdn_amount right">${pasivo.saldo_pendiente} {pasivo.tipo_moneda.codigo} <span>({pasivo.tipo_moneda.moneda})</span> </h3>
                     </Grid>
@@ -92,17 +92,17 @@ class Deudas extends Component{
 
                   <Grid container spacing={24} className="pdn_border">
 										{/* Tipo de acreedor*/}
-                    <Grid item sm={4}>
+                    <Grid item xs={12} sm={4}>
 											<p className="pdn_label">Tipo de acreedor</p>
 											<p className="pdn_data_p">{pasivo.tipo_acreedor.valor}</p>
                     </Grid>
 										{/* Tasa de interés*/}
-                    <Grid item sm={4}>
+                    <Grid item xs={12} sm={4}>
 											<p className="pdn_label">Tasa de interés</p>
 											<p className="pdn_data_p">{pasivo.tasa_interes}</p>
                     </Grid>
 										{/* Fecha de adeudo*/}
-                    <Grid item sm={4}>
+                    <Grid item xs={12} sm={4}>
 											<p className="pdn_label">Fecha de adeudo</p>
 											<p className="pdn_data_p">{pasivo.fecha_adeudo}</p>
                     </Grid>
@@ -111,17 +111,17 @@ class Deudas extends Component{
 
                   <Grid container spacing={24} className="pdn_border">
                     {/* País */}
-                    <Grid item sm={4}>
+                    <Grid item xs={12} sm={4}>
                       <p className="pdn_label">País</p>
 											<p className="pdn_data_p">{pasivo.nacional_extranjero.valor}</p>
                     </Grid>
 										{/* Sector o industria*/}
-                    <Grid item sm={4}>
+                    <Grid item xs={12} sm={4}>
 											<p className="pdn_label">Sector o industria</p>
 											<p className="pdn_data_p">{pasivo.sector_industria.valor}</p>
                     </Grid>
 										{/* Tipo de operación*/}
-                    <Grid item sm={4}>
+                    <Grid item xs={12} sm={4}>
 											<p className="pdn_label">Tipo de operación</p>
 											<p className="pdn_data_p">{pasivo.tipo_operacion.valor}</p>
                     </Grid>
@@ -130,7 +130,7 @@ class Deudas extends Component{
 
 									{/* table */}
 									<Grid container spacing={24} className="pdn_mobile_table">
-                    <Grid item sm={12}>
+                    <Grid item xs={12} sm={12}>
 										<table className="table">
 											<thead>
 												<tr>
@@ -162,7 +162,7 @@ class Deudas extends Component{
 									{/* table ends */}
 
                   <Grid container spacing={24}>
-                    <Grid item sm={12}>
+                    <Grid item xs={12}>
 										<p className="pdn_label">Observaciones</p>
 										<p className="pdn_data_p">{pasivo.observaciones}</p>
                     </Grid>

@@ -38,11 +38,11 @@ class ActivosEfectivo extends Component{
   render(){
     return(
       <Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-        <Grid item sm={9}>
+        <Grid item xs={12} sm={9}>
         <h2>Efectivo y metales ({this.items().length})</h2>
         {/* row */ }
         <Grid container spacing={24}>
-          <Grid item sm={12}>
+          <Grid item xs={12}>
             <Paper className="pdn_d_box">
               <Paper className="pdn_bar_container">
                 <Paper className={ 'pdn_bar declarante'}></Paper>
@@ -54,15 +54,15 @@ class ActivosEfectivo extends Component{
         </Grid>
         {/* row ends*/ }
         <Grid container spacing={24}>
-          <Grid item sm={12}>
+          <Grid item xs={12}>
             { this.items().map( (efectivo, i) =>
             <Paper className="pdn_d_box" key={"efectivo-" + i} id={"efectivo-" + i}>
               {/* row starts*/}
               <Grid container spacing={24} className="row pdn_border">
-                <Grid item sm={6}>
+                <Grid item xs={6}>
                   <p><span className={ 'label declarante'}> Declarante</span></p>
                 </Grid>
-                <Grid item sm={6} className="right">
+                <Grid item xs={6} className="right">
                   <a onClick={(e) => this.toggl(efectivo, i, e)} heref="#" className={"pdn_arrow " + (efectivo.show ?  "close" : "open")}></a>
                 </Grid>
               </Grid>
@@ -73,12 +73,12 @@ class ActivosEfectivo extends Component{
                 {/* row */}
                 <Grid container spacing={24} className="row pdn_border">
                   {/*Tipo de metal*/}
-                  <Grid item sm={8}>
+                  <Grid item xs={12} sm={8}>
                     <p className="pdn_label">Tipo de metal</p>
                     <h3>{efectivo.tipo_metal.valor}</h3>
                   </Grid>
                   {/* Unidades*/}
-                  <Grid item sm={4}>
+                  <Grid item xs={12} sm={4}>
                     <p className="pdn_label right">Unidades</p>
                     <h3 className="pdn_amount right">{efectivo.unidades}</h3>
                   </Grid>
@@ -88,24 +88,28 @@ class ActivosEfectivo extends Component{
                 {/* row */}
                 <Grid container spacing={24} className="row pdn_border">
                   {/*Tipo de moneda*/}
-                  <Grid item sm={4}>
+                  <Grid item xs={12} sm={4}>
                     <p className="pdn_label">Tipo de moneda</p>
                     <p className="pdn_data_p">{efectivo.tipo_moneda.moneda}</p>
                   </Grid>
                   {/* Forma  de adquisición*/}
-                  <Grid item sm={4}>
+                  <Grid item xs={12} sm={4}>
                     <p className="pdn_label">Forma  de adquisición</p>
                     <p className="pdn_data_p">{efectivo.forma_adquisicion.valor}</p>
                   </Grid>
                   {/* Tipo de operación*/}
-                  <Grid item sm={4}>
+                  <Grid item xs={12} sm={4}>
                     <p className="pdn_label">Tipo de operación</p>
                     <p className="pdn_data_p">{efectivo.tipo_operacion.valor}</p>
                   </Grid>
                 </Grid>
                 {/* row ends*/}
-                <p className="pdn_label">Observaciones</p>
-                <p className="pdn_data_p">{efectivo.observaciones_comentarios}</p>
+                <Grid container spacing={24}>
+                  <Grid item xs={12}>
+                    <p className="pdn_label">Observaciones</p>
+                    <p className="pdn_data_p">{efectivo.observaciones_comentarios}</p>
+                  </Grid>
+                </Grid>
               </div>
               {/* div close/open ends */}
             </Paper>

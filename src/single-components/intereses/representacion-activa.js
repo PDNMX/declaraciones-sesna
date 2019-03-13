@@ -39,10 +39,10 @@ class InteresesRepActiva extends Component{
   render(){
     return(
       <Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-        <Grid item sm={9}>
+        <Grid item xs={12} sm={9}>
           <h2>Representación activa ({this.items().length})</h2>
           <Grid container spacing={24}>
-            <Grid item sm={12}>
+            <Grid item xs={12}>
               <Paper className="pdn_d_box">
                 <Paper className="pdn_bar_container">
                   <Paper className="pdn_bar declarante"></Paper>
@@ -53,15 +53,15 @@ class InteresesRepActiva extends Component{
           </Grid>
 
           <Grid container spacing={24}>
-            <Grid item sm={12}>
+            <Grid item xs={12}>
               {/* box starts*/}
               { this.items().map( (interes, i) =>
               <Paper className="pdn_d_box" key={"interes-" + i}>
                 <Grid container spacing={24} className="row pdn_border">
-                  <Grid item sm={6}>
+                  <Grid item xs={6}>
                     <p><span className="label declarante"> Declarante</span></p>
                   </Grid>
-                  <Grid item sm={6} className="right">
+                  <Grid item xs={6} className="right">
                     <a onClick={(e) => this.toggl(interes, i, e)} heref="#" className={"pdn_arrow " + (interes.show ?  "close" : "open")}></a>
                   </Grid>
                 </Grid>
@@ -70,12 +70,12 @@ class InteresesRepActiva extends Component{
                 <div style={ {display : (interes.show ? "block" : "none")} }>
                   <Grid container spacing={24} className="pdn_border">
                     {/* Tipo de representación */}
-                    <Grid item sm={9}>
+                    <Grid item xs={12} sm={9}>
                       <p className="pdn_label">Tipo de representación</p>
                       <h3>{interes.tipo_representacion.valor}</h3>
                     </Grid>
                     {/*Pagado */}
-                    <Grid item sm={3}>
+                    <Grid item xs={12} sm={3}>
                       <p className="pdn_label">Pagado</p>
                       <p className="pdn_data_p"><b className= { 'pdn_' + interes.pagado}></b> {interes.pagado ? "Sí" : "No"}</p>
                     </Grid>
@@ -84,12 +84,12 @@ class InteresesRepActiva extends Component{
 
                   <Grid container spacing={24} className="pdn_border">
                     {/* Sector o industria */}
-                    <Grid item sm={6}>
+                    <Grid item xs={12} sm={6}>
                       <p className="pdn_label">Sector o industria</p>
                       <p className="pdn_data_p">{interes.sector_industria.valor}</p>
                     </Grid>
                     {/* Fecha de inicio*/}
-                    <Grid item sm={6}>
+                    <Grid item xs={12} sm={6}>
                       <p className="pdn_label">Fecha de inicio</p>
                       <p className="pdn_data_p">{interes.fecha_inicio}</p>
                     </Grid>
@@ -98,7 +98,7 @@ class InteresesRepActiva extends Component{
                   {/* row ends*/}
 
                   <Grid container spacing={24} className="pdn_mobile_table">
-                    <Grid item sm={12}>
+                    <Grid item xs={12}>
                       <p className="pdn_label">Observaciones</p>
                       <p className="pdn_data_p">{interes.observaciones}</p>
                     </Grid>
@@ -112,7 +112,7 @@ class InteresesRepActiva extends Component{
           </Grid>
         </Grid>
       </Grid>
-    
+
     );
   }
 

@@ -13,11 +13,11 @@ class InfoGeneralMaterialUI extends Component{
 		return(
 			<div>
 	<Grid container spacing={24} direction={'row-reverse'} className="sidecontent">
-	<Grid item sm={9}>
+		<Grid item xs={12} sm={9}>
 		<h2>Información general</h2>
 
 		<Grid container spacing={24}>
-			<Grid item sm={7}>
+			<Grid item xs={12} sm={7}>
 			  <Paper className="pdn_d_box">
 					<p className="pdn_label">Nacionalidades</p>
 					{ this.props.items.nacionalidades.map((d, i) =>
@@ -27,7 +27,7 @@ class InfoGeneralMaterialUI extends Component{
 					<p className="pdn_data_p">{this.props.items.entidad_federativa_nacimiento.nom_ent}</p>
 				</Paper>
 			</Grid>
-			<Grid item sm={5}>
+			<Grid item xs={12} sm={5}>
 				<Paper className="pdn_d_box">
 					<p className="pdn_label">Estado Civil</p>
 					<p className="pdn_data_p">{this.props.items.estado_civil.valor}</p>

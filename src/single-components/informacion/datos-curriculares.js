@@ -11,10 +11,10 @@ class InfoCurriculum extends Component{
 	render(){
 		return(
 			<Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-				<Grid item sm={9}>
+				<Grid item xs={12} sm={9}>
 			   <h2>Datos curriculares</h2>
 						<Grid container spacing={24}>
-							<Grid item sm={12}>
+							<Grid item xs={12}>
 							  {this.props.items.grados_academicos.map( (grado, i) =>
 								<Paper className="pdn_d_box" key={"grado-" + i}>
 									<h3 className="pdn_data_p">{grado.grado_obtenido} en <strong>{grado.carrera}</strong></h3>
@@ -23,13 +23,13 @@ class InfoCurriculum extends Component{
 									<span className="pnd_box_note">{grado.lugar_institucion_educativa.entidad_federativa.nom_ent}, {grado.lugar_institucion_educativa.pais.valor}</span>
 									</p>
 								  <Grid container spacing={24}>
-										<Grid item sm={6}>
+										<Grid item xs={12} sm={6}>
 											<p className="pdn_label">Estatus</p>
 											<p className="pdn_data_p">{grado.estatus.valor}</p>
 											<p className="pdn_label">Documento obtenido</p>
 											<p className="pdn_data_p">{grado.documento_obtenido.valor}</p>
 										</Grid>
-										<Grid item sm={6}>
+										<Grid item xs={12} sm={6}>
 											<p className="pdn_label">Año de conclusión</p>
 											<p className="pdn_data_p">{grado.ano_conclusion}</p>
 											<p className="pdn_label">Cédula Profesional</p>

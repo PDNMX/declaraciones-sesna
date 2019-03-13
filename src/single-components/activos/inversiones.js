@@ -38,11 +38,11 @@ class ActivosInversiones extends Component{
   render(){
     return(
     <Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-      <Grid item sm={9}>
+      <Grid item xs={12} sm={9}>
         <h2>Inversiones, cuentas y valores ({this.items().length})</h2>
         {/* row */ }
         <Grid container spacing={24}>
-          <Grid item sm={12}>
+          <Grid item xs={12}>
             { this.items().map( (inversion, i) =>
             <Paper className="pdn_d_box">
               <Paper className="pdn_bar_container">
@@ -58,15 +58,15 @@ class ActivosInversiones extends Component{
 
 
         <Grid container spacing={24}>
-          <Grid item sm={12}>
+          <Grid item xs={12}>
             { this.items().map( (inversion, i) =>
             <Paper className="pdn_d_box" key={"inversion-" + i} id={"inversion-" + i}>
               {/* row starts*/}
               <Grid container spacing={24} className="pdn_border">
-                <Grid item sm={6}>
+                <Grid item xs={6}>
                   <p><span className={ 'label ' + inversion.titular_bien.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}> {inversion.titular_bien.valor}</span></p>
                 </Grid>
-                <Grid item sm={6} className="right">
+                <Grid item xs={6} className="right">
                   <a onClick={(e) => this.toggl(inversion, i, e)} heref="#" className={"pdn_arrow " + (inversion.show ?  "close" : "open")}></a>
                 </Grid>
               </Grid>
@@ -77,17 +77,17 @@ class ActivosInversiones extends Component{
                 {/* row */}
                 <Grid container spacing={24} className="pdn_border">
                   {/*Tipo de bien*/}
-                  <Grid item sm={4}>
+                  <Grid item xs={12} sm={4}>
                     <p className="pdn_label">Tipo de bien</p>
                     <h3>{inversion.tipo_inversion.valor}</h3>
                   </Grid>
                   {/* Tipo especifico de inversión*/}
-                  <Grid item sm={4}>
+                  <Grid item xs={12} sm={4}>
                     <p className="pdn_label">Tipo especifico de inversión</p>
                     <p className="pdn_data_p">{inversion.tipo_especifico_inversion.valor}</p>
                   </Grid>
                   {/* Nombre de la Institución */}
-                  <Grid item sm={4}>
+                  <Grid item xs={12} sm={4}>
                     <p className="pdn_label">Nombre de la Institución</p>
                     <p className="pdn_data_p">{inversion.nombre_institucion}</p>
                   </Grid>
@@ -97,19 +97,19 @@ class ActivosInversiones extends Component{
                 {/* row */}
                 <Grid container spacing={24} className="pdn_border">
                   {/* Inversión Nacional o Extranjera */}
-                  <Grid item sm={4}>
+                  <Grid item xs={12} sm={4}>
                     <p className="pdn_label">Inversión Nacional o Extranjera</p>
                     <p className="pdn_data_p">{inversion.nacional_extranjero.valor}</p>
                   </Grid>
 
                   {/* Tipo de moneda */}
-                  <Grid item sm={4}>
+                  <Grid item xs={12} sm={4}>
                     <p className="pdn_label">Tipo de moneda</p>
                     <p className="pdn_data_p">{inversion.tipo_moneda.moneda}</p>
                   </Grid>
 
                   {/* Tipo de operación */}
-                  <Grid item sm={4}>
+                  <Grid item xs={12} sm={4}>
                     <p className="pdn_label">Tipo de operación</p>
                     <p className="pdn_data_p">{inversion.tipo_operacion.valor}</p>
                   </Grid>

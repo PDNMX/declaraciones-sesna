@@ -33,7 +33,7 @@ class Pasivos extends Component{
 		return(
 			<div>
 			<Grid item sm={3} className="sidebar">
-				<h2>Pasivos</h2>
+				<h2><b className="pdn_i_ pasivos _title"></b> Pasivos</h2>
 				<ul>
 					<li>
 			  	  <Link className={ section == "deudas" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/pasivos/deudas`}>

@@ -38,12 +38,12 @@ class ActivosBienesMuebles extends Component{
   render(){
     return(
       <Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-        <Grid item sm={9}>
+        <Grid item xs={12} sm={9}>
         <h2>Bienes muebles registrables ({this.items().length})</h2>
 
         {/* row */ }
         <Grid container spacing={24}>
-          <Grid item sm={12}>
+          <Grid item xs={12}>
             { this.items().map( (mueble, i) =>
             <Paper className="pdn_d_box">
               <Paper className="pdn_bar_container">
@@ -58,15 +58,15 @@ class ActivosBienesMuebles extends Component{
         {/* row ends*/ }
 
         <Grid container spacing={24}>
-          <Grid item sm={12}>
+          <Grid item xs={12}>
             { this.items().map( (mueble, i) =>
             <Paper className="pdn_d_box" key={"mueble-" + i} id={"mueble-" + i}>
               {/* row starts*/}
               <Grid container spacing={24} className="pdn_border">
-                <Grid item sm={6}>
+                <Grid item xs={6}>
                   <p><span className={ 'label ' + mueble.titular_bien.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}> {mueble.titular_bien.valor}</span></p>
                 </Grid>
-                <Grid item sm={6} className="right">
+                <Grid item xs={6} className="right">
                   <a onClick={(e) => this.toggl(mueble, i, e)} heref="#" className={"pdn_arrow " + (mueble.show ?  "close" : "open")}></a>
                 </Grid>
               </Grid>
@@ -76,12 +76,12 @@ class ActivosBienesMuebles extends Component{
               <div style={ {display : (mueble.show ? "block" : "none")} }>
                 <Grid container spacing={24} className="pdn_border">
                   {/* Tipo de operación*/}
-                  <Grid item sm={7}>
+                  <Grid item xs={12} sm={7}>
                     <p className="pdn_label">Tipo de bien</p>
                     <h3>{mueble.tipo_bien_mueble.valor}</h3>
                   </Grid>
                   {/* Precio de adquisición*/}
-                  <Grid item sm={5}>
+                  <Grid item xs={12} sm={5}>
                     <p className="pdn_label right">Precio de adquisición</p>
                     <h3 className="pdn_amount right">${mueble.precio_adquisicion.valor} {mueble.precio_adquisicion.moneda.codigo} <span>({mueble.precio_adquisicion.moneda.moneda})</span> </h3>
                   </Grid>
@@ -90,17 +90,17 @@ class ActivosBienesMuebles extends Component{
 
                 <Grid container spacing={24} className="pdn_border">
                   {/* Marca*/}
-                  <Grid item sm={4}>
+                  <Grid item xs={12} sm={4}>
                     <p className="pdn_label">Marca</p>
                     <p className="pdn_data_p">{mueble.marca}</p>
                   </Grid>
                   {/* subMarca*/}
-                  <Grid item sm={4}>
+                  <Grid item xs={12} sm={4}>
                     <p className="pdn_label">Submarca</p>
                     <p className="pdn_data_p">{mueble.submarca}</p>
                   </Grid>
                   {/* Modelo*/}
-                  <Grid item sm={4}>
+                  <Grid item xs={12} sm={4}>
                     <p className="pdn_label">Modelo</p>
                     <p className="pdn_data_p">{mueble.modelo}</p>
                   </Grid>

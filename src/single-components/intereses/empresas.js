@@ -41,10 +41,10 @@ class InteresesEmpresas extends Component{
   render(){
     return(
       <Grid container spacing={24} direction={'row-reverse'} className="col-sm-offset-3 sidecontent">
-        <Grid item sm={9}>
+        <Grid item xs={12} sm={9}>
           <h2>Empresas, sociedades o asociaciones ({this.items().length})</h2>
           <Grid container spacing={24}>
-            <Grid item sm={12}>
+            <Grid item xs={12}>
               <Paper className="pdn_d_box">
                 <Paper className="pdn_bar_container">
                   <Paper className="pdn_bar declarante"></Paper>
@@ -55,7 +55,7 @@ class InteresesEmpresas extends Component{
           </Grid>
 
           <Grid container spacing={24}>
-            <Grid item sm={12}>
+            <Grid item xs={12}>
               {/* box starts*/}
               { this.items().map( (interes, i) =>
               <Paper className="pdn_d_box" key={"interes-" + i}>
@@ -114,19 +114,20 @@ class InteresesEmpresas extends Component{
                           <TableCell>Rol</TableCell>
                           <TableCell>Actividad económica</TableCell>
                           <TableCell>Porcentaje de participación</TableCell>
+                          <TableCell>Sector o industria</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
                           <TableRow>
-                            <TableCell component="th" scope="row">
+                            <TableCell>
                               <strong>{interes.rol}</strong>
                             </TableCell>
-                            <TableCell align="right"><b className= { 'pdn_' + interes.actividad_economica}></b> {interes.actividad_economica ? "Sí" : "No"}</TableCell>
-                            <TableCell align="right">{interes.porcentaje_participacion}%
+                            <TableCell><b className= { 'pdn_' + interes.actividad_economica}></b> {interes.actividad_economica ? "Sí" : "No"}</TableCell>
+                            <TableCell>{interes.porcentaje_participacion}%
                               <div className="pdn_bar_container darken">
                                 <div className="pdn_bar participacion" style={{ width: interes.porcentaje_participacion + '%' }}></div>
                               </div></TableCell>
-                            <TableCell align="right">{interes.sector_industria.valor}</TableCell>
+                            <TableCell>{interes.sector_industria.valor}</TableCell>
                           </TableRow>
                       </TableBody>
                     </Table>

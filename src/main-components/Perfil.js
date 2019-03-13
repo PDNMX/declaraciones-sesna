@@ -170,7 +170,7 @@ class Perfil extends Component{
   /*
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   /
-  /  
+  /
   /
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
@@ -181,7 +181,7 @@ class Perfil extends Component{
 		  			all = all.concat(this.state.profile.ingresos[ConstClass.Incomefields[i]].map(d => d.ingreso_bruto_anual));
 		  		}
 		  	}
-		  	
+
 		  	all = all.filter(d => d.moneda.codigo == "MXN").map(d => d.valor);
 
 		  	return all.reduce(reducer).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
