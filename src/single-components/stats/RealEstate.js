@@ -12,7 +12,8 @@ import * as ConstClass from  '../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../css/chartist.min.css";
 
-import PropiedadTotal from './real-state/PropiedadTotal';
+import PropiedadTotal from './real-estate/PropiedadTotal';
+import ConstruccionTotal from './real-estate/ConstruccionTotal';
 
 class RealEstate extends Component{
 	render(){
@@ -20,7 +21,7 @@ class RealEstate extends Component{
 		return(
 			<div>
 		 <Grid item sm={3} className="col-sm-3 sidebar">
-				<h2>Edad</h2>
+				<h2>Bienes inmuebles</h2>
 			  <ul>
 			  	<li>
 			  	  <Link to="/estadistica/bienes-inmuebles" className={ !cat ? "router-link-exact-active router-link-active" : "" }>Bienes inmuebles</Link>
@@ -54,6 +55,7 @@ class RealEstate extends Component{
 			return(
 			  <div>
 			    <PropiedadTotal />
+			    <ConstruccionTotal />
 			  </div>
 			);
 	  }

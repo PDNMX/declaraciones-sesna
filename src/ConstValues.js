@@ -86,7 +86,7 @@ export const SalaryChartConf = [
 ];
 
 export const propertyChartConf = [
-  [null, 100], [100, 200], [200, 400], [400, null]
+  [null, 99], [100, 200], [200, 400], [400, null]
 ];
 
 

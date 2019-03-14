@@ -13,6 +13,8 @@ import Age from "../single-components/stats/Age.js";
 import GobLevel from "../single-components/stats/GobLevel.js";
 import State from "../single-components/stats/State.js";
 import Education from "../single-components/stats/Education.js";
+import RealEstate from "../single-components/stats/RealEstate.js";
+import Salary from "../single-components/stats/Salary.js";
 
 /*
   ////////////////////////////////////////////////////////////////////////////////
@@ -65,9 +67,18 @@ class Stats extends Component{
 								</Link>
 							</li>
 
-							<li><b className="pdn_i_ property"></b>Bienes inmuebles</li>
+							<li>
+								<Link  to="/estadistica/bienes-inmuebles" className={ section == "bienes-inmuebles" ? "router-link-active" : "" }>
+								  <b className="pdn_i_ education"></b>Bienes inmuebles
+								</Link>
+							</li>
 
-							<li><b className="pdn_i_ salary"></b>Salarios</li>
+							<li>
+								<Link  to="/estadistica/ingresos" className={ section == "ingresos" ? "router-link-active" : "" }>
+								  <b className="pdn_i_ education"></b>Ingresos
+								</Link>
+							</li>
+
 						</ul>
 					</nav>
 				</Grid>
@@ -79,6 +90,8 @@ class Stats extends Component{
 						    <Route path='/estadistica/nivel-de-gobierno/:categoria?' component={GobLevel} />
 						    <Route path='/estadistica/entidad-federativa/:categoria?' component={State} />
 						    <Route path='/estadistica/educacion/:categoria?' component={Education} />
+						    <Route path='/estadistica/bienes-inmuebles/:categoria?' component={RealEstate} />
+						    <Route path='/estadistica/ingresos/:categoria?' component={Salary} />
 						</Switch>
 				</div>
 
