@@ -38,8 +38,8 @@ class Stats extends Component{
 			</Grid>
 
 			{/* navegación */}
-			<Grid container spacing={24}>
-				<Grid item sm={12}>
+			<Grid container justify="space-evenly" spacing={24}>
+				<Grid item xs={12} >
 					<nav className="pdn_main_nav">
 					  <ul>
 							<li>
@@ -73,16 +73,14 @@ class Stats extends Component{
 				</Grid>
 			</Grid>
 
-			<Grid container spacing={24}>
-				<Grid item sm={12} className="pnd_box">
+			<div className="row pnd_box">
 					  <Switch>
 						    <Route path='/estadistica/edad/:categoria?' component={Age} />
 						    <Route path='/estadistica/nivel-de-gobierno/:categoria?' component={GobLevel} />
 						    <Route path='/estadistica/entidad-federativa/:categoria?' component={State} />
 						    <Route path='/estadistica/educacion/:categoria?' component={Education} />
 						</Switch>
-				</Grid>
-			</Grid>
+				</div>
 
 	</div>
 		);
