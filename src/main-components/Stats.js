@@ -69,13 +69,13 @@ class Stats extends Component{
 
 							<li>
 								<Link  to="/estadistica/bienes-inmuebles" className={ section == "bienes-inmuebles" ? "router-link-active" : "" }>
-								  <b className="pdn_i_ education"></b>Bienes inmuebles
+								  <b className="pdn_i_ property"></b>Bienes inmuebles
 								</Link>
 							</li>
 
 							<li>
 								<Link  to="/estadistica/ingresos" className={ section == "ingresos" ? "router-link-active" : "" }>
-								  <b className="pdn_i_ education"></b>Ingresos
+								  <b className="pdn_i_ salary"></b>Ingresos
 								</Link>
 							</li>
 
