@@ -36,6 +36,11 @@ class Pasivos extends Component{
 				<h2><b className="pdn_i_ pasivos _title"></b> Pasivos</h2>
 				<ul>
 					<li>
+						<Link className={ !section  ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/pasivos/`}>
+							Resumen
+						</Link>
+					</li>
+					<li>
 			  	  <Link className={ section == "deudas" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/pasivos/deudas`}>
 			  	    Deudas <span>{this.props.profile.pasivos.deudas.length}</span>
 			  	  </Link>

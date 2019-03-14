@@ -30,6 +30,11 @@ class Ingresos extends Component{
 		<h2><b className="pdn_i_ ingresos _title"></b> Ingresos</h2>
 		<ul>
 			<li>
+				<Link className={ !section ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/ingresos/`}>
+					Resumen
+				</Link>
+			</li>
+			<li>
 	  	  <Link className={ section == "sueldos-salarios" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/ingresos/sueldos-salarios`}>
 	  	    Sueldos y Salarios por el Encargo Público <span>{this.props.profile.ingresos.sueldos_salarios_publicos.length}</span>
 	  	  </Link>

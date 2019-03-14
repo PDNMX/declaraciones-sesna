@@ -30,6 +30,11 @@ class Intereses extends Component{
 		<h2><b className="pdn_i_ intereses _title"></b> Intereses</h2>
 		<ul>
 			<li>
+				<Link className={ !section  ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/intereses/`}>
+					Resumen
+				</Link>
+			</li>
+			<li>
 	  	  <Link className={ section == "empresas" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/intereses/empresas`}>
 					Empresas o asociaciones <span>{this.props.profile.intereses.empresas_sociedades_asociaciones.length}</span>
 	  	  </Link>

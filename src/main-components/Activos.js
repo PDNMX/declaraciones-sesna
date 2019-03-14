@@ -30,6 +30,11 @@ class Activos extends Component{
 		<h2><b className="pdn_i_ activos _title"></b> Activos</h2>
 		<ul>
 			<li>
+				<Link className={ !section  ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/activos/`}>
+					Resumen
+				</Link>
+			</li>
+			<li>
 	  	  <Link className={ section == "bienes-inmuebles" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/activos/bienes-inmuebles`}>
 	  	    Bienes inmuebles <span>{this.props.profile.activos.bienes_inmuebles.length}</span>
 	  	  </Link>
