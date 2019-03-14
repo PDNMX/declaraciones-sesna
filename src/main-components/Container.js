@@ -72,26 +72,26 @@ class Container extends Component{
 							</Grid>
 						</div>
 		  		</div>
-					{/* <!--section nav--> */}
-					<section className="pdn_sis_nav">
-						<div className="container">
-							<Grid container spacing={24}>
-							  <Grid item sm={12}>
-								<ul className="pdn_cont_nav">
-									<li className="current">
-										<a href="/">
-											<figure><img src="/img/servidores_declaraciones.svg" width="60px" /></figure>
-											Buscar un servidor público
-										</a>
-									</li>
-									<li><a href="/estadistica/edad"><figure><img src="/img/estadisticas.svg" width="60px" /></figure>Estadísticas</a></li>
-								</ul>
-								</Grid>
-							</Grid>
-						</div>
-					</section>
 				</div>
 				{/* <!--ends show --> */}
+				{/* <!--section nav--> */}
+				<section className="pdn_sis_nav">
+					<div className="container">
+						<Grid container spacing={24}>
+							<Grid item sm={12}>
+							<ul className="pdn_cont_nav">
+								<li className="current">
+									<a href="/">
+										<figure><img src="/img/servidores_declaraciones.svg" width="60px" /></figure>
+										Buscar un servidor público
+									</a>
+								</li>
+								<li><a href="/estadistica/edad"><figure><img src="/img/estadisticas.svg" width="60px" /></figure>Estadísticas</a></li>
+							</ul>
+							</Grid>
+						</Grid>
+					</div>
+				</section>
 
 			{/* <!--section pdn_m--> */}
 		  <section className="pdn_m">
