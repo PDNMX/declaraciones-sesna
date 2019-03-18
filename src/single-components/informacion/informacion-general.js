@@ -8,8 +8,6 @@
 import React, {Component} from "react";
 import {Typography, Grid, Button, Paper} from '@material-ui/core';
 
-import JSONButton from '../json-button';
-
 class InfoGeneralMaterialUI extends Component{
 	render(){
 		return(
@@ -38,8 +36,6 @@ class InfoGeneralMaterialUI extends Component{
 				</Paper>
 			</Grid>
 		</Grid>
-
-		<JSONButton text={"descargar perfil"} profile={this.props.profile} />
 	  
 	  </Grid>
 	</Grid>

@@ -15,6 +15,8 @@ import Intereses from "./Intereses";
 import Activos from "./Activos";
 import Ingresos from "./Ingresos";
 
+import JSONButton from '../single-components/json-button';
+
 /*
 import Ingresos from "./Ingresos";
 */
@@ -154,6 +156,8 @@ class PerfilMaterialUI extends Component{
 	    <Route path='/perfil/:id/activos' render={() => <Activos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
 	    <Route path='/perfil/:id/ingresos' render={() => <Ingresos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
 	  </Switch>
+
+	  <JSONButton text={"descargar perfil"} profile={this.state.profile} />
 	</div>
 
 	      </div>
