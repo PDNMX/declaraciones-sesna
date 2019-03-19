@@ -10,6 +10,12 @@ import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css";
 import {Grid, Paper} from '@material-ui/core';
+
+import "../../../css/chartist-plugin-tooltip.css";
+import ChartistTooltip from 'chartist-plugin-tooltips-updated';
+
+let d3     = Object.assign({}, require("d3-format"));
+let format = d3.format(",");
 /*
   ////////////////////////////////////////////////////////////////////////////////
   //
@@ -57,13 +63,20 @@ class EdadTotalNivelGobierno extends Component{
   render(){
     if(!this.state.data) return null;
     let colors = ConstClass.ChartColors;
+
+    let options = {
+      plugins:[ChartistTooltip({
+        appendToBody: true,
+        transformTooltipTextFnc : value => format(value)
+      })]
+    };
+
     return(
      <Grid container spacing={24}>
 				<Grid item sm={12}>
 					<Paper className="pdn_d_box">
             <h2>Funcionarios por rango de edad y nivel de gobierno (total)</h2>
-            <ChartistGraph data={this.state.data} type={"Bar"} />
-            <Paper className="pdn_divider"></Paper>
+            <ChartistGraph data={this.state.data} type={"Bar"} options={options} />
 
             <ul className="list_inline">
             {ConstClass.GobLevels.map( (d, i) =>
@@ -73,6 +86,7 @@ class EdadTotalNivelGobierno extends Component{
               </li>
             )}
             </ul>
+
         </Paper>
       </Grid>
     </Grid>

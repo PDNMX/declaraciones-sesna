@@ -11,6 +11,11 @@ import {Typography, Grid, Button, Paper} from '@material-ui/core';
 import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css";
+import "../../../css/chartist-plugin-tooltip.css";
+import ChartistTooltip from 'chartist-plugin-tooltips-updated';
+
+let d3     = Object.assign({}, require("d3-format"));
+let format = d3.format(",.2");
 
 /*
   ////////////////////////////////////////////////////////////////////////////////
@@ -44,7 +49,7 @@ class EdadTotalPorcentaje extends Component{
       let total = d.reduce(ConstClass.reducer);
 			let data = {
 				labels : promises.map(d => d.label),
-				series : d.map(d => (d/total) * 100 )
+				series : d.map(d => format((d/total) * 100) )
 			}
 
 			this.setState({data : data});
@@ -61,12 +66,22 @@ class EdadTotalPorcentaje extends Component{
 
     let st = this.state;
     let colors = ConstClass.ChartColors;
+
+    let _options = {
+      plugins:[ChartistTooltip({
+        appendToBody: true,
+        transformTooltipTextFnc : value => format(value) + "%"
+      })]
+    };
+
+    let options = Object.assign(st, _options);
+
 		return(
 			<Grid container spacing={24}>
 				<Grid item sm={12}>
 					<Paper className="pdn_d_box">
 						<h2>Funcionarios por rango de edad (porcentaje)</h2>
-						<ChartistGraph data={ { series : st.data.series} } type={"Pie"} options={st.options} />
+						<ChartistGraph data={ { series : st.data.series} } type={"Pie"} options={ options } />
 						<div className="pdn_divider"></div>
 						<ul className="list_inline">
 		        {this.state.data.labels.map( (d, i) =>
