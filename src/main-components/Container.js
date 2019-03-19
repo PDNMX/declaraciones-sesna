@@ -82,11 +82,11 @@ class Container extends Component{
 							<ul className="pdn_cont_nav">
 								<li className="current">
 									<a href="/">
-										<figure><img src="/img/servidores_declaraciones.svg" width="60px" /></figure>
+										<figure><img src="/img/servidores_declaraciones.svg" width="60px" alt="" /></figure>
 										Buscar un servidor público
 									</a>
 								</li>
-								<li><a href="/estadistica/edad"><figure><img src="/img/estadisticas.svg" width="60px" /></figure>Estadísticas</a></li>
+								<li><a href="/estadistica/edad"><figure><img src="/img/estadisticas.svg" width="60px" alt="" /></figure>Estadísticas</a></li>
 							</ul>
 							</Grid>
 						</Grid>
