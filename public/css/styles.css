@@ -1134,6 +1134,21 @@ a {
   transition: color 0.3s ease;
   transition: background 0.3s ease; }
 
+a:link.pdn_link_todownload,
+a:active.pdn_link_todownload,
+a:visited.pdn_link_todownload {
+  background-color: #ffe01b;
+  color: #313233;
+  margin: 20px auto; }
+  a:link.pdn_link_todownload:hover,
+  a:active.pdn_link_todownload:hover,
+  a:visited.pdn_link_todownload:hover {
+    background-color: #ffe74e; }
+  a:link.pdn_link_todownload .pdn_miu_icon,
+  a:active.pdn_link_todownload .pdn_miu_icon,
+  a:visited.pdn_link_todownload .pdn_miu_icon {
+    margin-left: 5px; }
+
 /* =Titles
 -------------------------------------------------------------- */
 h1.main_t {

@@ -157,9 +157,13 @@ class PerfilMaterialUI extends Component{
 	    <Route path='/perfil/:id/ingresos' render={() => <Ingresos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
 	  </Switch>
 
-	  <JSONButton text={"descargar perfil"} profile={this.state.profile} />
-	</div>
 
+	</div>
+			<Grid  container spacing={24}>
+				<Grid item sm={12} align="right">
+					<JSONButton text={"descargar perfil"} profile={this.state.profile} />
+				</Grid>
+			</Grid>
 	      </div>
       </div>
 		);
