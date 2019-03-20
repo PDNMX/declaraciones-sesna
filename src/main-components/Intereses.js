@@ -7,6 +7,7 @@
 */
 import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
+import {Grid, Paper} from '@material-ui/core';
 
 // INTERESES
 import InteresesResume from '../single-components/intereses/resume_intereses';
@@ -26,81 +27,81 @@ class Intereses extends Component{
 		let section = this.props.section;
 		return(
 			<div>
-	<div className="col-sm-3 sidebar">
+	<Grid item sm ={3} className ="sidebar">
 		<h2><b className="pdn_i_ intereses _title"></b> Intereses</h2>
 		<ul>
 			<li>
-				<Link className={ !section  ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/intereses/`}>
+				<Link className={ !section  ?"router-link-exact-active router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/intereses/`}>
 					Resumen
 				</Link>
 			</li>
 			<li>
-	  	  <Link className={ section == "empresas" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/intereses/empresas`}>
+	  	  <Link className={ section == "empresas" ?"router-link-exact-active router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/intereses/empresas`}>
 					Empresas o asociaciones <span>{this.props.profile.intereses.empresas_sociedades_asociaciones.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link className={ section == "membresias" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/intereses/membresias`} >
+	  	  <Link className={ section == "membresias" ?"router-link-exact-active router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/intereses/membresias`} >
 	  	    Membresías <span>{this.props.profile.intereses.membresias.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link className={ section == "apoyos" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/intereses/apoyos`}>
+	  	  <Link className={ section == "apoyos" ?"router-link-exact-active router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/intereses/apoyos`}>
 	  	    Apoyos  <span>{this.props.profile.intereses.apoyos_beneficios_publicos.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link className={ section == "representacion-activa" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/intereses/representacion-activa`}>
+	  	  <Link className={ section == "representacion-activa" ?"router-link-exact-active router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/intereses/representacion-activa`}>
 	  	    Representación activa <span>{this.props.profile.intereses.representacion_activa.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link className={ section == "representacion-pasiva" ?"router-link-exact-active router-link-active" : ""} to={`/perfil/${this.props.profile._id}/intereses/representacion-pasiva`}>
+	  	  <Link className={ section == "representacion-pasiva" ?"router-link-exact-active router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/intereses/representacion-pasiva`}>
 	  	    Representación pasiva <span>{this.props.profile.intereses.representacion_pasiva.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link className={ section == "socios" ?"router-link-exact-active router-link-active" : ""}  to={`/perfil/${this.props.profile._id}/intereses/socios`}>
+	  	  <Link className={ section == "socios" ?"router-link-exact-active router-link-active" : ""}  to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/intereses/socios`}>
 	  	    Socios comerciales <span>{this.props.profile.intereses.socios_comerciales.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link className={ section == "clientes" ?"router-link-exact-active router-link-active" : ""}   to={`/perfil/${this.props.profile._id}/intereses/clientes`}>
+	  	  <Link className={ section == "clientes" ?"router-link-exact-active router-link-active" : ""}   to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/intereses/clientes`}>
 	  	    Clientes principales <span>{this.props.profile.intereses.clientes_principales.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link className={ section == "otras" ?"router-link-exact-active router-link-active" : ""}   to={`/perfil/${this.props.profile._id}/intereses/otras`}>
+	  	  <Link className={ section == "otras" ?"router-link-exact-active router-link-active" : ""}   to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/intereses/otras`}>
 	  	    Otras partes relacionadas <span>{this.props.profile.intereses.otras_partes.length}</span>
 	  	  </Link>
 	    </li>
 
 	    <li>
-	  	  <Link className={ section == "beneficios" ?"router-link-exact-active router-link-active" : ""}  to={`/perfil/${this.props.profile._id}/intereses/beneficios`}>
+	  	  <Link className={ section == "beneficios" ?"router-link-exact-active router-link-active" : ""}  to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/intereses/beneficios`}>
 	  	    Beneficios gratuitos <span>{this.props.profile.intereses.beneficios_gratuitos.length}</span>
 	  	  </Link>
 	    </li>
 
 	  </ul>
-	  </div>
+	  </Grid>
 	  <Switch>
-	    <Route exact path='/perfil/:id/intereses' render={() => <InteresesResume profile={this.props.profile}  />}/>
-			<Route exact path='/perfil/:id/intereses/empresas' render={() => <InteresesEmpresas profile={this.props.profile}  />}/>
-	    <Route exact path='/perfil/:id/intereses/membresias' render={() => <InteresesMembresias profile={this.props.profile}  />}/>
-	    <Route exact path='/perfil/:id/intereses/apoyos' render={() => <InteresesApoyos profile={this.props.profile}  />}/>
-	    <Route exact path='/perfil/:id/intereses/representacion-activa' render={() => <InteresesRepActiva profile={this.props.profile}  />}/>
-	    <Route exact path='/perfil/:id/intereses/representacion-pasiva' render={() => <InteresesRepPasiva profile={this.props.profile}  />}/>
-	    <Route exact path='/perfil/:id/intereses/socios' render={() => <InteresesSocios profile={this.props.profile}  />}/>
-	    <Route exact path='/perfil/:id/intereses/clientes' render={() => <InteresesClientes profile={this.props.profile}  />}/>
-	    <Route exact path='/perfil/:id/intereses/otras' render={() => <InteresesOtras profile={this.props.profile}  />}/>
-	    <Route exact path='/perfil/:id/intereses/beneficios' render={() => <InteresesBeneficios profile={this.props.profile}  />}/>
+	    <Route exact path={`${process.env.PUBLIC_URL}/perfil/:id/intereses`} render={() => <InteresesResume profile={this.props.profile}  />}/>
+			<Route exact path={`${process.env.PUBLIC_URL}/perfil/:id/intereses/empresas`} render={() => <InteresesEmpresas profile={this.props.profile}  />}/>
+	    <Route exact path={`${process.env.PUBLIC_URL}/perfil/:id/intereses/membresias`} render={() => <InteresesMembresias profile={this.props.profile}  />}/>
+	    <Route exact path={`${process.env.PUBLIC_URL}/perfil/:id/intereses/apoyos`} render={() => <InteresesApoyos profile={this.props.profile}  />}/>
+	    <Route exact path={`${process.env.PUBLIC_URL}/perfil/:id/intereses/representacion-activa`} render={() => <InteresesRepActiva profile={this.props.profile}  />}/>
+	    <Route exact path={`${process.env.PUBLIC_URL}/perfil/:id/intereses/representacion-pasiva`} render={() => <InteresesRepPasiva profile={this.props.profile}  />}/>
+	    <Route exact path={`${process.env.PUBLIC_URL}/perfil/:id/intereses/socios`} render={() => <InteresesSocios profile={this.props.profile}  />}/>
+	    <Route exact path={`${process.env.PUBLIC_URL}/perfil/:id/intereses/clientes`} render={() => <InteresesClientes profile={this.props.profile}  />}/>
+	    <Route exact path={`${process.env.PUBLIC_URL}/perfil/:id/intereses/otras`} render={() => <InteresesOtras profile={this.props.profile}  />}/>
+	    <Route exact path={`${process.env.PUBLIC_URL}/perfil/:id/intereses/beneficios`} render={() => <InteresesBeneficios profile={this.props.profile}  />}/>
 	  </Switch>
 </div>
 		);

@@ -45,36 +45,36 @@ class Stats extends Component{
 					<nav className="pdn_main_nav">
 					  <ul>
 							<li>
-								<Link to="/estadistica/edad" className={ section == "edad" ? "router-link-active" : "" }>
+								<Link to={`${process.env.PUBLIC_URL}/estadistica/edad`} className={ section == "edad" ? "router-link-active" : "" }>
 								  <b className="pdn_i_ age"></b>Edad
 								</Link>
 							</li>
 							<li>
-								<Link to="/estadistica/nivel-de-gobierno" className={ section == "nivel-de-gobierno" ? "router-link-active" : "" }>
+								<Link to={`${process.env.PUBLIC_URL}/estadistica/nivel-de-gobierno`} className={ section == "nivel-de-gobierno" ? "router-link-active" : "" }>
 								  <b className="pdn_i_ gov"></b>Nivel de gobierno
 								</Link>
 							</li>
 
 							<li>
-								<Link to="/estadistica/entidad-federativa" className={ section == "entidad-federativa" ? "router-link-active" : "" }>
+								<Link to={`${process.env.PUBLIC_URL}/estadistica/entidad-federativa`} className={ section == "entidad-federativa" ? "router-link-active" : "" }>
 								  <b className="pdn_i_ state"></b>Estado
 								</Link>
 							</li>
 
 							<li>
-								<Link  to="/estadistica/educacion" className={ section == "educacion" ? "router-link-active" : "" }>
+								<Link  to={`${process.env.PUBLIC_URL}/estadistica/educacion`} className={ section == "educacion" ? "router-link-active" : "" }>
 								  <b className="pdn_i_ education"></b>Educación
 								</Link>
 							</li>
 
 							<li>
-								<Link  to="/estadistica/bienes-inmuebles" className={ section == "bienes-inmuebles" ? "router-link-active" : "" }>
+								<Link  to={`${process.env.PUBLIC_URL}/estadistica/bienes-inmuebles`} className={ section == "bienes-inmuebles" ? "router-link-active" : "" }>
 								  <b className="pdn_i_ property"></b>Bienes inmuebles
 								</Link>
 							</li>
 
 							<li>
-								<Link  to="/estadistica/ingresos" className={ section == "ingresos" ? "router-link-active" : "" }>
+								<Link  to={`${process.env.PUBLIC_URL}/estadistica/ingresos`} className={ section == "ingresos" ? "router-link-active" : "" }>
 								  <b className="pdn_i_ salary"></b>Ingresos
 								</Link>
 							</li>
@@ -86,12 +86,12 @@ class Stats extends Component{
 
 			<div className="row pnd_box">
 					  <Switch>
-						    <Route path='/estadistica/edad/:categoria?' component={Age} />
-						    <Route path='/estadistica/nivel-de-gobierno/:categoria?' component={GobLevel} />
-						    <Route path='/estadistica/entidad-federativa/:categoria?' component={State} />
-						    <Route path='/estadistica/educacion/:categoria?' component={Education} />
-						    <Route path='/estadistica/bienes-inmuebles/:categoria?' component={RealEstate} />
-						    <Route path='/estadistica/ingresos/:categoria?' component={Salary} />
+						    <Route path={`${process.env.PUBLIC_URL}/estadistica/edad/:categoria?`} component={Age} />
+						    <Route path={`${process.env.PUBLIC_URL}/estadistica/nivel-de-gobierno/:categoria?`} component={GobLevel} />
+						    <Route path={`${process.env.PUBLIC_URL}/estadistica/entidad-federativa/:categoria?`} component={State} />
+						    <Route path={`${process.env.PUBLIC_URL}/estadistica/educacion/:categoria?`} component={Education} />
+						    <Route path={`${process.env.PUBLIC_URL}/estadistica/bienes-inmuebles/:categoria?`} component={RealEstate} />
+						    <Route path={`${process.env.PUBLIC_URL}/estadistica/ingresos/:categoria?`} component={Salary} />
 						</Switch>
 				</div>
 

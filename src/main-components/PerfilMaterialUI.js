@@ -75,7 +75,7 @@ class PerfilMaterialUI extends Component{
 			<Grid container spacing={24}>
 				{/*<div className="col-sm-4"> */}
 				<Grid item sm={4}>
-					<img src="/img/avatar.svg" />
+					<img src={`${process.env.PUBLIC_URL}/img/avatar.svg`} />
 				{/*</div> */}
 				</Grid>
 				<Grid item sm={8}>
@@ -120,25 +120,25 @@ class PerfilMaterialUI extends Component{
 			<nav className="pdn_main_nav">
 				<ul>
 					<li>
-						<Link className={ section == "informacion" ?"router-link-active" : ""} to={`/perfil/${this.props.match.params.id}/informacion`}>
+						<Link className={ section == "informacion" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/informacion`}>
 						  <b className="pdn_i_ info"></b>Información
 						</Link>
 					</li>
 
 					<li>
-						<Link className={ section == "intereses" ?"router-link-active" : ""} to={`/perfil/${this.props.match.params.id}/intereses`}><b className="pdn_i_ intereses"></b>Intereses</Link>
+						<Link className={ section == "intereses" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/intereses`}><b className="pdn_i_ intereses"></b>Intereses</Link>
 					</li>
 
 					<li>
-						<Link className={ section == "ingresos" ?"router-link-active" : ""} to={`/perfil/${this.props.match.params.id}/ingresos`}><b className="pdn_i_ ingresos"></b>Ingresos</Link>
+						<Link className={ section == "ingresos" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/ingresos`}><b className="pdn_i_ ingresos"></b>Ingresos</Link>
 					</li>
 
 					<li>
-						<Link className={ section == "activos" ?"router-link-active" : ""} to={`/perfil/${this.props.match.params.id}/activos`}><b className="pdn_i_ activos"></b>Activos</Link>
+						<Link className={ section == "activos" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/activos`}><b className="pdn_i_ activos"></b>Activos</Link>
 					</li>
 
 					<li>
-						<Link className={ section == "pasivos" ?"router-link-active" : ""} to={`/perfil/${this.props.match.params.id}/pasivos`}><b className="pdn_i_ pasivos"></b>Pasivos</Link>
+						<Link className={ section == "pasivos" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/pasivos`}><b className="pdn_i_ pasivos"></b>Pasivos</Link>
 					</li>
 				</ul>
 			</nav>
@@ -150,11 +150,11 @@ class PerfilMaterialUI extends Component{
 
 	<div className="row pnd_box">
 		<Switch>
-	    <Route path='/perfil/:id/informacion' render={() => <Informacion section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
-	    <Route path='/perfil/:id/pasivos' render={() => <Pasivos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
-	    <Route path='/perfil/:id/intereses' render={() => <Intereses section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
-	    <Route path='/perfil/:id/activos' render={() => <Activos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
-	    <Route path='/perfil/:id/ingresos' render={() => <Ingresos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
+	    <Route path={`${process.env.PUBLIC_URL}/perfil/:id/informacion`} render={() => <Informacion section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
+	    <Route path={`${process.env.PUBLIC_URL}/perfil/:id/pasivos`} render={() => <Pasivos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
+	    <Route path={`${process.env.PUBLIC_URL}/perfil/:id/intereses`} render={() => <Intereses section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
+	    <Route path={`${process.env.PUBLIC_URL}/perfil/:id/activos`} render={() => <Activos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
+	    <Route path={`${process.env.PUBLIC_URL}/perfil/:id/ingresos`} render={() => <Ingresos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
 	  </Switch>
 
 
