@@ -62,7 +62,7 @@ class Container extends Component{
 						<div className="container">
 					  	<Grid container justify="center" spacing={24}>
 							  <Grid item xs={11} sm={2} style={{zIndex : 1}}>
-								  <img alt="logo" src="/img/1_icono.svg" width="150px" />
+								  <img alt="logo" src={`${process.env.PUBLIC_URL}/img/1_icono.svg`} width="150px" />
 							  </Grid>
 							  <Grid item xs={11} sm={6} style={{zIndex : 1}}>
 								  <h1><strong>Declaraciones</strong></h1>
@@ -86,7 +86,7 @@ class Container extends Component{
 										Buscar un servidor público
 									</a>
 								</li>
-								<li><a href="/estadistica/edad"><figure><img src={`${process.env.PUBLIC_URL}/img/estadisticas.svg`} width="60px" alt="" /></figure>Estadísticas</a></li>
+								<li><a href={`${process.env.PUBLIC_URL}/estadistica/edad`}><figure><img src={`${process.env.PUBLIC_URL}/img/estadisticas.svg`} width="60px" alt="" /></figure>Estadísticas</a></li>
 							</ul>
 							</Grid>
 						</Grid>
