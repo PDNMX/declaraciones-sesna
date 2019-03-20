@@ -47,13 +47,13 @@ class Education extends Component{
 					<h2>Nivel Educativo</h2>
 					<ul>
 				  	<li>
-				  	  <Link to="/estadistica/educacion" className={ !cat ? "router-link-exact-active router-link-active" : "" }>Funcionarios por nivel educativo</Link>
+				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/educacion`} className={ !cat ? "router-link-exact-active router-link-active" : "" }>Funcionarios por nivel educativo</Link>
 				  	</li>
 				  	<li>
-				  	  <Link to="/estadistica/educacion/estudios-y-edad" className={ cat == "estudios-y-edad" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por nivel educativo y edad</Link>
+				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/educacion/estudios-y-edad`} className={ cat == "estudios-y-edad" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por nivel educativo y edad</Link>
 				  	</li>
 				  	<li>
-				  	  <Link to="/estadistica/educacion/estudios-y-gobierno" className={ cat == "estudios-y-gobierno" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por nivel educativo y nivel de gobierno</Link>
+				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/educacion/estudios-y-gobierno`} className={ cat == "estudios-y-gobierno" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por nivel educativo y nivel de gobierno</Link>
 				  	</li>
 				  </ul>
 				</Grid>

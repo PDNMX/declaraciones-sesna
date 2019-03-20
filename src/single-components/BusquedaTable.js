@@ -81,7 +81,7 @@ class BusquedaTable extends Component{
     return(
       <tr key={'result-tr-' + i}>
           <td>
-            <a href={`/perfil/${el._id}/informacion`}>
+            <a href={`${process.env.PUBLIC_URL}/perfil/${el._id}/informacion`}>
               {general.nombres} {general.primer_apellido} {general.segundo_apellido}
             </a>
           </td>

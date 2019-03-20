@@ -23,7 +23,7 @@ class Salary extends Component{
 				<h2>Ingresos</h2>
 			  <ul>
 			  	<li>
-			  	  <Link to="/estadistica/ingresos" className={ !cat ? "router-link-exact-active router-link-active" : "" }>Ingresos</Link>
+			  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/ingresos`} className={ !cat ? "router-link-exact-active router-link-active" : "" }>Ingresos</Link>
 			  	</li>
 			  </ul>
 		 </Grid>

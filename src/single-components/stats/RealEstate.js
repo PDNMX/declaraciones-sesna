@@ -24,7 +24,7 @@ class RealEstate extends Component{
 				<h2>Bienes inmuebles</h2>
 			  <ul>
 			  	<li>
-			  	  <Link to="/estadistica/bienes-inmuebles" className={ !cat ? "router-link-exact-active router-link-active" : "" }>Bienes inmuebles</Link>
+			  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/bienes-inmuebles`} className={ !cat ? "router-link-exact-active router-link-active" : "" }>Bienes inmuebles</Link>
 			  	</li>
 			  </ul>
 		 </Grid>

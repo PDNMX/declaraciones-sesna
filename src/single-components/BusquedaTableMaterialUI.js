@@ -53,7 +53,7 @@ class BusquedaTableMaterialUI extends Component{
             {this.props.results.map( compa => 
               <TableRow key={uniqid()}>
                 <TableCell>
-                  <a href={`/perfil/${compa._id}/informacion`}>
+                  <a href={`${process.env.PUBLIC_URL}/perfil/${compa._id}/informacion`}>
                     {compa.informacion_personal.informacion_general.nombres} {compa.informacion_personal.informacion_general.primer_apellido}  {compa.informacion_personal.informacion_general.segundo_apellido}
                   </a>
                 </TableCell>

@@ -40,13 +40,13 @@ class State extends Component{
 					<h2>Por entidad</h2>
 					<ul>
 				  	<li>
-				  	  <Link to="/estadistica/entidad-federativa" className={ !cat ? "router-link-exact-active router-link-active" : "" }>Funcionarios por entidad</Link>
+				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/entidad-federativa`} className={ !cat ? "router-link-exact-active router-link-active" : "" }>Funcionarios por entidad</Link>
 				  	</li>
 				  	<li>
-				  	  <Link to="/estadistica/entidad-federativa/gobierno-y-edad" className={ cat == "gobierno-y-edad" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por entidad y edad</Link>
+				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/entidad-federativa/gobierno-y-edad`} className={ cat == "gobierno-y-edad" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por entidad y edad</Link>
 				  	</li>
 				  	<li>
-				  	  <Link to="/estadistica/entidad-federativa/gobierno-y-educacion" className={ cat == "gobierno-y-educacion" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por entidad y educación</Link>
+				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/entidad-federativa/gobierno-y-educacion`} className={ cat == "gobierno-y-educacion" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por entidad y educación</Link>
 				  	</li>
 				  </ul>
 				</Grid>

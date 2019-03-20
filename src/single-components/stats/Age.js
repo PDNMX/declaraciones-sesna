@@ -32,13 +32,13 @@ class Age extends Component{
 				<h2>Edad</h2>
 			  <ul>
 			  	<li>
-			  	  <Link to="/estadistica/edad" className={ !cat ? "router-link-exact-active router-link-active" : "" }>Rango de edad</Link>
+			  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/edad`} className={ !cat ? "router-link-exact-active router-link-active" : "" }>Rango de edad</Link>
 			  	</li>
 			  	<li>
-			  	  <Link to="/estadistica/edad/edad-y-gobierno" className={ cat == "edad-y-gobierno" ? "router-link-exact-active router-link-active" : "" }>Rango de edad y nivel de gobierno</Link>
+			  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/edad/edad-y-gobierno`} className={ cat == "edad-y-gobierno" ? "router-link-exact-active router-link-active" : "" }>Rango de edad y nivel de gobierno</Link>
 			  	</li>
 			  	<li>
-			  	  <Link to="/estadistica/edad/edad-y-educacion" className={ cat == "edad-y-educacion" ? "router-link-exact-active router-link-active" : "" }>Rango de edad y nivel educativo</Link>
+			  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/edad/edad-y-educacion`} className={ cat == "edad-y-educacion" ? "router-link-exact-active router-link-active" : "" }>Rango de edad y nivel educativo</Link>
 			  	</li>
 			  </ul>
 		 </Grid>

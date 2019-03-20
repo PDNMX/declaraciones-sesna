@@ -38,13 +38,13 @@ class GobLevel extends Component{
 					<h2>Nivel de Gobierno</h2>
 				  <ul>
 				  	<li>
-				  	  <Link to="/estadistica/nivel-de-gobierno" className={ !cat ? "router-link-exact-active router-link-active" : "" }>Nivel de gobierno</Link>
+				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/nivel-de-gobierno`} className={ !cat ? "router-link-exact-active router-link-active" : "" }>Nivel de gobierno</Link>
 				  	</li>
 				  	<li>
-				  	  <Link to="/estadistica/nivel-de-gobierno/gobierno-y-edad" className={ cat == "gobierno-y-edad" ? "router-link-exact-active router-link-active" : "" }>Nivel de gobierno y edad</Link>
+				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/nivel-de-gobierno/gobierno-y-edad`} className={ cat == "gobierno-y-edad" ? "router-link-exact-active router-link-active" : "" }>Nivel de gobierno y edad</Link>
 				  	</li>
 				  	<li>
-				  	  <Link to="/estadistica/nivel-de-gobierno/gobierno-y-educacion" className={ cat == "gobierno-y-educacion" ? "router-link-exact-active router-link-active" : "" }>Nivel de gobierno y educación</Link>
+				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/nivel-de-gobierno/gobierno-y-educacion`} className={ cat == "gobierno-y-educacion" ? "router-link-exact-active router-link-active" : "" }>Nivel de gobierno y educación</Link>
 				  	</li>
 				  </ul>
 				</Grid>
