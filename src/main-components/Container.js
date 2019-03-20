@@ -81,12 +81,12 @@ class Container extends Component{
 							<Grid item sm={12}>
 							<ul className="pdn_cont_nav">
 								<li className="current">
-									<a href="/">
-										<figure><img src="/img/servidores_declaraciones.svg" width="60px" alt="" /></figure>
+									<a href={`${process.env.PUBLIC_URL}/`}>
+										<figure><img src={`${process.env.PUBLIC_URL}/img/servidores_declaraciones.svg`} width="60px" alt="" /></figure>
 										Buscar un servidor público
 									</a>
 								</li>
-								<li><a href="/estadistica/edad"><figure><img src="/img/estadisticas.svg" width="60px" alt="" /></figure>Estadísticas</a></li>
+								<li><a href="/estadistica/edad"><figure><img src={`${process.env.PUBLIC_URL}/img/estadisticas.svg`} width="60px" alt="" /></figure>Estadísticas</a></li>
 							</ul>
 							</Grid>
 						</Grid>
@@ -97,9 +97,9 @@ class Container extends Component{
 		  <section className="pdn_m">
 			  <div className="container">
 				  <Switch>
-				    <Route exact path='/' component={Busqueda}/>
-				    <Route path='/perfil/:id/:section/:subsection?' component={PerfilMaterialUI}/>
-				    <Route path='/estadistica/:section' component={Stats}/>
+				    <Route exact path={`${process.env.PUBLIC_URL}/`} component={Busqueda}/>
+				    <Route path={`${process.env.PUBLIC_URL}/perfil/:id/:section/:subsection?`} component={PerfilMaterialUI}/>
+				    <Route path={`${process.env.PUBLIC_URL}/estadistica/:section`} component={Stats}/>
 				  </Switch>
 			  </div>
 		  </section>
