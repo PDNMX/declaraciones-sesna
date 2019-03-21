@@ -12,6 +12,12 @@ import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css"
 
+import "../../../css/chartist-plugin-tooltip.css";
+import ChartistTooltip from 'chartist-plugin-tooltips-updated';
+
+let d3     = Object.assign({}, require("d3-format"));
+let format = d3.format(".4n");
+
 /*
   ////////////////////////////////////////////////////////////////////////////////
   //
@@ -50,7 +56,6 @@ class NivelGobiernoEdadPorcentaje extends Component{
         series  : this.buildMatrix(d, promises)
       }
 
-      console.log("circles!", promises, data);
 
       this.setState({data : data});
 
@@ -63,17 +68,27 @@ class NivelGobiernoEdadPorcentaje extends Component{
    */
 	render(){
     if(!this.state.data) return null;
+    let st = this.state;
     let colors = ConstClass.ChartColors;
+
+    let _options = {
+      plugins:[ChartistTooltip({
+        appendToBody: true,
+        transformTooltipTextFnc : value => format(value) + "%"
+      })]
+    };
+
+    let options = Object.assign(st, _options);
 		return(
       <Grid container spacing={24}>
         <Grid item sm={12}>
           <Paper className="pdn_d_box">
             <h2>Funcionarios por nivel de gobierno y rango de edad (porcentaje)</h2>
-            <nav class="pdn_viz">
+            <nav className="pdn_viz">
             <ul>
             { this.state.data.series.map( (d,i) =>
               <li key={"ngnepg-" + i}>
-                <ChartistGraph data={ {series : d} } type={"Pie"} options={this.state.options} />
+                <ChartistGraph data={ {series : d} } type={"Pie"} options={options} />
                 <p>{this.state.data.labels[i]}</p>
               </li>
             )}
@@ -126,14 +141,16 @@ class NivelGobiernoEdadPorcentaje extends Component{
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   buildMatrix(data, response){
-    console.log(data, response);
 
     let b   = [...data],
         gl  = ConstClass.GobLevels,
         ra  = [...new Set(response.map(d => d._label))],
         i, j, res = [];
     for(i =0; i < gl.length; i++ ){
-      res.push(b.splice(0, ra.length))
+      let _el   = b.splice(0, ra.length),
+          total = _el.reduce(ConstClass.reducer),
+          el    = _el.map(d => format((d/total) * 100) );
+      res.push(el)
     }
 
     return res;
