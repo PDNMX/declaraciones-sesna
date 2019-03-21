@@ -10,7 +10,13 @@ import {Grid, Paper} from '@material-ui/core';
 
 import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
-import "../../../css/chartist.min.css"
+import "../../../css/chartist.min.css";
+
+import "../../../css/chartist-plugin-tooltip.css";
+import ChartistTooltip from 'chartist-plugin-tooltips-updated';
+
+let d3     = Object.assign({}, require("d3-format"));
+let format = d3.format(",");
 
 /*
   ////////////////////////////////////////////////////////////////////////////////
@@ -60,12 +66,23 @@ class NivelGobiernoPorcentaje extends Component{
 		if(!this.state.data) return null;
 
     let st = this.state;
+    let colors = ConstClass.ChartColors;
+
+    let _options = {
+      plugins:[ChartistTooltip({
+        appendToBody: true,
+        transformTooltipTextFnc : value => format(value) + "%"
+      })]
+    };
+
+    let options = Object.assign(st, _options);
+
 		return(
 			<Grid container spacing={24}>
         <Grid item sm={12}>
           <Paper className="pdn_d_box">
 						<h2>Funcionarios por nivel de gobierno (porcentaje)</h2>
-						<ChartistGraph data={ { series : st.data.series} } type={"Pie"} options={st.options} />
+						<ChartistGraph data={ { series : st.data.series} } type={"Pie"} options={options} />
 				</Paper>
 			</Grid>
 		</Grid>

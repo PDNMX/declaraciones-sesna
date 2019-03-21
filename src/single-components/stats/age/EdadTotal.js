@@ -7,16 +7,14 @@
 */
 import React, {Component} from "react";
 import * as ConstClass from  '../../../ConstValues.js';
-
+import {Grid, Paper} from '@material-ui/core';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css";
+
 import "../../../css/chartist-plugin-tooltip.css";
 import ChartistTooltip from 'chartist-plugin-tooltips-updated';
 
-import {Grid, Paper} from '@material-ui/core';
-
 let d3     = Object.assign({}, require("d3-format"));
-
 let format = d3.format(",");
 /*
   ////////////////////////////////////////////////////////////////////////////////

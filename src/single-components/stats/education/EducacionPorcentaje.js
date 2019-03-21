@@ -10,6 +10,12 @@ import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css"
 
+import "../../../css/chartist-plugin-tooltip.css";
+import ChartistTooltip from 'chartist-plugin-tooltips-updated';
+
+let d3     = Object.assign({}, require("d3-format"));
+let format = d3.format(",");
+
 /*
   ////////////////////////////////////////////////////////////////////////////////
   //
@@ -57,14 +63,24 @@ class EducacionPorcentaje extends Component{
 	render(){
 		if(!this.state.data) return null;
 
-    let st     = this.state;
+    let st = this.state;
     let colors = ConstClass.ChartColors;
+
+    let _options = {
+      plugins:[ChartistTooltip({
+        appendToBody: true,
+        transformTooltipTextFnc : value => format(value) + "%"
+      })]
+    };
+
+    let options = Object.assign(st, _options);
+
 		return(
 			<div className="row">
 				<div className="col-sm-12">
 					<div className="pdn_d_box">
 						<h2>Funcionarios por nivel educativo (porcentaje)</h2>
-						<ChartistGraph data={ { series : st.data.series} } type={"Pie"} options={st.options} />
+						<ChartistGraph data={ { series : st.data.series} } type={"Pie"} options={options} />
 						<div className="pdn_divider"></div>
 
 		        <ul className="list_inline">
