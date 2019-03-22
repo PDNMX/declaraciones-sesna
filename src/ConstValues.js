@@ -128,7 +128,7 @@ export const BarChartConf = {
     height : 30,
     margin : 10
   },
-  colors : ["#8C5B6C", "#F5C48A", "#14ABBD", "#F5786F", "#99B898", "#F2355B", "#191226"]
+  colors : ["#83dfff", "#e8b3e2", "#b3cde2", "#b3e0ce", "#e5e27f", "#e09d9d"]
 }
 
 /*
