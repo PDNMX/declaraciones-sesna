@@ -11,6 +11,12 @@ import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
 import "../../../css/chartist.min.css"
 
+import "../../../css/chartist-plugin-tooltip.css";
+import ChartistTooltip from 'chartist-plugin-tooltips-updated';
+
+let d3     = Object.assign({}, require("d3-format"));
+let format = d3.format(",");
+
 /*
   ////////////////////////////////////////////////////////////////////////////////
   //
@@ -59,12 +65,20 @@ class NivelGobiernoEdad extends Component{
 	render(){
     if(!this.state.data) return null;
     let colors = ConstClass.ChartColors;
+
+    let options = {
+      plugins:[ChartistTooltip({
+        appendToBody: true,
+        transformTooltipTextFnc : value => format(value)
+      })]
+    };
+
 		return(
       <Grid container spacing={24}>
         <Grid item sm={12}>
           <Paper className="pdn_d_box">
             <h2>Funcionarios por nivel de gobierno y rango de edad (total)</h2>
-            <ChartistGraph data={this.state.data} type={"Bar"} />
+            <ChartistGraph data={this.state.data} type={"Bar"} options={options} />
             <div className="pdn_divider"></div>
 
             <ul className="list_inline">
@@ -115,8 +129,6 @@ class NivelGobiernoEdad extends Component{
   /  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
   */
   buildMatrix(data, response){
-    console.log(data, response);
-
     let b   = [...data],
         gl  = ConstClass.GobLevels,
         ra  = [...new Set(response.map(d => d._label))],
