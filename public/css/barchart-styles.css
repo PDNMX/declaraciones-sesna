@@ -3,10 +3,10 @@
 }
 
 .ct-series-b .ct-bar {
-  stroke: #0697A6 !important;
+  stroke: #F5C48A !important;
 }
 .ct-series-c .ct-bar {
-  stroke: #F5C48A !important;
+  stroke: #14ABBD !important;
 }
 .ct-series-d .ct-bar {
   stroke: #F5786F !important;
@@ -25,10 +25,10 @@
   fill: #8C5B6C !important;
 }
 .ct-series-b .ct-slice-pie {
-  fill: #0697A6 !important;
+  fill: #F5C48A !important;
 }
 .ct-series-c .ct-slice-pie {
-  fill: #F5C48A !important;
+  fill: #14ABBD !important;
 }
 .ct-series-d .ct-slice-pie {
   fill: #F5786F !important;

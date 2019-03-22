@@ -102,7 +102,7 @@ export const StatsChartOptions = {
   donutOptions : {donut: true, donutWidth: 30}
 }
 
-export const ChartColors = ["#8C5B6C", "#0697A6", "#F5C48A", "#F5786F", "#99B898", "#F2355B", "#191226"];
+export const ChartColors = ["#8C5B6C", "#F5C48A", "#14ABBD", "#F5786F", "#99B898", "#F2355B", "#191226"];
 
 /*
   ////////////////////////////////////////////////////////////////////////////////
@@ -128,7 +128,7 @@ export const BarChartConf = {
     height : 30,
     margin : 10
   },
-  colors : ["#8C5B6C", "#0697A6", "#F5C48A", "#F5786F", "#99B898", "#F2355B", "#191226"]
+  colors : ["#8C5B6C", "#F5C48A", "#14ABBD", "#F5786F", "#99B898", "#F2355B", "#191226"]
 }
 
 /*
