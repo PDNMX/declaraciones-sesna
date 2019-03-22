@@ -7,12 +7,27 @@
 */
 import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
-import {Grid, Paper} from '@material-ui/core';
+import {Grid, Paper, IconButton,Button,MenuItem, Menu, withStyles, Toolbar, Typography} from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
 
 import Busqueda from './Busqueda';
 import Stats from './Stats';
 import Perfil from './Perfil';
 import PerfilMaterialUI from './PerfilMaterialUI';
+
+
+let styles = theme => ({
+	grow: {
+			flexGrow: 1,
+	},
+    item: {
+        maxWidth: 1200
+  },
+	menuBtn: {
+        textTransform: "none"
+  }
+});
+
 
 /*
 	////////////////////////////////////////////////////////////////////////////////
@@ -36,16 +51,89 @@ class Container extends Component{
 			isProfile : false,
 			profile : {}
 		}
-	}
+	};
+
+	//menu
+
+    handleChange = event => {
+        this.setState({ auth: event.target.checked });
+    };
+
+    handleMenu = event => {
+        this.setState({ anchorEl: event.currentTarget });
+    };
+
+    handleClose = () => {
+        this.setState({ anchorEl: null });
+    };
 
 	/*
 	 * R E N D E R
 	 * ----------------------------------------------------------------------
 	 */
   render(){
+		let {classes} = this.props;
   	let show = this.props.location.pathname == "/";
+		let { anchorEl } = this.state;
+    let open = Boolean(anchorEl);
   	return(
   	  <div id="react-app">
+			<Grid container spacing={0} justify="center">
+				<Grid item xs={12} className={classes.item}>
+					<Toolbar>
+						<IconButton color="inherit" aria-label="Menu" component={Button} href="https://plataformadigitalnacional.org/" style={{ paddingTop: '45px', paddingBottom: '40px' }}>
+							<h1 className="pdn_l" style={{ width:'110px'}}>Plataforma Digital Nacional</h1>
+						</IconButton>
+														<Typography variant="h6" color="inherit" className={classes.grow}>
+
+                                </Typography>
+																	<IconButton
+																			aria-owns={open ? 'menu-appbar' : undefined}
+																			aria-haspopup="true"
+																			onClick={this.handleMenu}
+																			color="inherit"
+																	>
+																			<MenuIcon style={{ fill: '#999', fontSize: '36px'}}/>
+																	</IconButton>
+																	<Menu
+																			id="menu-appbar"
+																			anchorEl={anchorEl}
+																			anchorOrigin={{
+																					vertical: 'top',
+																					horizontal: 'right',
+																			}}
+																			transformOrigin={{
+																					vertical: 'top',
+																					horizontal: 'right',
+																			}}
+																			open={open}
+																			onClose={this.handleClose}
+																	>
+
+																			<MenuItem component={Button}
+																								href= "https://www.plataformadigitalnacional.org/blog"
+																								className={classes.menuBtn}
+																			>Blog</MenuItem>
+																			<MenuItem component={Button}
+																				href="https://plataformadigitalnacional.org/faq"
+																				className={classes.menuBtn}>
+																				Preguntas frecuentes</MenuItem>
+																			<MenuItem component={Button}
+																				href="https://plataformadigitalnacional.org/about"
+																				className={classes.menuBtn}>
+																				¿Qué es la PDN?</MenuItem>
+																			<MenuItem component={Button}
+																					href="https://plataformadigitalnacional.org/faq"
+																					className={classes.menuBtn}>
+																				Preguntas frecuentes</MenuItem>
+																			<MenuItem component={Button}
+																				href="https://plataformadigitalnacional.org/terminos"
+																				className={classes.menuBtn}>
+																			Términos de uso</MenuItem>
+																	</Menu>
+							</Toolbar>
+						</Grid>
+				</Grid>
   		  <div className="breadcrumb">
   		    <div className="container">
   		      <Grid container spacing={24}>
@@ -149,4 +237,4 @@ class Container extends Component{
   //
   ////////////////////////////////////////////////////////////////////////////////
 */
-export default Container;
+export default withStyles(styles)(Container);
