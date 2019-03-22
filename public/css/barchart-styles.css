@@ -1,44 +1,44 @@
 .ct-series-a .ct-bar {
-  stroke: green !important;
+  stroke: #8C5B6C !important;
 }
 
 .ct-series-b .ct-bar {
-  stroke: green !important;
+  stroke: #0697A6 !important;
 }
 .ct-series-c .ct-bar {
-  stroke: green !important;
+  stroke: #F5C48A !important;
 }
 .ct-series-d .ct-bar {
-  stroke: green !important;
+  stroke: #F5786F !important;
 }
 .ct-series-e .ct-bar {
-  stroke: green !important;
+  stroke: #99B898 !important;
 }
 .ct-series-f .ct-bar {
-  stroke: green !important;
+  stroke: #F2355B !important;
 }
 .ct-series-g .ct-bar {
-  stroke: green !important;
+  stroke: #191226 !important;
 }
 
 .ct-series-a .ct-slice-pie {
-  fill: green !important;
+  fill: #8C5B6C !important;
 }
 .ct-series-b .ct-slice-pie {
-  fill: green !important;
+  fill: #0697A6 !important;
 }
 .ct-series-c .ct-slice-pie {
-  fill: green !important;
+  fill: #F5C48A !important;
 }
 .ct-series-d .ct-slice-pie {
-  fill: green !important;
+  fill: #F5786F !important;
 }
 .ct-series-e .ct-slice-pie {
-  fill: green !important;
+  fill: #99B898 !important;
 }
 .ct-series-f .ct-slice-pie {
-  fill: green !important;
+  fill: #F2355B !important;
 }
 .ct-series-g .ct-slice-pie {
-  fill: green !important;
+  fill: #191226 !important;
 }
