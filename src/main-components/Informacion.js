@@ -40,23 +40,23 @@ class Informacion extends Component{
 	  	  </Link>
 	    </li>
 	    <li>
-	  	  <Link className={ section == "puesto-actual" ?"router-link-exact-active router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/informacion/puesto-actual`}>
+	  	  <Link className={ section === "puesto-actual" ?"router-link-exact-active router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/informacion/puesto-actual`}>
 	  	    Puesto actual
 	  	  </Link>
 	    </li>
 	    <li>
-	    	<Link className={ section == "datos-curriculares" ?"router-link-exact-active router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/informacion/datos-curriculares`}>
+	    	<Link className={ section === "datos-curriculares" ?"router-link-exact-active router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/informacion/datos-curriculares`}>
 	  	    Datos curriculares
 	  	  </Link>
 	    </li>
 	    <li>
-	    	<Link className={ section == "experiencia-laboral" ?"router-link-exact-active router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/informacion/experiencia-laboral`}>
+	    	<Link className={ section === "experiencia-laboral" ?"router-link-exact-active router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/informacion/experiencia-laboral`}>
 	  	    Experiencia laboral
 	  	  </Link>
 	    </li>
 
 	    <li>
-	    	<Link className={ section == "dependientes-economicos" ?"router-link-exact-active router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/informacion/dependientes-economicos`}>
+	    	<Link className={ section === "dependientes-economicos" ?"router-link-exact-active router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.profile._id}/informacion/dependientes-economicos`}>
 	  	    Dependientes económicos
 	  	  </Link>
 	    </li>

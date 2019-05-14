@@ -45,36 +45,36 @@ class Stats extends Component{
 					<nav className="pdn_main_nav">
 					  <ul>
 							<li>
-								<Link to={`${process.env.PUBLIC_URL}/estadistica/edad`} className={ section == "edad" ? "router-link-active" : "" }>
+								<Link to={`${process.env.PUBLIC_URL}/estadistica/edad`} className={ section === "edad" ? "router-link-active" : "" }>
 								  <b className="pdn_i_ age"></b>Edad
 								</Link>
 							</li>
 							<li>
-								<Link to={`${process.env.PUBLIC_URL}/estadistica/nivel-de-gobierno`} className={ section == "nivel-de-gobierno" ? "router-link-active" : "" }>
+								<Link to={`${process.env.PUBLIC_URL}/estadistica/nivel-de-gobierno`} className={ section === "nivel-de-gobierno" ? "router-link-active" : "" }>
 								  <b className="pdn_i_ gov"></b>Nivel de gobierno
 								</Link>
 							</li>
 
 							<li>
-								<Link to={`${process.env.PUBLIC_URL}/estadistica/entidad-federativa`} className={ section == "entidad-federativa" ? "router-link-active" : "" }>
+								<Link to={`${process.env.PUBLIC_URL}/estadistica/entidad-federativa`} className={ section === "entidad-federativa" ? "router-link-active" : "" }>
 								  <b className="pdn_i_ state"></b>Estado
 								</Link>
 							</li>
 
 							<li>
-								<Link  to={`${process.env.PUBLIC_URL}/estadistica/educacion`} className={ section == "educacion" ? "router-link-active" : "" }>
+								<Link  to={`${process.env.PUBLIC_URL}/estadistica/educacion`} className={ section === "educacion" ? "router-link-active" : "" }>
 								  <b className="pdn_i_ education"></b>Educación
 								</Link>
 							</li>
 
 							<li>
-								<Link  to={`${process.env.PUBLIC_URL}/estadistica/bienes-inmuebles`} className={ section == "bienes-inmuebles" ? "router-link-active" : "" }>
+								<Link  to={`${process.env.PUBLIC_URL}/estadistica/bienes-inmuebles`} className={ section === "bienes-inmuebles" ? "router-link-active" : "" }>
 								  <b className="pdn_i_ property"></b>Bienes inmuebles
 								</Link>
 							</li>
 
 							<li>
-								<Link  to={`${process.env.PUBLIC_URL}/estadistica/ingresos`} className={ section == "ingresos" ? "router-link-active" : "" }>
+								<Link  to={`${process.env.PUBLIC_URL}/estadistica/ingresos`} className={ section === "ingresos" ? "router-link-active" : "" }>
 								  <b className="pdn_i_ salary"></b>Ingresos
 								</Link>
 							</li>

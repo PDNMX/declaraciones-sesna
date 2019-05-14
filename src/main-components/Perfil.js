@@ -68,7 +68,7 @@ class Perfil extends Component{
 		<div className="col-sm-6">
 			<div className="row">
 				<div className="col-sm-4">
-					<img src="/img/avatar.svg" />
+					<img alt="avatar" src={`${process.env.PUBLIC_URL}/img/avatar.svg`} />
 				</div>
 				<div className="col-sm-8">
 					<h1>{this.state.profile.informacion_personal.informacion_general.nombres} {this.state.profile.informacion_personal.informacion_general.primer_apellido} {this.state.profile.informacion_personal.informacion_general.segundo_apellido}</h1>
@@ -97,25 +97,25 @@ class Perfil extends Component{
 			<nav className="pdn_main_nav">
 				<ul>
 					<li>
-						<Link className={ section == "informacion" ?"router-link-active" : ""} to={`/perfil/${this.props.match.params.id}/informacion`}>
+						<Link className={ section === "informacion" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/informacion`}>
 						  <b className="pdn_i_ info"></b>Información
 						</Link>
 					</li>
 
 					<li>
-						<Link className={ section == "intereses" ?"router-link-active" : ""} to={`/perfil/${this.props.match.params.id}/intereses`}><b className="pdn_i_ intereses"></b>Intereses</Link>
+						<Link className={ section === "intereses" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/intereses`}><b className="pdn_i_ intereses"></b>Intereses</Link>
 					</li>
 
 					<li>
-						<Link className={ section == "ingresos" ?"router-link-active" : ""} to={`/perfil/${this.props.match.params.id}/ingresos`}><b className="pdn_i_ ingresos"></b>Ingresos</Link>
+						<Link className={ section === "ingresos" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/ingresos`}><b className="pdn_i_ ingresos"></b>Ingresos</Link>
 					</li>
 
 					<li>
-						<Link className={ section == "activos" ?"router-link-active" : ""} to={`/perfil/${this.props.match.params.id}/activos`}><b className="pdn_i_ activos"></b>Activos</Link>
+						<Link className={ section === "activos" ?"router-link-active" : ""} to={`/perfil/${this.props.match.params.id}/activos`}><b className="pdn_i_ activos"></b>Activos</Link>
 					</li>
 
 					<li>
-						<Link className={ section == "pasivos" ?"router-link-active" : ""} to={`/perfil/${this.props.match.params.id}/pasivos`}><b className="pdn_i_ pasivos"></b>Pasivos</Link>
+						<Link className={ section === "pasivos" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/pasivos`}><b className="pdn_i_ pasivos"></b>Pasivos</Link>
 					</li>
 				</ul>
 			</nav>
@@ -125,12 +125,11 @@ class Perfil extends Component{
 
 	<div className="row pnd_box">
 		<Switch>
-	    <Route path='/perfil/:id/informacion' render={() => <Informacion section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
-	    <Route path='/perfil/:id/pasivos' render={() => <Pasivos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
-	    <Route path='/perfil/:id/intereses' render={() => <Intereses section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
-	    <Route path='/perfil/:id/activos' render={() => <Activos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
-	    <Route path='/perfil/:id/ingresos' render={() => <Ingresos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
-
+	    <Route path={`${process.env.PUBLIC_URL}/perfil/:id/informacion`} render={() => <Informacion section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
+	    <Route path={`${process.env.PUBLIC_URL}/perfil/:id/pasivos`} render={() => <Pasivos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
+	    <Route path={`${process.env.PUBLIC_URL}/perfil/:id/intereses`} render={() => <Intereses section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
+	    <Route path={`${process.env.PUBLIC_URL}/perfil/:id/activos`} render={() => <Activos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
+	    <Route path={`${process.env.PUBLIC_URL}/perfil/:id/ingresos`} render={() => <Ingresos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
 	  </Switch>
 	</div>
 
@@ -182,7 +181,7 @@ class Perfil extends Component{
 		  		}
 		  	}
 
-		  	all = all.filter(d => d.moneda.codigo == "MXN").map(d => d.valor);
+		  	all = all.filter(d => d.moneda.codigo === "MXN").map(d => d.valor);
 
 		  	return all.reduce(reducer).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 	}

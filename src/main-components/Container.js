@@ -224,7 +224,7 @@ class Container extends Component{
 		return(
 			<ul>
 			  <li><a href="https://plataformadigitalnacional.org/">Plataforma Digital Nacional</a></li>
-				<li v-if="isProfile"><a href="/">Declaraciones</a></li>
+				<li v-if="isProfile"><a href={process.env.PUBLIC_URL}>Declaraciones</a></li>
 			</ul>
 		);
 	}

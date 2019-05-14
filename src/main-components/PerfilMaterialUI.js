@@ -75,7 +75,7 @@ class PerfilMaterialUI extends Component{
 			<Grid container spacing={24}>
 				{/*<div className="col-sm-4"> */}
 				<Grid item sm={4}>
-					<img src={`${process.env.PUBLIC_URL}/img/avatar.svg`} />
+					<img alt="avatar2" src={`${process.env.PUBLIC_URL}/img/avatar.svg`} />
 				{/*</div> */}
 				</Grid>
 				<Grid item sm={8}>
