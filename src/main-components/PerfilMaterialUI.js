@@ -7,7 +7,7 @@
 */
 import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
-import {Typography, Grid, Button} from '@material-ui/core';
+import {Grid} from '@material-ui/core';
 
 import Informacion from "./Informacion";
 import Pasivos from "./Pasivos";
@@ -120,25 +120,25 @@ class PerfilMaterialUI extends Component{
 			<nav className="pdn_main_nav">
 				<ul>
 					<li>
-						<Link className={ section == "informacion" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/informacion`}>
+						<Link className={ section === "informacion" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/informacion`}>
 						  <b className="pdn_i_ info"></b>Información
 						</Link>
 					</li>
 
 					<li>
-						<Link className={ section == "intereses" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/intereses`}><b className="pdn_i_ intereses"></b>Intereses</Link>
+						<Link className={ section === "intereses" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/intereses`}><b className="pdn_i_ intereses"></b>Intereses</Link>
 					</li>
 
 					<li>
-						<Link className={ section == "ingresos" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/ingresos`}><b className="pdn_i_ ingresos"></b>Ingresos</Link>
+						<Link className={ section === "ingresos" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/ingresos`}><b className="pdn_i_ ingresos"></b>Ingresos</Link>
 					</li>
 
 					<li>
-						<Link className={ section == "activos" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/activos`}><b className="pdn_i_ activos"></b>Activos</Link>
+						<Link className={ section === "activos" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/activos`}><b className="pdn_i_ activos"></b>Activos</Link>
 					</li>
 
 					<li>
-						<Link className={ section == "pasivos" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/pasivos`}><b className="pdn_i_ pasivos"></b>Pasivos</Link>
+						<Link className={ section === "pasivos" ?"router-link-active" : ""} to={`${process.env.PUBLIC_URL}/perfil/${this.props.match.params.id}/pasivos`}><b className="pdn_i_ pasivos"></b>Pasivos</Link>
 					</li>
 				</ul>
 			</nav>
@@ -156,8 +156,6 @@ class PerfilMaterialUI extends Component{
 	    <Route path={`${process.env.PUBLIC_URL}/perfil/:id/activos`} render={() => <Activos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
 	    <Route path={`${process.env.PUBLIC_URL}/perfil/:id/ingresos`} render={() => <Ingresos section={this.props.match.params.subsection} profile={this.state.profile} /> }/>
 	  </Switch>
-
-
 	</div>
 			<Grid  container spacing={24}>
 				<Grid item sm={12} align="right">
@@ -210,7 +208,7 @@ class PerfilMaterialUI extends Component{
 		  		}
 		  	}
 
-		  	all = all.filter(d => d.moneda.codigo == "MXN").map(d => d.valor);
+		  	all = all.filter(d => d.moneda.codigo === "MXN").map(d => d.valor);
 
 		  	return all.reduce(reducer).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 	}

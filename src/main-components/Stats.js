@@ -7,7 +7,7 @@
 */
 import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
-import { Grid, Paper} from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 import Age from "../single-components/stats/Age.js";
 import GobLevel from "../single-components/stats/GobLevel.js";
@@ -24,9 +24,9 @@ import Salary from "../single-components/stats/Salary.js";
   ////////////////////////////////////////////////////////////////////////////////
 */
 class Stats extends Component{
-	constructor(){
-		super();
-	}
+	// constructor(){
+	// 	super();
+	// }
 
 	render(){
 		let section = this.props.match.params.section;

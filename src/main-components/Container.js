@@ -6,13 +6,13 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import { Switch, Route, Link } from 'react-router-dom';
-import {Grid, Paper, IconButton,Button,MenuItem, Menu, withStyles, Toolbar, Typography} from '@material-ui/core';
+import { Switch, Route } from 'react-router-dom';
+import {Grid, IconButton,Button,MenuItem, Menu, withStyles, Toolbar, Typography} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
 import Busqueda from './Busqueda';
 import Stats from './Stats';
-import Perfil from './Perfil';
+// import Perfil from './Perfil';
 import PerfilMaterialUI from './PerfilMaterialUI';
 
 
@@ -73,7 +73,7 @@ class Container extends Component{
 	 */
   render(){
 		let {classes} = this.props;
-  	let show = this.props.location.pathname == "/";
+  	let show = this.props.location.pathname === "/";
 		let { anchorEl } = this.state;
     let open = Boolean(anchorEl);
   	return(

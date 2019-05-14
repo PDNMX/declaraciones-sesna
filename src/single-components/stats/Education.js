@@ -7,9 +7,9 @@
 */
 import React, {Component} from "react";
 import { Link } from 'react-router-dom';
-import {Grid, Paper} from '@material-ui/core';
-import * as ConstClass from  '../../ConstValues.js';
-import ChartistGraph from 'react-chartist';
+import {Grid} from '@material-ui/core';
+// import * as ConstClass from  '../../ConstValues.js';
+// import ChartistGraph from 'react-chartist';
 import "../../css/chartist.min.css"
 
 
@@ -50,10 +50,10 @@ class Education extends Component{
 				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/educacion`} className={ !cat ? "router-link-exact-active router-link-active" : "" }>Funcionarios por nivel educativo</Link>
 				  	</li>
 				  	<li>
-				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/educacion/estudios-y-edad`} className={ cat == "estudios-y-edad" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por nivel educativo y edad</Link>
+				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/educacion/estudios-y-edad`} className={ cat === "estudios-y-edad" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por nivel educativo y edad</Link>
 				  	</li>
 				  	<li>
-				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/educacion/estudios-y-gobierno`} className={ cat == "estudios-y-gobierno" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por nivel educativo y nivel de gobierno</Link>
+				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/educacion/estudios-y-gobierno`} className={ cat === "estudios-y-gobierno" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por nivel educativo y nivel de gobierno</Link>
 				  	</li>
 				  </ul>
 				</Grid>
@@ -87,7 +87,7 @@ class Education extends Component{
 				  </div>
 				);
 		  }
-		  else if(cat == "estudios-y-edad"){
+		  else if(cat === "estudios-y-edad"){
 		  	return(
 		  		<div>
 		  		  <EducacionEdad />
@@ -95,7 +95,7 @@ class Education extends Component{
 		  		</div>
 		  	);
 		  }
-		  else if(cat == "estudios-y-gobierno"){
+		  else if(cat === "estudios-y-gobierno"){
 		  	return(
 		  		<div>
 		  		  <EducacionNivelGobierno />

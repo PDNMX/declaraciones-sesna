@@ -7,8 +7,8 @@
 */
 import React, { Fragment, Component } from 'react';
 import * as ConstClass from  '../ConstValues.js';
-import SearchForm from  '../single-components/BusquedaForm.js';
-import SearchTable from  '../single-components/BusquedaTable.js';
+// import SearchForm from  '../single-components/BusquedaForm.js';
+// import SearchTable from  '../single-components/BusquedaTable.js';
 
 import BusquedaFromMaterialUI from "../single-components/BusquedaFromMaterialUI";
 import BusquedaTableMaterialUI from "../single-components/BusquedaTableMaterialUI";

@@ -7,7 +7,7 @@
 */
 import React, {Component} from "react";
 import { Switch, Route, Link } from 'react-router-dom';
-import {Grid, Paper} from '@material-ui/core';
+import {Grid} from '@material-ui/core';
 
 // INTERESES
 import InteresesResume from '../single-components/intereses/resume_intereses';

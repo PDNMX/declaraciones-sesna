@@ -7,7 +7,7 @@
 */
 import React, {Component} from "react";
 import { Link } from 'react-router-dom';
-import {Grid, Paper} from '@material-ui/core';
+import {Grid} from '@material-ui/core';
 import NivelGobiernoTotal from './gob-level/NivelGobiernoTotal';
 import NivelGobiernoPorcentaje from './gob-level/NivelGobiernoPorcentaje';
 
@@ -41,10 +41,10 @@ class GobLevel extends Component{
 				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/nivel-de-gobierno`} className={ !cat ? "router-link-exact-active router-link-active" : "" }>Nivel de gobierno</Link>
 				  	</li>
 				  	<li>
-				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/nivel-de-gobierno/gobierno-y-edad`} className={ cat == "gobierno-y-edad" ? "router-link-exact-active router-link-active" : "" }>Nivel de gobierno y edad</Link>
+				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/nivel-de-gobierno/gobierno-y-edad`} className={ cat === "gobierno-y-edad" ? "router-link-exact-active router-link-active" : "" }>Nivel de gobierno y edad</Link>
 				  	</li>
 				  	<li>
-				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/nivel-de-gobierno/gobierno-y-educacion`} className={ cat == "gobierno-y-educacion" ? "router-link-exact-active router-link-active" : "" }>Nivel de gobierno y educación</Link>
+				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/nivel-de-gobierno/gobierno-y-educacion`} className={ cat === "gobierno-y-educacion" ? "router-link-exact-active router-link-active" : "" }>Nivel de gobierno y educación</Link>
 				  	</li>
 				  </ul>
 				</Grid>
@@ -79,7 +79,7 @@ class GobLevel extends Component{
 			  </div>
 			);
 	  }
-	  else if(cat == "gobierno-y-edad"){
+	  else if(cat === "gobierno-y-edad"){
 	  	return(
 	  		<div>
 	  		  <NivelGobiernoEdad />
@@ -87,7 +87,7 @@ class GobLevel extends Component{
 	  		</div>
 	  	);
 	  }
-	  else if(cat == "gobierno-y-educacion"){
+	  else if(cat === "gobierno-y-educacion"){
 	  	return(
 	  		<div>
 	  		  <NivelGobiernoEducacion />

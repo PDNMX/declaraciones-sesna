@@ -19,7 +19,7 @@ class ActivosBeneficiosEnEspecie extends Component{
     super(props);
 
     let elems = this.props.profile.activos.uso_especie_propiedad_tercero.map(d => {
-                  let item = d;
+                  // let item = d;
                   d.show = true;
 
                   return d;

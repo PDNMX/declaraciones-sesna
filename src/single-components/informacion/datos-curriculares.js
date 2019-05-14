@@ -17,7 +17,7 @@ class InfoCurriculum extends Component{
 							<Grid item xs={12}>
 							  {this.props.items.grados_academicos.map( (grado, i) =>
 								<Paper className="pdn_d_box" key={"grado-" + i}>
-									<h3 className="pdn_data_p">{grado.grado_obtenido} en <strong>{grado.carrera}</strong></h3>
+									<h3 className="pdn_data_p">{grado.grado_obtenido.valor} en <strong>{grado.carrera}</strong></h3>
 									<p className="pdn_label">Institución Educativa </p>
 									<p className="pdn_data_p">{grado.institucion_educativa}<br/>
 									<span className="pnd_box_note">{grado.lugar_institucion_educativa.entidad_federativa.nom_ent}, {grado.lugar_institucion_educativa.pais.valor}</span>

@@ -21,9 +21,9 @@ import Education from "../single-components/stats/Education.js";
   ////////////////////////////////////////////////////////////////////////////////
 */
 class Stats extends Component{
-	constructor(){
-		super();
-	}
+	// constructor(){
+	// 	super();
+	// }
 
 	render(){
 		let section = this.props.match.params.section;
