@@ -6,7 +6,7 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Typography, Grid, Button, Paper} from '@material-ui/core';
+import { Grid,  Paper} from '@material-ui/core';
 
 class InfoPuesto extends Component{
 	render(){
@@ -26,7 +26,7 @@ class InfoPuesto extends Component{
 							{ this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.entidad_federativa.nom_ent }. C.P. { this.props.profile.informacion_personal.datos_encargo_actual.direccion_encargo.cp }
 							</p>
 							<p className="pdn_label">Dependencia</p>
-							<p className="pdn_data_p"><a href="#">{ this.props.profile.informacion_personal.datos_encargo_actual.ente_publico}</a></p>
+							<p className="pdn_data_p"><a href="./puesto-actual">{ this.props.profile.informacion_personal.datos_encargo_actual.ente_publico}</a></p>
 							<p className="pdn_label">Nivel de gobierno</p>
 							<p className="pdn_data_p">{ this.props.profile.informacion_personal.datos_encargo_actual.nivel_gobierno.valor}</p>
 							<p className="pdn_label">Poder</p>
@@ -42,7 +42,7 @@ class InfoPuesto extends Component{
 								{ !this.props.items.contratado_honorarios ? "Sin contrato por honorarios" : "Contrato por honorarios"}
 							</p>
 							<p className="pdn_label">Nivel de encargo</p>
-							<p className="pdn_data_p"><a href="#">{this.props.items.nivel_encargo}</a></p>
+							<p className="pdn_data_p"><a href="./puesto-actual">{this.props.items.nivel_encargo}</a></p>
 							<p className="pdn_label">Funciones</p>
 
 							{this.props.items.funciones_principales.map( (d,i) =>

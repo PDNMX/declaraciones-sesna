@@ -7,7 +7,7 @@
 */
 import React, {Component} from "react";
 
-import {Typography, Grid, Button, Paper} from '@material-ui/core';
+import { Grid,  Paper} from '@material-ui/core';
 
 /*
 	////////////////////////////////////////////////////////////////////////////////
@@ -21,7 +21,7 @@ class IngresosIntereses extends Component{
     super(props);
 
     let elems = this.props.profile.ingresos.intereses.map(d => {
-                  let item = d;
+                  // let item = d;
                   d.show = true;
 
                   return d;
@@ -66,7 +66,7 @@ class IngresosIntereses extends Component{
                   <p><span className={ 'label declarante' }> Declarante</span></p>
                 </Grid>
                 <Grid item xs={6} className="right">
-                  <a onClick={(e) => this.toggl(sueldo, i, e)} heref="#" className={"pdn_arrow " + (sueldo.show ?  "close" : "open")}></a>
+                  {/* <a onClick={(e) => this.toggl(sueldo, i, e)} heref="#" className={"pdn_arrow " + (sueldo.show ?  "close" : "open")}></a> */}
                 </Grid>
               </Grid>
               {/* row ends*/}
@@ -138,7 +138,7 @@ class IngresosIntereses extends Component{
 
      let items    = this.state.items,
          newItems = items.map( d => {
-           if(item == d){
+           if(item === d){
              d.show = !item.show;
            }
 

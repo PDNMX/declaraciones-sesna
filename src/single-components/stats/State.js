@@ -8,7 +8,7 @@
 import React, {Component} from "react";
 import { Link } from 'react-router-dom';
 
-import {Grid, Paper} from '@material-ui/core';
+import {Grid} from '@material-ui/core';
 import FuncionariosPorEntidadTotal from './state/FuncionariosPorEntidadTotal';
 import FuncionariosPorEntidadPorcentaje from './state/FuncionariosPorEntidadPorcentaje';
 
@@ -43,10 +43,10 @@ class State extends Component{
 				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/entidad-federativa`} className={ !cat ? "router-link-exact-active router-link-active" : "" }>Funcionarios por entidad</Link>
 				  	</li>
 				  	<li>
-				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/entidad-federativa/gobierno-y-edad`} className={ cat == "gobierno-y-edad" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por entidad y edad</Link>
+				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/entidad-federativa/gobierno-y-edad`} className={ cat === "gobierno-y-edad" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por entidad y edad</Link>
 				  	</li>
 				  	<li>
-				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/entidad-federativa/gobierno-y-educacion`} className={ cat == "gobierno-y-educacion" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por entidad y educación</Link>
+				  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/entidad-federativa/gobierno-y-educacion`} className={ cat === "gobierno-y-educacion" ? "router-link-exact-active router-link-active" : "" }>Funcionarios por entidad y educación</Link>
 				  	</li>
 				  </ul>
 				</Grid>
@@ -81,7 +81,7 @@ class State extends Component{
 			  </div>
 			);
 	  }
-	  else if(cat == "gobierno-y-edad"){
+	  else if(cat === "gobierno-y-edad"){
 	  	return(
 	  		<div>
 					<FuncionariosPorEntidadEdad />
@@ -89,7 +89,7 @@ class State extends Component{
 	  		</div>
 	  	);
 	  }
-	  else if(cat == "gobierno-y-educacion"){
+	  else if(cat === "gobierno-y-educacion"){
 	  	return(
 				<div>
 					<FuncionariosPorEntidadEducacion />

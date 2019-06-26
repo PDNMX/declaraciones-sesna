@@ -66,7 +66,7 @@ class NivelGobiernoPorcentaje extends Component{
 		if(!this.state.data) return null;
 
     let st = this.state;
-    let colors = ConstClass.ChartColors;
+    // let colors = ConstClass.ChartColors;
 
     let _options = {
       plugins:[ChartistTooltip({

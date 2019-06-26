@@ -21,7 +21,7 @@ class InteresesEmpresas extends Component{
     super(props);
 
     let elems = this.props.profile.intereses.empresas_sociedades_asociaciones.map(d => {
-                  let item = d;
+                  // let item = d;
                   d.show = true;
 
                   return d;
@@ -64,7 +64,7 @@ class InteresesEmpresas extends Component{
                     <p><span className="label declarante"> Declarante</span></p>
                   </Grid>
                   <Grid item sm={6} className="right">
-                    <a onClick={(e) => this.toggl(interes, i, e)} heref="#" className={"pdn_arrow " + (interes.show ?  "close" : "open")}></a>
+                    {/* <a onClick={(e) => this.toggl(interes, i, e)} heref="#" className={"pdn_arrow " + (interes.show ?  "close" : "open")}></a> */}
                   </Grid>
                 </Grid>
                 {/* row ends*/}
@@ -154,7 +154,7 @@ class InteresesEmpresas extends Component{
 
     let items    = this.state.items,
         newItems = items.map( d => {
-          if(item == d){
+          if(item === d){
             d.show = !item.show;
           }
 

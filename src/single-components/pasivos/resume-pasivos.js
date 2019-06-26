@@ -23,7 +23,7 @@ class Deudas extends Component{
     super(props);
 
     let elems = this.props.profile.pasivos.deudas.map(d => {
-                  let item = d;
+                  // let item = d;
                   d.show = true;
 
                   return d;
@@ -86,7 +86,7 @@ class Deudas extends Component{
 
      let items    = this.state.items,
          newItems = items.map( d => {
-           if(item == d){
+           if(item === d){
              d.show = !item.show;
            }
 

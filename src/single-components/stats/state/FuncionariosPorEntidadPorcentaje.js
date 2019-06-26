@@ -159,8 +159,8 @@ class FuncionariosPorEntidadPorcentaje extends Component{
   	    _to   = d => `${d}-12-31`,
   	    st    = this.state,
   	    i     = currentYear - st.ageFrom,
-  	    res   = [],
-  	    _f, _t;
+  	    res   = []
+  	    ;
 
   	while(i > currentYear - st.ageTo){
   		res.push({

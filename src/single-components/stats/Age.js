@@ -7,9 +7,9 @@
 */
 import React, {Component} from "react";
 import { Link } from 'react-router-dom';
-import {Grid, Paper} from '@material-ui/core';
-import * as ConstClass from  '../../ConstValues.js';
-import ChartistGraph from 'react-chartist';
+import {Grid} from '@material-ui/core';
+// import * as ConstClass from  '../../ConstValues.js';
+// import ChartistGraph from 'react-chartist';
 import "../../css/chartist.min.css"
 
 import EdadTotal from './age/EdadTotal';
@@ -35,10 +35,10 @@ class Age extends Component{
 			  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/edad`} className={ !cat ? "router-link-exact-active router-link-active" : "" }>Rango de edad</Link>
 			  	</li>
 			  	<li>
-			  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/edad/edad-y-gobierno`} className={ cat == "edad-y-gobierno" ? "router-link-exact-active router-link-active" : "" }>Rango de edad y nivel de gobierno</Link>
+			  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/edad/edad-y-gobierno`} className={ cat === "edad-y-gobierno" ? "router-link-exact-active router-link-active" : "" }>Rango de edad y nivel de gobierno</Link>
 			  	</li>
 			  	<li>
-			  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/edad/edad-y-educacion`} className={ cat == "edad-y-educacion" ? "router-link-exact-active router-link-active" : "" }>Rango de edad y nivel educativo</Link>
+			  	  <Link to={`${process.env.PUBLIC_URL}/estadistica/edad/edad-y-educacion`} className={ cat === "edad-y-educacion" ? "router-link-exact-active router-link-active" : "" }>Rango de edad y nivel educativo</Link>
 			  	</li>
 			  </ul>
 		 </Grid>
@@ -73,7 +73,7 @@ class Age extends Component{
 			  </div>
 			);
 	  }
-	  else if(cat == "edad-y-gobierno"){
+	  else if(cat === "edad-y-gobierno"){
 	  	return(
 	  		<div>
 	  		  <EdadTotalNivelGobierno />
@@ -81,7 +81,7 @@ class Age extends Component{
 	  		</div>
 	  	);
 	  }
-	  else if(cat == "edad-y-educacion"){
+	  else if(cat === "edad-y-educacion"){
 	  	return(
 	  		<div>
 	  		  <EdadTotalEducacion />

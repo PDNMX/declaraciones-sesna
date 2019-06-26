@@ -6,7 +6,7 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Typography, Grid, Button, Paper} from '@material-ui/core';
+import { Grid, Paper} from '@material-ui/core';
 
 class InfoExperiencia extends Component{
 	render(){

@@ -13,7 +13,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 // MATERIAL UI THEME STUFF
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import {blue, grey} from '@material-ui/core/colors';
+import {grey} from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
   palette: {

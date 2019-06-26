@@ -39,7 +39,7 @@ class Education extends Component{
 
 	render(){
 		let cat = this.props.match.params.categoria;
-		let st = this.state;
+		// let st = this.state;
 		return(
 
 			<div>

@@ -19,7 +19,7 @@ class ActivosCuentasPorCobrar extends Component{
     super(props);
 
     let elems = this.props.profile.activos.cuentas_por_cobrar.map(d => {
-                  let item = d;
+                  // let item = d;
                   d.show = true;
 
                   return d;
@@ -65,7 +65,7 @@ class ActivosCuentasPorCobrar extends Component{
                     <p><span className={ 'label declarante'}> Declarante</span></p>
                   </Grid>
                   <Grid item xs={6} className="right">
-                    <a onClick={(e) => this.toggl(cuentas, i, e)} heref="#" className={"pdn_arrow " + (cuentas.show ?  "close" : "open")}></a>
+                    {/* <a onClick={(e) => this.toggl(cuentas, i, e)} heref="#" className={"pdn_arrow " + (cuentas.show ?  "close" : "open")}></a> */}
                   </Grid>
                 </Grid>
                 {/* row ends*/}
@@ -142,7 +142,7 @@ class ActivosCuentasPorCobrar extends Component{
 
      let items    = this.state.items,
          newItems = items.map( d => {
-           if(item == d){
+           if(item === d){
              d.show = !item.show;
            }
 

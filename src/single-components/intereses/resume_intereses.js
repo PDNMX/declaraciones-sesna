@@ -23,7 +23,7 @@ class InteresesResume extends Component{
     super(props);
 
     let elems = this.props.profile.intereses.empresas_sociedades_asociaciones.map(d => {
-                  let item = d;
+                  // let item = d;
                   d.show = true;
 
                   return d;
@@ -120,7 +120,7 @@ class InteresesResume extends Component{
 
     let items    = this.state.items,
         newItems = items.map( d => {
-          if(item == d){
+          if(item === d){
             d.show = !item.show;
           }
 

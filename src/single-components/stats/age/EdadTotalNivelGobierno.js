@@ -127,7 +127,7 @@ class EdadTotalNivelGobierno extends Component{
   buildMatrix(data, length){
     let b   = [...data],
         lg  = ConstClass.GobLevels,
-        i, j, res = [];
+        i, res = [];
     for(i =0; i < lg.length; i++ ){
       res.push(b.splice(0, length))
     }
@@ -151,7 +151,7 @@ class EdadTotalNivelGobierno extends Component{
         year1 = currentYear - conf.from,
         year2 = year1 - conf.step,
         lg  = ConstClass.GobLevels,
-        i, j;
+        i;
 
     for(i =0; i < lg.length; i++ ){
       while(year1 > currentYear - conf.to){

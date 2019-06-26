@@ -126,7 +126,7 @@ class EdadTotalEducacion extends Component{
   buildMatrix(data, length){
     let b   = [...data],
         ne  = ConstClass.NivelEducacion,
-        i, j, res = [];
+        i, res = [];
     for(i =0; i < ne.length; i++ ){
       res.push(b.splice(0, length))
     }
@@ -150,7 +150,7 @@ class EdadTotalEducacion extends Component{
         year1 = currentYear - conf.from,
         year2 = year1 - conf.step,
         ne  = ConstClass.NivelEducacion,
-        i, j;
+        i;
 
     for(i =0; i < ne.length; i++ ){
       while(year1 > currentYear - conf.to){

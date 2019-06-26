@@ -19,7 +19,7 @@ class ActivosBienesMuebles extends Component{
     super(props);
 
     let elems = this.props.profile.activos.bienes_muebles_registrables.map(d => {
-                  let item = d;
+                  // let item = d;
                   d.show = true;
 
                   return d;
@@ -67,7 +67,7 @@ class ActivosBienesMuebles extends Component{
                   <p><span className={ 'label ' + mueble.titular_bien.valor.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")}> {mueble.titular_bien.valor}</span></p>
                 </Grid>
                 <Grid item xs={6} className="right">
-                  <a onClick={(e) => this.toggl(mueble, i, e)} heref="#" className={"pdn_arrow " + (mueble.show ?  "close" : "open")}></a>
+                  {/* <a onClick={(e) => this.toggl(mueble, i, e)} heref="#" className={"pdn_arrow " + (mueble.show ?  "close" : "open")}></a> */}
                 </Grid>
               </Grid>
               {/* row ends*/}
@@ -175,7 +175,7 @@ class ActivosBienesMuebles extends Component{
 
      let items    = this.state.items,
          newItems = items.map( d => {
-           if(item == d){
+           if(item === d){
              d.show = !item.show;
            }
 

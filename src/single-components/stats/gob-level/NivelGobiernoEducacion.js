@@ -127,7 +127,7 @@ class NivelGobiernoEducacion extends Component{
     let b   = [...data],
         gl  = ConstClass.GobLevels,
         ne  = ConstClass.NivelEducacion,
-        i, j, res = [];
+        i,  res = [];
     for(i =0; i < ne.length; i++ ){
       res.push(b.splice(0, gl.length))
     }

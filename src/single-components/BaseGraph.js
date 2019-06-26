@@ -80,8 +80,7 @@ class BaseGraph extends Component{
 
   makeBars(data, lmargin, hfunc, conf, scale, j){
   	let bars,
-  	    slider = lmargin,
-  	    i;
+  	    slider = lmargin;
 
   	bars = data.map( (d,i) => {
   		if(!d){
@@ -110,7 +109,7 @@ class BaseGraph extends Component{
   */
   makeNumGuides(ticks, _x, y, scale){
 		let format = this.props.format,
-		    guides, i;
+		    guides;
 
 		guides = ticks.map( d=>
 			<text x={scale(d) + _x} y={y} key={uniqid()}> {format(d)} </text>

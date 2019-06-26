@@ -6,7 +6,7 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component}  from "react";
-import {Typography} from '@material-ui/core';
+// import {Typography} from '@material-ui/core';
 import { withStyles, Table, TableBody, TableCell, TableHead, TableRow, TableFooter, TablePagination } from '@material-ui/core';
 
 let uniqid = require('uniqid');

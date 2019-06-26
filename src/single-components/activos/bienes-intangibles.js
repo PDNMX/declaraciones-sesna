@@ -19,7 +19,7 @@ class ActivosBienesIntangibles extends Component{
     super(props);
 
     let elems = this.props.profile.activos.bienes_intangibles.map(d => {
-                  let item = d;
+                  // let item = d;
                   d.show = true;
 
                   return d;
@@ -65,7 +65,7 @@ class ActivosBienesIntangibles extends Component{
                   <p><span className={ 'label declarante'}> Declarante</span></p>
                 </Grid>
                 <Grid item xs={6} className="right">
-                  <a onClick={(e) => this.toggl(bienes, i, e)} heref="#" className={"pdn_arrow " + (bienes.show ?  "close" : "open")}></a>
+                  {/* <a onClick={(e) => this.toggl(bienes, i, e)} heref="#" className={"pdn_arrow " + (bienes.show ?  "close" : "open")}></a> */}
                 </Grid>
               </Grid>
               {/* row ends*/}
@@ -189,7 +189,7 @@ class ActivosBienesIntangibles extends Component{
 
      let items    = this.state.items,
          newItems = items.map( d => {
-           if(item == d){
+           if(item === d){
              d.show = !item.show;
            }
 

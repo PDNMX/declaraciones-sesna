@@ -138,7 +138,7 @@ class NivelGobiernoEducacionPorcentaje extends Component{
     let b   = [...data],
         gl  = ConstClass.GobLevels,
         ne  = ConstClass.NivelEducacion,
-        i, j, res = [];
+        i, res = [];
     for(i =0; i < gl.length; i++ ){
       let _el   = b.splice(0, ne.length),
           total = _el.reduce(ConstClass.reducer),

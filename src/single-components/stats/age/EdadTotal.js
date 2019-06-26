@@ -120,8 +120,8 @@ class EdadTotal extends Component{
         _to   = d => `${d}-07-07`,
         conf = ConstClass.AgeChartsConf,
         year1 = currentYear - conf.from,
-        year2 = year1 - conf.step,
-        i;
+        year2 = year1 - conf.step
+        // i;
 
     while(year1 > currentYear - conf.to){
         res.push({

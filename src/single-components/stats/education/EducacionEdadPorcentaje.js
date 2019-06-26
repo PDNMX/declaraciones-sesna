@@ -142,7 +142,7 @@ class EducacionEdadPorcentaje extends Component{
     let b   = [...data],
         gl  = ConstClass.NivelEducacion,
         ra  = [...new Set(response.map(d => d._label))],
-        i, j, res = [];
+        i, res = [];
     for(i =0; i < gl.length; i++ ){
       let _el   = b.splice(0, ra.length),
           total = _el.reduce(ConstClass.reducer),

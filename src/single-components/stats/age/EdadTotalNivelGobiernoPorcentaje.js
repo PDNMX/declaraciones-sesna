@@ -6,7 +6,7 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Typography, Grid, Button, Paper} from '@material-ui/core';
+import { Grid, Paper} from '@material-ui/core';
 
 import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
@@ -141,7 +141,7 @@ class EdadTotalEducacionPorcentaje extends Component{
   buildMatrix(data, length){
     let b   = [...data],
         lg  = ConstClass.GobLevels,
-        i, j, res = [];
+        i, res = [];
 
     for(i =0; i < length; i++ ){
       let _el   = b.splice(0, lg.length),
@@ -169,7 +169,7 @@ class EdadTotalEducacionPorcentaje extends Component{
         year1 = currentYear - conf.from,
         year2 = year1 - conf.step,
         lg  = ConstClass.GobLevels,
-        i, j;
+        i;
 
       while(year1 > currentYear - conf.to){
       	for(i = 0; i < lg.length; i++ ){

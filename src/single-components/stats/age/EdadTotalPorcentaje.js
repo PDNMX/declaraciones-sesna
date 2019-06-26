@@ -6,7 +6,7 @@
   ////////////////////////////////////////////////////////////////////////////////
 */
 import React, {Component} from "react";
-import {Typography, Grid, Button, Paper} from '@material-ui/core';
+import { Grid, Paper} from '@material-ui/core';
 
 import * as ConstClass from  '../../../ConstValues.js';
 import ChartistGraph from 'react-chartist';
@@ -135,8 +135,8 @@ class EdadTotalPorcentaje extends Component{
         _to   = d => `${d}-07-07`,
         conf = ConstClass.AgeChartsConf,
         year1 = currentYear - conf.from,
-        year2 = year1 - conf.step,
-        i;
+        year2 = year1 - conf.step
+        ;
 
     while(year1 > currentYear - conf.to){
         res.push({

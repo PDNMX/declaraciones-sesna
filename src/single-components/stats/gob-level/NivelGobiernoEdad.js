@@ -132,7 +132,7 @@ class NivelGobiernoEdad extends Component{
     let b   = [...data],
         gl  = ConstClass.GobLevels,
         ra  = [...new Set(response.map(d => d._label))],
-        i, j, res = [];
+        i,  res = [];
     for(i =0; i < ra.length; i++ ){
       res.push(b.splice(0, gl.length))
     }
